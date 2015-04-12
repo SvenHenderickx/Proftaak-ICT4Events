@@ -58,6 +58,12 @@
     <Compile Include="Persoon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Toegangscontroleform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Toegangscontroleform.Designer.cs">
+      <DependentUpon>Toegangscontroleform.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
