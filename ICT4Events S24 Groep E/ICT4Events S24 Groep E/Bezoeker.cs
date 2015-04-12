@@ -9,8 +9,15 @@ namespace ICT4Events
     class Bezoeker : Persoon
     {
         //Fields
-        private bool aanwezig;
+        protected bool aanwezig = false;
         private Hoofdboeker hoofdboeker;
+
+        //Properties
+        public bool Aanwezig
+        {
+            get { return aanwezig; }
+            set { aanwezig = value; }
+        }
 
         //Constructor
 

@@ -13,6 +13,7 @@ namespace ICT4Events
         protected string rfidCode;
         protected string gebruikersnaam;
         protected string naam;
+        protected string achternaam;
         protected DateTime geboorteDatum;
         protected string wachtwoord;
 
@@ -31,7 +32,10 @@ namespace ICT4Events
         {
             get { return naam; }
         }
-
+        public string Achternaam
+        {
+            get { return achternaam; }
+        }
         public DateTime GeboorteDatum
         {
             get { return geboorteDatum; }

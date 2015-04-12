@@ -14,6 +14,7 @@ namespace ICT4Events
         private DateTime eindDatum;
         private string plaats;
         private string adres;
+        private List<Persoon> personen;
         //private Beheerder!
 
         //Properties
@@ -41,7 +42,10 @@ namespace ICT4Events
         {
             get { return adres; }
         }
-
+        public List<Persoon> Personen
+        {
+            get { return new List<Persoon>(personen); }
+        }
         //Constructors
         public Event(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres)
         {
@@ -50,6 +54,7 @@ namespace ICT4Events
             this.eindDatum = eindDatum;
             this.plaats = plaats;
             this.adres = adres;
+            personen = new List<Persoon>();
         }
 
         //Methodes
