@@ -53,9 +53,12 @@ namespace ICT4Events_S24_Groep_E
                 if (persoon is Bezoeker)
                 {
                     Bezoeker b = persoon as Bezoeker;
-                    if (!b.Aanwezig)
+                    if (b.RfidCode == rfid)
                     {
-                        b.Aanwezig = true;
+                        if (!b.Aanwezig)
+                        {
+                            b.Aanwezig = true;
+                        }
                     }
                 }
             }
