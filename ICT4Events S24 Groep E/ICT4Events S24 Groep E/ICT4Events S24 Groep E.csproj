@@ -49,6 +49,12 @@
     <Compile Include="Controleur.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Hoofdboeker.cs" />
+    <Compile Include="InschrijfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InschrijfForm.Designer.cs">
+      <DependentUpon>InschrijfForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     <Compile Include="Toegangscontroleform.Designer.cs">
       <DependentUpon>Toegangscontroleform.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="InschrijfForm.resx">
+      <DependentUpon>InschrijfForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Toegangscontroleform.resx">
       <DependentUpon>Toegangscontroleform.cs</DependentUpon>
@@ -91,6 +101,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Camping_ReeënDal %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
