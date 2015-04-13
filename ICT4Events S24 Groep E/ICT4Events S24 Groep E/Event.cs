@@ -56,9 +56,38 @@ namespace ICT4Events_S24_Groep_E
             this.plaats = plaats;
             this.adres = adres;
             personen = new List<Persoon>();
+            TestDataPersonen();
+            plaatsen = new List<Plaats>();
+            TestDataPlaatsen();
         }
 
         //Methodes
+        private void TestDataPersonen()
+        {          
+            // Hoofdboeker aanmaken
+            personen.Add(new Hoofdboeker("PeterSchepers", "SchepersPeter", new DateTime(1980, 5, 20), "162784929")); 
+            // Bezoekers aanmaken
+            personen.Add(new Bezoeker("HennyHanssen", "HanssenHenny", new DateTime(1996, 12, 15), GeefHoofdboeker("PeterSchepers")));
+            personen.Add(new Bezoeker("AnjaHaas", "HaasAnja", new DateTime(1998, 3, 18), GeefHoofdboeker("PeterSchepers")));
+        }
+        private void TestDataPlaatsen()
+        {
+            plaatsen.Add(new Plaats(100, GeefHoofdboeker("Peterschepers"), true, 8));
+            plaatsen.Add(new Plaats(200, null, false, 10));
+        }
+
+        // Hoofdboeker kan worden opgezocht via gebuikersnaam
+        private Hoofdboeker GeefHoofdboeker(string gebruikersNaam)
+        {
+            foreach (Hoofdboeker h in personen)
+            {
+                if (h.Gebruikersnaam == gebruikersNaam)
+                {
+                    return h;
+                }
+            }
+            return null;
+        }
 
     }
 }

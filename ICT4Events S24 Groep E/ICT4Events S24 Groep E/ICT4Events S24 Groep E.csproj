@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administratie.cs" />
     <Compile Include="Beheerder.cs" />
     <Compile Include="Bezoeker.cs" />
     <Compile Include="Controleur.cs" />
@@ -90,6 +91,7 @@
     <EmbeddedResource Include="Toegangscontroleform.resx">
       <DependentUpon>Toegangscontroleform.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
