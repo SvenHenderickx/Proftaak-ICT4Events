@@ -45,8 +45,14 @@ namespace ICT4Events_S24_Groep_E
         }
         public List<Persoon> Personen
         {
-            get { return new List<Persoon>(personen); }
+            get { return new List<Persoon>(personen); } // Frank: moet hier een nieuwe lijst gereturnd worden?
         }
+
+        public List<Plaats> Plaatsen
+        {
+            get { return plaatsen; }
+        }
+
         //Constructors
         public Event(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres)
         {
@@ -84,6 +90,18 @@ namespace ICT4Events_S24_Groep_E
                 if (h.Gebruikersnaam == gebruikersNaam)
                 {
                     return h;
+                }
+            }
+            return null;
+        }
+
+        public Plaats GeefPlaats(string plaatsNummer)
+        {
+            foreach (Plaats p in plaatsen)
+            {
+                if (p.PlaatsNummer == plaatsNummer)
+                {
+                    return p;
                 }
             }
             return null;

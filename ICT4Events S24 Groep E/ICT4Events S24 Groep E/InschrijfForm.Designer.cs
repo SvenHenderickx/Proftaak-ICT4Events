@@ -125,6 +125,7 @@
             this.btnVerwijderPlaats.TabIndex = 22;
             this.btnVerwijderPlaats.Text = "Verwijder Plaats";
             this.btnVerwijderPlaats.UseVisualStyleBackColor = true;
+            this.btnVerwijderPlaats.Click += new System.EventHandler(this.btnVerwijderPlaats_Click);
             // 
             // btnVoegPlaatsToe
             // 
@@ -134,6 +135,7 @@
             this.btnVoegPlaatsToe.TabIndex = 21;
             this.btnVoegPlaatsToe.Text = "Voeg Plaats Toe";
             this.btnVoegPlaatsToe.UseVisualStyleBackColor = true;
+            this.btnVoegPlaatsToe.Click += new System.EventHandler(this.btnVoegPlaatsToe_Click);
             // 
             // lbPlaatsen
             // 

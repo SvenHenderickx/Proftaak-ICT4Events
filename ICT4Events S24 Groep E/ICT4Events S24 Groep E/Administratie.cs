@@ -21,5 +21,17 @@ namespace ICT4Events_S24_Groep_E
         {
             events.Add(new Event("SME Event", new DateTime(2015, 6, 18), new DateTime(2015, 6, 25), "Eindhoven", "Woensel 12"));
         }
+
+        public Event GeefEvent(string eventNaam)
+        {
+            foreach (Event e in events)
+            {
+                if (e.Naam == eventNaam)
+                {
+                    return e;
+                }
+            }
+            return null;
+        }
     }
 }
