@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ICT4Events
+namespace ICT4Events_S24_Groep_E
 {
     class Hoofdboeker : Bezoeker
     {

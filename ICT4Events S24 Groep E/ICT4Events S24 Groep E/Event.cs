@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ICT4Events
+namespace ICT4Events_S24_Groep_E
 {
     class Event
     {
@@ -15,6 +15,7 @@ namespace ICT4Events
         private string plaats;
         private string adres;
         private List<Persoon> personen;
+        private List<Plaats> plaatsen;
         //private Beheerder!
 
         //Properties

@@ -1,4 +1,4 @@
-﻿using ICT4Events;
+﻿//using ICT4Events; Frank: Dit stond er nog van het vorige project
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
