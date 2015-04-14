@@ -24,7 +24,14 @@ namespace ICT4Events_S24_Groep_E
         private void btnInlogLoginForm_Click(object sender, EventArgs e)
         {
             Persoon tempPersoon = null;
-            tempPersoon = administartie.
+            tempPersoon = administartie.CheckGebruikersInEvent(tbGebRfidLoginForm.ToString());
+            if (tempPersoon != null)
+            {
+                if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.ToString()))
+                {
+                    MessageBox.Show("Geslaagd");
+                }
+            }
         }
     }
 }

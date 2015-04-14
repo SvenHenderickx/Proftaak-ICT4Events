@@ -53,5 +53,17 @@ namespace ICT4Events_S24_Groep_E
                 }
             }
         }
+
+        public Persoon CheckGebruikersInEvent(string inv)
+        {
+            foreach (Event e in events)
+            {
+                if (e.CheckGebruikersNaamRfid(inv) == null)
+                {
+                    return e.CheckGebruikersNaamRfid(inv);
+                }
+            }
+            return null;
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace ICT4Events_S24_Groep_E
 
         public bool VoegBestandToe()
         {
-
+            return false;
         }
     }
 }
