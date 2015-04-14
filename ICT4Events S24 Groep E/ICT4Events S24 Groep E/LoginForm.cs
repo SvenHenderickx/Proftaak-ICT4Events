@@ -19,11 +19,34 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             administartie = new Administratie();
+            KrijgAlleEvents();
+            cmbEventsLoginForm.SelectedIndex = 0;
         }
 
         private void btnInlogLoginForm_Click(object sender, EventArgs e)
         {
             Persoon tempPersoon = null;
+            if (cmbEventsLoginForm.Text.Length > 0)
+            {
+                Event evenement = administartie.GeefEvent(cmbEventsLoginForm.Text);
+                tempPersoon = evenement.CheckGebruikersNaamRfid(tbGebRfidLoginForm.ToString());
+                if (tempPersoon != null)
+                {
+                    if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.ToString()))
+                    {
+                        MessageBox.Show("Geslaagd");
+                    }
+                }
+            }
+            
+        }
+
+        private void KrijgAlleEvents()
+        {
+            foreach (Event e in administartie.Events)
+            {
+                cmbEventsLoginForm.Items.Add(e.Naam);
+            }
         }
     }
 }

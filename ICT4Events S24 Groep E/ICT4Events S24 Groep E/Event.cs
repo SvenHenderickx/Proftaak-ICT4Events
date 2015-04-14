@@ -85,10 +85,11 @@ namespace ICT4Events_S24_Groep_E
         // Hoofdboeker kan worden opgezocht via gebuikersnaam
         private Hoofdboeker GeefHoofdboeker(string gebruikersNaam)
         {
-            foreach (Hoofdboeker h in personen)
+            foreach (Persoon p in personen)
             {
-                if (h.Gebruikersnaam == gebruikersNaam)
+                if (p is Hoofdboeker && p.Gebruikersnaam == gebruikersNaam)
                 {
+                    Hoofdboeker h = p as Hoofdboeker;
                     return h;
                 }
             }
@@ -111,7 +112,7 @@ namespace ICT4Events_S24_Groep_E
         {
             foreach (Persoon p in personen)
             {
-                if (inv == p.RfidCode || inv == p.Gebruikersnaam)
+                if (inv == p.Gebruikersnaam)
                 {
                     return p;
                 }

@@ -33,11 +33,12 @@
             this.btnInlogLoginForm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbEventsLoginForm = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tbGebRfidLoginForm
             // 
-            this.tbGebRfidLoginForm.Location = new System.Drawing.Point(11, 38);
+            this.tbGebRfidLoginForm.Location = new System.Drawing.Point(12, 51);
             this.tbGebRfidLoginForm.Name = "tbGebRfidLoginForm";
             this.tbGebRfidLoginForm.Size = new System.Drawing.Size(222, 20);
             this.tbGebRfidLoginForm.TabIndex = 0;
@@ -63,7 +64,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 22);
+            this.label1.Location = new System.Drawing.Point(9, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 3;
@@ -78,11 +79,21 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Wachtwoord";
             // 
+            // cmbEventsLoginForm
+            // 
+            this.cmbEventsLoginForm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEventsLoginForm.FormattingEnabled = true;
+            this.cmbEventsLoginForm.Location = new System.Drawing.Point(12, 11);
+            this.cmbEventsLoginForm.Name = "cmbEventsLoginForm";
+            this.cmbEventsLoginForm.Size = new System.Drawing.Size(221, 21);
+            this.cmbEventsLoginForm.TabIndex = 5;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(246, 157);
+            this.Controls.Add(this.cmbEventsLoginForm);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnInlogLoginForm);
@@ -102,6 +113,7 @@
         private System.Windows.Forms.Button btnInlogLoginForm;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbEventsLoginForm;
     }
 }
 
