@@ -16,6 +16,9 @@ namespace ICT4Events_S24_Groep_E
         }
 
         //Methodes
-
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

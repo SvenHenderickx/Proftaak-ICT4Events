@@ -11,6 +11,7 @@ namespace ICT4Events_S24_Groep_E
         //Fields
         protected bool aanwezig = false;
         private Hoofdboeker hoofdboeker;
+        private List<Huuritem> huurMateriaal;
 
         //Properties
         public bool Aanwezig
@@ -23,6 +24,13 @@ namespace ICT4Events_S24_Groep_E
         {
             get { return hoofdboeker; }
         }
+
+        public List<Huuritem> HuurMateriaal
+        {
+            get { return huurMateriaal; }
+            set { huurMateriaal = value; }
+        }
+
         //Constructor
 
         public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum)
@@ -30,6 +38,7 @@ namespace ICT4Events_S24_Groep_E
         {
             this.aanwezig = false;
             this.hoofdboeker = null; //de hoofdboeker is hijzelf
+            huurMateriaal = new List<Huuritem>();
         }
 
         public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, Hoofdboeker hoofdboeker)
@@ -37,9 +46,13 @@ namespace ICT4Events_S24_Groep_E
         {
             this.aanwezig = false;
             this.hoofdboeker = hoofdboeker;
+            huurMateriaal = new List<Huuritem>();
         }
 
         //Methodes
-
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

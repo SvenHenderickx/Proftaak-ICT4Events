@@ -73,5 +73,10 @@ namespace ICT4Events_S24_Groep_E
                 return false;
             }
         }
+
+        public override string ToString()
+        {
+            return gebruikersnaam;
+        }
     }
 }

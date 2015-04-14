@@ -66,11 +66,23 @@
     <Compile Include="InschrijfForm.Designer.cs">
       <DependentUpon>InschrijfForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InschrijfFormBezoeker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InschrijfFormBezoeker.Designer.cs">
+      <DependentUpon>InschrijfFormBezoeker.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaalVerhuurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MateriaalVerhuurForm.Designer.cs">
+      <DependentUpon>MateriaalVerhuurForm.cs</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -99,8 +111,14 @@
     <EmbeddedResource Include="InschrijfForm.resx">
       <DependentUpon>InschrijfForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InschrijfFormBezoeker.resx">
+      <DependentUpon>InschrijfFormBezoeker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MateriaalVerhuurForm.resx">
+      <DependentUpon>MateriaalVerhuurForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

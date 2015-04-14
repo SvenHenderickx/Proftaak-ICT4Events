@@ -30,6 +30,7 @@ namespace ICT4Events_S24_Groep_E
             set { huidigEvent = value; }
         }
 
+        // Constructor
         public Administratie()
         {
             TestDataEvents();

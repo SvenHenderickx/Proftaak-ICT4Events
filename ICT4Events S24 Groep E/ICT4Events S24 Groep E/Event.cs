@@ -16,7 +16,7 @@ namespace ICT4Events_S24_Groep_E
         private string adres;
         private List<Persoon> personen;
         private List<Plaats> plaatsen;
-        private List<Huuritem> huuritems;
+        private List<Huuritem> huurMateriaal;
         private List<Reservering> reserveringen;
         private List<Categorie> categorieen;
         private List<Bericht> berichten;
@@ -57,9 +57,9 @@ namespace ICT4Events_S24_Groep_E
             get { return plaatsen; }
         }
 
-        public List<Huuritem> Huuritems
+        public List<Huuritem> HuurMateriaal
         {
-            get { return huuritems; }
+            get { return huurMateriaal; }
         }
 
         public List<Reservering> Reserveringen
@@ -89,7 +89,8 @@ namespace ICT4Events_S24_Groep_E
             TestDataPersonen();
             plaatsen = new List<Plaats>();
             TestDataPlaatsen();
-            huuritems = new List<Huuritem>();
+            huurMateriaal = new List<Huuritem>();
+            TestDataHuurmateriaal();
             reserveringen = new List<Reservering>();
             categorieen = new List<Categorie>();
             berichten = new List<Bericht>();
@@ -108,6 +109,15 @@ namespace ICT4Events_S24_Groep_E
         {
             plaatsen.Add(new Plaats(100, GeefHoofdboeker("Peterschepers"), true, 8));
             plaatsen.Add(new Plaats(200, null, false, 10));
+        }
+
+        private void TestDataHuurmateriaal()
+        {
+            huurMateriaal.Add(new Huuritem("Canon 1024M", "Fotocamera"));
+            huurMateriaal.Add(new Huuritem("Sony 800D", "Fotocamera"));
+            huurMateriaal.Add(new Huuritem("LG B120", "Videocamera"));
+            huurMateriaal.Add(new Huuritem("Samsung C800", "Videocamera"));
+
         }
 
         // Hoofdboeker kan worden opgezocht via gebuikersnaam
@@ -143,6 +153,18 @@ namespace ICT4Events_S24_Groep_E
                 if (inv == p.Gebruikersnaam || inv == p.RfidCode)
                 {
                     return p;
+                }
+            }
+            return null;
+        }
+
+        public Huuritem GeefHuuritem(string itemNaam)
+        {
+            foreach (Huuritem h in huurMateriaal)
+            {
+                if (h.Naam == itemNaam)
+                {
+                    return h;
                 }
             }
             return null;
