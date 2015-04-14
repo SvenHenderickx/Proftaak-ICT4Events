@@ -34,9 +34,21 @@ namespace ICT4Events_S24_Groep_E
             categorieen = new List<Categorie>();
         }
 
-        public bool VoegBestandToe()
+        public bool VoegBestandToe(Bestand bestand)
         {
-            return false;
+            bool succes = true;
+            foreach (Bestand b in bestanden)
+            {
+                if (b.Pad == bestand.Pad)
+                {
+                    succes = false;
+                }
+            }
+            if (succes)
+            {
+                bestanden.Add(bestand);
+            }
+            return succes;
         }
     }
 }
