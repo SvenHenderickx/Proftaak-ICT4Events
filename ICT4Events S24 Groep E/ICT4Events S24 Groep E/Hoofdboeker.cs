@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Hoofdboeker : Bezoeker
+    public class Hoofdboeker : Bezoeker
     {
         //Fields
         private string rekeningNummer;

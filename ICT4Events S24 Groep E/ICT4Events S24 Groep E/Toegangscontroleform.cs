@@ -18,13 +18,14 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             administratie = new Administratie();
-            RefreshData();
+            RefreshCombobox();
+            RefreshDataGrids(administratie.GeefEvent(comboBoxToegangEvents.Text));
         }
 
-        private void RefreshData(Event e)
+        private void RefreshDataGrids(Event e)
         {
-            int aanwezig = 0;
-            int afwezig = 0;
+            int aantalaanwezig = 0;
+            int aantalafwezig = 0;
             dataGridViewToegangAanwezig.Rows.Clear();
             dataGridViewToegangAfwezig.Rows.Clear();
             dataGridViewToegangAanwezig.Refresh();
@@ -38,17 +39,30 @@ namespace ICT4Events_S24_Groep_E
                     if (b.Aanwezig)
                     {
                         this.dataGridViewToegangAanwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
-                        aanwezig++;
+                        aantalaanwezig++;
                     }
                     else
                     {
                         this.dataGridViewToegangAfwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
-                        afwezig++;
+                        aantalafwezig++;
                     }
                 }
             }
-            labelToegangAanwezig.Text = "Aanwezig: (" + aanwezig + " personen)";
-            labelToegangAfwezig.Text = "Afwezig: (" + afwezig + " personen)";
+            labelToegangAanwezig.Text = "Aanwezig: (" + aantalaanwezig + " personen)";
+            labelToegangAfwezig.Text = "Afwezig: (" + aantalafwezig + " personen)";
+        }
+
+        private void RefreshCombobox()
+        {
+            foreach (Event e in administratie.Events)
+            {
+                comboBoxToegangEvents.Items.Add(e.Naam);
+            }
+        }
+
+        private void comboBoxToegangEvents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshDataGrids(administratie.GeefEvent(comboBoxToegangEvents.Text));
         }
     }
 }

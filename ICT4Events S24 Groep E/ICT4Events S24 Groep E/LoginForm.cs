@@ -24,7 +24,6 @@ namespace ICT4Events_S24_Groep_E
         private void btnInlogLoginForm_Click(object sender, EventArgs e)
         {
             Persoon tempPersoon = null;
-            tempPersoon = administartie.
         }
     }
 }

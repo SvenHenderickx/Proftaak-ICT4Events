@@ -9,11 +9,15 @@ namespace ICT4Events_S24_Groep_E
     public class Administratie
     {
         // Fields
-        private static List<Event> events;
+        private static List<Event> events = new List<Event>();
+
+        public List<Event> Events
+        {
+            get { return events; }
+        }
 
         public Administratie()
         {
-            events = new List<Event>();
             TestDataEvents();
         }
 
