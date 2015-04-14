@@ -16,6 +16,10 @@ namespace ICT4Events_S24_Groep_E
         private string adres;
         private List<Persoon> personen;
         private List<Plaats> plaatsen;
+        private List<Huuritem> huuritems;
+        private List<Reservering> reserveringen;
+        private List<Categorie> categorieen;
+        private List<Bericht> berichten;
         //private Beheerder!
 
         //Properties
@@ -53,6 +57,26 @@ namespace ICT4Events_S24_Groep_E
             get { return plaatsen; }
         }
 
+        public List<Huuritem> Huuritems
+        {
+            get { return huuritems; }
+        }
+
+        public List<Reservering> Reserveringen
+        {
+            get { return reserveringen; }
+        }
+
+        public List<Categorie> Categorieen
+        {
+            get { return categorieen; }
+        }
+
+        public List<Bericht> Berichten
+        {
+            get { return berichten; }
+        }
+
         //Constructors
         public Event(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres)
         {
@@ -65,6 +89,10 @@ namespace ICT4Events_S24_Groep_E
             TestDataPersonen();
             plaatsen = new List<Plaats>();
             TestDataPlaatsen();
+            huuritems = new List<Huuritem>();
+            reserveringen = new List<Reservering>();
+            categorieen = new List<Categorie>();
+            berichten = new List<Bericht>();
         }
 
         //Methodes
