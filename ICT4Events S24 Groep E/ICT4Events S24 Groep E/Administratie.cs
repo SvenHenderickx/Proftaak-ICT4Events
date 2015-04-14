@@ -33,5 +33,25 @@ namespace ICT4Events_S24_Groep_E
             }
             return null;
         }
+
+        private void CheckIn(string rfid, Event e)
+        {
+            List<Persoon> personen = e.Personen;
+
+            foreach (Persoon persoon in personen)
+            {
+                if (persoon is Bezoeker)
+                {
+                    Bezoeker b = persoon as Bezoeker;
+                    if (b.RfidCode == rfid)
+                    {
+                        if (!b.Aanwezig)
+                        {
+                            b.Aanwezig = true;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

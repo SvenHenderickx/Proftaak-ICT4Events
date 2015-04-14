@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewToegangAanwezig = new System.Windows.Forms.DataGridView();
             this.rfid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.achternaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plaats = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewToegangAfwezig = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.labelToegangAanwezig = new System.Windows.Forms.Label();
+            this.labelToegangAfwezig = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAanwezig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAfwezig)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewToegangAanwezig
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewToegangAanwezig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewToegangAanwezig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rfid,
             this.naam,
             this.achternaam,
             this.plaats});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 48);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(443, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewToegangAanwezig.Location = new System.Drawing.Point(12, 48);
+            this.dataGridViewToegangAanwezig.Name = "dataGridViewToegangAanwezig";
+            this.dataGridViewToegangAanwezig.Size = new System.Drawing.Size(443, 150);
+            this.dataGridViewToegangAanwezig.TabIndex = 0;
             // 
             // rfid
             // 
@@ -81,18 +81,18 @@
             this.plaats.Name = "plaats";
             this.plaats.ReadOnly = true;
             // 
-            // dataGridView2
+            // dataGridViewToegangAfwezig
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewToegangAfwezig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewToegangAfwezig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dataGridView2.Location = new System.Drawing.Point(461, 48);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(443, 150);
-            this.dataGridView2.TabIndex = 0;
+            this.dataGridViewToegangAfwezig.Location = new System.Drawing.Point(461, 48);
+            this.dataGridViewToegangAfwezig.Name = "dataGridViewToegangAfwezig";
+            this.dataGridViewToegangAfwezig.Size = new System.Drawing.Size(443, 150);
+            this.dataGridViewToegangAfwezig.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -118,37 +118,37 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // label1
+            // labelToegangAanwezig
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Aanwezigen:";
+            this.labelToegangAanwezig.AutoSize = true;
+            this.labelToegangAanwezig.Location = new System.Drawing.Point(13, 23);
+            this.labelToegangAanwezig.Name = "labelToegangAanwezig";
+            this.labelToegangAanwezig.Size = new System.Drawing.Size(68, 13);
+            this.labelToegangAanwezig.TabIndex = 1;
+            this.labelToegangAanwezig.Text = "Aanwezigen:";
             // 
-            // label2
+            // labelToegangAfwezig
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(458, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Afwezigen:";
+            this.labelToegangAfwezig.AutoSize = true;
+            this.labelToegangAfwezig.Location = new System.Drawing.Point(458, 23);
+            this.labelToegangAfwezig.Name = "labelToegangAfwezig";
+            this.labelToegangAfwezig.Size = new System.Drawing.Size(59, 13);
+            this.labelToegangAfwezig.TabIndex = 1;
+            this.labelToegangAfwezig.Text = "Afwezigen:";
             // 
             // Toegangscontroleform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 208);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.labelToegangAfwezig);
+            this.Controls.Add(this.labelToegangAanwezig);
+            this.Controls.Add(this.dataGridViewToegangAfwezig);
+            this.Controls.Add(this.dataGridViewToegangAanwezig);
             this.Name = "Toegangscontroleform";
             this.Text = "Toegangscontrole";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAanwezig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAfwezig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,17 +156,17 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewToegangAanwezig;
         private System.Windows.Forms.DataGridViewTextBoxColumn rfid;
         private System.Windows.Forms.DataGridViewTextBoxColumn naam;
         private System.Windows.Forms.DataGridViewTextBoxColumn achternaam;
         private System.Windows.Forms.DataGridViewTextBoxColumn plaats;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridViewToegangAfwezig;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelToegangAanwezig;
+        private System.Windows.Forms.Label labelToegangAfwezig;
     }
 }

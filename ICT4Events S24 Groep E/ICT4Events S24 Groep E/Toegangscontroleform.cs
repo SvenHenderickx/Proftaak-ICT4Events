@@ -13,21 +13,23 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class Toegangscontroleform : Form
     {
-        private Event sme;
+        private Administratie administratie;
         public Toegangscontroleform()
         {
             InitializeComponent();
-            sme = new Event("Social Media Event", new DateTime(2015, 10, 3, 19, 00, 00), new DateTime(2015, 10, 4, 03, 00, 00), "Camping Reeëndal", "Wildeman 50");
+            administratie = new Administratie();
             RefreshData();
         }
 
-        private void RefreshData()
+        private void RefreshData(Event e)
         {
-            dataGridView1.Rows.Clear();
-            dataGridView2.Rows.Clear();
-            dataGridView1.Refresh();
-            dataGridView2.Refresh();
-            List<Persoon> personen = sme.Personen;
+            int aanwezig = 0;
+            int afwezig = 0;
+            dataGridViewToegangAanwezig.Rows.Clear();
+            dataGridViewToegangAfwezig.Rows.Clear();
+            dataGridViewToegangAanwezig.Refresh();
+            dataGridViewToegangAfwezig.Refresh();
+            List<Persoon> personen = administratie.GeefEvent(e.Naam).Personen;
             foreach (Persoon persoon in personen)
             {
                 if (persoon is Bezoeker)
@@ -35,34 +37,18 @@ namespace ICT4Events_S24_Groep_E
                     Bezoeker b = persoon as Bezoeker;
                     if (b.Aanwezig)
                     {
-                        this.dataGridView1.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
+                        this.dataGridViewToegangAanwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
+                        aanwezig++;
                     }
                     else
                     {
-                        this.dataGridView2.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
+                        this.dataGridViewToegangAfwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
+                        afwezig++;
                     }
                 }
             }
-        }
-
-        private void CheckIn(string rfid)
-        {
-            List<Persoon> personen = sme.Personen;
-            foreach (Persoon persoon in personen)
-            {
-                if (persoon is Bezoeker)
-                {
-                    Bezoeker b = persoon as Bezoeker;
-                    if (b.RfidCode == rfid)
-                    {
-                        if (!b.Aanwezig)
-                        {
-                            b.Aanwezig = true;
-                        }
-                    }
-                }
-            }
-            RefreshData();
+            labelToegangAanwezig.Text = "Aanwezig: (" + aanwezig + " personen)";
+            labelToegangAfwezig.Text = "Afwezig: (" + afwezig + " personen)";
         }
     }
 }
