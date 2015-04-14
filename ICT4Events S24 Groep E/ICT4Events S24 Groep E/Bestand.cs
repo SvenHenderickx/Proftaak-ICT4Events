@@ -60,7 +60,7 @@ namespace ICT4Events_S24_Groep_E
 
         public bool VoegReactieToe()
         {
-
+            return true;
         }
 
         public void VerwijderReactie(int reactienummer)
