@@ -34,9 +34,11 @@ namespace ICT4Events_S24_Groep_E
                 {
                     if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.Text))
                     {
-                        MessageBox.Show("Geslaagd");
                         tempPersoon = administartie.NuIngelogd;
                         evenement = administartie.HuidigEvent;
+                        var systeemKiezerForm = new SysteemKiezerForm();
+                        systeemKiezerForm.Show();
+                        this.Hide();
                     }
                     else
                     {
@@ -57,6 +59,11 @@ namespace ICT4Events_S24_Groep_E
             {
                 cmbEventsLoginForm.Items.Add(e.Naam);
             }
+        }
+
+        private void SluitHeleApplicatie(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

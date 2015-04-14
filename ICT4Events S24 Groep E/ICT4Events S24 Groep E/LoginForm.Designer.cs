@@ -101,6 +101,7 @@
             this.Controls.Add(this.tbGebRfidLoginForm);
             this.Name = "LoginForm";
             this.Text = "Inloggen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SluitHeleApplicatie);
             this.ResumeLayout(false);
             this.PerformLayout();
 

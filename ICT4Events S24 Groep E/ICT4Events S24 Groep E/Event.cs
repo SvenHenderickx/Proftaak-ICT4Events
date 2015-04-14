@@ -140,7 +140,7 @@ namespace ICT4Events_S24_Groep_E
         {
             foreach (Persoon p in personen)
             {
-                if (inv == p.Gebruikersnaam)
+                if (inv == p.Gebruikersnaam || inv == p.RfidCode)
                 {
                     return p;
                 }
