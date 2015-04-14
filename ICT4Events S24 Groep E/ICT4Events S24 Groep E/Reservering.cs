@@ -9,15 +9,21 @@ namespace ICT4Events_S24_Groep_E
     class Reservering
     {
         private string status;
+        private List<Plaats> plaatsen;
 
         public string Status
         {
             get { return status; }
         }
 
+        public List<Plaats> Plaatsen
+        {
+            get { return plaatsen; }
+        }
+
         public Reservering(Hoofdboeker hoofdboeker)
         {
-
+            plaatsen = new List<Plaats>();
         }
 
         public bool HuurMateriaal(Huuritem huuritem)
