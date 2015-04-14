@@ -9,15 +9,29 @@ namespace ICT4Events_S24_Groep_E
     class Categorie
     {
         private string naam;
+        private List<Bestand> bestanden;
+        private List<Categorie> categorieen;
 
         public string Naam
         {
             get { return naam; }
         }
 
+        public List<Bestand> Bestanden
+        {
+            get { return bestanden; }
+        }
+
+        public List<Categorie> Categorieen
+        {
+            get { return categorieen; }
+        }
+
         public Categorie(Bezoeker bezoeker, string naam)
         {
             this.naam = naam;
+            bestanden = new List<Bestand>();
+            categorieen = new List<Categorie>();
         }
 
         public bool VoegBestandToe()
