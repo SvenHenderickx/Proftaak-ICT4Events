@@ -14,6 +14,7 @@ namespace ICT4Events_S24_Groep_E
         private string pad;
         private int aantalKeerGerapporteerd;
         private int aantalKeerBekeken;
+        private List<Reactie> reacties;
 
         public string Naam
         {
@@ -45,15 +46,25 @@ namespace ICT4Events_S24_Groep_E
             get { return aantalKeerBekeken; }
         }
 
+        public List<Reactie> Reacties
+        {
+            get { return reacties; }
+        }
+
         public Bestand(Bezoeker bezoeker, Categorie categorie, string naam, string pad)
         {
             this.naam = naam;
             this.pad = pad;
+            reacties = new List<Reactie>();
         }
 
         public bool VoegReactieToe()
         {
+<<<<<<< HEAD
             return false;
+=======
+            return true;
+>>>>>>> origin/master
         }
 
         public void VerwijderReactie(int reactienummer)

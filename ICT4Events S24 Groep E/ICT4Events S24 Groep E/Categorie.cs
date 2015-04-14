@@ -36,7 +36,11 @@ namespace ICT4Events_S24_Groep_E
 
         public bool VoegBestandToe()
         {
+<<<<<<< HEAD
             return false;
+=======
+            return true;
+>>>>>>> origin/master
         }
     }
 }
