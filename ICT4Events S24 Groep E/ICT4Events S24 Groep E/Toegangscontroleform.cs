@@ -20,10 +20,10 @@ namespace ICT4Events_S24_Groep_E
             administratie = new Administratie();
             RefreshCombobox();
             comboBoxToegangEvents.SelectedIndex = 0;
-            RefreshDataGrids(administratie.GeefEvent(comboBoxToegangEvents.Text));
+            RefreshData(administratie.GeefEvent(comboBoxToegangEvents.Text));
         }
 
-        private void RefreshDataGrids(Event e)
+        private void RefreshData(Event e)
         {
             int aantalaanwezig = 0;
             int aantalafwezig = 0;
@@ -39,12 +39,12 @@ namespace ICT4Events_S24_Groep_E
                     Bezoeker b = persoon as Bezoeker;
                     if (b.Aanwezig)
                     {
-                        this.dataGridViewToegangAanwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam,administratie.GeefPlaats(b,administratie.GeefEvent(e.Naam)));
+                        dataGridViewToegangAanwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam,administratie.GeefPlaats(b,administratie.GeefEvent(e.Naam)));
                         aantalaanwezig++;
                     }
                     else
                     {
-                        this.dataGridViewToegangAfwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam,administratie.GeefPlaats(b,administratie.GeefEvent(e.Naam)));
+                        dataGridViewToegangAfwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam,administratie.GeefPlaats(b,administratie.GeefEvent(e.Naam)));
                         aantalafwezig++;
                     }
                 }
@@ -63,7 +63,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void comboBoxToegangEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshDataGrids(administratie.GeefEvent(comboBoxToegangEvents.Text));
+            RefreshData(administratie.GeefEvent(comboBoxToegangEvents.Text));
         }
     }
 }
