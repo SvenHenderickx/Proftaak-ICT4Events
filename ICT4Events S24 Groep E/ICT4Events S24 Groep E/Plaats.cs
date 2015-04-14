@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Plaats
+    public class Plaats
     {
         // Fields
         private static int plaatsNummerTeller = 0;

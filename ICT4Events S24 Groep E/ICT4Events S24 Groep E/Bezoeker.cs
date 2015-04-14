@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Bezoeker : Persoon
+    public class Bezoeker : Persoon
     {
         //Fields
         protected bool aanwezig = false;

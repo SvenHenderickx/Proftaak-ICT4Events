@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Beheerder : Persoon
+    public class Beheerder : Persoon
     {
         //Constructors
         public Beheerder(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum)
