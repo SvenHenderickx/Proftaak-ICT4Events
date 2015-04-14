@@ -46,7 +46,10 @@
   <ItemGroup>
     <Compile Include="Administratie.cs" />
     <Compile Include="Beheerder.cs" />
+    <Compile Include="Bericht.cs" />
+    <Compile Include="Bestand.cs" />
     <Compile Include="Bezoeker.cs" />
+    <Compile Include="Categorie.cs" />
     <Compile Include="Controleur.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Hoofdboeker.cs" />
@@ -69,6 +72,7 @@
     <Compile Include="Plaats.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reactie.cs" />
     <Compile Include="Toegangscontroleform.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -12,15 +12,19 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class LoginForm : Form
     {
+
+        Administratie administartie;
+
         public LoginForm()
         {
             InitializeComponent();
+            administartie = new Administratie();
         }
 
         private void btnInlogLoginForm_Click(object sender, EventArgs e)
         {
             Persoon tempPersoon = null;
-            //tempPersoon 
+            tempPersoon = administartie.
         }
     }
 }

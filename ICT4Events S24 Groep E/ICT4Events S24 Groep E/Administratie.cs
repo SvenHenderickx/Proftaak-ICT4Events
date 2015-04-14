@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Administratie
+    public class Administratie
     {
         // Fields
-        private List<Event> events;
+        private static List<Event> events;
 
         public Administratie()
         {
