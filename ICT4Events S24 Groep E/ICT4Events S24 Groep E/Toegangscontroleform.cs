@@ -18,7 +18,7 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             administratie = new Administratie();
-            //RefreshData();
+            RefreshData();
         }
 
         private void RefreshData(Event e)

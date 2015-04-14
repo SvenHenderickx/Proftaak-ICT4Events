@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    public class Persoon
+    abstract class Persoon
     {
         //Fields
         protected static int lastRfidCode = 0;
