@@ -60,10 +60,6 @@ namespace ICT4Events_S24_Groep_E
 
         public bool VoegReactieToe(Reactie reactie)
         {
-<<<<<<< HEAD
-            return false;
-=======
-<<<<<<< HEAD
             bool succes = true;
             foreach (Reactie r in reacties)
             {
@@ -77,18 +73,6 @@ namespace ICT4Events_S24_Groep_E
                 reacties.Add(reactie);
             }
             return succes;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            return false;
-=======
-            return true;
->>>>>>> origin/master
-=======
-
->>>>>>> parent of 6da9a56... fout
->>>>>>> origin/master
->>>>>>> origin/master
         }
 
         public void VerwijderReactie(Reactie reactie)
