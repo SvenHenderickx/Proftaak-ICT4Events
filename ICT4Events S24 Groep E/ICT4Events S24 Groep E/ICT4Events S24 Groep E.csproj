@@ -53,6 +53,7 @@
     <Compile Include="Controleur.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Hoofdboeker.cs" />
+    <Compile Include="Huuritem.cs" />
     <Compile Include="InschrijfForm.cs">
       <SubType>Form</SubType>
     </Compile>
