@@ -58,6 +58,7 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+<<<<<<< HEAD
         public Persoon CheckGebruikersInEvent(string inv)
         {
             foreach (Event e in events)
@@ -68,6 +69,18 @@ namespace ICT4Events_S24_Groep_E
                 }
             }
             return null;
+=======
+        public string GeefPlaats(Bezoeker b, Event e)
+        {
+            foreach (Plaats p in e.Plaatsen)
+            {
+                if (p.Huurder == b.Hoofdboeker)
+                {
+                    return p.PlaatsNummer;
+                }
+            }
+            return "";
+>>>>>>> origin/master
         }
     }
 }
