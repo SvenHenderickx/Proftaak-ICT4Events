@@ -58,14 +58,32 @@ namespace ICT4Events_S24_Groep_E
             reacties = new List<Reactie>();
         }
 
-        public bool VoegReactieToe()
+        public bool VoegReactieToe(Reactie reactie)
         {
-            return true;
+            bool succes = true;
+            foreach (Reactie r in reacties)
+            {
+                if (r.Reactienummer == reactie.Reactienummer)
+                {
+                    succes = false;
+                }
+            }
+            if (succes)
+            {
+                reacties.Add(reactie);
+            }
+            return succes;
         }
 
-        public void VerwijderReactie(int reactienummer)
+        public void VerwijderReactie(Reactie reactie)
         {
-
+            foreach (Reactie r in reacties)
+            {
+                if (reactie == r)
+                {
+                    reacties.Remove(reactie);
+                }
+            }
         }
     }
 }
