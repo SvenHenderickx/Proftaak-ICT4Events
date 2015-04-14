@@ -21,7 +21,7 @@ namespace ICT4Events_S24_Groep_E
 
         public Hoofdboeker Hoofdboeker
         {
-            get { return hoodboeker; }
+            get { return hoofdboeker; }
         }
         //Constructor
 
