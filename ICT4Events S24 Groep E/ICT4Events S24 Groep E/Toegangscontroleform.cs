@@ -18,9 +18,7 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             administratie = new Administratie();
-            RefreshCombobox();
-            comboBoxToegangEvents.SelectedIndex = 0;
-            RefreshData(administratie.GeefEvent(comboBoxToegangEvents.Text));
+            RefreshData(administratie.GeefEvent(administratie.HuidigEvent.Naam));
         }
 
         private void RefreshData(Event e)
@@ -49,21 +47,21 @@ namespace ICT4Events_S24_Groep_E
                     }
                 }
             }
-            labelToegangAanwezig.Text = "Aanwezig: (" + aantalaanwezig + " personen)";
-            labelToegangAfwezig.Text = "Afwezig: (" + aantalafwezig + " personen)";
+            labelToegangAanwezig.Text = "Aanwezigen: (" + aantalaanwezig + " personen)";
+            labelToegangAfwezig.Text = "Afwezigen: (" + aantalafwezig + " personen)";
         }
 
-        private void RefreshCombobox()
+        private void buttonToegangCheckIn_Click(object sender, EventArgs e)
         {
-            foreach (Event e in administratie.Events)
+            if (administratie.CheckIn(textBoxToegangRFID.Text, administratie.HuidigEvent))
             {
-                comboBoxToegangEvents.Items.Add(e.Naam);
+                MessageBox.Show("Geslaagd");
+                RefreshData(administratie.HuidigEvent);
             }
-        }
-
-        private void comboBoxToegangEvents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RefreshData(administratie.GeefEvent(comboBoxToegangEvents.Text));
+            else
+            {
+                MessageBox.Show("Mislukt");
+            }
         }
     }
 }
