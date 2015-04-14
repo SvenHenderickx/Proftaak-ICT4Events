@@ -28,20 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tbGebRfidLoginForm = new System.Windows.Forms.TextBox();
+            this.tbWachtwoordLoginForm = new System.Windows.Forms.TextBox();
+            this.btnInlogLoginForm = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Form1
+            // tbGebRfidLoginForm
+            // 
+            this.tbGebRfidLoginForm.Location = new System.Drawing.Point(11, 38);
+            this.tbGebRfidLoginForm.Name = "tbGebRfidLoginForm";
+            this.tbGebRfidLoginForm.Size = new System.Drawing.Size(222, 20);
+            this.tbGebRfidLoginForm.TabIndex = 0;
+            // 
+            // tbWachtwoordLoginForm
+            // 
+            this.tbWachtwoordLoginForm.Location = new System.Drawing.Point(12, 90);
+            this.tbWachtwoordLoginForm.Name = "tbWachtwoordLoginForm";
+            this.tbWachtwoordLoginForm.PasswordChar = '*';
+            this.tbWachtwoordLoginForm.Size = new System.Drawing.Size(221, 20);
+            this.tbWachtwoordLoginForm.TabIndex = 1;
+            // 
+            // btnInlogLoginForm
+            // 
+            this.btnInlogLoginForm.Location = new System.Drawing.Point(12, 116);
+            this.btnInlogLoginForm.Name = "btnInlogLoginForm";
+            this.btnInlogLoginForm.Size = new System.Drawing.Size(221, 29);
+            this.btnInlogLoginForm.TabIndex = 2;
+            this.btnInlogLoginForm.Text = "Inloggen";
+            this.btnInlogLoginForm.UseVisualStyleBackColor = true;
+            this.btnInlogLoginForm.Click += new System.EventHandler(this.btnInlogLoginForm_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Gebruikersnaam / RFID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Wachtwoord";
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(246, 157);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnInlogLoginForm);
+            this.Controls.Add(this.tbWachtwoordLoginForm);
+            this.Controls.Add(this.tbGebRfidLoginForm);
+            this.Name = "LoginForm";
             this.Text = "Inloggen";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox tbGebRfidLoginForm;
+        private System.Windows.Forms.TextBox tbWachtwoordLoginForm;
+        private System.Windows.Forms.Button btnInlogLoginForm;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

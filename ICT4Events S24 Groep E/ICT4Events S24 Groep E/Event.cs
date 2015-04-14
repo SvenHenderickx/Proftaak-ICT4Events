@@ -107,5 +107,17 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        public Persoon CheckGebruikersNaamRfid(string inv)
+        {
+            foreach (Persoon p in personen)
+            {
+                if (inv == p.RfidCode || inv == p.Gebruikersnaam)
+                {
+                    return p;
+                }
+            }
+            return null;
+        }
+
     }
 }

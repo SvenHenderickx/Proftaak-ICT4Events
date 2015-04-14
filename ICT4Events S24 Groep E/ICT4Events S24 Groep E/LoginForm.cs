@@ -16,5 +16,11 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
         }
+
+        private void btnInlogLoginForm_Click(object sender, EventArgs e)
+        {
+            Persoon tempPersoon = null;
+            //tempPersoon 
+        }
     }
 }
