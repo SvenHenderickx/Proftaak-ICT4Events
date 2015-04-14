@@ -30,7 +30,7 @@ namespace ICT4Events_S24_Groep_E
         {
             // Als het huuritem nog niet gehuurd is, moet deze bij een persoon aan de lijst hehuurd toegevoegd worden.
             // bool isgehuurd wordt true.
-            
+            return false;
         }
     }
 }
