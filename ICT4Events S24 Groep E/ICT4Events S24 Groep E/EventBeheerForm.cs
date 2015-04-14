@@ -15,13 +15,24 @@ namespace ICT4Events_S24_Groep_E
     {
         System.Windows.Forms.Timer timer;
         int interval = 3000;
+        List<Event> events;
+        List<Bezoeker> bezoekers;
 
 
         public EventBeheerForm()
         {
             InitializeComponent();
             timer = new System.Windows.Forms.Timer();
+            events = new List<Event>();
+            bezoekers = new List<Bezoeker>();
+        }
+
+        private void getAlleEvents()
+        {
+            events.Clear();
+            // database connectie
             
+
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -51,6 +62,26 @@ namespace ICT4Events_S24_Groep_E
             this.btnNee.Enabled = false;
             this.btnZeker.Enabled = false;
             this.btnVerwijder.Enabled = true;
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPasEventAan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVerwijderEvent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMaakEventAan_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
