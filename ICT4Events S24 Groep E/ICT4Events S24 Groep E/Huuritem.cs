@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Huuritem
+    public class Huuritem
     {
         private string naam;
         private bool isGehuurd;

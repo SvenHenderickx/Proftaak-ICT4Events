@@ -52,6 +52,12 @@
     <Compile Include="Categorie.cs" />
     <Compile Include="Controleur.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="EventBeheerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventBeheerForm.Designer.cs">
+      <DependentUpon>EventBeheerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hoofdboeker.cs" />
     <Compile Include="Huuritem.cs" />
     <Compile Include="InschrijfForm.cs">
@@ -81,6 +87,9 @@
     <Compile Include="Toegangscontroleform.Designer.cs">
       <DependentUpon>Toegangscontroleform.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EventBeheerForm.resx">
+      <DependentUpon>EventBeheerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InschrijfForm.resx">
       <DependentUpon>InschrijfForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\ICT4Events S24 Groep E.vshost.exe" />
+    <Content Include="FontysIcon.ico" />
     <Content Include="obj\Debug\ICT4Events S24 Groep E.csproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>

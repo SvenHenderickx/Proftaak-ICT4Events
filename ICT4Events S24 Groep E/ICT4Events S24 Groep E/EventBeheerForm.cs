@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.ServiceProcess;
+//using System.ServiceProcess; <-- wtf is deze
 
 namespace ICT4Events_S24_Groep_E
 {

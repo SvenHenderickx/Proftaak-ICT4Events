@@ -36,6 +36,7 @@ namespace ICT4Events_S24_Groep_E
                     {
                         MessageBox.Show("Geslaagd");
                         tempPersoon = administartie.NuIngelogd;
+                        evenement = administartie.NuIngelogdeEvent;
                     }
                     else
                     {

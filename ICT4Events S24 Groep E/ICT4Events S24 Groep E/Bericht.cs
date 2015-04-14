@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Bericht
+    public class Bericht
     {
         private int likes;
         private int aantalKeerGerapporteerd;

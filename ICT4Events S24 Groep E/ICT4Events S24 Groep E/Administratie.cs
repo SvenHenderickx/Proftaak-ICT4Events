@@ -11,6 +11,7 @@ namespace ICT4Events_S24_Groep_E
         // Fields
         private static List<Event> events = new List<Event>();
         private static Persoon nuIngelogd = null;
+        private static Event nuIngelogdeEvent = null;
 
         public List<Event> Events
         {
@@ -21,6 +22,12 @@ namespace ICT4Events_S24_Groep_E
         {
             get { return nuIngelogd; }
             set { nuIngelogd = value; }
+        }
+
+        public Event NuIngelogdeEvent
+        {
+            get { return nuIngelogdeEvent; }
+            set { nuIngelogdeEvent = value; }
         }
 
         public Administratie()

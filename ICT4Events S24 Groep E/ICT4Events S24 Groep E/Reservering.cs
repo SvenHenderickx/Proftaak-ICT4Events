@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Reservering
+    public class Reservering
     {
         private string status;
         private List<Plaats> plaatsen;

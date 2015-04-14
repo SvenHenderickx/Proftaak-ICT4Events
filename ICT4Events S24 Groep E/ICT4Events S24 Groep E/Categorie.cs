@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Categorie
+    public class Categorie
     {
         private string naam;
         private List<Bestand> bestanden;

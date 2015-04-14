@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Bestand
+    public class Bestand
     {
         private string naam;
         private Persoon maker;

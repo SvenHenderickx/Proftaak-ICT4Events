@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    class Reactie
+    public class Reactie
     {
         private int reactienummer;
         private Bezoeker bezoeker;
