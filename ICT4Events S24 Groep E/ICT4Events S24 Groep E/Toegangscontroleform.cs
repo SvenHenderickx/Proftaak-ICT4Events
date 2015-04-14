@@ -19,6 +19,7 @@ namespace ICT4Events_S24_Groep_E
             InitializeComponent();
             administratie = new Administratie();
             RefreshCombobox();
+            comboBoxToegangEvents.SelectedIndex = 0;
             RefreshDataGrids(administratie.GeefEvent(comboBoxToegangEvents.Text));
         }
 
@@ -38,12 +39,12 @@ namespace ICT4Events_S24_Groep_E
                     Bezoeker b = persoon as Bezoeker;
                     if (b.Aanwezig)
                     {
-                        this.dataGridViewToegangAanwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
+                        this.dataGridViewToegangAanwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam,administratie.GeefPlaats(b,administratie.GeefEvent(e.Naam)));
                         aantalaanwezig++;
                     }
                     else
                     {
-                        this.dataGridViewToegangAfwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
+                        this.dataGridViewToegangAfwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam,administratie.GeefPlaats(b,administratie.GeefEvent(e.Naam)));
                         aantalafwezig++;
                     }
                 }

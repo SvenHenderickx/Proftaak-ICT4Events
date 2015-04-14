@@ -12,7 +12,7 @@ namespace ICT4Events_S24_Groep_E
         private static int plaatsNummerTeller = 0;
         private string plaatsNummer;
         private int prijs;
-        private Bezoeker huurder;
+        private Hoofdboeker huurder;
         private bool geluidsOverlast;
         private int aantalPersonen;
         private bool bezet;
@@ -34,7 +34,11 @@ namespace ICT4Events_S24_Groep_E
             set { bezet = value; }
         }
 
-        public Plaats(int prijs, Bezoeker huurder, bool geluidsOverlast, int aantalPersonen)
+        public Hoofdboeker Huurder
+        {
+            get { return huurder; }
+        }
+        public Plaats(int prijs, Hoofdboeker huurder, bool geluidsOverlast, int aantalPersonen)
         {
             this.prijs = prijs;
             this.huurder = huurder;

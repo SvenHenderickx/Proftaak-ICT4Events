@@ -57,5 +57,17 @@ namespace ICT4Events_S24_Groep_E
                 }
             }
         }
+
+        public string GeefPlaats(Bezoeker b, Event e)
+        {
+            foreach (Plaats p in e.Plaatsen)
+            {
+                if (p.Huurder == b.Hoofdboeker)
+                {
+                    return p.PlaatsNummer;
+                }
+            }
+            return "";
+        }
     }
 }

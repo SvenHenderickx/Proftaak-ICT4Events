@@ -19,6 +19,10 @@ namespace ICT4Events_S24_Groep_E
             set { aanwezig = value; }
         }
 
+        public Hoofdboeker Hoofdboeker
+        {
+            get { return hoodboeker; }
+        }
         //Constructor
 
         public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum)
