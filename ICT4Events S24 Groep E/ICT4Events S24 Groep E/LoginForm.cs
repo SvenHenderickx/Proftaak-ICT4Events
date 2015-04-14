@@ -29,13 +29,22 @@ namespace ICT4Events_S24_Groep_E
             if (cmbEventsLoginForm.Text.Length > 0)
             {
                 Event evenement = administartie.GeefEvent(cmbEventsLoginForm.Text);
-                tempPersoon = evenement.CheckGebruikersNaamRfid(tbGebRfidLoginForm.ToString());
+                tempPersoon = evenement.CheckGebruikersNaamRfid(tbGebRfidLoginForm.Text);
                 if (tempPersoon != null)
                 {
-                    if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.ToString()))
+                    if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.Text))
                     {
                         MessageBox.Show("Geslaagd");
+                        tempPersoon = administartie.NuIngelogd;
                     }
+                    else
+                    {
+                        MessageBox.Show("Fout wachtwoord ingevoerd.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Kan gebruiker niet vinden.");
                 }
             }
             
