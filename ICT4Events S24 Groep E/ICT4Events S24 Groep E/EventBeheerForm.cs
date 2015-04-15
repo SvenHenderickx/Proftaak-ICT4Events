@@ -81,7 +81,23 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnMaakEventAan_Click(object sender, EventArgs e)
         {
+            string naam = tbEventNaam.Text,
+                plaats = cbPlaatsen.SelectedIndex.ToString(),
+                adres=cbAdresSelecter.SelectedIndex.ToString();
+            DateTime beginDatum=dtpBeginDatum.Value,
+                eindDatum=dtpEindDatum.Value;
 
+            Event evenement = new Event(naam, beginDatum, eindDatum, plaats, adres);
+        }
+
+        private void cbEvents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateEventTab();
+        }
+        private void updateEventTab()
+        {
+            // alle events specs invullen.... moet uit de database
+            
         }
     }
 }
