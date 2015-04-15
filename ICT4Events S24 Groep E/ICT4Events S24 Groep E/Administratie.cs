@@ -103,16 +103,20 @@ namespace ICT4Events_S24_Groep_E
             string plaatsen = "";
             foreach (Plaats p in e.Plaatsen)
             {
-                if (p.Huurder == b.Hoofdboeker)
+                if (p.Huurder == b.Hoofdboeker || p.Huurder == b as Hoofdboeker)
                 {
-                    if (plaatsen == "")
+                    if (p.Huurder != null)
                     {
-                        plaatsen = p.PlaatsNummer;
+                        if (plaatsen == "")
+                        {
+                            plaatsen = p.PlaatsNummer;
+                        }
+                        else
+                        {
+                            plaatsen = plaatsen + ", " + p.PlaatsNummer;
+                        }
                     }
-                    else
-                    {
-                        plaatsen = plaatsen + ", " + p.PlaatsNummer;
-                    }
+                    
                 }
             }
 

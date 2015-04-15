@@ -110,7 +110,7 @@ namespace ICT4Events_S24_Groep_E
         }
         private void TestDataPlaatsen()
         {
-            plaatsen.Add(new Plaats(100, GeefHoofdboeker("Peterschepers"), true, 8));
+            plaatsen.Add(new Plaats(100, GeefHoofdboeker("PeterSchepers"), true, 8));
             plaatsen.Add(new Plaats(200, null, false, 10));
         }
 
