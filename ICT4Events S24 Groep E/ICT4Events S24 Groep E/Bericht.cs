@@ -8,21 +8,26 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Bericht
     {
-        private int likes;
+        private List<Like> likes;
         private int aantalKeerGerapporteerd;
         private string tekst;
         private List<Reactie> reacties;
         private Persoon auteur;
+        private DateTime datumGepost;
 
-        public int Likes
+        public List<Like> Likes
         {
             get { return likes; }
-            set { likes = value; }
         }
 
         public int AantalKeerGerapporteerd
         {
             get { return aantalKeerGerapporteerd; }
+        }
+
+        public DateTime DatumGepost
+        {
+            get { return datumGepost; }
         }
 
         public string Tekst
@@ -44,13 +49,32 @@ namespace ICT4Events_S24_Groep_E
         {
             this.tekst = tekst;
             this.auteur = auteur;
-            likes = 0;
+            datumGepost = DateTime.Now;
             reacties = new List<Reactie>();
+            likes = new List<Like>();
         }
 
         public string ToString()
         {
-            return likes + " Like(s): " + tekst;
+            return likes.Count + " Like(s): " + tekst + " - " + datumGepost;
+        }
+
+        public bool BerichtLiken(Persoon invPersoon)
+        {
+            foreach (Like l in likes)
+            {
+                if (invPersoon == l.Liker)
+                {
+                    return false;
+                }
+            }
+            likes.Add(new Like(invPersoon));
+            return true;
+        }
+
+        public void ReactieToevoegen(string tekst, Persoon plaatser)
+        {
+            reacties.Add(new Reactie(plaatser, tekst));
         }
     }
 }

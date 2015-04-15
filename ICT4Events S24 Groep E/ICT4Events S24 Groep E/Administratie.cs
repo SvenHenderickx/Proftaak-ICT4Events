@@ -12,6 +12,7 @@ namespace ICT4Events_S24_Groep_E
         private static List<Event> events = new List<Event>();
         private static Persoon nuIngelogd = null;
         private static Event huidigEvent = null;
+        private static Bericht tempBericht = null;
         private static int countGemaakt = 0;
 
         public List<Event> Events
@@ -23,6 +24,12 @@ namespace ICT4Events_S24_Groep_E
         {
             get { return nuIngelogd; }
             set { nuIngelogd = value; }
+        }
+
+        public Bericht TempBericht
+        {
+            get { return tempBericht; }
+            set { tempBericht = value; }
         }
 
         public Event HuidigEvent

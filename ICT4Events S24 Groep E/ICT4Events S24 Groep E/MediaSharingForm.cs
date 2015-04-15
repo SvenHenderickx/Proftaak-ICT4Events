@@ -61,7 +61,14 @@ namespace ICT4Events_S24_Groep_E
         {
             if (BerichtOpIndex() != null)
             {
-                BerichtOpIndex().Likes++;
+                if (BerichtOpIndex().BerichtLiken(administratie.NuIngelogd))
+                {
+                    //
+                }
+                else
+                {
+                    MessageBox.Show("Al geliked");
+                }
             }
             LaadAlleBerichten();
         }
@@ -70,6 +77,7 @@ namespace ICT4Events_S24_Groep_E
         {
             if (BerichtOpIndex() != null)
             {
+                administratie.TempBericht = BerichtOpIndex();
                 var postForm = new PostForm();
                 postForm.Show();
             }

@@ -8,24 +8,30 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Reactie
     {
-        private int reactienummer;
-        private Bezoeker bezoeker;
+        private static int reactienummer;
+        private Persoon plaatser;
         private string inhoud;
         private bool gerapporteerd;
+        private DateTime datumGeplaatst;
 
         public int Reactienummer
         {
             get { return reactienummer; }
         }
 
-        public Bezoeker Bezoeker
+        public Persoon Plaatser
         {
-            get { return bezoeker; }
+            get { return plaatser; }
         }
 
         public string Inhoud
         {
-            get {return inhoud;}
+            get { return inhoud; }
+        }
+
+        public DateTime DatumGeplaatst
+        {
+            get { return datumGeplaatst; }
         }
 
         public bool Gerapporteerd
@@ -33,8 +39,11 @@ namespace ICT4Events_S24_Groep_E
             get { return gerapporteerd; }
         }
 
-        public Reactie(Bezoeker bezoeker, string inhoud)
+        public Reactie(Persoon plaatser, string inhoud)
         {
+            gerapporteerd = false;
+            datumGeplaatst = DateTime.Now;
+            this.plaatser = plaatser;
             this.inhoud = inhoud;
         }
     }

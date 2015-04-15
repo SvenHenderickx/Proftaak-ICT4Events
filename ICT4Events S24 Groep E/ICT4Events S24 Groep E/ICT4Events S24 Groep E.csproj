@@ -74,6 +74,7 @@
     <Compile Include="InschrijfFormBezoeker.Designer.cs">
       <DependentUpon>InschrijfFormBezoeker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Like.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
