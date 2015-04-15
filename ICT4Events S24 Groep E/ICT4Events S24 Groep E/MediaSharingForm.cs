@@ -18,6 +18,7 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             administratie = new Administratie();
+            LaadAlleBerichten();
         }
 
         private void MediaSharingAfsluiten(object sender, FormClosedEventArgs e)
@@ -33,6 +34,21 @@ namespace ICT4Events_S24_Groep_E
                 var systeemKiezerForm = new SysteemKiezerForm();
                 systeemKiezerForm.Show();
                 this.Hide();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            administratie.HuidigEvent.Berichten.Add(new Bericht(tbPostTekstMediaSharingForm.Text, administratie.NuIngelogd));
+            LaadAlleBerichten();
+        }
+
+        private void LaadAlleBerichten()
+        {
+            lbBerichtenTest.Items.Clear();
+            foreach (Bericht b in administratie.HuidigEvent.Berichten)
+            {
+                lbBerichtenTest.Items.Add(b.Auteur.Gebruikersnaam + ": " + b.Tekst);
             }
         }
     }

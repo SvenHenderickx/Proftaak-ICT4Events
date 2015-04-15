@@ -39,9 +39,10 @@ namespace ICT4Events_S24_Groep_E
             get { return auteur; }
         }
 
-        public Bericht(string tekst)
+        public Bericht(string tekst, Persoon auteur)
         {
             this.tekst = tekst;
+            this.auteur = auteur;
             reacties = new List<Reactie>();
         }
     }
