@@ -42,7 +42,7 @@
             this.labelToegangAfwezig = new System.Windows.Forms.Label();
             this.textBoxToegangRFID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonToegangCheckIn = new System.Windows.Forms.Button();
+            this.buttonToegangCheckInUit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAanwezig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAfwezig)).BeginInit();
             this.SuspendLayout();
@@ -155,22 +155,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "RFID:";
             // 
-            // buttonToegangCheckIn
+            // buttonToegangCheckInUit
             // 
-            this.buttonToegangCheckIn.Location = new System.Drawing.Point(828, 227);
-            this.buttonToegangCheckIn.Name = "buttonToegangCheckIn";
-            this.buttonToegangCheckIn.Size = new System.Drawing.Size(75, 23);
-            this.buttonToegangCheckIn.TabIndex = 4;
-            this.buttonToegangCheckIn.Text = "Check in";
-            this.buttonToegangCheckIn.UseVisualStyleBackColor = true;
-            this.buttonToegangCheckIn.Click += new System.EventHandler(this.buttonToegangCheckIn_Click);
+            this.buttonToegangCheckInUit.Location = new System.Drawing.Point(828, 227);
+            this.buttonToegangCheckInUit.Name = "buttonToegangCheckInUit";
+            this.buttonToegangCheckInUit.Size = new System.Drawing.Size(75, 23);
+            this.buttonToegangCheckInUit.TabIndex = 4;
+            this.buttonToegangCheckInUit.Text = "Check in/uit";
+            this.buttonToegangCheckInUit.UseVisualStyleBackColor = true;
+            this.buttonToegangCheckInUit.Click += new System.EventHandler(this.buttonToegangCheckInUit_Click);
             // 
             // Toegangscontroleform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 261);
-            this.Controls.Add(this.buttonToegangCheckIn);
+            this.Controls.Add(this.buttonToegangCheckInUit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxToegangRFID);
             this.Controls.Add(this.labelToegangAfwezig);
@@ -203,6 +203,6 @@
         private System.Windows.Forms.Label labelToegangAfwezig;
         private System.Windows.Forms.TextBox textBoxToegangRFID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonToegangCheckIn;
+        private System.Windows.Forms.Button buttonToegangCheckInUit;
     }
 }

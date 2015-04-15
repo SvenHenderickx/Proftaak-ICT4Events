@@ -53,16 +53,15 @@ namespace ICT4Events_S24_Groep_E
             labelToegangAfwezig.Text = "Afwezigen: (" + aantalafwezig + " personen)";
         }
 
-        private void buttonToegangCheckIn_Click(object sender, EventArgs e)
+        private void buttonToegangCheckInUit_Click(object sender, EventArgs e)
         {
-            if (administratie.CheckIn(textBoxToegangRFID.Text, administratie.HuidigEvent))
+            if (administratie.CheckInUit(textBoxToegangRFID.Text, administratie.HuidigEvent))
             {
-                MessageBox.Show("Geslaagd");
                 RefreshData(administratie.HuidigEvent);
             }
             else
             {
-                MessageBox.Show("Mislukt");
+                MessageBox.Show(@"In/Uitcheck is niet geslaagd");
             }
         }
 

@@ -59,7 +59,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
-        public bool CheckIn(string rfid, Event e)
+        public bool CheckInUit(string rfid, Event e)
         {
             List<Persoon> personen = e.Personen;
 
@@ -73,6 +73,11 @@ namespace ICT4Events_S24_Groep_E
                         if (!b.Aanwezig)
                         {
                             b.Aanwezig = true;
+                            return true;
+                        }
+                        else
+                        {
+                            b.Aanwezig = false;
                             return true;
                         }
                     }
