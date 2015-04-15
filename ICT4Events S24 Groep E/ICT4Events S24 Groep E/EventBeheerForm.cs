@@ -19,7 +19,11 @@ namespace ICT4Events_S24_Groep_E
         //List<Event> events;
         List<Bezoeker> bezoekers;
         private Event evenement;
+<<<<<<< HEAD
         bool shit = false;
+=======
+        private Administratie administratie;
+>>>>>>> origin/master
 
 
         public EventBeheerForm()
@@ -27,6 +31,7 @@ namespace ICT4Events_S24_Groep_E
             InitializeComponent();
             admin = new Administratie();
             timer = new System.Windows.Forms.Timer();
+<<<<<<< HEAD
             //events = new List<Event>();
             bezoekers = new List<Bezoeker>();
             Administratie administratie = new Administratie();
@@ -35,10 +40,18 @@ namespace ICT4Events_S24_Groep_E
 
             //enable gebruiker tab als user een admin is? rechten??
             if (shit) gbGebruikers.Enabled = true;
+=======
+            administratie = new Administratie();
+            btnNee.Enabled = false;
+            btnZeker.Enabled = false;
+            getAlleEvents();
+            cbEventsEventbeheer.SelectedIndex = 0;
+>>>>>>> origin/master
         }
 
         private void refreshCbEvents()
         {
+<<<<<<< HEAD
             cbEvents.Items.Clear();
             foreach (Event ev in admin.Events)
             {
@@ -49,6 +62,14 @@ namespace ICT4Events_S24_Groep_E
             }
             
 
+=======
+            cbEventsEventbeheer.Items.Clear();
+            foreach (Event e in administratie.Events)
+            {
+                cbEventsEventbeheer.Items.Add(e.Naam);
+                cbEventsEventbeheer.SelectedIndex = 0;
+            }
+>>>>>>> origin/master
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -105,13 +126,17 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnMaakEventAan_Click(object sender, EventArgs e)
         {
-            string naam = tbEventNaam.Text,
-                plaats = cbPlaatsen.SelectedIndex.ToString(),
-                adres=cbAdresSelecter.SelectedIndex.ToString();
-            DateTime beginDatum=dtpBeginDatum.Value,
-                eindDatum=dtpEindDatum.Value;
-
-            Event evenement = new Event(naam, beginDatum, eindDatum, plaats, adres);
+            string naam = tbEventNaamEventbeheer.Text;
+            string plaats = tbPlaatsEventbeheer.Text;
+            string adres = tbAdresEventbeheer.Text;
+            DateTime beginDatum = dtpBeginDatum.Value;
+            DateTime eindDatum = dtpEindDatum.Value;
+            if (administratie.VoegEventToe(naam, beginDatum, eindDatum, plaats, adres))
+            {
+                getAlleEvents();
+                updateEventTab();
+            }
+            
         }
 
         private void cbEvents_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,6 +155,7 @@ namespace ICT4Events_S24_Groep_E
         }
         private void updateEventTab()
         {
+<<<<<<< HEAD
             // alle events specs invullen.... moet uit de database
             dtpBeginDatum.Value = evenement.BeginDatum;
             dtpEindDatum.Value = evenement.EindDatum;
@@ -145,6 +171,13 @@ namespace ICT4Events_S24_Groep_E
             }
 
             
+=======
+            dtpBeginDatum.Value = administratie.GeefEvent(cbEventsEventbeheer.Text).BeginDatum;
+            dtpEindDatum.Value = administratie.GeefEvent(cbEventsEventbeheer.Text).EindDatum;
+            tbEventNaamEventbeheer.Text = cbEventsEventbeheer.Text;
+            tbPlaatsEventbeheer.Text = administratie.GeefEvent(cbEventsEventbeheer.Text).Plaats;
+            tbAdresEventbeheer.Text = administratie.GeefEvent(cbEventsEventbeheer.Text).Adres;
+>>>>>>> origin/master
         }
 
         private void btnInfoOpvraag_Click(object sender, EventArgs e)
@@ -161,6 +194,7 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+<<<<<<< HEAD
         private void updateCBs()
         {
 
@@ -173,6 +207,18 @@ namespace ICT4Events_S24_Groep_E
                 }
             }
 
+=======
+        private void TerugNaarLogIn(object sender, FormClosedEventArgs e)
+        {
+            var logInForm = new LoginForm();
+            logInForm.Show();
+        }
+
+        private void btnDatabaseConnectie_Click(object sender, EventArgs e)
+        {
+            DatabaseKoppeling database = new DatabaseKoppeling();
+            database.Koppel();
+>>>>>>> origin/master
         }
     }
 }

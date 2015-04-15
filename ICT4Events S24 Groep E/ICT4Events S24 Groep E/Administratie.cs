@@ -126,5 +126,18 @@ namespace ICT4Events_S24_Groep_E
             }
             return "";
         }
+
+        public bool VoegEventToe(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres)
+        {
+            foreach (Event e in events)
+            {
+                if(naam == e.Naam)
+                {
+                    return false;
+                }
+            }
+            events.Add(new Event(naam, beginDatum, eindDatum, plaats, adres));
+            return true;
+        }
     }
 }
