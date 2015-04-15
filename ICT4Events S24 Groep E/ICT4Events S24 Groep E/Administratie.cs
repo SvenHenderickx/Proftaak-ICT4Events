@@ -12,6 +12,7 @@ namespace ICT4Events_S24_Groep_E
         private static List<Event> events = new List<Event>();
         private static Persoon nuIngelogd = null;
         private static Event huidigEvent = null;
+        private static int countGemaakt = 0;
 
         public List<Event> Events
         {
@@ -33,7 +34,12 @@ namespace ICT4Events_S24_Groep_E
         // Constructor
         public Administratie()
         {
-            TestDataEvents();
+            countGemaakt++;
+            if (countGemaakt == 0)
+            {
+                TestDataEvents();
+            }
+            
         }
 
         private void TestDataEvents()
