@@ -39,17 +39,48 @@ namespace ICT4Events_S24_Groep_E
 
         private void button2_Click(object sender, EventArgs e)
         {
-            administratie.HuidigEvent.Berichten.Add(new Bericht(tbPostTekstMediaSharingForm.Text, administratie.NuIngelogd));
-            LaadAlleBerichten();
+            if (tbPostTekstMediaSharingForm.Text.Length > 0)
+            {
+                administratie.HuidigEvent.Berichten.Add(new Bericht(tbPostTekstMediaSharingForm.Text, administratie.NuIngelogd));
+                tbPostTekstMediaSharingForm.Text = "";
+                LaadAlleBerichten();
+            }
+            
         }
 
         private void LaadAlleBerichten()
         {
-            lbBerichtenTest.Items.Clear();
+            lbBerichtenMediaSharingForm.Items.Clear();
             foreach (Bericht b in administratie.HuidigEvent.Berichten)
             {
-                lbBerichtenTest.Items.Add(b.Auteur.Gebruikersnaam + ": " + b.Tekst);
+                lbBerichtenMediaSharingForm.Items.Add(b.Auteur.Gebruikersnaam + " " + b.ToString());
             }
+        }
+
+        private void btnLikeMediaSharing_Click(object sender, EventArgs e)
+        {
+            if (BerichtOpIndex() != null)
+            {
+                BerichtOpIndex().Likes++;
+            }
+            LaadAlleBerichten();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private Bericht BerichtOpIndex()
+        {
+            for (int i = 0; i < administratie.HuidigEvent.Berichten.Count; i++)
+            {
+                if (lbBerichtenMediaSharingForm.SelectedIndex == i)
+                {
+                    return administratie.HuidigEvent.Berichten[i];
+                }
+            }
+            return null;
         }
     }
 }

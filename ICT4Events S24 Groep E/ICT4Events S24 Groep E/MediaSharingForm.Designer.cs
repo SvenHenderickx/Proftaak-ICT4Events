@@ -41,7 +41,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lbBerichtenTest = new System.Windows.Forms.ListBox();
+            this.lbBerichtenMediaSharingForm = new System.Windows.Forms.ListBox();
+            this.btnLikeMediaSharing = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -182,20 +184,42 @@
             this.textBox2.Size = new System.Drawing.Size(208, 20);
             this.textBox2.TabIndex = 0;
             // 
-            // lbBerichtenTest
+            // lbBerichtenMediaSharingForm
             // 
-            this.lbBerichtenTest.FormattingEnabled = true;
-            this.lbBerichtenTest.Location = new System.Drawing.Point(13, 69);
-            this.lbBerichtenTest.Name = "lbBerichtenTest";
-            this.lbBerichtenTest.Size = new System.Drawing.Size(335, 251);
-            this.lbBerichtenTest.TabIndex = 3;
+            this.lbBerichtenMediaSharingForm.FormattingEnabled = true;
+            this.lbBerichtenMediaSharingForm.Location = new System.Drawing.Point(12, 69);
+            this.lbBerichtenMediaSharingForm.Name = "lbBerichtenMediaSharingForm";
+            this.lbBerichtenMediaSharingForm.Size = new System.Drawing.Size(336, 212);
+            this.lbBerichtenMediaSharingForm.TabIndex = 3;
+            // 
+            // btnLikeMediaSharing
+            // 
+            this.btnLikeMediaSharing.Location = new System.Drawing.Point(12, 287);
+            this.btnLikeMediaSharing.Name = "btnLikeMediaSharing";
+            this.btnLikeMediaSharing.Size = new System.Drawing.Size(170, 30);
+            this.btnLikeMediaSharing.TabIndex = 4;
+            this.btnLikeMediaSharing.Text = "Like";
+            this.btnLikeMediaSharing.UseVisualStyleBackColor = true;
+            this.btnLikeMediaSharing.Click += new System.EventHandler(this.btnLikeMediaSharing_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(188, 287);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(160, 30);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Reageer en meer";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // MediaSharingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 329);
-            this.Controls.Add(this.lbBerichtenTest);
+            this.ClientSize = new System.Drawing.Size(581, 329);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnLikeMediaSharing);
+            this.Controls.Add(this.lbBerichtenMediaSharingForm);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -227,6 +251,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListBox lbBerichtenTest;
+        private System.Windows.Forms.ListBox lbBerichtenMediaSharingForm;
+        private System.Windows.Forms.Button btnLikeMediaSharing;
+        private System.Windows.Forms.Button button4;
     }
 }

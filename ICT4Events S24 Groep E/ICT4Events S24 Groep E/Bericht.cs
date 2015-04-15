@@ -17,6 +17,7 @@ namespace ICT4Events_S24_Groep_E
         public int Likes
         {
             get { return likes; }
+            set { likes = value; }
         }
 
         public int AantalKeerGerapporteerd
@@ -43,7 +44,13 @@ namespace ICT4Events_S24_Groep_E
         {
             this.tekst = tekst;
             this.auteur = auteur;
+            likes = 0;
             reacties = new List<Reactie>();
+        }
+
+        public string ToString()
+        {
+            return likes + " Like(s): " + tekst;
         }
     }
 }
