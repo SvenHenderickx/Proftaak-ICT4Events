@@ -17,6 +17,7 @@ namespace ICT4Events_S24_Groep_E
         int interval = 3000;
         List<Event> events;
         List<Bezoeker> bezoekers;
+        private Event evenement;
 
 
         public EventBeheerForm()
@@ -25,6 +26,8 @@ namespace ICT4Events_S24_Groep_E
             timer = new System.Windows.Forms.Timer();
             events = new List<Event>();
             bezoekers = new List<Bezoeker>();
+            Administratie administratie = new Administratie();
+            evenement = administratie.HuidigEvent;
         }
 
         private void getAlleEvents()
@@ -98,6 +101,20 @@ namespace ICT4Events_S24_Groep_E
         {
             // alle events specs invullen.... moet uit de database
             
+        }
+
+        private void btnInfoOpvraag_Click(object sender, EventArgs e)
+        {
+            string info = "Bezoekers informatie:" ;
+            foreach (Persoon p in evenement.Personen)
+            {
+                if (p is Bezoeker)
+                {
+                    Bezoeker b = (Bezoeker)p;
+                    info = p.Gebruikersnaam.ToString() + " - " + p.Naam.ToString() + " - " + p.GeboorteDatum.ToString() + " - " + p.Achternaam.ToString() + " - " + p.RfidCode.ToString();
+                }
+                    lbGebruikerinfo.Items.Add(info);
+            }
         }
     }
 }

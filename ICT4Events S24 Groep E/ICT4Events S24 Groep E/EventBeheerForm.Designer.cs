@@ -38,38 +38,38 @@
             this.lbGebruikerinfo = new System.Windows.Forms.ListBox();
             this.btnInfoOpvraag = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbCategorieSelecter = new System.Windows.Forms.ComboBox();
+            this.cbMateriaalSelecter = new System.Windows.Forms.ComboBox();
+            this.cbPlaatsenSelecter = new System.Windows.Forms.ComboBox();
+            this.cbDeelnemerSelecter = new System.Windows.Forms.ComboBox();
+            this.cbCategorie = new System.Windows.Forms.ComboBox();
+            this.cbMateriaal = new System.Windows.Forms.ComboBox();
+            this.cbPlaatsen = new System.Windows.Forms.ComboBox();
+            this.cbDeelnemers = new System.Windows.Forms.ComboBox();
+            this.cbAdresSelecter = new System.Windows.Forms.ComboBox();
+            this.cbPlaatsSelecter = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpEindDatum = new System.Windows.Forms.DateTimePicker();
             this.dtpBeginDatum = new System.Windows.Forms.DateTimePicker();
             this.btnPasEventAan = new System.Windows.Forms.Button();
+            this.tbAdres = new System.Windows.Forms.TextBox();
+            this.tbEventNaam = new System.Windows.Forms.TextBox();
+            this.tbPlaats = new System.Windows.Forms.TextBox();
             this.cbEvents = new System.Windows.Forms.ComboBox();
             this.btnVerwijderEvent = new System.Windows.Forms.Button();
             this.btnMaakEventAan = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.eventTab = new System.Windows.Forms.TabPage();
             this.gebruikerTab = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbPlaats = new System.Windows.Forms.TextBox();
-            this.cbPlaatsSelecter = new System.Windows.Forms.ComboBox();
-            this.tbAdres = new System.Windows.Forms.TextBox();
-            this.cbAdresSelecter = new System.Windows.Forms.ComboBox();
-            this.cbDeelnemers = new System.Windows.Forms.ComboBox();
-            this.cbDeelnemerSelecter = new System.Windows.Forms.ComboBox();
-            this.cbPlaatsen = new System.Windows.Forms.ComboBox();
-            this.cbPlaatsenSelecter = new System.Windows.Forms.ComboBox();
-            this.cbMateriaal = new System.Windows.Forms.ComboBox();
-            this.cbMateriaalSelecter = new System.Windows.Forms.ComboBox();
-            this.cbCategorie = new System.Windows.Forms.ComboBox();
-            this.cbCategorieSelecter = new System.Windows.Forms.ComboBox();
-            this.tbEventNaam = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -156,6 +156,7 @@
             this.btnInfoOpvraag.TabIndex = 0;
             this.btnInfoOpvraag.Text = "Vraag informatie op voor alle gebruikers";
             this.btnInfoOpvraag.UseVisualStyleBackColor = true;
+            this.btnInfoOpvraag.Click += new System.EventHandler(this.btnInfoOpvraag_Click);
             // 
             // groupBox2
             // 
@@ -194,6 +195,158 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "EventBeheer";
+            // 
+            // cbCategorieSelecter
+            // 
+            this.cbCategorieSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategorieSelecter.Location = new System.Drawing.Point(425, 227);
+            this.cbCategorieSelecter.Name = "cbCategorieSelecter";
+            this.cbCategorieSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbCategorieSelecter.TabIndex = 0;
+            // 
+            // cbMateriaalSelecter
+            // 
+            this.cbMateriaalSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMateriaalSelecter.Location = new System.Drawing.Point(425, 202);
+            this.cbMateriaalSelecter.Name = "cbMateriaalSelecter";
+            this.cbMateriaalSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbMateriaalSelecter.TabIndex = 0;
+            // 
+            // cbPlaatsenSelecter
+            // 
+            this.cbPlaatsenSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPlaatsenSelecter.Location = new System.Drawing.Point(425, 176);
+            this.cbPlaatsenSelecter.Name = "cbPlaatsenSelecter";
+            this.cbPlaatsenSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbPlaatsenSelecter.TabIndex = 0;
+            // 
+            // cbDeelnemerSelecter
+            // 
+            this.cbDeelnemerSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDeelnemerSelecter.Location = new System.Drawing.Point(425, 152);
+            this.cbDeelnemerSelecter.Name = "cbDeelnemerSelecter";
+            this.cbDeelnemerSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbDeelnemerSelecter.TabIndex = 0;
+            // 
+            // cbCategorie
+            // 
+            this.cbCategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategorie.Location = new System.Drawing.Point(148, 227);
+            this.cbCategorie.Name = "cbCategorie";
+            this.cbCategorie.Size = new System.Drawing.Size(270, 21);
+            this.cbCategorie.TabIndex = 0;
+            // 
+            // cbMateriaal
+            // 
+            this.cbMateriaal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMateriaal.Location = new System.Drawing.Point(148, 202);
+            this.cbMateriaal.Name = "cbMateriaal";
+            this.cbMateriaal.Size = new System.Drawing.Size(270, 21);
+            this.cbMateriaal.TabIndex = 0;
+            // 
+            // cbPlaatsen
+            // 
+            this.cbPlaatsen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPlaatsen.Location = new System.Drawing.Point(148, 176);
+            this.cbPlaatsen.Name = "cbPlaatsen";
+            this.cbPlaatsen.Size = new System.Drawing.Size(270, 21);
+            this.cbPlaatsen.TabIndex = 0;
+            // 
+            // cbDeelnemers
+            // 
+            this.cbDeelnemers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDeelnemers.Location = new System.Drawing.Point(148, 152);
+            this.cbDeelnemers.Name = "cbDeelnemers";
+            this.cbDeelnemers.Size = new System.Drawing.Size(270, 21);
+            this.cbDeelnemers.TabIndex = 0;
+            // 
+            // cbAdresSelecter
+            // 
+            this.cbAdresSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAdresSelecter.Location = new System.Drawing.Point(425, 126);
+            this.cbAdresSelecter.Name = "cbAdresSelecter";
+            this.cbAdresSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbAdresSelecter.TabIndex = 0;
+            // 
+            // cbPlaatsSelecter
+            // 
+            this.cbPlaatsSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPlaatsSelecter.Location = new System.Drawing.Point(425, 101);
+            this.cbPlaatsSelecter.Name = "cbPlaatsSelecter";
+            this.cbPlaatsSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbPlaatsSelecter.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(53, 230);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Categorieën";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(52, 205);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "materiaal";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(53, 179);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Plaatsen";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(52, 155);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Deelnemers";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(52, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Adres";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(422, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Naam";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(52, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "plaats";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(52, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "eind datum";
             // 
             // label2
             // 
@@ -238,6 +391,27 @@
             this.btnPasEventAan.Text = "Pas aan";
             this.btnPasEventAan.UseVisualStyleBackColor = true;
             this.btnPasEventAan.Click += new System.EventHandler(this.btnPasEventAan_Click);
+            // 
+            // tbAdres
+            // 
+            this.tbAdres.Location = new System.Drawing.Point(148, 126);
+            this.tbAdres.Name = "tbAdres";
+            this.tbAdres.Size = new System.Drawing.Size(270, 20);
+            this.tbAdres.TabIndex = 2;
+            // 
+            // tbEventNaam
+            // 
+            this.tbEventNaam.Location = new System.Drawing.Point(488, 62);
+            this.tbEventNaam.Name = "tbEventNaam";
+            this.tbEventNaam.Size = new System.Drawing.Size(270, 20);
+            this.tbEventNaam.TabIndex = 2;
+            // 
+            // tbPlaats
+            // 
+            this.tbPlaats.Location = new System.Drawing.Point(148, 101);
+            this.tbPlaats.Name = "tbPlaats";
+            this.tbPlaats.Size = new System.Drawing.Size(270, 20);
+            this.tbPlaats.TabIndex = 2;
             // 
             // cbEvents
             // 
@@ -301,179 +475,6 @@
             this.gebruikerTab.TabIndex = 1;
             this.gebruikerTab.Text = "Gebruiker";
             this.gebruikerTab.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(52, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "eind datum";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 104);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "plaats";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(52, 129);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Adres";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(52, 155);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Deelnemers";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(53, 179);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Plaatsen";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(52, 205);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "materiaal";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(53, 230);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 13);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Categorieën";
-            // 
-            // tbPlaats
-            // 
-            this.tbPlaats.Location = new System.Drawing.Point(148, 101);
-            this.tbPlaats.Name = "tbPlaats";
-            this.tbPlaats.Size = new System.Drawing.Size(270, 20);
-            this.tbPlaats.TabIndex = 2;
-            // 
-            // cbPlaatsSelecter
-            // 
-            this.cbPlaatsSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlaatsSelecter.Location = new System.Drawing.Point(425, 101);
-            this.cbPlaatsSelecter.Name = "cbPlaatsSelecter";
-            this.cbPlaatsSelecter.Size = new System.Drawing.Size(333, 21);
-            this.cbPlaatsSelecter.TabIndex = 0;
-            // 
-            // tbAdres
-            // 
-            this.tbAdres.Location = new System.Drawing.Point(148, 126);
-            this.tbAdres.Name = "tbAdres";
-            this.tbAdres.Size = new System.Drawing.Size(270, 20);
-            this.tbAdres.TabIndex = 2;
-            // 
-            // cbAdresSelecter
-            // 
-            this.cbAdresSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAdresSelecter.Location = new System.Drawing.Point(425, 126);
-            this.cbAdresSelecter.Name = "cbAdresSelecter";
-            this.cbAdresSelecter.Size = new System.Drawing.Size(333, 21);
-            this.cbAdresSelecter.TabIndex = 0;
-            // 
-            // cbDeelnemers
-            // 
-            this.cbDeelnemers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDeelnemers.Location = new System.Drawing.Point(148, 152);
-            this.cbDeelnemers.Name = "cbDeelnemers";
-            this.cbDeelnemers.Size = new System.Drawing.Size(270, 21);
-            this.cbDeelnemers.TabIndex = 0;
-            // 
-            // cbDeelnemerSelecter
-            // 
-            this.cbDeelnemerSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDeelnemerSelecter.Location = new System.Drawing.Point(425, 152);
-            this.cbDeelnemerSelecter.Name = "cbDeelnemerSelecter";
-            this.cbDeelnemerSelecter.Size = new System.Drawing.Size(333, 21);
-            this.cbDeelnemerSelecter.TabIndex = 0;
-            // 
-            // cbPlaatsen
-            // 
-            this.cbPlaatsen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlaatsen.Location = new System.Drawing.Point(148, 176);
-            this.cbPlaatsen.Name = "cbPlaatsen";
-            this.cbPlaatsen.Size = new System.Drawing.Size(270, 21);
-            this.cbPlaatsen.TabIndex = 0;
-            // 
-            // cbPlaatsenSelecter
-            // 
-            this.cbPlaatsenSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlaatsenSelecter.Location = new System.Drawing.Point(425, 176);
-            this.cbPlaatsenSelecter.Name = "cbPlaatsenSelecter";
-            this.cbPlaatsenSelecter.Size = new System.Drawing.Size(333, 21);
-            this.cbPlaatsenSelecter.TabIndex = 0;
-            // 
-            // cbMateriaal
-            // 
-            this.cbMateriaal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMateriaal.Location = new System.Drawing.Point(148, 202);
-            this.cbMateriaal.Name = "cbMateriaal";
-            this.cbMateriaal.Size = new System.Drawing.Size(270, 21);
-            this.cbMateriaal.TabIndex = 0;
-            // 
-            // cbMateriaalSelecter
-            // 
-            this.cbMateriaalSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMateriaalSelecter.Location = new System.Drawing.Point(425, 202);
-            this.cbMateriaalSelecter.Name = "cbMateriaalSelecter";
-            this.cbMateriaalSelecter.Size = new System.Drawing.Size(333, 21);
-            this.cbMateriaalSelecter.TabIndex = 0;
-            // 
-            // cbCategorie
-            // 
-            this.cbCategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategorie.Location = new System.Drawing.Point(148, 227);
-            this.cbCategorie.Name = "cbCategorie";
-            this.cbCategorie.Size = new System.Drawing.Size(270, 21);
-            this.cbCategorie.TabIndex = 0;
-            // 
-            // cbCategorieSelecter
-            // 
-            this.cbCategorieSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategorieSelecter.Location = new System.Drawing.Point(425, 227);
-            this.cbCategorieSelecter.Name = "cbCategorieSelecter";
-            this.cbCategorieSelecter.Size = new System.Drawing.Size(333, 21);
-            this.cbCategorieSelecter.TabIndex = 0;
-            // 
-            // tbEventNaam
-            // 
-            this.tbEventNaam.Location = new System.Drawing.Point(488, 62);
-            this.tbEventNaam.Name = "tbEventNaam";
-            this.tbEventNaam.Size = new System.Drawing.Size(270, 20);
-            this.tbEventNaam.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(422, 65);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(35, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Naam";
             // 
             // EventBeheerForm
             // 
