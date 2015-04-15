@@ -17,7 +17,8 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             administratie = new Administratie();
-            lblEventSysteemKiezerForm.Text = administratie.HuidigEvent.Naam;
+            lblEventSysteemKiezerForm.Text = administratie.NuIngelogd.Gebruikersnaam + ": " + administratie.HuidigEvent.Naam;
+            AutomatischeDoorverbinding();
         }
 
         private void SysteemKiezerForm_Load(object sender, EventArgs e)
@@ -29,6 +30,15 @@ namespace ICT4Events_S24_Groep_E
         {
             var logInForm = new LoginForm();
             logInForm.Show();
+        }
+
+        private void AutomatischeDoorverbinding()
+        {
+            if (administratie.NuIngelogd is Controleur)
+            {
+                var toegangscontroleform = new Toegangscontroleform();
+                toegangscontroleform.Show();
+            }
         }
     }
 }

@@ -34,19 +34,20 @@ namespace ICT4Events_S24_Groep_E
                 {
                     if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.Text))
                     {
-                        tempPersoon = administratie.NuIngelogd;
-                        evenement = administratie.HuidigEvent;
-                        if (tempPersoon is Beheerder)
-                        {
-                            var systeemKiezerForm = new SysteemKiezerForm();
-                            systeemKiezerForm.Show();
-                        }
-                        else if (tempPersoon is Controleur)
-                        {
-                            var toegangscontroleform = new Toegangscontroleform();
-                            toegangscontroleform.Show();
-                        }
-                        
+                        administratie.HuidigEvent = evenement;
+                        administratie.NuIngelogd = tempPersoon;
+                        //if (tempPersoon is Beheerder)
+                        //{
+                        //    var systeemKiezerForm = new SysteemKiezerForm();
+                        //    systeemKiezerForm.Show();
+                        //}
+                        //else if (tempPersoon is Controleur)
+                        //{
+                        //    var toegangscontroleform = new Toegangscontroleform();
+                        //    toegangscontroleform.Show();
+                        //}
+                        var systeemKiezerForm = new SysteemKiezerForm();
+                        systeemKiezerForm.Show();
                         this.Hide();
                     }
                     else
