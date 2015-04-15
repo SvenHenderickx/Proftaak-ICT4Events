@@ -36,8 +36,15 @@ namespace ICT4Events_S24_Groep_E
         {
             if (administratie.NuIngelogd is Controleur)
             {
-                var toegangscontroleform = new Toegangscontroleform();
-                toegangscontroleform.Show();
+                var toegangsControleForm = new Toegangscontroleform();
+                toegangsControleForm.Show();
+                this.Close();
+            }
+            else if (administratie.NuIngelogd is Bezoeker)
+            {
+                var mediaSharingForm = new MediaSharingForm();
+                mediaSharingForm.Show();
+                this.Close();
             }
         }
     }

@@ -36,19 +36,7 @@ namespace ICT4Events_S24_Groep_E
                     {
                         administratie.HuidigEvent = evenement;
                         administratie.NuIngelogd = tempPersoon;
-                        //if (tempPersoon is Beheerder)
-                        //{
-                        //    var systeemKiezerForm = new SysteemKiezerForm();
-                        //    systeemKiezerForm.Show();
-                        //}
-                        //else if (tempPersoon is Controleur)
-                        //{
-                        //    var toegangscontroleform = new Toegangscontroleform();
-                        //    toegangscontroleform.Show();
-                        //}
-                        var systeemKiezerForm = new SysteemKiezerForm();
-                        systeemKiezerForm.Show();
-                        this.Hide();
+                        AutomatischeDoorverbinding();
                     }
                     else
                     {
@@ -74,6 +62,28 @@ namespace ICT4Events_S24_Groep_E
         private void SluitHeleApplicatie(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void AutomatischeDoorverbinding()
+        {
+            if (administratie.NuIngelogd is Controleur)
+            {
+                var toegangsControleForm = new Toegangscontroleform();
+                toegangsControleForm.Show();
+                this.Hide();
+            }
+            else if (administratie.NuIngelogd is Bezoeker)
+            {
+                var mediaSharingForm = new MediaSharingForm();
+                mediaSharingForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                var systeemKiezerForm = new SysteemKiezerForm();
+                systeemKiezerForm.Show();
+                this.Hide();
+            }
         }
     }
 }
