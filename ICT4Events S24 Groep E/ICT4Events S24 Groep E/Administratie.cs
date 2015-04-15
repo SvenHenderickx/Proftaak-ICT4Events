@@ -34,12 +34,11 @@ namespace ICT4Events_S24_Groep_E
         // Constructor
         public Administratie()
         {
-            countGemaakt++;
             if (countGemaakt == 0)
             {
                 TestDataEvents();
             }
-            
+            countGemaakt++;
         }
 
         private void TestDataEvents()
