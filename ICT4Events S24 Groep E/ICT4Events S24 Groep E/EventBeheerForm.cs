@@ -40,7 +40,7 @@ namespace ICT4Events_S24_Groep_E
             btnNee.Enabled = false;
             btnZeker.Enabled = false;
             //getAlleEvents();
-            cbEventsEventbeheer.SelectedIndex = 0;
+            //cbEventsEventbeheer.SelectedIndex = 0;
         }
 
         private void refreshCbEvents()
@@ -56,11 +56,11 @@ namespace ICT4Events_S24_Groep_E
             
 
             cbEventsEventbeheer.Items.Clear();
-            foreach (Event e in administratie.Events)
+            /*foreach (Event e in administratie.Events)
             {
                 cbEventsEventbeheer.Items.Add(e.Naam);
                 cbEventsEventbeheer.SelectedIndex = 0;
-            }
+            }*/
         }
 
         private void timer_Tick(object sender, EventArgs e)
