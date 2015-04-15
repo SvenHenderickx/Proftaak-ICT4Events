@@ -179,6 +179,7 @@
             this.Controls.Add(this.dataGridViewToegangAanwezig);
             this.Name = "Toegangscontroleform";
             this.Text = "Toegangscontrole";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TerugNaarLogin);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAanwezig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAfwezig)).EndInit();
             this.ResumeLayout(false);

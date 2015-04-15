@@ -12,8 +12,8 @@ namespace ICT4Events_S24_Groep_E
         private string rekeningNummer;
 
         //Constructor
-        public Hoofdboeker(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string rekeningNummer)
-            : base(gebruikersnaam, wachtwoord, geboorteDatum)
+        public Hoofdboeker(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string rekeningNummer, string naam, string achternaam)
+            : base(gebruikersnaam, wachtwoord, geboorteDatum, naam, achternaam)
         {
             this.rekeningNummer = rekeningNummer;
         }

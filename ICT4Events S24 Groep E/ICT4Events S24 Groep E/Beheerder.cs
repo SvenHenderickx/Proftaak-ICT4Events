@@ -9,8 +9,8 @@ namespace ICT4Events_S24_Groep_E
     public class Beheerder : Persoon
     {
         //Constructors
-        public Beheerder(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum)
-            : base(gebruikersnaam, wachtwoord, geboorteDatum)
+        public Beheerder(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string naam, string achternaam)
+            : base(gebruikersnaam, wachtwoord, geboorteDatum, naam, achternaam)
         {
 
         }

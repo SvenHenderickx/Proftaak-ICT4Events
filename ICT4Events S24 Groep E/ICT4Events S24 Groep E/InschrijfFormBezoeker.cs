@@ -63,7 +63,7 @@ namespace ICT4Events_S24_Groep_E
         {
             if (tbGebruikersNaam.Text != "" && tbWachtwoord.Text != "")
             {
-                bezoeker = new Bezoeker(tbGebruikersNaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, hoofdBoeker);
+                bezoeker = new Bezoeker(tbGebruikersNaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, hoofdBoeker, tbNaam.Text, tbAchternaam.Text);
                 // bezoeker moet worden toegevoegd aan SME event
                 gbGegevens.Enabled = false;
             }

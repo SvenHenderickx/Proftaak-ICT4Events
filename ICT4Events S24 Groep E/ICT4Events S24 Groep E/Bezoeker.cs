@@ -33,16 +33,16 @@ namespace ICT4Events_S24_Groep_E
 
         //Constructor
 
-        public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum)
-            : base(gebruikersnaam, wachtwoord, geboortedatum)
+        public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, string naam, string achternaam)
+            : base(gebruikersnaam, wachtwoord, geboortedatum,naam,achternaam)
         {
             this.aanwezig = false;
             this.hoofdboeker = null; //de hoofdboeker is hijzelf
             huurMateriaal = new List<Huuritem>();
         }
 
-        public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, Hoofdboeker hoofdboeker)
-            : base(gebruikersnaam, wachtwoord, geboortedatum)
+        public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, Hoofdboeker hoofdboeker,string naam, string achternaam)
+            : base(gebruikersnaam, wachtwoord, geboortedatum, naam, achternaam)
         {
             this.aanwezig = false;
             this.hoofdboeker = hoofdboeker;

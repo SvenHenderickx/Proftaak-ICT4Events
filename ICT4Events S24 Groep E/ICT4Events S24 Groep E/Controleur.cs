@@ -8,8 +8,8 @@ namespace ICT4Events_S24_Groep_E
 {
     class Controleur : Persoon
     {
-        public Controleur(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum)
-            : base(gebruikersnaam, wachtwoord, geboorteDatum)
+        public Controleur(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string naam, string achternaam)
+            : base(gebruikersnaam, wachtwoord, geboorteDatum, naam, achternaam)
         {
 
         }

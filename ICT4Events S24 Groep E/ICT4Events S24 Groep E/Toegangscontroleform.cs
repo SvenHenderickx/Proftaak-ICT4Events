@@ -1,5 +1,4 @@
-﻿//using ICT4Events; Frank: Dit stond er nog van het vorige project
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +18,9 @@ namespace ICT4Events_S24_Groep_E
             InitializeComponent();
             administratie = new Administratie();
             RefreshData(administratie.GeefEvent(administratie.HuidigEvent.Naam));
+            dataGridViewToegangAanwezig.AllowUserToAddRows = false;
+            dataGridViewToegangAfwezig.AllowUserToAddRows = false;
+
         }
 
         private void RefreshData(Event e)
@@ -62,6 +64,12 @@ namespace ICT4Events_S24_Groep_E
             {
                 MessageBox.Show("Mislukt");
             }
+        }
+
+        private void TerugNaarLogin(object sender, FormClosedEventArgs e)
+        {
+            var logInForm = new LoginForm();
+            logInForm.Show();
         }
     }
 }

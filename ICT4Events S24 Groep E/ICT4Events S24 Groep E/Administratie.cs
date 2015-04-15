@@ -90,12 +90,25 @@ namespace ICT4Events_S24_Groep_E
 
         public string GeefPlaats(Bezoeker b, Event e)
         {
+            string plaatsen = "";
             foreach (Plaats p in e.Plaatsen)
             {
                 if (p.Huurder == b.Hoofdboeker)
                 {
-                    return p.PlaatsNummer;
+                    if (plaatsen == "")
+                    {
+                        plaatsen = p.PlaatsNummer;
+                    }
+                    else
+                    {
+                        plaatsen = plaatsen + ", " + p.PlaatsNummer;
+                    }
                 }
+            }
+
+            if (plaatsen != "")
+            {
+                return plaatsen;
             }
             return "";
         }

@@ -100,13 +100,13 @@ namespace ICT4Events_S24_Groep_E
         private void TestDataPersonen()
         {       
             // Beheerder aanmaken
-            personen.Add(new Beheerder("Admin", "Admin", new DateTime(1996, 9, 27)));
+            personen.Add(new Beheerder("Admin", "Admin", new DateTime(1996, 9, 27),"Ad","Min"));
             // Hoofdboeker aanmaken
-            personen.Add(new Hoofdboeker("PeterSchepers", "SchepersPeter", new DateTime(1980, 5, 20), "162784929")); 
+            personen.Add(new Hoofdboeker("PeterSchepers", "SchepersPeter", new DateTime(1980, 5, 20), "162784929","Peter","Schepers")); 
             // Bezoekers aanmaken
-            personen.Add(new Bezoeker("HennyHanssen", "HanssenHenny", new DateTime(1996, 12, 15), GeefHoofdboeker("PeterSchepers")));
-            personen.Add(new Bezoeker("AnjaHaas", "HaasAnja", new DateTime(1998, 3, 18), GeefHoofdboeker("PeterSchepers")));
-            personen.Add(new Controleur("AlexRas", "RasAlex", new DateTime(1995, 5, 22)));
+            personen.Add(new Bezoeker("HennyHanssen", "HanssenHenny", new DateTime(1996, 12, 15), GeefHoofdboeker("PeterSchepers"),"Henny","Hanssen"));
+            personen.Add(new Bezoeker("AnjaHaas", "HaasAnja", new DateTime(1998, 3, 18), GeefHoofdboeker("PeterSchepers"),"Anja","Haas"));
+            personen.Add(new Controleur("AlexRas", "RasAlex", new DateTime(1995, 5, 22),"Alex","Ras"));
         }
         private void TestDataPlaatsen()
         {

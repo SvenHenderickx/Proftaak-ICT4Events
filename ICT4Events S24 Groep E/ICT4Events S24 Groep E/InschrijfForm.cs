@@ -30,7 +30,7 @@ namespace ICT4Events_S24_Groep_E
         {
             if(tbNaam.Text != "" && tbWachtwoord.Text != "")
             {
-                hoofdboeker = new Hoofdboeker(tbNaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text);
+                hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text,tbNaam.Text,tbAchternaam.Text);
                 // hoofdboeker moet ook nog toegevoegd worden aan SME Event
                 MessageBox.Show("Hoofdboeker Gemaakt");
                 gbGegevens.Enabled = false;
