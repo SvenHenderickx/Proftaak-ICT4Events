@@ -10,9 +10,9 @@ namespace ICT4Events_S24_Groep_E
     {
         private int likes;
         private int aantalKeerGerapporteerd;
-        private int aantalKeerBekeken;
         private string tekst;
         private List<Reactie> reacties;
+        private Persoon auteur;
 
         public int Likes
         {
@@ -24,11 +24,6 @@ namespace ICT4Events_S24_Groep_E
             get { return aantalKeerGerapporteerd; }
         }
 
-        public int AantalKeerBekeken
-        {
-            get { return aantalKeerBekeken; }
-        }
-
         public string Tekst
         {
             get { return tekst; }
@@ -37,6 +32,11 @@ namespace ICT4Events_S24_Groep_E
         public List<Reactie> Reacties
         {
             get { return reacties; }
+        }
+
+        public Persoon Auteur
+        {
+            get { return auteur; }
         }
 
         public Bericht(string tekst)

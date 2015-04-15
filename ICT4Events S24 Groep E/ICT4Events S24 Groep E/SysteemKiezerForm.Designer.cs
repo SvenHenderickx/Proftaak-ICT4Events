@@ -30,7 +30,7 @@
         {
             this.btnEventBeheerSysteemKiezerForm = new System.Windows.Forms.Button();
             this.btnToegangsControleSysteemKiezerForm = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnInschrijvenSysteemKiezerForm = new System.Windows.Forms.Button();
             this.btnMediaSharingSysteemKiezerForm = new System.Windows.Forms.Button();
             this.lblEventSysteemKiezerForm = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -55,14 +55,15 @@
             this.btnToegangsControleSysteemKiezerForm.UseVisualStyleBackColor = true;
             this.btnToegangsControleSysteemKiezerForm.Click += new System.EventHandler(this.btnToegangsControleSysteemKiezerForm_Click);
             // 
-            // button3
+            // btnInschrijvenSysteemKiezerForm
             // 
-            this.button3.Location = new System.Drawing.Point(13, 97);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(202, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Inschrijving";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnInschrijvenSysteemKiezerForm.Location = new System.Drawing.Point(13, 97);
+            this.btnInschrijvenSysteemKiezerForm.Name = "btnInschrijvenSysteemKiezerForm";
+            this.btnInschrijvenSysteemKiezerForm.Size = new System.Drawing.Size(202, 23);
+            this.btnInschrijvenSysteemKiezerForm.TabIndex = 2;
+            this.btnInschrijvenSysteemKiezerForm.Text = "Inschrijving";
+            this.btnInschrijvenSysteemKiezerForm.UseVisualStyleBackColor = true;
+            this.btnInschrijvenSysteemKiezerForm.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnMediaSharingSysteemKiezerForm
             // 
@@ -89,10 +90,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 261);
+            this.ClientSize = new System.Drawing.Size(224, 159);
             this.Controls.Add(this.lblEventSysteemKiezerForm);
             this.Controls.Add(this.btnMediaSharingSysteemKiezerForm);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnInschrijvenSysteemKiezerForm);
             this.Controls.Add(this.btnToegangsControleSysteemKiezerForm);
             this.Controls.Add(this.btnEventBeheerSysteemKiezerForm);
             this.Name = "SysteemKiezerForm";
@@ -108,7 +109,7 @@
 
         private System.Windows.Forms.Button btnEventBeheerSysteemKiezerForm;
         private System.Windows.Forms.Button btnToegangsControleSysteemKiezerForm;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnInschrijvenSysteemKiezerForm;
         private System.Windows.Forms.Button btnMediaSharingSysteemKiezerForm;
         private System.Windows.Forms.Label lblEventSysteemKiezerForm;
     }

@@ -68,5 +68,12 @@ namespace ICT4Events_S24_Groep_E
             toegangsControleForm.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var inschrijfForm = new InschrijfForm();
+            inschrijfForm.Show();
+            this.Hide();
+        }
     }
 }
