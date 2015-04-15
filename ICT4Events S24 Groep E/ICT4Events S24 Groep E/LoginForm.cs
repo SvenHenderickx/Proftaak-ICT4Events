@@ -13,12 +13,12 @@ namespace ICT4Events_S24_Groep_E
     public partial class LoginForm : Form
     {
 
-        Administratie administartie;
+        Administratie administratie;
 
         public LoginForm()
         {
             InitializeComponent();
-            administartie = new Administratie();
+            administratie = new Administratie();
             KrijgAlleEvents();
             cmbEventsLoginForm.SelectedIndex = 0;
         }
@@ -28,16 +28,25 @@ namespace ICT4Events_S24_Groep_E
             Persoon tempPersoon = null;
             if (cmbEventsLoginForm.Text.Length > 0)
             {
-                Event evenement = administartie.GeefEvent(cmbEventsLoginForm.Text);
+                Event evenement = administratie.GeefEvent(cmbEventsLoginForm.Text);
                 tempPersoon = evenement.CheckGebruikersNaamRfid(tbGebRfidLoginForm.Text);
                 if (tempPersoon != null)
                 {
                     if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.Text))
                     {
-                        tempPersoon = administartie.NuIngelogd;
-                        evenement = administartie.HuidigEvent;
-                        var systeemKiezerForm = new SysteemKiezerForm();
-                        systeemKiezerForm.Show();
+                        tempPersoon = administratie.NuIngelogd;
+                        evenement = administratie.HuidigEvent;
+                        if (tempPersoon is Beheerder)
+                        {
+                            var systeemKiezerForm = new SysteemKiezerForm();
+                            systeemKiezerForm.Show();
+                        }
+                        else if (tempPersoon is Controleur)
+                        {
+                            var toegangscontroleform = new Toegangscontroleform();
+                            toegangscontroleform.Show();
+                        }
+                        
                         this.Hide();
                     }
                     else
@@ -55,7 +64,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void KrijgAlleEvents()
         {
-            foreach (Event e in administartie.Events)
+            foreach (Event e in administratie.Events)
             {
                 cmbEventsLoginForm.Items.Add(e.Naam);
             }
