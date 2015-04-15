@@ -85,5 +85,11 @@ namespace ICT4Events_S24_Groep_E
                 this.Hide();
             }
         }
+
+        private void btnInschrijvenInloggenForm_Click(object sender, EventArgs e)
+        {
+            var inschrijfForm = new InschrijfForm();
+            inschrijfForm.Show();
+        }
     }
 }

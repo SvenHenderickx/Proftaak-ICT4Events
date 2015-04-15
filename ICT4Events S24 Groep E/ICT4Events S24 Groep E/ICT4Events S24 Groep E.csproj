@@ -126,6 +126,9 @@
     <EmbeddedResource Include="MateriaalVerhuurForm.resx">
       <DependentUpon>MateriaalVerhuurForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MediaSharingForm.resx">
+      <DependentUpon>MediaSharingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

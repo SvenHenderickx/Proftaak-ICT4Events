@@ -38,14 +38,35 @@ namespace ICT4Events_S24_Groep_E
             {
                 var toegangsControleForm = new Toegangscontroleform();
                 toegangsControleForm.Show();
-                this.Close();
+                this.Hide();
             }
             else if (administratie.NuIngelogd is Bezoeker)
             {
                 var mediaSharingForm = new MediaSharingForm();
                 mediaSharingForm.Show();
-                this.Close();
+                this.Hide();
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var mediaSharingForm = new MediaSharingForm();
+            mediaSharingForm.Show();
+            this.Hide();
+        }
+
+        private void btnEventBeheerSysteemKiezerForm_Click(object sender, EventArgs e)
+        {
+            var eventBeheerForm = new EventBeheerForm();
+            eventBeheerForm.Show();
+            this.Hide();
+        }
+
+        private void btnToegangsControleSysteemKiezerForm_Click(object sender, EventArgs e)
+        {
+            var toegangsControleForm = new Toegangscontroleform();
+            toegangsControleForm.Show();
+            this.Hide();
         }
     }
 }

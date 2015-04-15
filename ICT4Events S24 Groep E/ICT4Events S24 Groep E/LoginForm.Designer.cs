@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbEventsLoginForm = new System.Windows.Forms.ComboBox();
+            this.btnInschrijvenInloggenForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbGebRfidLoginForm
@@ -88,11 +89,22 @@
             this.cmbEventsLoginForm.Size = new System.Drawing.Size(221, 21);
             this.cmbEventsLoginForm.TabIndex = 5;
             // 
+            // btnInschrijvenInloggenForm
+            // 
+            this.btnInschrijvenInloggenForm.Location = new System.Drawing.Point(13, 151);
+            this.btnInschrijvenInloggenForm.Name = "btnInschrijvenInloggenForm";
+            this.btnInschrijvenInloggenForm.Size = new System.Drawing.Size(221, 29);
+            this.btnInschrijvenInloggenForm.TabIndex = 6;
+            this.btnInschrijvenInloggenForm.Text = "Inschrijven";
+            this.btnInschrijvenInloggenForm.UseVisualStyleBackColor = true;
+            this.btnInschrijvenInloggenForm.Click += new System.EventHandler(this.btnInschrijvenInloggenForm_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 157);
+            this.ClientSize = new System.Drawing.Size(246, 191);
+            this.Controls.Add(this.btnInschrijvenInloggenForm);
             this.Controls.Add(this.cmbEventsLoginForm);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -115,6 +127,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbEventsLoginForm;
+        private System.Windows.Forms.Button btnInschrijvenInloggenForm;
     }
 }
 
