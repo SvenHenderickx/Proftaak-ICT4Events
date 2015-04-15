@@ -18,24 +18,28 @@ namespace ICT4Events_S24_Groep_E
         List<Event> events;
         List<Bezoeker> bezoekers;
         private Event evenement;
+        private Administratie administratie;
 
 
         public EventBeheerForm()
         {
             InitializeComponent();
             timer = new System.Windows.Forms.Timer();
-            events = new List<Event>();
-            bezoekers = new List<Bezoeker>();
-            Administratie administratie = new Administratie();
-            evenement = administratie.HuidigEvent;
+            administratie = new Administratie();
+            btnNee.Enabled = false;
+            btnZeker.Enabled = false;
+            getAlleEvents();
+            cbEventsEventbeheer.SelectedIndex = 0;
         }
 
         private void getAlleEvents()
         {
-            events.Clear();
-            // database connectie
-            
-
+            cbEventsEventbeheer.Items.Clear();
+            foreach (Event e in administratie.Events)
+            {
+                cbEventsEventbeheer.Items.Add(e.Naam);
+                cbEventsEventbeheer.SelectedIndex = 0;
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -84,13 +88,17 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnMaakEventAan_Click(object sender, EventArgs e)
         {
-            string naam = tbEventNaam.Text,
-                plaats = cbPlaatsen.SelectedIndex.ToString(),
-                adres=cbAdresSelecter.SelectedIndex.ToString();
-            DateTime beginDatum=dtpBeginDatum.Value,
-                eindDatum=dtpEindDatum.Value;
-
-            Event evenement = new Event(naam, beginDatum, eindDatum, plaats, adres);
+            string naam = tbEventNaamEventbeheer.Text;
+            string plaats = tbPlaatsEventbeheer.Text;
+            string adres = tbAdresEventbeheer.Text;
+            DateTime beginDatum = dtpBeginDatum.Value;
+            DateTime eindDatum = dtpEindDatum.Value;
+            if (administratie.VoegEventToe(naam, beginDatum, eindDatum, plaats, adres))
+            {
+                getAlleEvents();
+                updateEventTab();
+            }
+            
         }
 
         private void cbEvents_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,8 +107,11 @@ namespace ICT4Events_S24_Groep_E
         }
         private void updateEventTab()
         {
-            // alle events specs invullen.... moet uit de database
-            
+            dtpBeginDatum.Value = administratie.GeefEvent(cbEventsEventbeheer.Text).BeginDatum;
+            dtpEindDatum.Value = administratie.GeefEvent(cbEventsEventbeheer.Text).EindDatum;
+            tbEventNaamEventbeheer.Text = cbEventsEventbeheer.Text;
+            tbPlaatsEventbeheer.Text = administratie.GeefEvent(cbEventsEventbeheer.Text).Plaats;
+            tbAdresEventbeheer.Text = administratie.GeefEvent(cbEventsEventbeheer.Text).Adres;
         }
 
         private void btnInfoOpvraag_Click(object sender, EventArgs e)
@@ -115,6 +126,12 @@ namespace ICT4Events_S24_Groep_E
                 }
                     lbGebruikerinfo.Items.Add(info);
             }
+        }
+
+        private void TerugNaarLogIn(object sender, FormClosedEventArgs e)
+        {
+            var logInForm = new LoginForm();
+            logInForm.Show();
         }
     }
 }
