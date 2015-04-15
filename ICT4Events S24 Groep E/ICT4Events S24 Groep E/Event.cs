@@ -104,6 +104,7 @@ namespace ICT4Events_S24_Groep_E
             // Bezoekers aanmaken
             personen.Add(new Bezoeker("HennyHanssen", "HanssenHenny", new DateTime(1996, 12, 15), GeefHoofdboeker("PeterSchepers")));
             personen.Add(new Bezoeker("AnjaHaas", "HaasAnja", new DateTime(1998, 3, 18), GeefHoofdboeker("PeterSchepers")));
+            personen.Add(new Controleur("AlexRas", "RasAlex", new DateTime(1995, 5, 22)));
         }
         private void TestDataPlaatsen()
         {
