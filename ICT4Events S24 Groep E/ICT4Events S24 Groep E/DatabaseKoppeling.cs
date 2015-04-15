@@ -30,7 +30,7 @@ namespace ICT4Events_S24_Groep_E
                 conn.Open();
                 MessageBox.Show("Connectie gelukt!");
             }
-            catch (Exception ex)
+            catch 
             {
                 MessageBox.Show("Connectie mislukt");
             }

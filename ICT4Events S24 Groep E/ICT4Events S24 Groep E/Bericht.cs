@@ -54,7 +54,7 @@ namespace ICT4Events_S24_Groep_E
             likes = new List<Like>();
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return likes.Count + " Like(s): " + tekst + " - " + datumGepost;
         }

@@ -13,7 +13,6 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class EventBeheerForm : Form
     {
-        Administratie admin;
         System.Windows.Forms.Timer timer;
         int interval = 3000;
         //List<Event> events;
@@ -26,17 +25,15 @@ namespace ICT4Events_S24_Groep_E
         public EventBeheerForm()
         {
             InitializeComponent();
-            admin = new Administratie();
             timer = new System.Windows.Forms.Timer();
             //events = new List<Event>();
             bezoekers = new List<Bezoeker>();
-            Administratie administratie = new Administratie();
+            administratie = new Administratie();
             evenement = administratie.HuidigEvent;
             refreshCbEvents();
 
             //enable gebruiker tab als user een admin is? rechten??
             if (shit) gbGebruikers.Enabled = true;
-            administratie = new Administratie();
             btnNee.Enabled = false;
             btnZeker.Enabled = false;
             //getAlleEvents();
@@ -46,7 +43,7 @@ namespace ICT4Events_S24_Groep_E
         private void refreshCbEvents()
         {
             cbEvents.Items.Clear();
-            foreach (Event ev in admin.Events)
+            foreach (Event ev in administratie.Events)
             {
                 if (true) // voorwaarde
                 {
@@ -105,11 +102,11 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnVerwijderEvent_Click(object sender, EventArgs e)
         {
-            foreach (Event ev in admin.Events)
+            foreach (Event ev in administratie.Events)
             {
                 if (ev == evenement)
                 {
-                    admin.Events.Remove(ev);
+                    administratie.Events.Remove(ev);
                     break;
                 }
             }
@@ -134,7 +131,7 @@ namespace ICT4Events_S24_Groep_E
         {
             
             string itemselected = Convert.ToString(cbEvents.SelectedItem);
-            foreach (Event ev in admin.Events)
+            foreach (Event ev in administratie.Events)
             {
                 if (itemselected == ev.ToString())
                 {
