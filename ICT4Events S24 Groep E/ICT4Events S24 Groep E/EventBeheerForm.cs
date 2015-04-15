@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.ServiceProcess; <-- wtf is deze
 
 namespace ICT4Events_S24_Groep_E
 {
@@ -16,10 +15,7 @@ namespace ICT4Events_S24_Groep_E
         DatabaseKoppeling database;
         System.Windows.Forms.Timer timer;
         int interval = 3000;
-        //List<Event> events;
-        List<Bezoeker> bezoekers;
         private Event evenement;
-        bool shit = true;
         private Administratie administratie;
 
 
@@ -27,18 +23,14 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             timer = new System.Windows.Forms.Timer();
-            //events = new List<Event>();
-            bezoekers = new List<Bezoeker>();
             administratie = new Administratie();
             evenement = administratie.HuidigEvent;
             refreshCbEvents();
-
-            //enable gebruiker tab als user een admin is? rechten??
-            if (shit) gbGebruikers.Enabled = true;
+            gbGebruikers.Enabled = true;
             btnNee.Enabled = false;
             btnZeker.Enabled = false;
             //getAlleEvents();
-            cbEventsEventbeheer.SelectedValue = 0;
+            cbEventsEventbeheer.SelectedIndex = 0;
         }
 
         private void refreshCbEvents()
