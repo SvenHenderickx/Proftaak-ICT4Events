@@ -173,5 +173,33 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        public bool VoegPersoonToe(Persoon persoon)
+        {
+            foreach (Persoon p in personen)
+            {
+                if (p.Gebruikersnaam == persoon.Gebruikersnaam)
+                {
+                    return false;
+                }
+            }
+            personen.Add(persoon);
+            return true;
+        }
+
+        // kijken of de gebruikersnaam van een persoon al in de lijst van personen zit
+        // functie heeft zelfde functie als voegPersoonToe alleen voegt deze methode
+        // de persoon niet toe.
+        public bool CheckPersoon(Persoon persoon)
+        {
+            foreach (Persoon p in personen)
+            {
+                if (p.Gebruikersnaam == persoon.Gebruikersnaam)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
     }
 }

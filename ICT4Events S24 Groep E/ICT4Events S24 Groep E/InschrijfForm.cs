@@ -28,14 +28,28 @@ namespace ICT4Events_S24_Groep_E
         // Event Handlers
         private void btnMaakBezoeker_Click(object sender, EventArgs e)
         {
-            if(tbNaam.Text != "" && tbWachtwoord.Text != "")
+            if(tbNaam.Text != "" && tbWachtwoord.Text != "" && tbRekNr.Text != "" && tbNaam.Text != "" && tbAchternaam.Text != "")
             {
-                hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text,tbNaam.Text,tbAchternaam.Text);
-                // hoofdboeker moet ook nog toegevoegd worden aan SME Event
-                MessageBox.Show("Hoofdboeker Gemaakt");
-                gbGegevens.Enabled = false;
-                Reservering nieuweReservering = new Reservering(hoofdboeker, geselecteerdePlaatsen);
-                // nieuwereservering moet nog toegevoegd worden aan alle reserveringen.
+                if(geselecteerdePlaatsen.Count == 0)
+                {
+                    MessageBox.Show("Selecteer eerst een of meer plaatsen");
+                }
+                else
+                {
+                    hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbNaam.Text, tbAchternaam.Text);
+                    // hier wordt alleen gecheckt of de gebruikersnaam al bestaat of niet
+                    // als dat zo is dan kan de hoofdboeker niet gemaakt worden.
+                    if (administratie.HuidigEvent.CheckPersoon(hoofdboeker))
+                    {
+                        gbGegevens.Enabled = false;
+                        gbPlaatsen.Enabled = false;
+                        MessageBox.Show("Hoofdboeker Gemaakt");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gebruikersnaam bestaat al");
+                    }
+                }                               
             }
             else
             {
@@ -48,7 +62,7 @@ namespace ICT4Events_S24_Groep_E
             if (cbPlaats.SelectedItem != null)
             {
                 string plaats = cbPlaats.SelectedItem.ToString();
-                Plaats gekozenPlaats = administratie.GeefEvent("SME Event").GeefPlaats(plaats.Substring(10, 4));
+                Plaats gekozenPlaats = administratie.HuidigEvent.GeefPlaats(plaats.Substring(10, 4));
                 if (!gekozenPlaats.Bezet)
                 {
                     gekozenPlaats.Bezet = true;
@@ -67,7 +81,7 @@ namespace ICT4Events_S24_Groep_E
             if (lbPlaatsen.SelectedItem != null)
             {
                 string plaats = lbPlaatsen.SelectedItem.ToString();
-                Plaats gekozenPlaats = administratie.GeefEvent("SME Event").GeefPlaats(plaats.Substring(10, 4));
+                Plaats gekozenPlaats = administratie.HuidigEvent.GeefPlaats(plaats.Substring(10, 4));
                 geselecteerdePlaatsen.Remove(gekozenPlaats);
                 gekozenPlaats.Bezet = false;
             }
@@ -84,10 +98,31 @@ namespace ICT4Events_S24_Groep_E
             // de gebruiker op huurmateriaal klikt.
             if (hoofdboeker != null)
             {
-                if (chbMeerPersonen.Checked && cbMeerderePersonen.SelectedItem != null)
+                if (!chbMeerPersonen.Checked)
                 {
-                    InschrijfFormBezoeker inschrijfformBezoeker = new InschrijfFormBezoeker((int)cbMeerderePersonen.SelectedItem, hoofdboeker);
-                    inschrijfformBezoeker.Show();
+                    DialogResult andereBezoekers = MessageBox.Show("Weet u zeker of u geen andere bezoekers wilt inschrijven? \n Klik anders op de checkbox voor meerdere personen.", "Error", MessageBoxButtons.YesNo);
+                    if (andereBezoekers == DialogResult.Yes)
+                    {
+                        // hoofdboeker wordt definitief gemaakt
+                        // programma moet terugkeren naar het inlogform
+                        administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
+                        MessageBox.Show("Inschrijving afgerond");
+                        this.Dispose();
+                    }
+                    // als de gebruiker op nee klikt dan moet het programma niets doen.
+                }
+                else
+                {
+                    if (cbMeerderePersonen.SelectedItem != null)
+                    {
+                        // Hoofdboeker wordt definitief gemaakt
+                        // programma gaat door naar volgende bezoekers
+                        administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
+                        administratie.HuidigEvent.Reserveringen.Add(new Reservering(hoofdboeker, geselecteerdePlaatsen)); // nieuwe reservering wordt aan het evenement toegevoegd.
+                        InschrijfFormBezoeker inschrijfformBezoeker = new InschrijfFormBezoeker((int)cbMeerderePersonen.SelectedItem, hoofdboeker);
+                        inschrijfformBezoeker.Show();
+                        this.Dispose();
+                    }
                 }
             }
             else
@@ -114,11 +149,13 @@ namespace ICT4Events_S24_Groep_E
             if (chbMeerPersonen.Checked)
             {
                 cbMeerderePersonen.Enabled = true;
+                btnVolgende.Text = "Volgende";
             }
             else
             {
                 cbMeerderePersonen.Enabled = false;
                 cbMeerderePersonen.Items.Clear();
+                btnVolgende.Text = "Bevestig";
             }
             Ververs();
         }
@@ -128,10 +165,14 @@ namespace ICT4Events_S24_Groep_E
         {
             // nog kijken of een plaats al bezet is of niet.
             // alleen niet bezette plaatsen toevoegen!!!
-            foreach (Plaats p in administratie.GeefEvent("SME Event").Plaatsen)
+            foreach (Plaats p in administratie.HuidigEvent.Plaatsen)
             {
-                cbPlaats.Items.Add(p.ToString());
+                if (!p.Bezet)
+                {
+                    cbPlaats.Items.Add(p.ToString());
+                }
             }
+            cbPlaats.SelectedIndex = 0;
         }
 
         private void Ververs()
@@ -154,17 +195,14 @@ namespace ICT4Events_S24_Groep_E
             {
                 cbMeerderePersonen.Items.Add(i);
             }
+            cbMeerderePersonen.SelectedIndex = 0;
         }
 
-
-
-
-
-
-
-
-
-
-
+        private void btnAnnuleren_Click(object sender, EventArgs e)
+        {
+            hoofdboeker = null;
+            gbGegevens.Enabled = true;
+            gbPlaatsen.Enabled = true;
+        }
     }
 }

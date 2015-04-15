@@ -184,7 +184,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Name = "MateriaalVerhuurForm";
-            this.Text = "MateriaalVerhuurForm";
+            this.Text = "Materiaal Verhuur";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

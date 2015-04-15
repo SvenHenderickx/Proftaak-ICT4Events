@@ -64,6 +64,7 @@
             this.btnAnnuleren.TabIndex = 35;
             this.btnAnnuleren.Text = "Annuleren";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // btnMateriaalHuren
             // 
@@ -252,6 +253,7 @@
             this.tbAchternaam.Name = "tbAchternaam";
             this.tbAchternaam.Size = new System.Drawing.Size(248, 22);
             this.tbAchternaam.TabIndex = 8;
+            this.tbAchternaam.Text = "Halal";
             // 
             // tbTelefoon
             // 

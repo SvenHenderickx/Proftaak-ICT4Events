@@ -30,7 +30,7 @@
         {
             this.cbMeerderePersonen = new System.Windows.Forms.ComboBox();
             this.chbMeerPersonen = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAnnuleren = new System.Windows.Forms.Button();
             this.gbGegevens = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,14 +86,15 @@
             this.chbMeerPersonen.UseVisualStyleBackColor = true;
             this.chbMeerPersonen.CheckedChanged += new System.EventHandler(this.chbMeerPersonen_CheckedChanged);
             // 
-            // button2
+            // btnAnnuleren
             // 
-            this.button2.Location = new System.Drawing.Point(299, 694);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 40);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "Annuleren";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.Location = new System.Drawing.Point(299, 694);
+            this.btnAnnuleren.Name = "btnAnnuleren";
+            this.btnAnnuleren.Size = new System.Drawing.Size(97, 40);
+            this.btnAnnuleren.TabIndex = 33;
+            this.btnAnnuleren.Text = "Annuleren";
+            this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // gbGegevens
             // 
@@ -254,6 +255,7 @@
             this.tbAchternaam.Name = "tbAchternaam";
             this.tbAchternaam.Size = new System.Drawing.Size(248, 22);
             this.tbAchternaam.TabIndex = 8;
+            this.tbAchternaam.Text = "Halal";
             // 
             // tbTelefoon
             // 
@@ -289,6 +291,7 @@
             this.tbRekNr.Name = "tbRekNr";
             this.tbRekNr.Size = new System.Drawing.Size(248, 22);
             this.tbRekNr.TabIndex = 3;
+            this.tbRekNr.Text = "1829938";
             // 
             // tbNaam
             // 
@@ -398,7 +401,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbMeerderePersonen);
             this.Controls.Add(this.chbMeerPersonen);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnAnnuleren);
             this.Controls.Add(this.gbGegevens);
             this.Controls.Add(this.btnMateriaalHuren);
             this.Controls.Add(this.btnVolgende);
@@ -418,7 +421,7 @@
 
         private System.Windows.Forms.ComboBox cbMeerderePersonen;
         private System.Windows.Forms.CheckBox chbMeerPersonen;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAnnuleren;
         private System.Windows.Forms.GroupBox gbGegevens;
         private System.Windows.Forms.Button btnVerwijderPlaats;
         private System.Windows.Forms.Button btnVoegPlaatsToe;

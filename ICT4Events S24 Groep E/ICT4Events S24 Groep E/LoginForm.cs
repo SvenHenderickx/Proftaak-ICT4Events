@@ -88,6 +88,10 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnInschrijvenInloggenForm_Click(object sender, EventArgs e)
         {
+            // Frank: bij het inschrijven moet ik ook personen aan een bepaald evenement toevoegen dus 
+            // dit stuk code hieronder moet ik ook gebruiken.
+            Event evenement = administratie.GeefEvent(cmbEventsLoginForm.Text);
+            administratie.HuidigEvent = evenement;
             var inschrijfForm = new InschrijfForm();
             inschrijfForm.Show();
         }

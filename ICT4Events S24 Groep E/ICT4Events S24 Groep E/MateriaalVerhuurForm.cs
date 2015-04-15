@@ -53,7 +53,7 @@ namespace ICT4Events_S24_Groep_E
         {
             if (lbGekozenItems.SelectedItem != null)
             {
-                Huuritem huuritem = administratie.GeefEvent("SME Event").GeefHuuritem(lbGekozenItems.SelectedItem.ToString());
+                Huuritem huuritem = administratie.HuidigEvent.GeefHuuritem(lbGekozenItems.SelectedItem.ToString());
                 bezoeker.HuurMateriaal.Remove(huuritem);
                 huuritem.IsGehuurd = false;
             }
@@ -68,6 +68,7 @@ namespace ICT4Events_S24_Groep_E
         {
             // button wordt nog niet gebruikt
             // kan gebruikt worden als het moet maar vereist aanpassingen.
+            this.Dispose();
         }
 
         // Methods
@@ -88,7 +89,7 @@ namespace ICT4Events_S24_Groep_E
         {
             if (cb.SelectedItem != null)
             {
-                Huuritem huuritem = administratie.GeefEvent("SME Event").GeefHuuritem(cb.SelectedItem.ToString());
+                Huuritem huuritem = administratie.HuidigEvent.GeefHuuritem(cb.SelectedItem.ToString());
                 if (!huuritem.IsGehuurd)
                 {
                     bezoeker.HuurMateriaal.Add(huuritem);
@@ -106,7 +107,7 @@ namespace ICT4Events_S24_Groep_E
             // Alle FotoCamera's toevoegen die nog niet zijn uitgeleend
             cbFotoCamera.Items.Clear();
             cbVideoCamera.Items.Clear();
-            foreach (Huuritem h in administratie.GeefEvent("SME Event").HuurMateriaal)
+            foreach (Huuritem h in administratie.HuidigEvent.HuurMateriaal)
             {
                 if (h.Type == "Fotocamera" && !h.IsGehuurd)
                 {
