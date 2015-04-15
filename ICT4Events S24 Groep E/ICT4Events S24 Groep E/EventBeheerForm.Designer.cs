@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventBeheerForm));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbGebruikers = new System.Windows.Forms.GroupBox();
             this.cbPlaats = new System.Windows.Forms.ComboBox();
             this.btnZeker = new System.Windows.Forms.Button();
             this.btnNee = new System.Windows.Forms.Button();
@@ -60,7 +60,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpEindDatum = new System.Windows.Forms.DateTimePicker();
             this.dtpBeginDatum = new System.Windows.Forms.DateTimePicker();
-            this.btnPasEventAan = new System.Windows.Forms.Button();
             this.tbAdres = new System.Windows.Forms.TextBox();
             this.tbEventNaam = new System.Windows.Forms.TextBox();
             this.tbPlaats = new System.Windows.Forms.TextBox();
@@ -70,28 +69,30 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.eventTab = new System.Windows.Forms.TabPage();
             this.gebruikerTab = new System.Windows.Forms.TabPage();
-            this.groupBox1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.gbGebruikers.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.eventTab.SuspendLayout();
             this.gebruikerTab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbGebruikers
             // 
-            this.groupBox1.Controls.Add(this.cbPlaats);
-            this.groupBox1.Controls.Add(this.btnZeker);
-            this.groupBox1.Controls.Add(this.btnNee);
-            this.groupBox1.Controls.Add(this.cbGebruiker);
-            this.groupBox1.Controls.Add(this.btnVerwijder);
-            this.groupBox1.Controls.Add(this.lbGebruikerinfo);
-            this.groupBox1.Controls.Add(this.btnInfoOpvraag);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(766, 305);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Gebruikers";
+            this.gbGebruikers.Controls.Add(this.cbPlaats);
+            this.gbGebruikers.Controls.Add(this.btnZeker);
+            this.gbGebruikers.Controls.Add(this.btnNee);
+            this.gbGebruikers.Controls.Add(this.cbGebruiker);
+            this.gbGebruikers.Controls.Add(this.btnVerwijder);
+            this.gbGebruikers.Controls.Add(this.lbGebruikerinfo);
+            this.gbGebruikers.Controls.Add(this.btnInfoOpvraag);
+            this.gbGebruikers.Enabled = false;
+            this.gbGebruikers.Location = new System.Drawing.Point(6, 6);
+            this.gbGebruikers.Name = "gbGebruikers";
+            this.gbGebruikers.Size = new System.Drawing.Size(766, 305);
+            this.gbGebruikers.TabIndex = 0;
+            this.gbGebruikers.TabStop = false;
+            this.gbGebruikers.Text = "Gebruikers";
             // 
             // cbPlaats
             // 
@@ -182,7 +183,6 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dtpEindDatum);
             this.groupBox2.Controls.Add(this.dtpBeginDatum);
-            this.groupBox2.Controls.Add(this.btnPasEventAan);
             this.groupBox2.Controls.Add(this.tbAdres);
             this.groupBox2.Controls.Add(this.tbEventNaam);
             this.groupBox2.Controls.Add(this.tbPlaats);
@@ -382,16 +382,6 @@
             this.dtpBeginDatum.Size = new System.Drawing.Size(200, 20);
             this.dtpBeginDatum.TabIndex = 4;
             // 
-            // btnPasEventAan
-            // 
-            this.btnPasEventAan.Location = new System.Drawing.Point(602, 17);
-            this.btnPasEventAan.Name = "btnPasEventAan";
-            this.btnPasEventAan.Size = new System.Drawing.Size(75, 23);
-            this.btnPasEventAan.TabIndex = 3;
-            this.btnPasEventAan.Text = "Pas aan";
-            this.btnPasEventAan.UseVisualStyleBackColor = true;
-            this.btnPasEventAan.Click += new System.EventHandler(this.btnPasEventAan_Click);
-            // 
             // tbAdres
             // 
             this.tbAdres.Location = new System.Drawing.Point(148, 126);
@@ -419,7 +409,7 @@
             this.cbEvents.FormattingEnabled = true;
             this.cbEvents.Location = new System.Drawing.Point(148, 19);
             this.cbEvents.Name = "cbEvents";
-            this.cbEvents.Size = new System.Drawing.Size(448, 21);
+            this.cbEvents.Size = new System.Drawing.Size(529, 21);
             this.cbEvents.TabIndex = 1;
             this.cbEvents.SelectedIndexChanged += new System.EventHandler(this.cbEvents_SelectedIndexChanged);
             // 
@@ -450,7 +440,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(789, 516);
+            this.tabControl1.Size = new System.Drawing.Size(789, 400);
             this.tabControl1.TabIndex = 2;
             // 
             // eventTab
@@ -459,7 +449,7 @@
             this.eventTab.Location = new System.Drawing.Point(4, 22);
             this.eventTab.Name = "eventTab";
             this.eventTab.Padding = new System.Windows.Forms.Padding(3);
-            this.eventTab.Size = new System.Drawing.Size(781, 490);
+            this.eventTab.Size = new System.Drawing.Size(781, 374);
             this.eventTab.TabIndex = 0;
             this.eventTab.Text = "Event";
             this.eventTab.UseVisualStyleBackColor = true;
@@ -467,14 +457,23 @@
             // 
             // gebruikerTab
             // 
-            this.gebruikerTab.Controls.Add(this.groupBox1);
+            this.gebruikerTab.Controls.Add(this.gbGebruikers);
             this.gebruikerTab.Location = new System.Drawing.Point(4, 22);
             this.gebruikerTab.Name = "gebruikerTab";
             this.gebruikerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.gebruikerTab.Size = new System.Drawing.Size(781, 490);
+            this.gebruikerTab.Size = new System.Drawing.Size(781, 374);
             this.gebruikerTab.TabIndex = 1;
             this.gebruikerTab.Text = "Gebruiker";
-            this.gebruikerTab.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 414);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Terug";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnMaakEventAan_Click);
             // 
             // EventBeheerForm
             // 
@@ -482,10 +481,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 542);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventBeheerForm";
             this.Text = "EventBeheerForm";
-            this.groupBox1.ResumeLayout(false);
+            this.gbGebruikers.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -497,7 +497,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbGebruikers;
         private System.Windows.Forms.ListBox lbGebruikerinfo;
         private System.Windows.Forms.Button btnInfoOpvraag;
         private System.Windows.Forms.Button btnZeker;
@@ -512,7 +512,6 @@
         private System.Windows.Forms.TabPage eventTab;
         private System.Windows.Forms.TabPage gebruikerTab;
         private System.Windows.Forms.ComboBox cbEvents;
-        private System.Windows.Forms.Button btnPasEventAan;
         private System.Windows.Forms.DateTimePicker dtpEindDatum;
         private System.Windows.Forms.DateTimePicker dtpBeginDatum;
         private System.Windows.Forms.Label label2;
@@ -538,5 +537,6 @@
         private System.Windows.Forms.TextBox tbPlaats;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbEventNaam;
+        private System.Windows.Forms.Button button1;
     }
 }

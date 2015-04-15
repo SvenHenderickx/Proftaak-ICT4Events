@@ -201,5 +201,10 @@ namespace ICT4Events_S24_Groep_E
             return true;
         }
 
+        public override string ToString()
+        {
+            return naam + ", " + beginDatum.Day + adres;
+        }
+
     }
 }
