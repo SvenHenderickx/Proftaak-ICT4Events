@@ -13,12 +13,13 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class EventBeheerForm : Form
     {
+        DatabaseKoppeling database;
         System.Windows.Forms.Timer timer;
         int interval = 3000;
         //List<Event> events;
         List<Bezoeker> bezoekers;
         private Event evenement;
-        bool shit = false;
+        bool shit = true;
         private Administratie administratie;
 
 
@@ -37,7 +38,7 @@ namespace ICT4Events_S24_Groep_E
             btnNee.Enabled = false;
             btnZeker.Enabled = false;
             //getAlleEvents();
-            //cbEventsEventbeheer.SelectedIndex = 0;
+            cbEventsEventbeheer.SelectedValue = 0;
         }
 
         private void refreshCbEvents()
@@ -53,11 +54,11 @@ namespace ICT4Events_S24_Groep_E
             
 
             cbEventsEventbeheer.Items.Clear();
-            /*foreach (Event e in administratie.Events)
+            foreach (Event e in administratie.Events)
             {
                 cbEventsEventbeheer.Items.Add(e.Naam);
                 cbEventsEventbeheer.SelectedIndex = 0;
-            }*/
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -73,13 +74,13 @@ namespace ICT4Events_S24_Groep_E
             timer.Interval = interval;
             timer.Tick += timer_Tick;
             timer.Start();
-            
         }
 
         private void btnZeker_Click(object sender, EventArgs e)
         {
             this.btnNee.Enabled = false;
             this.btnZeker.Enabled = false;
+            // delete een administratie
         }
 
         private void btnNee_Click(object sender, EventArgs e)
@@ -173,9 +174,14 @@ namespace ICT4Events_S24_Groep_E
                 if (p is Bezoeker)
                 {
                     Bezoeker b = (Bezoeker)p;
-                    info = p.Gebruikersnaam.ToString() + " - " + p.Naam.ToString() + " - " + p.GeboorteDatum.ToString() + " - " + p.Achternaam.ToString() + " - " + p.RfidCode.ToString();
+                    info = 
+                        p.Gebruikersnaam.ToString() + " - " + 
+                        p.Naam.ToString()           + " - " + 
+                        p.GeboorteDatum.ToString()  + " - " + 
+                        p.Achternaam.ToString()     + " - " + 
+                        p.RfidCode.ToString();
                 }
-                    lbGebruikerinfo.Items.Add(info);
+                lbGebruikerinfo.Items.Add(info);
             }
         }
 
@@ -200,7 +206,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnDatabaseConnectie_Click(object sender, EventArgs e)
         {
-            DatabaseKoppeling database = new DatabaseKoppeling();
+            database = new DatabaseKoppeling();
             database.Koppel();
         }
     }

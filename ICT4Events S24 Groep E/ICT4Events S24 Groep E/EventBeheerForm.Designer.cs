@@ -38,6 +38,7 @@
             this.lbGebruikerinfo = new System.Windows.Forms.ListBox();
             this.btnInfoOpvraag = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnDatabaseConnectie = new System.Windows.Forms.Button();
             this.cbCategorieSelecter = new System.Windows.Forms.ComboBox();
             this.cbMateriaalSelecter = new System.Windows.Forms.ComboBox();
             this.cbPlaatsenSelecter = new System.Windows.Forms.ComboBox();
@@ -60,10 +61,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpEindDatum = new System.Windows.Forms.DateTimePicker();
             this.dtpBeginDatum = new System.Windows.Forms.DateTimePicker();
-            //this.tbAdres = new System.Windows.Forms.TextBox();
-            this.tbEventNaam = new System.Windows.Forms.TextBox();
-            //this.tbPlaats = new System.Windows.Forms.TextBox();
-            this.cbEvents = new System.Windows.Forms.ComboBox();
             this.btnPasEventAan = new System.Windows.Forms.Button();
             this.tbAdresEventbeheer = new System.Windows.Forms.TextBox();
             this.tbEventNaamEventbeheer = new System.Windows.Forms.TextBox();
@@ -71,13 +68,21 @@
             this.cbEventsEventbeheer = new System.Windows.Forms.ComboBox();
             this.btnVerwijderEvent = new System.Windows.Forms.Button();
             this.btnMaakEventAan = new System.Windows.Forms.Button();
+            this.tbEventNaam = new System.Windows.Forms.TextBox();
+            this.cbEvents = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.eventTab = new System.Windows.Forms.TabPage();
             this.gebruikerTab = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.gbGebruikers.SuspendLayout();
-            this.btnDatabaseConnectie = new System.Windows.Forms.Button();
-            //this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.eventTab.SuspendLayout();
@@ -168,6 +173,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button9);
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.button8);
+            this.groupBox2.Controls.Add(this.button7);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.btnDatabaseConnectie);
             this.groupBox2.Controls.Add(this.cbCategorieSelecter);
             this.groupBox2.Controls.Add(this.cbMateriaalSelecter);
@@ -190,19 +203,12 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dtpEindDatum);
-            this.groupBox2.Controls.Add(this.dtpBeginDatum);/*
-<<<<<<< HEAD
-            this.groupBox2.Controls.Add(this.tbAdres);
-            this.groupBox2.Controls.Add(this.tbEventNaam);
-            this.groupBox2.Controls.Add(this.tbPlaats);
-            this.groupBox2.Controls.Add(this.cbEvents);
-=======*/
+            this.groupBox2.Controls.Add(this.dtpBeginDatum);
             this.groupBox2.Controls.Add(this.btnPasEventAan);
             this.groupBox2.Controls.Add(this.tbAdresEventbeheer);
             this.groupBox2.Controls.Add(this.tbEventNaamEventbeheer);
             this.groupBox2.Controls.Add(this.tbPlaatsEventbeheer);
             this.groupBox2.Controls.Add(this.cbEventsEventbeheer);
-//>>>>>>> origin/master
             this.groupBox2.Controls.Add(this.btnVerwijderEvent);
             this.groupBox2.Controls.Add(this.btnMaakEventAan);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
@@ -212,36 +218,46 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "EventBeheer";
             // 
+            // btnDatabaseConnectie
+            // 
+            this.btnDatabaseConnectie.Location = new System.Drawing.Point(93, 328);
+            this.btnDatabaseConnectie.Name = "btnDatabaseConnectie";
+            this.btnDatabaseConnectie.Size = new System.Drawing.Size(113, 23);
+            this.btnDatabaseConnectie.TabIndex = 6;
+            this.btnDatabaseConnectie.Text = "Database Connectie";
+            this.btnDatabaseConnectie.UseVisualStyleBackColor = true;
+            this.btnDatabaseConnectie.Click += new System.EventHandler(this.btnDatabaseConnectie_Click);
+            // 
             // cbCategorieSelecter
             // 
             this.cbCategorieSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategorieSelecter.Location = new System.Drawing.Point(425, 227);
+            this.cbCategorieSelecter.Location = new System.Drawing.Point(459, 227);
             this.cbCategorieSelecter.Name = "cbCategorieSelecter";
-            this.cbCategorieSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbCategorieSelecter.Size = new System.Drawing.Size(231, 21);
             this.cbCategorieSelecter.TabIndex = 0;
             // 
             // cbMateriaalSelecter
             // 
             this.cbMateriaalSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMateriaalSelecter.Location = new System.Drawing.Point(425, 202);
+            this.cbMateriaalSelecter.Location = new System.Drawing.Point(459, 202);
             this.cbMateriaalSelecter.Name = "cbMateriaalSelecter";
-            this.cbMateriaalSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbMateriaalSelecter.Size = new System.Drawing.Size(231, 21);
             this.cbMateriaalSelecter.TabIndex = 0;
             // 
             // cbPlaatsenSelecter
             // 
             this.cbPlaatsenSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlaatsenSelecter.Location = new System.Drawing.Point(425, 176);
+            this.cbPlaatsenSelecter.Location = new System.Drawing.Point(459, 176);
             this.cbPlaatsenSelecter.Name = "cbPlaatsenSelecter";
-            this.cbPlaatsenSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbPlaatsenSelecter.Size = new System.Drawing.Size(231, 21);
             this.cbPlaatsenSelecter.TabIndex = 0;
             // 
             // cbDeelnemerSelecter
             // 
             this.cbDeelnemerSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDeelnemerSelecter.Location = new System.Drawing.Point(425, 152);
+            this.cbDeelnemerSelecter.Location = new System.Drawing.Point(459, 153);
             this.cbDeelnemerSelecter.Name = "cbDeelnemerSelecter";
-            this.cbDeelnemerSelecter.Size = new System.Drawing.Size(333, 21);
+            this.cbDeelnemerSelecter.Size = new System.Drawing.Size(231, 21);
             this.cbDeelnemerSelecter.TabIndex = 0;
             // 
             // cbCategorie
@@ -249,7 +265,7 @@
             this.cbCategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategorie.Location = new System.Drawing.Point(148, 227);
             this.cbCategorie.Name = "cbCategorie";
-            this.cbCategorie.Size = new System.Drawing.Size(270, 21);
+            this.cbCategorie.Size = new System.Drawing.Size(231, 21);
             this.cbCategorie.TabIndex = 0;
             // 
             // cbMateriaal
@@ -257,7 +273,7 @@
             this.cbMateriaal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMateriaal.Location = new System.Drawing.Point(148, 202);
             this.cbMateriaal.Name = "cbMateriaal";
-            this.cbMateriaal.Size = new System.Drawing.Size(270, 21);
+            this.cbMateriaal.Size = new System.Drawing.Size(231, 21);
             this.cbMateriaal.TabIndex = 0;
             // 
             // cbPlaatsen
@@ -265,7 +281,7 @@
             this.cbPlaatsen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPlaatsen.Location = new System.Drawing.Point(148, 176);
             this.cbPlaatsen.Name = "cbPlaatsen";
-            this.cbPlaatsen.Size = new System.Drawing.Size(270, 21);
+            this.cbPlaatsen.Size = new System.Drawing.Size(231, 21);
             this.cbPlaatsen.TabIndex = 0;
             // 
             // cbDeelnemersEventbeheer
@@ -273,7 +289,7 @@
             this.cbDeelnemersEventbeheer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDeelnemersEventbeheer.Location = new System.Drawing.Point(148, 152);
             this.cbDeelnemersEventbeheer.Name = "cbDeelnemersEventbeheer";
-            this.cbDeelnemersEventbeheer.Size = new System.Drawing.Size(270, 21);
+            this.cbDeelnemersEventbeheer.Size = new System.Drawing.Size(231, 21);
             this.cbDeelnemersEventbeheer.TabIndex = 0;
             // 
             // cbAdresSelecter
@@ -398,9 +414,6 @@
             this.dtpBeginDatum.Size = new System.Drawing.Size(200, 20);
             this.dtpBeginDatum.TabIndex = 4;
             // 
-//<<<<<<< HEAD
-            // tbAdres
-//=======
             // btnPasEventAan
             // 
             this.btnPasEventAan.Location = new System.Drawing.Point(602, 17);
@@ -412,7 +425,6 @@
             this.btnPasEventAan.Click += new System.EventHandler(this.btnPasEventAan_Click);
             // 
             // tbAdresEventbeheer
-//>>>>>>> origin/master
             // 
             this.tbAdresEventbeheer.Location = new System.Drawing.Point(148, 126);
             this.tbAdresEventbeheer.Name = "tbAdresEventbeheer";
@@ -435,15 +447,6 @@
             // 
             // cbEventsEventbeheer
             // 
-//<<<<<<< HEAD
-            this.cbEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEvents.FormattingEnabled = true;
-            this.cbEvents.Location = new System.Drawing.Point(148, 19);
-            this.cbEvents.Name = "cbEvents";
-            this.cbEvents.Size = new System.Drawing.Size(529, 21);
-            this.cbEvents.TabIndex = 1;
-            this.cbEvents.SelectedIndexChanged += new System.EventHandler(this.cbEvents_SelectedIndexChanged);
-//=======
             this.cbEventsEventbeheer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEventsEventbeheer.FormattingEnabled = true;
             this.cbEventsEventbeheer.Location = new System.Drawing.Point(148, 19);
@@ -451,7 +454,6 @@
             this.cbEventsEventbeheer.Size = new System.Drawing.Size(448, 21);
             this.cbEventsEventbeheer.TabIndex = 1;
             this.cbEventsEventbeheer.SelectedIndexChanged += new System.EventHandler(this.cbEvents_SelectedIndexChanged);
-//>>>>>>> origin/master
             // 
             // btnVerwijderEvent
             // 
@@ -473,6 +475,23 @@
             this.btnMaakEventAan.UseVisualStyleBackColor = true;
             this.btnMaakEventAan.Click += new System.EventHandler(this.btnMaakEventAan_Click);
             // 
+            // tbEventNaam
+            // 
+            this.tbEventNaam.Location = new System.Drawing.Point(0, 0);
+            this.tbEventNaam.Name = "tbEventNaam";
+            this.tbEventNaam.Size = new System.Drawing.Size(100, 20);
+            this.tbEventNaam.TabIndex = 0;
+            // 
+            // cbEvents
+            // 
+            this.cbEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEvents.FormattingEnabled = true;
+            this.cbEvents.Location = new System.Drawing.Point(148, 19);
+            this.cbEvents.Name = "cbEvents";
+            this.cbEvents.Size = new System.Drawing.Size(529, 21);
+            this.cbEvents.TabIndex = 1;
+            this.cbEvents.SelectedIndexChanged += new System.EventHandler(this.cbEvents_SelectedIndexChanged);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.eventTab);
@@ -480,11 +499,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-//<<<<<<< HEAD
-            this.tabControl1.Size = new System.Drawing.Size(789, 400);
-//=======
             this.tabControl1.Size = new System.Drawing.Size(789, 401);
-//>>>>>>> origin/master
             this.tabControl1.TabIndex = 2;
             // 
             // eventTab
@@ -493,11 +508,7 @@
             this.eventTab.Location = new System.Drawing.Point(4, 22);
             this.eventTab.Name = "eventTab";
             this.eventTab.Padding = new System.Windows.Forms.Padding(3);
-//<<<<<<< HEAD
-            this.eventTab.Size = new System.Drawing.Size(781, 374);
-//=======
             this.eventTab.Size = new System.Drawing.Size(781, 375);
-//>>>>>> origin/master
             this.eventTab.TabIndex = 0;
             this.eventTab.Text = "Event";
             this.eventTab.UseVisualStyleBackColor = true;
@@ -509,11 +520,7 @@
             this.gebruikerTab.Location = new System.Drawing.Point(4, 22);
             this.gebruikerTab.Name = "gebruikerTab";
             this.gebruikerTab.Padding = new System.Windows.Forms.Padding(3);
-//<<<<<<< HEAD
-            this.gebruikerTab.Size = new System.Drawing.Size(781, 374);
-//=======
             this.gebruikerTab.Size = new System.Drawing.Size(781, 375);
-//>>>>>>> origin/master
             this.gebruikerTab.TabIndex = 1;
             this.gebruikerTab.Text = "Gebruiker";
             // 
@@ -527,15 +534,77 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnMaakEventAan_Click);
             // 
-            // btnDatabaseConnectie
+            // button2
             // 
-            this.btnDatabaseConnectie.Location = new System.Drawing.Point(93, 328);
-            this.btnDatabaseConnectie.Name = "btnDatabaseConnectie";
-            this.btnDatabaseConnectie.Size = new System.Drawing.Size(113, 23);
-            this.btnDatabaseConnectie.TabIndex = 6;
-            this.btnDatabaseConnectie.Text = "Database Connectie";
-            this.btnDatabaseConnectie.UseVisualStyleBackColor = true;
-            this.btnDatabaseConnectie.Click += new System.EventHandler(this.btnDatabaseConnectie_Click);
+            this.button2.Location = new System.Drawing.Point(696, 153);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(67, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "voeg toe";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(385, 153);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(68, 23);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Verwijder";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(696, 176);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(67, 23);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "voeg toe";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(385, 176);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(68, 23);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Verwijder";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(696, 202);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(67, 23);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "voeg toe";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(385, 202);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(68, 23);
+            this.button7.TabIndex = 7;
+            this.button7.Text = "Verwijder";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(696, 225);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(67, 23);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "voeg toe";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(385, 225);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(68, 23);
+            this.button9.TabIndex = 7;
+            this.button9.Text = "Verwijder";
+            this.button9.UseVisualStyleBackColor = true;
             // 
             // EventBeheerForm
             // 
@@ -547,12 +616,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventBeheerForm";
             this.Text = "EventBeheerForm";
-//<<<<<<< HEAD
-            this.gbGebruikers.ResumeLayout(false);
-//=====
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TerugNaarLogIn);
-            //this.groupBox1.ResumeLayout(false);
-//>>>>>>> origin/master
+            this.gbGebruikers.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -609,5 +674,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbEventNaamEventbeheer;
         private System.Windows.Forms.Button btnDatabaseConnectie;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
     }
 }
