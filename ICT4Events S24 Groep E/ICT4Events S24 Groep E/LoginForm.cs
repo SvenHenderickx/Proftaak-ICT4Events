@@ -91,5 +91,37 @@ namespace ICT4Events_S24_Groep_E
             var inschrijfForm = new InschrijfForm();
             inschrijfForm.Show();
         }
+
+        private void tbWachtwoordLoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && tbGebRfidLoginForm.Text != "" && tbWachtwoordLoginForm.Text != "")
+            {
+                Persoon tempPersoon = null;
+            if (cmbEventsLoginForm.Text.Length > 0)
+            {
+                Event evenement = administratie.GeefEvent(cmbEventsLoginForm.Text);
+                tempPersoon = evenement.CheckGebruikersNaamRfid(tbGebRfidLoginForm.Text);
+                if (tempPersoon != null)
+                {
+                    if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.Text))
+                    {
+                        administratie.HuidigEvent = evenement;
+                        administratie.NuIngelogd = tempPersoon;
+                        AutomatischeDoorverbinding();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fout wachtwoord ingevoerd.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Kan gebruiker niet vinden.");
+                }
+            }
+            }
+        }
+
+        
     }
 }
