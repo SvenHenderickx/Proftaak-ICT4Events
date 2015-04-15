@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Oracle.DataAccess, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +52,7 @@
     <Compile Include="Bezoeker.cs" />
     <Compile Include="Categorie.cs" />
     <Compile Include="Controleur.cs" />
+    <Compile Include="DatabaseKoppeling.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventBeheerForm.cs">
       <SubType>Form</SubType>
