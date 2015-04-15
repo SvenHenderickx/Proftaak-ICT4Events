@@ -33,7 +33,7 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbAlles = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnPostPlaatsenMediaSharingForm = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@
             this.groupBox1.Controls.Add(this.radioButton4);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rbAlles);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(335, 50);
@@ -107,16 +107,16 @@
             this.radioButton2.Text = "Berichten";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbAlles
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(47, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Alles";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbAlles.AutoSize = true;
+            this.rbAlles.Location = new System.Drawing.Point(6, 19);
+            this.rbAlles.Name = "rbAlles";
+            this.rbAlles.Size = new System.Drawing.Size(47, 17);
+            this.rbAlles.TabIndex = 0;
+            this.rbAlles.TabStop = true;
+            this.rbAlles.Text = "Alles";
+            this.rbAlles.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -243,7 +243,7 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbAlles;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnPostPlaatsenMediaSharingForm;
         private System.Windows.Forms.Button button1;
