@@ -70,6 +70,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.eventTab = new System.Windows.Forms.TabPage();
             this.gebruikerTab = new System.Windows.Forms.TabPage();
+            this.btnDatabaseConnectie = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -160,6 +161,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnDatabaseConnectie);
             this.groupBox2.Controls.Add(this.cbCategorieSelecter);
             this.groupBox2.Controls.Add(this.cbMateriaalSelecter);
             this.groupBox2.Controls.Add(this.cbPlaatsenSelecter);
@@ -476,6 +478,16 @@
             this.gebruikerTab.Text = "Gebruiker";
             this.gebruikerTab.UseVisualStyleBackColor = true;
             // 
+            // btnDatabaseConnectie
+            // 
+            this.btnDatabaseConnectie.Location = new System.Drawing.Point(93, 328);
+            this.btnDatabaseConnectie.Name = "btnDatabaseConnectie";
+            this.btnDatabaseConnectie.Size = new System.Drawing.Size(113, 23);
+            this.btnDatabaseConnectie.TabIndex = 6;
+            this.btnDatabaseConnectie.Text = "Database Connectie";
+            this.btnDatabaseConnectie.UseVisualStyleBackColor = true;
+            this.btnDatabaseConnectie.Click += new System.EventHandler(this.btnDatabaseConnectie_Click);
+            // 
             // EventBeheerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,5 +551,6 @@
         private System.Windows.Forms.TextBox tbPlaatsEventbeheer;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbEventNaamEventbeheer;
+        private System.Windows.Forms.Button btnDatabaseConnectie;
     }
 }

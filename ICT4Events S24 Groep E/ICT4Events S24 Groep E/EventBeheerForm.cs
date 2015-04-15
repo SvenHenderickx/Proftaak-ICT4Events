@@ -133,5 +133,11 @@ namespace ICT4Events_S24_Groep_E
             var logInForm = new LoginForm();
             logInForm.Show();
         }
+
+        private void btnDatabaseConnectie_Click(object sender, EventArgs e)
+        {
+            DatabaseKoppeling database = new DatabaseKoppeling();
+            database.Koppel();
+        }
     }
 }

@@ -18,7 +18,10 @@ namespace ICT4Events_S24_Groep_E
         {
             conn = new OracleConnection();
             command = conn.CreateCommand();
+        }
 
+        public void Koppel()
+        {
             string user = "dbi318713";
             string pw = "V7brKp3nww";
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
