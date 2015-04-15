@@ -68,7 +68,11 @@ namespace ICT4Events_S24_Groep_E
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            if (BerichtOpIndex() != null)
+            {
+                var postForm = new PostForm();
+                postForm.Show();
+            }
         }
 
         private Bericht BerichtOpIndex()

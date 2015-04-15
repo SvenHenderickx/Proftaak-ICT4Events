@@ -43,7 +43,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.lbBerichtenMediaSharingForm = new System.Windows.Forms.ListBox();
             this.btnLikeMediaSharing = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnMeerMediaSharingForm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -202,22 +202,22 @@
             this.btnLikeMediaSharing.UseVisualStyleBackColor = true;
             this.btnLikeMediaSharing.Click += new System.EventHandler(this.btnLikeMediaSharing_Click);
             // 
-            // button4
+            // btnMeerMediaSharingForm
             // 
-            this.button4.Location = new System.Drawing.Point(188, 287);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(160, 30);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Reageer en meer";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnMeerMediaSharingForm.Location = new System.Drawing.Point(188, 287);
+            this.btnMeerMediaSharingForm.Name = "btnMeerMediaSharingForm";
+            this.btnMeerMediaSharingForm.Size = new System.Drawing.Size(160, 30);
+            this.btnMeerMediaSharingForm.TabIndex = 5;
+            this.btnMeerMediaSharingForm.Text = "Reageer en meer";
+            this.btnMeerMediaSharingForm.UseVisualStyleBackColor = true;
+            this.btnMeerMediaSharingForm.Click += new System.EventHandler(this.button4_Click);
             // 
             // MediaSharingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 329);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnMeerMediaSharingForm);
             this.Controls.Add(this.btnLikeMediaSharing);
             this.Controls.Add(this.lbBerichtenMediaSharingForm);
             this.Controls.Add(this.groupBox3);
@@ -253,6 +253,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox lbBerichtenMediaSharingForm;
         private System.Windows.Forms.Button btnLikeMediaSharing;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnMeerMediaSharingForm;
     }
 }
