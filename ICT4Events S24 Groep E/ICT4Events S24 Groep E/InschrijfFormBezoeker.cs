@@ -59,13 +59,12 @@ namespace ICT4Events_S24_Groep_E
                     // hier wordt de gebruiker definitief gemaakt.
                     administratie.HuidigEvent.VoegPersoonToe(bezoeker);
                     MessageBox.Show("Alle Bezoekers Toegevoegd");
-                    // hierna automatisch door naar het inlogform
+                    // hierna automatisch door naar het inlogform als er
                     if (administratie.NuIngelogd is Beheerder)
                     {
-                        var systeemKeisForm = new SysteemKiezerForm();
-                        systeemKeisForm.Show();
-                    }
-                    
+                        var systeemKiesForm = new SysteemKiezerForm();
+                        systeemKiesForm.Show();
+                    }                    
                 }
                 this.Dispose(); // Verwijderen van het form zodat er weer een nieuwe kan komen
             }
@@ -103,16 +102,11 @@ namespace ICT4Events_S24_Groep_E
 
         private void InschrijfFormBezoeker_FormClosing(object sender, FormClosingEventArgs e)
         {
-            /*if (administratie.NuIngelogd is Beheerder)
+            if (administratie.NuIngelogd is Beheerder)
             {
-                var systeemKeisForm = new SysteemKiezerForm();
-                systeemKeisForm.Show();
+                var SysteemKiezer = new SysteemKiezerForm();
+                SysteemKiezer.Show();
             }
-            else
-            {
-                var inlogForm = new LoginForm();
-                inlogForm.Show();
-            }*/
         }
     }
 }

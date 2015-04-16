@@ -107,10 +107,11 @@ namespace ICT4Events_S24_Groep_E
                         // programma moet terugkeren naar het inlogform
                         administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
                         MessageBox.Show("Inschrijving afgerond");
-                        openNieuweForm();
-                        this.Dispose();
-                        
-                        
+                        // als de beheerder op bevestigen drukt dan moet hij terug naar systeemkiezerform gaan.
+                        // als dit een gewone persoon is dan hoeft er niets te gebeuren.
+                        this.Dispose(); 
+                        BijFormClosen();
+                                            
                     }
                     // als de gebruiker op nee klikt dan moet het programma niets doen.
                 }
@@ -175,8 +176,10 @@ namespace ICT4Events_S24_Groep_E
                     cbPlaats.Items.Add(p.ToString());
                 }
             }
-            
-            cbPlaats.SelectedIndex = 0;
+            if(cbPlaats.SelectedIndex != -1)
+            {
+                cbPlaats.SelectedIndex = 0;
+            }
         }
 
         private void Ververs()
@@ -199,8 +202,10 @@ namespace ICT4Events_S24_Groep_E
             {
                 cbMeerderePersonen.Items.Add(i);
             }
-            if (cbMeerderePersonen.SelectedIndex!=-1)
+            if (cbMeerderePersonen.SelectedIndex != -1)
+            {
                 cbMeerderePersonen.SelectedIndex = 0;
+            }
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
@@ -212,16 +217,26 @@ namespace ICT4Events_S24_Groep_E
 
         private void InschrijfForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            openNieuweForm();
-        }
-        void openNieuweForm()
-        {
-            if (administratie.NuIngelogd is Beheerder)
+            // Als de beheerder is ingelogd dan terug naar systeemkiezer
+            // Als er geen beheerder is ingelogd dan niets doen want dan zit je niet ingelogd in de applicatie
+            if(administratie.NuIngelogd is Beheerder)
             {
-                var systeemKeisForm = new SysteemKiezerForm();
-                systeemKeisForm.Show();
+                var SysteemKiezer = new SysteemKiezerForm();
+                SysteemKiezer.Show();
             }
             
         }
+
+        private void BijFormClosen()
+        {
+            if (administratie.NuIngelogd is Beheerder)
+            {
+                var SysteemKiezer = new SysteemKiezerForm();
+                SysteemKiezer.Show();
+            }
+        }
+
+
+
     }
 }
