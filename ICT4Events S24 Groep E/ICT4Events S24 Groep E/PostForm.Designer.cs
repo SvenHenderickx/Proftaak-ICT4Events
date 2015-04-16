@@ -36,6 +36,7 @@
             this.btnPlaatsReactie = new System.Windows.Forms.Button();
             this.tbReactieTekst = new System.Windows.Forms.TextBox();
             this.lbReacties = new System.Windows.Forms.ListBox();
+            this.btnRapporteer = new System.Windows.Forms.Button();
             this.gbGebnaam.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,9 +81,9 @@
             // 
             // btnLike
             // 
-            this.btnLike.Location = new System.Drawing.Point(234, 80);
+            this.btnLike.Location = new System.Drawing.Point(13, 80);
             this.btnLike.Name = "btnLike";
-            this.btnLike.Size = new System.Drawing.Size(75, 23);
+            this.btnLike.Size = new System.Drawing.Size(215, 23);
             this.btnLike.TabIndex = 5;
             this.btnLike.Text = "Like";
             this.btnLike.UseVisualStyleBackColor = true;
@@ -100,10 +101,10 @@
             // 
             // tbReactieTekst
             // 
-            this.tbReactieTekst.Location = new System.Drawing.Point(13, 80);
+            this.tbReactieTekst.Location = new System.Drawing.Point(13, 109);
             this.tbReactieTekst.Multiline = true;
             this.tbReactieTekst.Name = "tbReactieTekst";
-            this.tbReactieTekst.Size = new System.Drawing.Size(215, 52);
+            this.tbReactieTekst.Size = new System.Drawing.Size(215, 23);
             this.tbReactieTekst.TabIndex = 7;
             // 
             // lbReacties
@@ -114,11 +115,22 @@
             this.lbReacties.Size = new System.Drawing.Size(296, 121);
             this.lbReacties.TabIndex = 8;
             // 
+            // btnRapporteer
+            // 
+            this.btnRapporteer.Location = new System.Drawing.Point(234, 80);
+            this.btnRapporteer.Name = "btnRapporteer";
+            this.btnRapporteer.Size = new System.Drawing.Size(75, 23);
+            this.btnRapporteer.TabIndex = 9;
+            this.btnRapporteer.Text = "Rapporteer";
+            this.btnRapporteer.UseVisualStyleBackColor = true;
+            this.btnRapporteer.Click += new System.EventHandler(this.btnRapporteer_Click);
+            // 
             // PostForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 266);
+            this.Controls.Add(this.btnRapporteer);
             this.Controls.Add(this.lbReacties);
             this.Controls.Add(this.tbReactieTekst);
             this.Controls.Add(this.btnPlaatsReactie);
@@ -145,5 +157,6 @@
         private System.Windows.Forms.Button btnPlaatsReactie;
         private System.Windows.Forms.TextBox tbReactieTekst;
         private System.Windows.Forms.ListBox lbReacties;
+        private System.Windows.Forms.Button btnRapporteer;
     }
 }

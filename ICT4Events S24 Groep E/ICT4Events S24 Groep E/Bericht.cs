@@ -9,7 +9,7 @@ namespace ICT4Events_S24_Groep_E
     public class Bericht
     {
         private List<Like> likes;
-        private int aantalKeerGerapporteerd;
+        private List<Rapportage> rapportages;
         private string tekst;
         private List<Reactie> reacties;
         private Persoon auteur;
@@ -20,9 +20,9 @@ namespace ICT4Events_S24_Groep_E
             get { return likes; }
         }
 
-        public int AantalKeerGerapporteerd
+        public List<Rapportage> Rapportages
         {
-            get { return aantalKeerGerapporteerd; }
+            get { return rapportages; }
         }
 
         public DateTime DatumGepost
@@ -52,11 +52,12 @@ namespace ICT4Events_S24_Groep_E
             datumGepost = DateTime.Now;
             reacties = new List<Reactie>();
             likes = new List<Like>();
+            rapportages = new List<Rapportage>();
         }
 
         public override string ToString()
         {
-            return likes.Count + " Like(s): " + tekst + " - " + datumGepost;
+            return likes.Count + " Like(s): " + tekst;
         }
 
         public bool BerichtLiken(Persoon invPersoon)
@@ -75,6 +76,19 @@ namespace ICT4Events_S24_Groep_E
         public void ReactieToevoegen(string tekst, Persoon plaatser)
         {
             reacties.Add(new Reactie(plaatser, tekst));
+        }
+
+        public bool Rapporteren(string reden, Persoon rapporteur)
+        {
+            foreach (Rapportage r in rapportages)
+            {
+                if (r.Rapporteur == rapporteur)
+                {
+                    return false;
+                }
+            }
+            rapportages.Add(new Rapportage(reden, rapporteur));
+            return true;
         }
     }
 }

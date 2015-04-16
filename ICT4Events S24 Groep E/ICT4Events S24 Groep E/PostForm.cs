@@ -56,5 +56,25 @@ namespace ICT4Events_S24_Groep_E
             }
             LaadAlleReacties();
         }
+
+        private void btnRapporteer_Click(object sender, EventArgs e)
+        {
+            if (tbReactieTekst.Text.Length > 0)
+            {
+                if (administratie.TempBericht.Rapporteren(tbReactieTekst.Text, administratie.NuIngelogd))
+                {
+                    MessageBox.Show("Succesvol Gerapporteerd, bedankt.");
+                }
+                else
+                {
+                    MessageBox.Show("U heeft deze post waarschijnlijk al eens gerapporteerd.");
+                }
+                tbReactieTekst.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Vul reden voor rapportage in in reactie tekstbox.");
+            }
+        }
     }
 }
