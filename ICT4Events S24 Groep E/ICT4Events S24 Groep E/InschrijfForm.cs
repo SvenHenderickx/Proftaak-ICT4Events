@@ -107,7 +107,10 @@ namespace ICT4Events_S24_Groep_E
                         // programma moet terugkeren naar het inlogform
                         administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
                         MessageBox.Show("Inschrijving afgerond");
+                        openNieuweForm();
                         this.Dispose();
+                        
+                        
                     }
                     // als de gebruiker op nee klikt dan moet het programma niets doen.
                 }
@@ -172,6 +175,7 @@ namespace ICT4Events_S24_Groep_E
                     cbPlaats.Items.Add(p.ToString());
                 }
             }
+            
             cbPlaats.SelectedIndex = 0;
         }
 
@@ -195,7 +199,8 @@ namespace ICT4Events_S24_Groep_E
             {
                 cbMeerderePersonen.Items.Add(i);
             }
-            cbMeerderePersonen.SelectedIndex = 0;
+            if (cbMeerderePersonen.SelectedIndex!=-1)
+                cbMeerderePersonen.SelectedIndex = 0;
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
@@ -203,6 +208,20 @@ namespace ICT4Events_S24_Groep_E
             hoofdboeker = null;
             gbGegevens.Enabled = true;
             gbPlaatsen.Enabled = true;
+        }
+
+        private void InschrijfForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            openNieuweForm();
+        }
+        void openNieuweForm()
+        {
+            if (administratie.NuIngelogd is Beheerder)
+            {
+                var systeemKeisForm = new SysteemKiezerForm();
+                systeemKeisForm.Show();
+            }
+            
         }
     }
 }

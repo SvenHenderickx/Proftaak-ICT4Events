@@ -67,8 +67,19 @@ namespace ICT4Events_S24_Groep_E
 
         private void TerugNaarLogin(object sender, FormClosedEventArgs e)
         {
-            var logInForm = new LoginForm();
-            logInForm.Show();
+
+            if (administratie.NuIngelogd is Beheerder)
+            {
+                var systeemKiezerForm = new SysteemKiezerForm();
+                systeemKiezerForm.Show();
+                this.Hide();
+            }
+            if (administratie.NuIngelogd is Controleur)
+            {
+                var logInForm = new LoginForm();
+                logInForm.Show();
+                this.Hide();
+            }
         }
     }
 }

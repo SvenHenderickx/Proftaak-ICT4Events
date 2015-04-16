@@ -119,5 +119,10 @@ namespace ICT4Events_S24_Groep_E
                 }
             }
         }
+
+        private void MateriaalVerhuurForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if(administratie.)
+        }
     }
 }
