@@ -214,5 +214,20 @@ namespace ICT4Events_S24_Groep_E
             return naam + ", " + beginDatum.Day + adres;
         }
 
+        public List<Bericht> BerichtenZoeken(string inv)
+        {
+            List<Bericht> tempList = new List<Bericht>();
+            if (inv.Length > 0)
+            {
+                foreach (Bericht b in Berichten)
+                {
+                    if (b.Tekst.IndexOf(inv) >= 0 || b.Auteur.Gebruikersnaam.IndexOf(inv) >= 0)
+                    {
+                        tempList.Add(b);
+                    }
+                }
+            }
+            return tempList;
+        }
     }
 }

@@ -38,15 +38,15 @@
             this.btnPostPlaatsenMediaSharingForm = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tbPostTekstMediaSharingForm = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.gbZoeken = new System.Windows.Forms.GroupBox();
+            this.btnZoeken = new System.Windows.Forms.Button();
+            this.tbZoeken = new System.Windows.Forms.TextBox();
             this.lbBerichtenMediaSharingForm = new System.Windows.Forms.ListBox();
             this.btnLikeMediaSharing = new System.Windows.Forms.Button();
             this.btnMeerMediaSharingForm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbZoeken.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -157,32 +157,34 @@
             this.tbPostTekstMediaSharingForm.Size = new System.Drawing.Size(208, 53);
             this.tbPostTekstMediaSharingForm.TabIndex = 0;
             // 
-            // groupBox3
+            // gbZoeken
             // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Location = new System.Drawing.Point(355, 153);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(221, 78);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Zoeken";
+            this.gbZoeken.Controls.Add(this.btnZoeken);
+            this.gbZoeken.Controls.Add(this.tbZoeken);
+            this.gbZoeken.Location = new System.Drawing.Point(355, 153);
+            this.gbZoeken.Name = "gbZoeken";
+            this.gbZoeken.Size = new System.Drawing.Size(221, 78);
+            this.gbZoeken.TabIndex = 2;
+            this.gbZoeken.TabStop = false;
+            this.gbZoeken.Text = "Zoeken";
             // 
-            // button3
+            // btnZoeken
             // 
-            this.button3.Location = new System.Drawing.Point(7, 47);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(208, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Zoeken";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnZoeken.Location = new System.Drawing.Point(7, 47);
+            this.btnZoeken.Name = "btnZoeken";
+            this.btnZoeken.Size = new System.Drawing.Size(208, 23);
+            this.btnZoeken.TabIndex = 1;
+            this.btnZoeken.Text = "Zoeken";
+            this.btnZoeken.UseVisualStyleBackColor = true;
+            this.btnZoeken.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox2
+            // tbZoeken
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 20);
-            this.textBox2.TabIndex = 0;
+            this.tbZoeken.Location = new System.Drawing.Point(7, 20);
+            this.tbZoeken.Name = "tbZoeken";
+            this.tbZoeken.Size = new System.Drawing.Size(208, 20);
+            this.tbZoeken.TabIndex = 0;
+            this.tbZoeken.TextChanged += new System.EventHandler(this.LiveUpdate);
             // 
             // lbBerichtenMediaSharingForm
             // 
@@ -220,7 +222,7 @@
             this.Controls.Add(this.btnMeerMediaSharingForm);
             this.Controls.Add(this.btnLikeMediaSharing);
             this.Controls.Add(this.lbBerichtenMediaSharingForm);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.gbZoeken);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "MediaSharingForm";
@@ -230,8 +232,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbZoeken.ResumeLayout(false);
+            this.gbZoeken.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -248,9 +250,9 @@
         private System.Windows.Forms.Button btnPostPlaatsenMediaSharingForm;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbPostTekstMediaSharingForm;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox gbZoeken;
+        private System.Windows.Forms.Button btnZoeken;
+        private System.Windows.Forms.TextBox tbZoeken;
         private System.Windows.Forms.ListBox lbBerichtenMediaSharingForm;
         private System.Windows.Forms.Button btnLikeMediaSharing;
         private System.Windows.Forms.Button btnMeerMediaSharingForm;

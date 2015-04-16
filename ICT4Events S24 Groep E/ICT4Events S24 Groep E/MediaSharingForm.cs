@@ -18,7 +18,7 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             administratie = new Administratie();
-            LaadAlleBerichten();
+            LaadAlleBerichten(administratie.HuidigEvent.Berichten);
         }
 
         private void MediaSharingAfsluiten(object sender, FormClosedEventArgs e)
@@ -43,15 +43,15 @@ namespace ICT4Events_S24_Groep_E
             {
                 administratie.HuidigEvent.Berichten.Add(new Bericht(tbPostTekstMediaSharingForm.Text, administratie.NuIngelogd));
                 tbPostTekstMediaSharingForm.Text = "";
-                LaadAlleBerichten();
+                LaadAlleBerichten(administratie.HuidigEvent.Berichten);
             }
             
         }
 
-        private void LaadAlleBerichten()
+        private void LaadAlleBerichten(List<Bericht> berichten)
         {
             lbBerichtenMediaSharingForm.Items.Clear();
-            foreach (Bericht b in administratie.HuidigEvent.Berichten)
+            foreach (Bericht b in berichten)
             {
                 lbBerichtenMediaSharingForm.Items.Add(b.Auteur.Gebruikersnaam + " " + b.ToString());
             }
@@ -70,7 +70,7 @@ namespace ICT4Events_S24_Groep_E
                     MessageBox.Show("Al geliked");
                 }
             }
-            LaadAlleBerichten();
+            LaadAlleBerichten(administratie.HuidigEvent.Berichten);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -93,6 +93,37 @@ namespace ICT4Events_S24_Groep_E
                 }
             }
             return null;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (administratie.HuidigEvent.BerichtenZoeken(tbZoeken.Text) != null && administratie.HuidigEvent.BerichtenZoeken(tbZoeken.Text).Count > 0)
+            {
+                LaadAlleBerichten(administratie.HuidigEvent.BerichtenZoeken(tbZoeken.Text));
+            }
+            else if(administratie.HuidigEvent.BerichtenZoeken(tbZoeken.Text).Count == 0)
+            {
+                MessageBox.Show("Geen Resultaten gevonden.");
+                LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+            }
+        }
+
+        private void LiveUpdate(object sender, EventArgs e)
+        {
+            if (tbZoeken.Text.Length == 0)
+            {
+                LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+                gbZoeken.ForeColor = Color.Black;
+            }
+            else if (administratie.HuidigEvent.BerichtenZoeken(tbZoeken.Text) != null && administratie.HuidigEvent.BerichtenZoeken(tbZoeken.Text).Count > 0)
+            {
+                LaadAlleBerichten(administratie.HuidigEvent.BerichtenZoeken(tbZoeken.Text));
+                gbZoeken.ForeColor = Color.Black;
+            }
+            else
+            {
+                gbZoeken.ForeColor = Color.Red;
+            }
         }
     }
 }
