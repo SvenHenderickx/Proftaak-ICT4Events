@@ -26,26 +26,31 @@ namespace ICT4Events_S24_Groep_E
         public string Naam
         {
             get { return naam; }
+            set { naam = value; }
         }
 
         public DateTime BeginDatum
         {
             get { return beginDatum; }
+            set { beginDatum = value; }
         }
 
         public DateTime EindDatum
         {
             get { return eindDatum; }
+            set { eindDatum = value; }
         }
 
         public string Plaats
         {
             get { return plaats; }
+            set { plaats = value; }
         }
 
         public string Adres
         {
             get { return adres; }
+            set { adres = value; }
         }
         public List<Persoon> Personen
         {
