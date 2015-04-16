@@ -47,17 +47,19 @@
             // lblBoekerBezoekerInfo
             // 
             this.lblBoekerBezoekerInfo.AutoSize = true;
-            this.lblBoekerBezoekerInfo.Location = new System.Drawing.Point(449, 270);
+            this.lblBoekerBezoekerInfo.Location = new System.Drawing.Point(337, 219);
+            this.lblBoekerBezoekerInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBoekerBezoekerInfo.Name = "lblBoekerBezoekerInfo";
-            this.lblBoekerBezoekerInfo.Size = new System.Drawing.Size(46, 17);
+            this.lblBoekerBezoekerInfo.Size = new System.Drawing.Size(35, 13);
             this.lblBoekerBezoekerInfo.TabIndex = 13;
             this.lblBoekerBezoekerInfo.Text = "label4";
             // 
             // btnBevestig
             // 
-            this.btnBevestig.Location = new System.Drawing.Point(12, 244);
+            this.btnBevestig.Location = new System.Drawing.Point(9, 198);
+            this.btnBevestig.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBevestig.Name = "btnBevestig";
-            this.btnBevestig.Size = new System.Drawing.Size(98, 44);
+            this.btnBevestig.Size = new System.Drawing.Size(74, 36);
             this.btnBevestig.TabIndex = 12;
             this.btnBevestig.Text = "Bevestigen";
             this.btnBevestig.UseVisualStyleBackColor = true;
@@ -65,18 +67,20 @@
             // 
             // btnAnnuleren
             // 
-            this.btnAnnuleren.Location = new System.Drawing.Point(826, 244);
+            this.btnAnnuleren.Location = new System.Drawing.Point(620, 198);
+            this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAnnuleren.Name = "btnAnnuleren";
-            this.btnAnnuleren.Size = new System.Drawing.Size(98, 44);
+            this.btnAnnuleren.Size = new System.Drawing.Size(74, 36);
             this.btnAnnuleren.TabIndex = 11;
             this.btnAnnuleren.Text = "Annuleren";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
             // 
             // btnVerwijder
             // 
-            this.btnVerwijder.Location = new System.Drawing.Point(826, 180);
+            this.btnVerwijder.Location = new System.Drawing.Point(620, 146);
+            this.btnVerwijder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnVerwijder.Name = "btnVerwijder";
-            this.btnVerwijder.Size = new System.Drawing.Size(98, 44);
+            this.btnVerwijder.Size = new System.Drawing.Size(74, 36);
             this.btnVerwijder.TabIndex = 10;
             this.btnVerwijder.Text = "Verwijder";
             this.btnVerwijder.UseVisualStyleBackColor = true;
@@ -85,18 +89,19 @@
             // lbGekozenItems
             // 
             this.lbGekozenItems.FormattingEnabled = true;
-            this.lbGekozenItems.ItemHeight = 16;
-            this.lbGekozenItems.Location = new System.Drawing.Point(468, 44);
+            this.lbGekozenItems.Location = new System.Drawing.Point(351, 36);
+            this.lbGekozenItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbGekozenItems.Name = "lbGekozenItems";
-            this.lbGekozenItems.Size = new System.Drawing.Size(343, 180);
+            this.lbGekozenItems.Size = new System.Drawing.Size(258, 147);
             this.lbGekozenItems.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(465, 24);
+            this.label3.Location = new System.Drawing.Point(349, 20);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 17);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Gekozen Items";
             // 
@@ -108,9 +113,11 @@
             this.groupBox1.Controls.Add(this.cbFotoCamera);
             this.groupBox1.Controls.Add(this.btnVideoKies);
             this.groupBox1.Controls.Add(this.btnFotoKies);
-            this.groupBox1.Location = new System.Drawing.Point(12, 23);
+            this.groupBox1.Location = new System.Drawing.Point(9, 19);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(398, 201);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(298, 163);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selecteer je huuritem";
@@ -118,18 +125,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 121);
+            this.label2.Location = new System.Drawing.Point(16, 98);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 17);
+            this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Videocamera\'s";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 39);
+            this.label1.Location = new System.Drawing.Point(16, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 17);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Fotocamera\'s";
             // 
@@ -137,25 +146,28 @@
             // 
             this.cbVideoCamera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVideoCamera.FormattingEnabled = true;
-            this.cbVideoCamera.Location = new System.Drawing.Point(21, 141);
+            this.cbVideoCamera.Location = new System.Drawing.Point(16, 115);
+            this.cbVideoCamera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbVideoCamera.Name = "cbVideoCamera";
-            this.cbVideoCamera.Size = new System.Drawing.Size(133, 24);
+            this.cbVideoCamera.Size = new System.Drawing.Size(101, 21);
             this.cbVideoCamera.TabIndex = 3;
             // 
             // cbFotoCamera
             // 
             this.cbFotoCamera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFotoCamera.FormattingEnabled = true;
-            this.cbFotoCamera.Location = new System.Drawing.Point(21, 62);
+            this.cbFotoCamera.Location = new System.Drawing.Point(16, 50);
+            this.cbFotoCamera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbFotoCamera.Name = "cbFotoCamera";
-            this.cbFotoCamera.Size = new System.Drawing.Size(133, 24);
+            this.cbFotoCamera.Size = new System.Drawing.Size(101, 21);
             this.cbFotoCamera.TabIndex = 2;
             // 
             // btnVideoKies
             // 
-            this.btnVideoKies.Location = new System.Drawing.Point(261, 136);
+            this.btnVideoKies.Location = new System.Drawing.Point(196, 110);
+            this.btnVideoKies.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnVideoKies.Name = "btnVideoKies";
-            this.btnVideoKies.Size = new System.Drawing.Size(95, 33);
+            this.btnVideoKies.Size = new System.Drawing.Size(71, 27);
             this.btnVideoKies.TabIndex = 1;
             this.btnVideoKies.Text = "Kies";
             this.btnVideoKies.UseVisualStyleBackColor = true;
@@ -163,9 +175,10 @@
             // 
             // btnFotoKies
             // 
-            this.btnFotoKies.Location = new System.Drawing.Point(261, 57);
+            this.btnFotoKies.Location = new System.Drawing.Point(196, 46);
+            this.btnFotoKies.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFotoKies.Name = "btnFotoKies";
-            this.btnFotoKies.Size = new System.Drawing.Size(95, 33);
+            this.btnFotoKies.Size = new System.Drawing.Size(71, 27);
             this.btnFotoKies.TabIndex = 0;
             this.btnFotoKies.Text = "Kies";
             this.btnFotoKies.UseVisualStyleBackColor = true;
@@ -173,9 +186,9 @@
             // 
             // MateriaalVerhuurForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 314);
+            this.ClientSize = new System.Drawing.Size(733, 255);
             this.Controls.Add(this.lblBoekerBezoekerInfo);
             this.Controls.Add(this.btnBevestig);
             this.Controls.Add(this.btnAnnuleren);
@@ -183,8 +196,10 @@
             this.Controls.Add(this.lbGekozenItems);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MateriaalVerhuurForm";
             this.Text = "Materiaal Verhuur";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MateriaalVerhuurForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
