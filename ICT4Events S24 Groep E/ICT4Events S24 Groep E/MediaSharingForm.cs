@@ -25,6 +25,7 @@ namespace ICT4Events_S24_Groep_E
         {
             if (administratie.NuIngelogd is Bezoeker)
             {
+                administratie.NuIngelogd = null;
                 var loginForm = new LoginForm();
                 loginForm.Show();
                 this.Hide();

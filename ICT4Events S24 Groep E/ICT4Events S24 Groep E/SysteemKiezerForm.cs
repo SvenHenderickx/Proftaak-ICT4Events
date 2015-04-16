@@ -28,6 +28,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void TerugNaarLogin(object sender, FormClosedEventArgs e)
         {
+            administratie.NuIngelogd = null;
             var logInForm = new LoginForm();
             logInForm.Show();
         }
