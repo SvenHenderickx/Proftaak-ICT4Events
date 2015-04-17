@@ -109,24 +109,36 @@ namespace ICT4Events_S24_Groep_E
             
             cbFotoCamera.Items.Clear();
             cbVideoCamera.Items.Clear();
+            bool cbFCam = false, cbVCam = false;
+
             foreach (Huuritem h in administratie.HuidigEvent.HuurMateriaal)
             {
-                if (h.Type == "Fotocamera" && !h.IsGehuurd)
+                if (h.Type == "Fotocamera" && !h.IsGehuurd) // cycles verminderen als er een lange lijst is.
                 {
                     cbFotoCamera.Items.Add(h.Naam);
-                    cbFotoCamera.SelectedIndex = 0;
+                    if (!cbFCam)
+                    {
+                        cbFotoCamera.SelectedIndex = 0;
+                        cbFCam = true;
+                    }
                 }
                 else if (h.Type == "Videocamera" && !h.IsGehuurd)
                 {
                     cbVideoCamera.Items.Add(h.Naam);
-                    cbVideoCamera.SelectedIndex = 0;
+                    if (!cbVCam) //cycles verminderen als er een lange lijst is.
+                    {
+                        cbVideoCamera.SelectedIndex = 0;
+                        cbVCam = true;
+                    }
                 }
             }
         }
 
         private void MateriaalVerhuurForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if(administratie.)
+            //if bevestigd niet is aangeklikt dan alle huuritems terug plaatsen!!
+
+            // hoe dit zal gaan in inschrijfform als die niet bevestigd moet ook nog worden gefixt.
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
