@@ -54,7 +54,7 @@ namespace ICT4Events_S24_Groep_E
         }
         public List<Persoon> Personen
         {
-            get { return personen; } // Frank: moet hier een nieuwe lijst gereturnd worden?
+            get { return personen; }
         }
 
         public List<Plaats> Plaatsen
