@@ -54,7 +54,9 @@ namespace ICT4Events_S24_Groep_E
 
         public override string ToString()
         {
-            return "PlaatsNr: " + this.plaatsNummer + " , " + "Aantal Personen " + this.aantalPersonen;
+            string geluidsOV = "nee";
+            if (this.geluidsOverlast) geluidsOV = "ja";
+            return "PlaatsNr: " + this.plaatsNummer + ", " + "Aantal Personen " + this.aantalPersonen + ", geluidsoverlast: " + geluidsOV;
         }
 
         private string PlaatsNummerGenerator()
