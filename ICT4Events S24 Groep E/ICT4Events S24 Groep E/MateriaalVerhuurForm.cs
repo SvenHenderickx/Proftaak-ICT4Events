@@ -143,7 +143,17 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Huuritem huuritem;
+            foreach (object ob in lbGekozenItems.Items)
+            {
+
+                if (lbGekozenItems.Items == null) break;
+                huuritem = administratie.HuidigEvent.GeefHuuritem(ob.ToString());
+                bezoeker.HuurMateriaal.Remove(huuritem);
+                huuritem.IsGehuurd = false;
+            }
+            Ververs();
+            // this.Close();
         }
     }
 }
