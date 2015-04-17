@@ -105,6 +105,8 @@ namespace ICT4Events_S24_Groep_E
         private void VulCbCameras()
         {
             // Alle FotoCamera's toevoegen die nog niet zijn uitgeleend
+            
+            
             cbFotoCamera.Items.Clear();
             cbVideoCamera.Items.Clear();
             foreach (Huuritem h in administratie.HuidigEvent.HuurMateriaal)
@@ -112,14 +114,14 @@ namespace ICT4Events_S24_Groep_E
                 if (h.Type == "Fotocamera" && !h.IsGehuurd)
                 {
                     cbFotoCamera.Items.Add(h.Naam);
+                    cbFotoCamera.SelectedIndex = 0;
                 }
                 else if (h.Type == "Videocamera" && !h.IsGehuurd)
                 {
                     cbVideoCamera.Items.Add(h.Naam);
+                    cbVideoCamera.SelectedIndex = 0;
                 }
             }
-            cbFotoCamera.SelectedIndex = 0;
-            cbVideoCamera.SelectedIndex = 0;
         }
 
         private void MateriaalVerhuurForm_FormClosing(object sender, FormClosingEventArgs e)
