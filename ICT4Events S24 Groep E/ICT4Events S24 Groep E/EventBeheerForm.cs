@@ -96,7 +96,6 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnPasEventAan_Click(object sender, EventArgs e)
         {
-            
             foreach (Event ev in administratie.Events)
             {
                 if (ev == administratie.GeefEvent(cbEventsEventbeheer.Text))
