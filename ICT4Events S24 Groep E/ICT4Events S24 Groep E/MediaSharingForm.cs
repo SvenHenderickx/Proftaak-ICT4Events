@@ -87,8 +87,13 @@ namespace ICT4Events_S24_Groep_E
 
         private Bericht BerichtOpIndex()
         {
-            string test = lbBerichtenMediaSharingForm.SelectedItem.ToString();
-            return administratie.HuidigEvent.GeefBerichtDoorToString(lbBerichtenMediaSharingForm.SelectedItem.ToString());
+            if(lbBerichtenMediaSharingForm.SelectedItem!= null)
+            {
+                string test = lbBerichtenMediaSharingForm.SelectedItem.ToString();
+                return administratie.HuidigEvent.GeefBerichtDoorToString(lbBerichtenMediaSharingForm.SelectedItem.ToString());
+            }
+            MessageBox.Show("Selecteer eerst een bericht", "Geen bericht geselecteerd");
+            return null;
         }
 
         private void button3_Click(object sender, EventArgs e)
