@@ -126,5 +126,10 @@ namespace ICT4Events_S24_Groep_E
         {
             //if(administratie.)
         }
+
+        private void btnAnnuleren_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
