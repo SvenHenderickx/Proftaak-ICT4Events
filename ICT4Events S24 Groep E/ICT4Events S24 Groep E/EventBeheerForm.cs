@@ -230,8 +230,8 @@ namespace ICT4Events_S24_Groep_E
 
         private void TerugNaarLogIn(object sender, FormClosedEventArgs e)
         {
-            var logInForm = new LoginForm();
-            logInForm.Show();
+            var Systeemkiezer = new SysteemKiezerForm();
+            Systeemkiezer.Show();
         }
 
         private void btnDatabaseConnectie_Click(object sender, EventArgs e)
