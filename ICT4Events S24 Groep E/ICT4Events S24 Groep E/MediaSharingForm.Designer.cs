@@ -44,6 +44,8 @@
             this.lbBerichtenMediaSharingForm = new System.Windows.Forms.ListBox();
             this.btnLikeMediaSharing = new System.Windows.Forms.Button();
             this.btnMeerMediaSharingForm = new System.Windows.Forms.Button();
+            this.btnVerwijderBericht = new System.Windows.Forms.Button();
+            this.btnGerapporteerdeBerichten = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbZoeken.SuspendLayout();
@@ -214,11 +216,33 @@
             this.btnMeerMediaSharingForm.UseVisualStyleBackColor = true;
             this.btnMeerMediaSharingForm.Click += new System.EventHandler(this.button4_Click);
             // 
+            // btnVerwijderBericht
+            // 
+            this.btnVerwijderBericht.Location = new System.Drawing.Point(355, 238);
+            this.btnVerwijderBericht.Name = "btnVerwijderBericht";
+            this.btnVerwijderBericht.Size = new System.Drawing.Size(221, 23);
+            this.btnVerwijderBericht.TabIndex = 6;
+            this.btnVerwijderBericht.Text = "Verwijder Bericht";
+            this.btnVerwijderBericht.UseVisualStyleBackColor = true;
+            this.btnVerwijderBericht.Click += new System.EventHandler(this.btnVerwijderBericht_Click);
+            // 
+            // btnGerapporteerdeBerichten
+            // 
+            this.btnGerapporteerdeBerichten.Location = new System.Drawing.Point(355, 267);
+            this.btnGerapporteerdeBerichten.Name = "btnGerapporteerdeBerichten";
+            this.btnGerapporteerdeBerichten.Size = new System.Drawing.Size(221, 23);
+            this.btnGerapporteerdeBerichten.TabIndex = 7;
+            this.btnGerapporteerdeBerichten.Text = "Gerapporteerde Berichten";
+            this.btnGerapporteerdeBerichten.UseVisualStyleBackColor = true;
+            this.btnGerapporteerdeBerichten.Click += new System.EventHandler(this.btnGerapporteerdeBerichten_Click);
+            // 
             // MediaSharingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 329);
+            this.Controls.Add(this.btnGerapporteerdeBerichten);
+            this.Controls.Add(this.btnVerwijderBericht);
             this.Controls.Add(this.btnMeerMediaSharingForm);
             this.Controls.Add(this.btnLikeMediaSharing);
             this.Controls.Add(this.lbBerichtenMediaSharingForm);
@@ -256,5 +280,7 @@
         private System.Windows.Forms.ListBox lbBerichtenMediaSharingForm;
         private System.Windows.Forms.Button btnLikeMediaSharing;
         private System.Windows.Forms.Button btnMeerMediaSharingForm;
+        private System.Windows.Forms.Button btnVerwijderBericht;
+        private System.Windows.Forms.Button btnGerapporteerdeBerichten;
     }
 }

@@ -13,6 +13,7 @@ namespace ICT4Events_S24_Groep_E
     public partial class PostForm : Form
     {
         Administratie administratie;
+        bool rapportages;
 
         public PostForm()
         {
@@ -20,6 +21,8 @@ namespace ICT4Events_S24_Groep_E
             administratie = new Administratie();
             VerversBericht();
             LaadAlleReacties();
+            CheckBeheerder();
+            rapportages = false;
         }
 
         private void LaadAlleReacties()
@@ -28,6 +31,15 @@ namespace ICT4Events_S24_Groep_E
             foreach (Reactie r in administratie.TempBericht.Reacties)
             {
                 lbReacties.Items.Add(r.Plaatser + ": " + r.Inhoud);
+            }
+        }
+
+        private void LaadAlleRapportages(List<Rapportage> rapportages)
+        {
+            lbReacties.Items.Clear();
+            foreach (Rapportage r in rapportages)
+            {
+                lbReacties.Items.Add(r.ToString());
             }
         }
 
@@ -59,7 +71,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnRapporteer_Click(object sender, EventArgs e)
         {
-            if (tbReactieTekst.Text.Length > 0)
+            if (tbReactieTekst.Text.Length > 0 && CheckBeheerder() == false)
             {
                 if (administratie.TempBericht.Rapporteren(tbReactieTekst.Text, administratie.NuIngelogd))
                 {
@@ -71,10 +83,41 @@ namespace ICT4Events_S24_Groep_E
                 }
                 tbReactieTekst.Text = "";
             }
+            else if (CheckBeheerder() == true)
+            {
+                if (rapportages == false)
+                {
+                    rapportages = true;
+                    LaadAlleRapportages(administratie.TempBericht.Rapportages);
+                }
+                else
+                {
+                    rapportages = false;
+                    LaadAlleReacties();
+                }
+                
+            }
             else
             {
                 MessageBox.Show("Vul reden voor rapportage in in reactie tekstbox.");
             }
+        }
+
+        public bool CheckBeheerder()
+        {
+            if (administratie.NuIngelogd is Beheerder)
+            {
+                if (rapportages == false)
+                {
+                    btnRapporteer.Text = "Rapportages";
+                }
+                else
+                {
+                    btnRapporteer.Text = "Reacties";
+                }
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -234,5 +234,42 @@ namespace ICT4Events_S24_Groep_E
             }
             return tempList;
         }
+
+        public Bericht GeefBerichtDoorToString(string inv)
+        {
+            foreach (Bericht b in berichten)
+            {
+                if (b.ToString() == inv)
+                {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public void VerwijderBericht(Bericht bericht)
+        {
+            foreach (Bericht b in berichten)
+            {
+                if (b == bericht)
+                {
+                    berichten.Remove(bericht);
+                    return;
+                }
+            }
+        }
+
+        public List<Bericht> AlleGerapporteerdeBerichten()
+        {
+            List<Bericht> tempList = new List<Bericht>();
+            foreach (Bericht b in berichten)
+            {
+                if (b.Rapportages.Count > 0)
+                {
+                    tempList.Add(b);
+                }
+            }
+            return tempList;
+        }
     }
 }

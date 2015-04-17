@@ -26,5 +26,10 @@ namespace ICT4Events_S24_Groep_E
             this.reden = reden;
             this.rapporteur = rapporteur;
         }
+
+        public string ToString()
+        {
+            return rapporteur.Gebruikersnaam + ": " + reden;
+        }
     }
 }

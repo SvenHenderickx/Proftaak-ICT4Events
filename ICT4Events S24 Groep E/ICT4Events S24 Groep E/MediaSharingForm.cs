@@ -19,6 +19,7 @@ namespace ICT4Events_S24_Groep_E
             InitializeComponent();
             administratie = new Administratie();
             LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+            CheckGebruiker();
         }
 
         private void MediaSharingAfsluiten(object sender, FormClosedEventArgs e)
@@ -54,7 +55,7 @@ namespace ICT4Events_S24_Groep_E
             lbBerichtenMediaSharingForm.Items.Clear();
             foreach (Bericht b in berichten)
             {
-                lbBerichtenMediaSharingForm.Items.Add(b.Auteur.Gebruikersnaam + " " + b.ToString());
+                lbBerichtenMediaSharingForm.Items.Add(b.ToString());
             }
         }
 
@@ -86,14 +87,8 @@ namespace ICT4Events_S24_Groep_E
 
         private Bericht BerichtOpIndex()
         {
-            for (int i = 0; i < administratie.HuidigEvent.Berichten.Count; i++)
-            {
-                if (lbBerichtenMediaSharingForm.SelectedIndex == i)
-                {
-                    return administratie.HuidigEvent.Berichten[i];
-                }
-            }
-            return null;
+            string test = lbBerichtenMediaSharingForm.SelectedItem.ToString();
+            return administratie.HuidigEvent.GeefBerichtDoorToString(lbBerichtenMediaSharingForm.SelectedItem.ToString());
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -125,6 +120,31 @@ namespace ICT4Events_S24_Groep_E
             {
                 gbZoeken.ForeColor = Color.Red;
             }
+        }
+
+        public void CheckGebruiker()
+        {
+            if (administratie.NuIngelogd is Beheerder)
+            {
+                btnVerwijderBericht.Visible = true;
+                btnGerapporteerdeBerichten.Visible = true;
+            }
+            else
+            {
+                btnVerwijderBericht.Visible = false;
+                btnGerapporteerdeBerichten.Visible = false;
+            }
+        }
+
+        private void btnVerwijderBericht_Click(object sender, EventArgs e)
+        {
+            administratie.HuidigEvent.VerwijderBericht(BerichtOpIndex());
+            LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+        }
+
+        private void btnGerapporteerdeBerichten_Click(object sender, EventArgs e)
+        {
+            LaadAlleBerichten(administratie.HuidigEvent.AlleGerapporteerdeBerichten());
         }
     }
 }

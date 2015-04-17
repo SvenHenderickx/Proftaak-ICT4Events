@@ -83,7 +83,7 @@
             // 
             this.btnLike.Location = new System.Drawing.Point(13, 80);
             this.btnLike.Name = "btnLike";
-            this.btnLike.Size = new System.Drawing.Size(215, 23);
+            this.btnLike.Size = new System.Drawing.Size(204, 23);
             this.btnLike.TabIndex = 5;
             this.btnLike.Text = "Like";
             this.btnLike.UseVisualStyleBackColor = true;
@@ -91,9 +91,9 @@
             // 
             // btnPlaatsReactie
             // 
-            this.btnPlaatsReactie.Location = new System.Drawing.Point(234, 109);
+            this.btnPlaatsReactie.Location = new System.Drawing.Point(223, 109);
             this.btnPlaatsReactie.Name = "btnPlaatsReactie";
-            this.btnPlaatsReactie.Size = new System.Drawing.Size(75, 23);
+            this.btnPlaatsReactie.Size = new System.Drawing.Size(86, 23);
             this.btnPlaatsReactie.TabIndex = 6;
             this.btnPlaatsReactie.Text = "Plaats";
             this.btnPlaatsReactie.UseVisualStyleBackColor = true;
@@ -104,22 +104,22 @@
             this.tbReactieTekst.Location = new System.Drawing.Point(13, 109);
             this.tbReactieTekst.Multiline = true;
             this.tbReactieTekst.Name = "tbReactieTekst";
-            this.tbReactieTekst.Size = new System.Drawing.Size(215, 23);
+            this.tbReactieTekst.Size = new System.Drawing.Size(204, 23);
             this.tbReactieTekst.TabIndex = 7;
             // 
             // lbReacties
             // 
             this.lbReacties.FormattingEnabled = true;
-            this.lbReacties.Location = new System.Drawing.Point(13, 139);
+            this.lbReacties.Location = new System.Drawing.Point(12, 138);
             this.lbReacties.Name = "lbReacties";
             this.lbReacties.Size = new System.Drawing.Size(296, 121);
             this.lbReacties.TabIndex = 8;
             // 
             // btnRapporteer
             // 
-            this.btnRapporteer.Location = new System.Drawing.Point(234, 80);
+            this.btnRapporteer.Location = new System.Drawing.Point(223, 80);
             this.btnRapporteer.Name = "btnRapporteer";
-            this.btnRapporteer.Size = new System.Drawing.Size(75, 23);
+            this.btnRapporteer.Size = new System.Drawing.Size(86, 23);
             this.btnRapporteer.TabIndex = 9;
             this.btnRapporteer.Text = "Rapporteer";
             this.btnRapporteer.UseVisualStyleBackColor = true;
@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 266);
+            this.ClientSize = new System.Drawing.Size(321, 269);
             this.Controls.Add(this.btnRapporteer);
             this.Controls.Add(this.lbReacties);
             this.Controls.Add(this.tbReactieTekst);

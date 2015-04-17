@@ -57,7 +57,7 @@ namespace ICT4Events_S24_Groep_E
 
         public override string ToString()
         {
-            return likes.Count + " Like(s): " + tekst;
+            return auteur.Gebruikersnaam + " " + datumGepost.ToString() + " : " + tekst;
         }
 
         public bool BerichtLiken(Persoon invPersoon)
