@@ -30,10 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventBeheerForm));
             this.gbGebruikers = new System.Windows.Forms.GroupBox();
-            this.cbPlaats = new System.Windows.Forms.ComboBox();
             this.btnZeker = new System.Windows.Forms.Button();
             this.btnNee = new System.Windows.Forms.Button();
-            this.cbGebruiker = new System.Windows.Forms.ComboBox();
             this.btnVerwijder = new System.Windows.Forms.Button();
             this.lbGebruikerinfo = new System.Windows.Forms.ListBox();
             this.btnInfoOpvraag = new System.Windows.Forms.Button();
@@ -80,10 +78,8 @@
             // 
             // gbGebruikers
             // 
-            this.gbGebruikers.Controls.Add(this.cbPlaats);
             this.gbGebruikers.Controls.Add(this.btnZeker);
             this.gbGebruikers.Controls.Add(this.btnNee);
-            this.gbGebruikers.Controls.Add(this.cbGebruiker);
             this.gbGebruikers.Controls.Add(this.btnVerwijder);
             this.gbGebruikers.Controls.Add(this.lbGebruikerinfo);
             this.gbGebruikers.Controls.Add(this.btnInfoOpvraag);
@@ -95,19 +91,11 @@
             this.gbGebruikers.TabStop = false;
             this.gbGebruikers.Text = "Gebruikers";
             // 
-            // cbPlaats
-            // 
-            this.cbPlaats.FormattingEnabled = true;
-            this.cbPlaats.Location = new System.Drawing.Point(5, 254);
-            this.cbPlaats.Name = "cbPlaats";
-            this.cbPlaats.Size = new System.Drawing.Size(121, 21);
-            this.cbPlaats.TabIndex = 5;
-            // 
             // btnZeker
             // 
-            this.btnZeker.Location = new System.Drawing.Point(560, 222);
+            this.btnZeker.Location = new System.Drawing.Point(6, 88);
             this.btnZeker.Name = "btnZeker";
-            this.btnZeker.Size = new System.Drawing.Size(75, 23);
+            this.btnZeker.Size = new System.Drawing.Size(112, 23);
             this.btnZeker.TabIndex = 4;
             this.btnZeker.Text = "Zeker?";
             this.btnZeker.UseVisualStyleBackColor = true;
@@ -115,28 +103,19 @@
             // 
             // btnNee
             // 
-            this.btnNee.Location = new System.Drawing.Point(641, 222);
+            this.btnNee.Location = new System.Drawing.Point(6, 117);
             this.btnNee.Name = "btnNee";
-            this.btnNee.Size = new System.Drawing.Size(75, 23);
+            this.btnNee.Size = new System.Drawing.Size(112, 23);
             this.btnNee.TabIndex = 4;
             this.btnNee.Text = "Nee";
             this.btnNee.UseVisualStyleBackColor = true;
             this.btnNee.Click += new System.EventHandler(this.btnNee_Click);
             // 
-            // cbGebruiker
-            // 
-            this.cbGebruiker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGebruiker.FormattingEnabled = true;
-            this.cbGebruiker.Location = new System.Drawing.Point(133, 224);
-            this.cbGebruiker.Name = "cbGebruiker";
-            this.cbGebruiker.Size = new System.Drawing.Size(421, 21);
-            this.cbGebruiker.TabIndex = 3;
-            // 
             // btnVerwijder
             // 
-            this.btnVerwijder.Location = new System.Drawing.Point(5, 224);
+            this.btnVerwijder.Location = new System.Drawing.Point(6, 59);
             this.btnVerwijder.Name = "btnVerwijder";
-            this.btnVerwijder.Size = new System.Drawing.Size(121, 23);
+            this.btnVerwijder.Size = new System.Drawing.Size(112, 23);
             this.btnVerwijder.TabIndex = 2;
             this.btnVerwijder.Text = "verwijder gebruiker";
             this.btnVerwijder.UseVisualStyleBackColor = true;
@@ -145,14 +124,14 @@
             // lbGebruikerinfo
             // 
             this.lbGebruikerinfo.FormattingEnabled = true;
-            this.lbGebruikerinfo.Location = new System.Drawing.Point(218, 19);
+            this.lbGebruikerinfo.Location = new System.Drawing.Point(124, 19);
             this.lbGebruikerinfo.Name = "lbGebruikerinfo";
             this.lbGebruikerinfo.Size = new System.Drawing.Size(542, 199);
             this.lbGebruikerinfo.TabIndex = 1;
             // 
             // btnInfoOpvraag
             // 
-            this.btnInfoOpvraag.Location = new System.Drawing.Point(100, 19);
+            this.btnInfoOpvraag.Location = new System.Drawing.Point(6, 19);
             this.btnInfoOpvraag.Name = "btnInfoOpvraag";
             this.btnInfoOpvraag.Size = new System.Drawing.Size(112, 34);
             this.btnInfoOpvraag.TabIndex = 0;
@@ -384,7 +363,7 @@
             // 
             // btnPasEventAan
             // 
-            this.btnPasEventAan.Location = new System.Drawing.Point(602, 17);
+            this.btnPasEventAan.Location = new System.Drawing.Point(424, 17);
             this.btnPasEventAan.Name = "btnPasEventAan";
             this.btnPasEventAan.Size = new System.Drawing.Size(75, 23);
             this.btnPasEventAan.TabIndex = 3;
@@ -419,13 +398,13 @@
             this.cbEventsEventbeheer.FormattingEnabled = true;
             this.cbEventsEventbeheer.Location = new System.Drawing.Point(148, 19);
             this.cbEventsEventbeheer.Name = "cbEventsEventbeheer";
-            this.cbEventsEventbeheer.Size = new System.Drawing.Size(448, 21);
+            this.cbEventsEventbeheer.Size = new System.Drawing.Size(270, 21);
             this.cbEventsEventbeheer.TabIndex = 1;
             this.cbEventsEventbeheer.SelectedIndexChanged += new System.EventHandler(this.cbEvents_SelectedIndexChanged);
             // 
             // btnVerwijderEvent
             // 
-            this.btnVerwijderEvent.Location = new System.Drawing.Point(683, 17);
+            this.btnVerwijderEvent.Location = new System.Drawing.Point(505, 17);
             this.btnVerwijderEvent.Name = "btnVerwijderEvent";
             this.btnVerwijderEvent.Size = new System.Drawing.Size(75, 23);
             this.btnVerwijderEvent.TabIndex = 0;
@@ -467,7 +446,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(789, 401);
+            this.tabControl1.Size = new System.Drawing.Size(789, 292);
             this.tabControl1.TabIndex = 2;
             // 
             // eventTab
@@ -476,7 +455,7 @@
             this.eventTab.Location = new System.Drawing.Point(4, 22);
             this.eventTab.Name = "eventTab";
             this.eventTab.Padding = new System.Windows.Forms.Padding(3);
-            this.eventTab.Size = new System.Drawing.Size(781, 375);
+            this.eventTab.Size = new System.Drawing.Size(781, 266);
             this.eventTab.TabIndex = 0;
             this.eventTab.Text = "Event";
             this.eventTab.UseVisualStyleBackColor = true;
@@ -488,7 +467,7 @@
             this.gebruikerTab.Location = new System.Drawing.Point(4, 22);
             this.gebruikerTab.Name = "gebruikerTab";
             this.gebruikerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.gebruikerTab.Size = new System.Drawing.Size(781, 375);
+            this.gebruikerTab.Size = new System.Drawing.Size(781, 266);
             this.gebruikerTab.TabIndex = 1;
             this.gebruikerTab.Text = "Gebruikers";
             // 
@@ -496,7 +475,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 420);
+            this.ClientSize = new System.Drawing.Size(812, 313);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventBeheerForm";
@@ -519,9 +498,7 @@
         private System.Windows.Forms.Button btnInfoOpvraag;
         private System.Windows.Forms.Button btnZeker;
         private System.Windows.Forms.Button btnNee;
-        private System.Windows.Forms.ComboBox cbGebruiker;
         private System.Windows.Forms.Button btnVerwijder;
-        private System.Windows.Forms.ComboBox cbPlaats;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnVerwijderEvent;
         private System.Windows.Forms.Button btnMaakEventAan;

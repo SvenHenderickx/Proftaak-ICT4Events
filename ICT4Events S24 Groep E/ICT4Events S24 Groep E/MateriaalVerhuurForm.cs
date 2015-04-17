@@ -118,6 +118,8 @@ namespace ICT4Events_S24_Groep_E
                     cbVideoCamera.Items.Add(h.Naam);
                 }
             }
+            cbFotoCamera.SelectedIndex = 0;
+            cbVideoCamera.SelectedIndex = 0;
         }
 
         private void MateriaalVerhuurForm_FormClosing(object sender, FormClosingEventArgs e)

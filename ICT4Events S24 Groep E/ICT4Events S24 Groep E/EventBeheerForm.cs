@@ -47,18 +47,38 @@ namespace ICT4Events_S24_Groep_E
         }
         private void btnVerwijder_Click(object sender, EventArgs e)
         {
-            this.btnNee.Enabled = true;
-            this.btnVerwijder.Enabled = false;
-
-            timer.Interval = interval;
-            timer.Tick += timer_Tick;
-            timer.Start();
+            if (lbGebruikerinfo.SelectedItem == null)
+            {
+                MessageBox.Show("Selecteer a.u.b. een gebruiker om te verwijderen.");
+            }
+            else
+            {
+                this.btnNee.Enabled = true;
+                this.btnVerwijder.Enabled = false;
+                lbGebruikerinfo.Enabled = false;
+                timer.Interval = interval;
+                timer.Tick += timer_Tick;
+                timer.Start();
+            }
+            
         }
 
         private void btnZeker_Click(object sender, EventArgs e)
         {
+            lbGebruikerinfo.Enabled = true;
             this.btnNee.Enabled = false;
             this.btnZeker.Enabled = false;
+            btnVerwijder.Enabled = true;
+            string verwijderen = lbGebruikerinfo.SelectedItem.ToString().Substring(0, lbGebruikerinfo.SelectedItem.ToString().IndexOf(","));
+            foreach (Persoon p in administratie.GeefEvent(cbEventsEventbeheer.Text).Personen)
+            {
+                if (verwijderen == p.RfidCode)
+                {
+                    administratie.GeefEvent(cbEventsEventbeheer.Text).Personen.Remove(p);
+                    break;
+                }
+            }
+            updateEventTab();
         }
 
         private void btnNee_Click(object sender, EventArgs e)
@@ -66,6 +86,8 @@ namespace ICT4Events_S24_Groep_E
             this.btnNee.Enabled = false;
             this.btnZeker.Enabled = false;
             this.btnVerwijder.Enabled = true;
+            lbGebruikerinfo.Enabled = true;
+            timer.Stop();
         }
         private void tabPage1_Click(object sender, EventArgs e)
         {
@@ -146,6 +168,7 @@ namespace ICT4Events_S24_Groep_E
             cbDeelnemersEventbeheer.Items.Clear();
             cbPlaatsen.Items.Clear();
             cbMateriaal.Items.Clear();
+            lbGebruikerinfo.Items.Clear();
             foreach (Persoon p in administratie.GeefEvent(cbEventsEventbeheer.Text).Personen)
             {
                 if (p is Bezoeker)
@@ -164,25 +187,23 @@ namespace ICT4Events_S24_Groep_E
                 cbMateriaal.Items.Add(h.Naam +", "  + h.Type);
                 cbMateriaal.SelectedIndex = 0;
             }
-        }
 
-        private void btnInfoOpvraag_Click(object sender, EventArgs e)
-        {
-            string info = "Bezoekers informatie:" ;
             foreach (Persoon p in administratie.GeefEvent(cbEventsEventbeheer.Text).Personen)
             {
                 if (p is Bezoeker)
                 {
-                    Bezoeker b = (Bezoeker)p;
-                    info = 
-                        p.Gebruikersnaam.ToString() + " - " + 
-                        p.Naam.ToString()           + " - " + 
-                        p.GeboorteDatum.ToString()  + " - " + 
-                        p.Achternaam.ToString()     + " - " + 
-                        p.RfidCode.ToString();
+                    Bezoeker b = p as Bezoeker;
+                    string info = p.RfidCode + ", " + p.Naam + " " + p.Achternaam + ", " + p.Gebruikersnaam + ", " + administratie.GeefPlaats(b, administratie.GeefEvent(cbEventsEventbeheer.Text));
+                    lbGebruikerinfo.Items.Add(info);
+
                 }
-                lbGebruikerinfo.Items.Add(info);
             }
+        }
+
+        private void btnInfoOpvraag_Click(object sender, EventArgs e)
+        {
+            
+            updateEventTab();
         }
 
         private void TerugNaarLogIn(object sender, FormClosedEventArgs e)
