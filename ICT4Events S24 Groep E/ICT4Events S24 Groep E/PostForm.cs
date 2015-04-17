@@ -30,7 +30,7 @@ namespace ICT4Events_S24_Groep_E
             lbReacties.Items.Clear();
             foreach (Reactie r in administratie.TempBericht.Reacties)
             {
-                lbReacties.Items.Add(r.Plaatser + ": " + r.Inhoud);
+                lbReacties.Items.Add(r.ToString());
             }
         }
 
@@ -105,19 +105,41 @@ namespace ICT4Events_S24_Groep_E
 
         public bool CheckBeheerder()
         {
-            if (administratie.NuIngelogd is Beheerder)
+            if (administratie.NuIngelogd is Beheerder || administratie.TempBericht.Auteur == administratie.NuIngelogd)
             {
                 if (rapportages == false)
                 {
-                    btnRapporteer.Text = "Rapportages";
+                    btnRapporteer.Text = "Reacties";
                 }
                 else
                 {
-                    btnRapporteer.Text = "Reacties";
+                    btnRapporteer.Text = "Rapportages";
                 }
+                btnBerichtVerwijderen.Visible = true;
+                btnReactieVerwijderen.Visible = true;
                 return true;
             }
+            else
+            {
+                btnBerichtVerwijderen.Visible = false;
+                btnReactieVerwijderen.Visible = false;
+            }
             return false;
+        }
+
+        private void btnReactieVerwijderen_Click(object sender, EventArgs e)
+        {
+            if (lbReacties.SelectedIndex >= 0)
+            {
+                administratie.TempBericht.ReactieVerwijder(administratie.TempBericht.ReactieZoekenMetToString(lbReacties.SelectedItem.ToString()));
+                LaadAlleReacties();
+            }
+        }
+
+        private void btnBerichtVerwijderen_Click(object sender, EventArgs e)
+        {
+            administratie.HuidigEvent.VerwijderBericht(administratie.TempBericht);
+            this.Close();
         }
     }
 }

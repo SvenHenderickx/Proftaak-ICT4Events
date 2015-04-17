@@ -106,5 +106,29 @@ namespace ICT4Events_S24_Groep_E
                 return 0;
             }
         }
+
+        public Reactie ReactieZoekenMetToString(string inv)
+        {
+            foreach (Reactie r in reacties)
+            {
+                if (r.ToString() == inv)
+                {
+                    return r;
+                }
+            }
+            return null;
+        }
+
+        public void ReactieVerwijder(Reactie reactie)
+        {
+            foreach (Reactie r in reacties)
+            {
+                if (r == reactie)
+                {
+                    reacties.Remove(r);
+                    return;
+                }
+            }
+        }
     }
 }

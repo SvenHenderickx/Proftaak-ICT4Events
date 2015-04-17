@@ -37,6 +37,8 @@
             this.tbReactieTekst = new System.Windows.Forms.TextBox();
             this.lbReacties = new System.Windows.Forms.ListBox();
             this.btnRapporteer = new System.Windows.Forms.Button();
+            this.btnReactieVerwijderen = new System.Windows.Forms.Button();
+            this.btnBerichtVerwijderen = new System.Windows.Forms.Button();
             this.gbGebnaam.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,11 +127,33 @@
             this.btnRapporteer.UseVisualStyleBackColor = true;
             this.btnRapporteer.Click += new System.EventHandler(this.btnRapporteer_Click);
             // 
+            // btnReactieVerwijderen
+            // 
+            this.btnReactieVerwijderen.Location = new System.Drawing.Point(12, 264);
+            this.btnReactieVerwijderen.Name = "btnReactieVerwijderen";
+            this.btnReactieVerwijderen.Size = new System.Drawing.Size(154, 24);
+            this.btnReactieVerwijderen.TabIndex = 10;
+            this.btnReactieVerwijderen.Text = "Verwijder Reactie";
+            this.btnReactieVerwijderen.UseVisualStyleBackColor = true;
+            this.btnReactieVerwijderen.Click += new System.EventHandler(this.btnReactieVerwijderen_Click);
+            // 
+            // btnBerichtVerwijderen
+            // 
+            this.btnBerichtVerwijderen.Location = new System.Drawing.Point(172, 264);
+            this.btnBerichtVerwijderen.Name = "btnBerichtVerwijderen";
+            this.btnBerichtVerwijderen.Size = new System.Drawing.Size(137, 23);
+            this.btnBerichtVerwijderen.TabIndex = 11;
+            this.btnBerichtVerwijderen.Text = "Verwijder Bericht";
+            this.btnBerichtVerwijderen.UseVisualStyleBackColor = true;
+            this.btnBerichtVerwijderen.Click += new System.EventHandler(this.btnBerichtVerwijderen_Click);
+            // 
             // PostForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 269);
+            this.ClientSize = new System.Drawing.Size(321, 295);
+            this.Controls.Add(this.btnBerichtVerwijderen);
+            this.Controls.Add(this.btnReactieVerwijderen);
             this.Controls.Add(this.btnRapporteer);
             this.Controls.Add(this.lbReacties);
             this.Controls.Add(this.tbReactieTekst);
@@ -158,5 +182,7 @@
         private System.Windows.Forms.TextBox tbReactieTekst;
         private System.Windows.Forms.ListBox lbReacties;
         private System.Windows.Forms.Button btnRapporteer;
+        private System.Windows.Forms.Button btnReactieVerwijderen;
+        private System.Windows.Forms.Button btnBerichtVerwijderen;
     }
 }

@@ -46,5 +46,10 @@ namespace ICT4Events_S24_Groep_E
             this.plaatser = plaatser;
             this.inhoud = inhoud;
         }
+
+        public string ToString()
+        {
+            return plaatser.Gebruikersnaam + ": " + inhoud;
+        }
     }
 }
