@@ -180,6 +180,7 @@ namespace ICT4Events_S24_Groep_E
             lbGebruikerinfo.Items.Clear();
             lbHuidigMateriaal.Items.Clear();
             cbMateriaalToevoegen.SelectedIndex = 0;
+            lbHuidigePlaatsen.Items.Clear();
             foreach (Persoon p in administratie.GeefEvent(cbEventsEventbeheer.Text).Personen)
             {
                 if (p is Bezoeker)
@@ -224,6 +225,20 @@ namespace ICT4Events_S24_Groep_E
                 string toevoegen = h.Naam + ", " + h.Type + ", " + status + "\n";
                 lbHuidigMateriaal.Items.Add(toevoegen);
             }
+            foreach (Plaats p in administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen)
+            {
+                if (p.Huurder != null)
+                {
+                    string info = p.PlaatsNummer + ", " + p.AantalPersonen + " personen, " + p.Huurder.Gebruikersnaam + ", € " + p.Prijs;
+                    lbHuidigePlaatsen.Items.Add(info);
+                }
+                else
+                {
+                    string info = p.PlaatsNummer + ", " + p.AantalPersonen + " personen, " + "Niet verhuurd, " + "€ " + p.Prijs;
+                    lbHuidigePlaatsen.Items.Add(info);
+                }
+                
+            }
         }
 
         private void btnInfoOpvraag_Click(object sender, EventArgs e)
@@ -259,14 +274,21 @@ namespace ICT4Events_S24_Groep_E
 
         private void buttonVerwijderMateriaal_Click(object sender, EventArgs e)
         {
-            string teverwijderen = cbMateriaal.Text.Substring(0, cbMateriaal.Text.IndexOf(","));
-            foreach (Huuritem h in administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal)
+            if (cbMateriaal.Text != "")
             {
-                if (h.Naam == teverwijderen)
+                string teverwijderen = cbMateriaal.Text.Substring(0, cbMateriaal.Text.IndexOf(","));
+                foreach (Huuritem h in administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal)
                 {
-                    administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Remove(h);
-                    break;
+                    if (h.Naam == teverwijderen)
+                    {
+                        administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Remove(h);
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Er is geen materiaal om te verwijderen.");
             }
             updateEventTab();
         }
@@ -280,6 +302,19 @@ namespace ICT4Events_S24_Groep_E
             else
             {
                 MessageBox.Show("Geef a.u.b. een soort en naam");
+            }
+            updateEventTab();
+        }
+
+        private void buttonVoegPlaatsToe_Click(object sender, EventArgs e)
+        {
+            if (tbPlaatsToevoegenPrijs.Text != "" && administratie.IsDigitsOnly(tbPlaatsToevoegenPrijs.Text))
+            {
+                administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen.Add(new Plaats(Convert.ToInt32(tbPlaatsToevoegenPrijs.Text), null, chkPlaatsGeluidoverlast.ThreeState, Convert.ToInt32(nudPlaatsPersonen.Value)));
+            }
+            else
+            {
+                MessageBox.Show("Voer a.u.b. een geldig getal in zonder decimalen");
             }
             updateEventTab();
         }

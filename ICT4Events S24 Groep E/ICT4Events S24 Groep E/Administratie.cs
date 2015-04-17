@@ -147,5 +147,19 @@ namespace ICT4Events_S24_Groep_E
             events.Add(new Event(naam, beginDatum, eindDatum, plaats, adres));
             return true;
         }
+
+        public bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                {
+                    return false;
+                }
+                    
+            }
+
+            return true;
+        }
     }
 }

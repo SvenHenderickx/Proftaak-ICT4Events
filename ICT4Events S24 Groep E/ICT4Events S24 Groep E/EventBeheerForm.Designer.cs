@@ -38,11 +38,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonVerwijderPlaatsen = new System.Windows.Forms.Button();
             this.buttonVerwijderMateriaal = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.btnDatabaseConnectie = new System.Windows.Forms.Button();
-            this.cbMateriaalSelecter = new System.Windows.Forms.ComboBox();
-            this.cbPlaatsenSelecter = new System.Windows.Forms.ComboBox();
             this.cbMateriaal = new System.Windows.Forms.ComboBox();
             this.cbPlaatsen = new System.Windows.Forms.ComboBox();
             this.cbDeelnemersEventbeheer = new System.Windows.Forms.ComboBox();
@@ -77,12 +73,23 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cbMateriaalToevoegen = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.plaatsTab = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbPlaatsToevoegenPrijs = new System.Windows.Forms.TextBox();
+            this.chkPlaatsGeluidoverlast = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.nudPlaatsPersonen = new System.Windows.Forms.NumericUpDown();
+            this.lbHuidigePlaatsen = new System.Windows.Forms.ListBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.buttonVoegPlaatsToe = new System.Windows.Forms.Button();
             this.gbGebruikers.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.eventTab.SuspendLayout();
             this.gebruikerTab.SuspendLayout();
             this.materiaalTab.SuspendLayout();
+            this.plaatsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPlaatsPersonen)).BeginInit();
             this.SuspendLayout();
             // 
             // gbGebruikers
@@ -152,11 +159,7 @@
             // 
             this.groupBox2.Controls.Add(this.buttonVerwijderPlaatsen);
             this.groupBox2.Controls.Add(this.buttonVerwijderMateriaal);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.btnDatabaseConnectie);
-            this.groupBox2.Controls.Add(this.cbMateriaalSelecter);
-            this.groupBox2.Controls.Add(this.cbPlaatsenSelecter);
             this.groupBox2.Controls.Add(this.cbMateriaal);
             this.groupBox2.Controls.Add(this.cbPlaatsen);
             this.groupBox2.Controls.Add(this.cbDeelnemersEventbeheer);
@@ -205,24 +208,6 @@
             this.buttonVerwijderMateriaal.UseVisualStyleBackColor = true;
             this.buttonVerwijderMateriaal.Click += new System.EventHandler(this.buttonVerwijderMateriaal_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(696, 198);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(67, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "voeg toe";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(696, 224);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(67, 23);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "voeg toe";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // btnDatabaseConnectie
             // 
             this.btnDatabaseConnectie.Location = new System.Drawing.Point(93, 331);
@@ -232,22 +217,6 @@
             this.btnDatabaseConnectie.Text = "Database Connectie";
             this.btnDatabaseConnectie.UseVisualStyleBackColor = true;
             this.btnDatabaseConnectie.Click += new System.EventHandler(this.btnDatabaseConnectie_Click);
-            // 
-            // cbMateriaalSelecter
-            // 
-            this.cbMateriaalSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMateriaalSelecter.Location = new System.Drawing.Point(459, 224);
-            this.cbMateriaalSelecter.Name = "cbMateriaalSelecter";
-            this.cbMateriaalSelecter.Size = new System.Drawing.Size(231, 21);
-            this.cbMateriaalSelecter.TabIndex = 0;
-            // 
-            // cbPlaatsenSelecter
-            // 
-            this.cbPlaatsenSelecter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlaatsenSelecter.Location = new System.Drawing.Point(459, 198);
-            this.cbPlaatsenSelecter.Name = "cbPlaatsenSelecter";
-            this.cbPlaatsenSelecter.Size = new System.Drawing.Size(231, 21);
-            this.cbPlaatsenSelecter.TabIndex = 0;
             // 
             // cbMateriaal
             // 
@@ -453,6 +422,7 @@
             this.tabControl1.Controls.Add(this.eventTab);
             this.tabControl1.Controls.Add(this.gebruikerTab);
             this.tabControl1.Controls.Add(this.materiaalTab);
+            this.tabControl1.Controls.Add(this.plaatsTab);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -477,7 +447,7 @@
             this.gebruikerTab.Location = new System.Drawing.Point(4, 22);
             this.gebruikerTab.Name = "gebruikerTab";
             this.gebruikerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.gebruikerTab.Size = new System.Drawing.Size(781, 266);
+            this.gebruikerTab.Size = new System.Drawing.Size(781, 376);
             this.gebruikerTab.TabIndex = 1;
             this.gebruikerTab.Text = "Gebruikers";
             // 
@@ -492,7 +462,7 @@
             this.materiaalTab.Controls.Add(this.label9);
             this.materiaalTab.Location = new System.Drawing.Point(4, 22);
             this.materiaalTab.Name = "materiaalTab";
-            this.materiaalTab.Size = new System.Drawing.Size(781, 266);
+            this.materiaalTab.Size = new System.Drawing.Size(781, 376);
             this.materiaalTab.TabIndex = 2;
             this.materiaalTab.Text = "Materiaal Toevoegen";
             this.materiaalTab.UseVisualStyleBackColor = true;
@@ -521,7 +491,7 @@
             this.lbHuidigMateriaal.FormattingEnabled = true;
             this.lbHuidigMateriaal.Location = new System.Drawing.Point(303, 11);
             this.lbHuidigMateriaal.Name = "lbHuidigMateriaal";
-            this.lbHuidigMateriaal.Size = new System.Drawing.Size(475, 251);
+            this.lbHuidigMateriaal.Size = new System.Drawing.Size(466, 251);
             this.lbHuidigMateriaal.TabIndex = 4;
             // 
             // tbMateriaalToevoegen
@@ -561,6 +531,109 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Soort:";
             // 
+            // plaatsTab
+            // 
+            this.plaatsTab.Controls.Add(this.buttonVoegPlaatsToe);
+            this.plaatsTab.Controls.Add(this.label15);
+            this.plaatsTab.Controls.Add(this.lbHuidigePlaatsen);
+            this.plaatsTab.Controls.Add(this.nudPlaatsPersonen);
+            this.plaatsTab.Controls.Add(this.label14);
+            this.plaatsTab.Controls.Add(this.chkPlaatsGeluidoverlast);
+            this.plaatsTab.Controls.Add(this.tbPlaatsToevoegenPrijs);
+            this.plaatsTab.Controls.Add(this.label13);
+            this.plaatsTab.Location = new System.Drawing.Point(4, 22);
+            this.plaatsTab.Name = "plaatsTab";
+            this.plaatsTab.Size = new System.Drawing.Size(781, 376);
+            this.plaatsTab.TabIndex = 3;
+            this.plaatsTab.Text = "Plaats Toevoegen";
+            this.plaatsTab.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(19, 22);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Prijs: €";
+            // 
+            // tbPlaatsToevoegenPrijs
+            // 
+            this.tbPlaatsToevoegenPrijs.Location = new System.Drawing.Point(63, 19);
+            this.tbPlaatsToevoegenPrijs.Name = "tbPlaatsToevoegenPrijs";
+            this.tbPlaatsToevoegenPrijs.Size = new System.Drawing.Size(100, 20);
+            this.tbPlaatsToevoegenPrijs.TabIndex = 1;
+            // 
+            // chkPlaatsGeluidoverlast
+            // 
+            this.chkPlaatsGeluidoverlast.AutoSize = true;
+            this.chkPlaatsGeluidoverlast.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkPlaatsGeluidoverlast.Location = new System.Drawing.Point(19, 45);
+            this.chkPlaatsGeluidoverlast.Name = "chkPlaatsGeluidoverlast";
+            this.chkPlaatsGeluidoverlast.Size = new System.Drawing.Size(120, 17);
+            this.chkPlaatsGeluidoverlast.TabIndex = 2;
+            this.chkPlaatsGeluidoverlast.Text = "Veel geluidsoverlast";
+            this.chkPlaatsGeluidoverlast.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(20, 69);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Aantal Personen:";
+            // 
+            // nudPlaatsPersonen
+            // 
+            this.nudPlaatsPersonen.Location = new System.Drawing.Point(116, 67);
+            this.nudPlaatsPersonen.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudPlaatsPersonen.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudPlaatsPersonen.Name = "nudPlaatsPersonen";
+            this.nudPlaatsPersonen.ReadOnly = true;
+            this.nudPlaatsPersonen.Size = new System.Drawing.Size(47, 20);
+            this.nudPlaatsPersonen.TabIndex = 4;
+            this.nudPlaatsPersonen.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lbHuidigePlaatsen
+            // 
+            this.lbHuidigePlaatsen.FormattingEnabled = true;
+            this.lbHuidigePlaatsen.Location = new System.Drawing.Point(303, 22);
+            this.lbHuidigePlaatsen.Name = "lbHuidigePlaatsen";
+            this.lbHuidigePlaatsen.Size = new System.Drawing.Size(292, 251);
+            this.lbHuidigePlaatsen.TabIndex = 5;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(208, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(89, 13);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Huidige plaatsen:";
+            // 
+            // buttonVoegPlaatsToe
+            // 
+            this.buttonVoegPlaatsToe.Location = new System.Drawing.Point(19, 104);
+            this.buttonVoegPlaatsToe.Name = "buttonVoegPlaatsToe";
+            this.buttonVoegPlaatsToe.Size = new System.Drawing.Size(75, 23);
+            this.buttonVoegPlaatsToe.TabIndex = 7;
+            this.buttonVoegPlaatsToe.Text = "Voeg Toe";
+            this.buttonVoegPlaatsToe.UseVisualStyleBackColor = true;
+            this.buttonVoegPlaatsToe.Click += new System.EventHandler(this.buttonVoegPlaatsToe_Click);
+            // 
             // EventBeheerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -579,6 +652,9 @@
             this.gebruikerTab.ResumeLayout(false);
             this.materiaalTab.ResumeLayout(false);
             this.materiaalTab.PerformLayout();
+            this.plaatsTab.ResumeLayout(false);
+            this.plaatsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPlaatsPersonen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -610,8 +686,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbMateriaalSelecter;
-        private System.Windows.Forms.ComboBox cbPlaatsenSelecter;
         private System.Windows.Forms.ComboBox cbMateriaal;
         private System.Windows.Forms.ComboBox cbPlaatsen;
         private System.Windows.Forms.ComboBox cbDeelnemersEventbeheer;
@@ -623,8 +697,6 @@
         private System.Windows.Forms.Button btnDatabaseConnectie;
         private System.Windows.Forms.Button buttonVerwijderPlaatsen;
         private System.Windows.Forms.Button buttonVerwijderMateriaal;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TabPage materiaalTab;
         private System.Windows.Forms.Button buttonVoegMateriaalToe;
         private System.Windows.Forms.Label label12;
@@ -633,5 +705,14 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbMateriaalToevoegen;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TabPage plaatsTab;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tbPlaatsToevoegenPrijs;
+        private System.Windows.Forms.CheckBox chkPlaatsGeluidoverlast;
+        private System.Windows.Forms.NumericUpDown nudPlaatsPersonen;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ListBox lbHuidigePlaatsen;
+        private System.Windows.Forms.Button buttonVoegPlaatsToe;
     }
 }

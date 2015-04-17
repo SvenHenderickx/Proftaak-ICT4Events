@@ -38,6 +38,11 @@ namespace ICT4Events_S24_Groep_E
         {
             get { return huurder; }
         }
+
+        public int Prijs
+        {
+            get { return prijs; }
+        }
         public Plaats(int prijs, Hoofdboeker huurder, bool geluidsOverlast, int aantalPersonen)
         {
             this.prijs = prijs;
