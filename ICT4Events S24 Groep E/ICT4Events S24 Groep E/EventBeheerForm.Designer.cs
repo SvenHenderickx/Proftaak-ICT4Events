@@ -180,7 +180,7 @@
             this.groupBox2.Controls.Add(this.btnMaakEventAan);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(769, 366);
+            this.groupBox2.Size = new System.Drawing.Size(769, 364);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "EventBeheer";
@@ -456,7 +456,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(789, 292);
+            this.tabControl1.Size = new System.Drawing.Size(789, 402);
             this.tabControl1.TabIndex = 2;
             // 
             // eventTab
@@ -465,7 +465,7 @@
             this.eventTab.Location = new System.Drawing.Point(4, 22);
             this.eventTab.Name = "eventTab";
             this.eventTab.Padding = new System.Windows.Forms.Padding(3);
-            this.eventTab.Size = new System.Drawing.Size(781, 266);
+            this.eventTab.Size = new System.Drawing.Size(781, 376);
             this.eventTab.TabIndex = 0;
             this.eventTab.Text = "Event";
             this.eventTab.UseVisualStyleBackColor = true;
@@ -565,7 +565,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 313);
+            this.ClientSize = new System.Drawing.Size(812, 420);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventBeheerForm";

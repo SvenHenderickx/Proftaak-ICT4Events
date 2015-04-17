@@ -51,6 +51,7 @@ namespace ICT4Events_S24_Groep_E
         private void TestDataEvents()
         {
             events.Add(new Event("SME Event", new DateTime(2015, 6, 18), new DateTime(2015, 6, 25), "Eindhoven", "Woensel 12"));
+            events.Add(new Event("Kerstmarkt", new DateTime(2015, 12, 4), new DateTime(2015, 12, 5), "Grathem", "Onbekende weg 4"));
         }
 
         public Event GeefEvent(string eventNaam)
