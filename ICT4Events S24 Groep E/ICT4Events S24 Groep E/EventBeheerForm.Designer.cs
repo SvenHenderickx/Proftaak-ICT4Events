@@ -34,7 +34,6 @@
             this.btnNee = new System.Windows.Forms.Button();
             this.btnVerwijder = new System.Windows.Forms.Button();
             this.lbGebruikerinfo = new System.Windows.Forms.ListBox();
-            this.btnInfoOpvraag = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonVerwijderPlaatsen = new System.Windows.Forms.Button();
             this.buttonVerwijderMateriaal = new System.Windows.Forms.Button();
@@ -74,14 +73,14 @@
             this.cbMateriaalToevoegen = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.plaatsTab = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbPlaatsToevoegenPrijs = new System.Windows.Forms.TextBox();
-            this.chkPlaatsGeluidoverlast = new System.Windows.Forms.CheckBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.nudPlaatsPersonen = new System.Windows.Forms.NumericUpDown();
-            this.lbHuidigePlaatsen = new System.Windows.Forms.ListBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.buttonVoegPlaatsToe = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbHuidigePlaatsen = new System.Windows.Forms.ListBox();
+            this.nudPlaatsPersonen = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.chkPlaatsGeluidoverlast = new System.Windows.Forms.CheckBox();
+            this.tbPlaatsToevoegenPrijs = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.gbGebruikers.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -98,18 +97,17 @@
             this.gbGebruikers.Controls.Add(this.btnNee);
             this.gbGebruikers.Controls.Add(this.btnVerwijder);
             this.gbGebruikers.Controls.Add(this.lbGebruikerinfo);
-            this.gbGebruikers.Controls.Add(this.btnInfoOpvraag);
             this.gbGebruikers.Enabled = false;
             this.gbGebruikers.Location = new System.Drawing.Point(6, 6);
             this.gbGebruikers.Name = "gbGebruikers";
-            this.gbGebruikers.Size = new System.Drawing.Size(766, 305);
+            this.gbGebruikers.Size = new System.Drawing.Size(766, 290);
             this.gbGebruikers.TabIndex = 0;
             this.gbGebruikers.TabStop = false;
             this.gbGebruikers.Text = "Gebruikers";
             // 
             // btnZeker
             // 
-            this.btnZeker.Location = new System.Drawing.Point(6, 88);
+            this.btnZeker.Location = new System.Drawing.Point(6, 48);
             this.btnZeker.Name = "btnZeker";
             this.btnZeker.Size = new System.Drawing.Size(112, 23);
             this.btnZeker.TabIndex = 4;
@@ -119,7 +117,7 @@
             // 
             // btnNee
             // 
-            this.btnNee.Location = new System.Drawing.Point(6, 117);
+            this.btnNee.Location = new System.Drawing.Point(6, 77);
             this.btnNee.Name = "btnNee";
             this.btnNee.Size = new System.Drawing.Size(112, 23);
             this.btnNee.TabIndex = 4;
@@ -129,11 +127,11 @@
             // 
             // btnVerwijder
             // 
-            this.btnVerwijder.Location = new System.Drawing.Point(6, 59);
+            this.btnVerwijder.Location = new System.Drawing.Point(6, 19);
             this.btnVerwijder.Name = "btnVerwijder";
             this.btnVerwijder.Size = new System.Drawing.Size(112, 23);
             this.btnVerwijder.TabIndex = 2;
-            this.btnVerwijder.Text = "verwijder gebruiker";
+            this.btnVerwijder.Text = "Verwijder gebruiker";
             this.btnVerwijder.UseVisualStyleBackColor = true;
             this.btnVerwijder.Click += new System.EventHandler(this.btnVerwijder_Click);
             // 
@@ -142,18 +140,8 @@
             this.lbGebruikerinfo.FormattingEnabled = true;
             this.lbGebruikerinfo.Location = new System.Drawing.Point(124, 19);
             this.lbGebruikerinfo.Name = "lbGebruikerinfo";
-            this.lbGebruikerinfo.Size = new System.Drawing.Size(542, 199);
+            this.lbGebruikerinfo.Size = new System.Drawing.Size(636, 264);
             this.lbGebruikerinfo.TabIndex = 1;
-            // 
-            // btnInfoOpvraag
-            // 
-            this.btnInfoOpvraag.Location = new System.Drawing.Point(6, 19);
-            this.btnInfoOpvraag.Name = "btnInfoOpvraag";
-            this.btnInfoOpvraag.Size = new System.Drawing.Size(112, 34);
-            this.btnInfoOpvraag.TabIndex = 0;
-            this.btnInfoOpvraag.Text = "Vraag informatie op voor alle gebruikers";
-            this.btnInfoOpvraag.UseVisualStyleBackColor = true;
-            this.btnInfoOpvraag.Click += new System.EventHandler(this.btnInfoOpvraag_Click);
             // 
             // groupBox2
             // 
@@ -183,14 +171,14 @@
             this.groupBox2.Controls.Add(this.btnMaakEventAan);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(769, 364);
+            this.groupBox2.Size = new System.Drawing.Size(769, 288);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "EventBeheer";
             // 
             // buttonVerwijderPlaatsen
             // 
-            this.buttonVerwijderPlaatsen.Location = new System.Drawing.Point(385, 198);
+            this.buttonVerwijderPlaatsen.Location = new System.Drawing.Point(424, 196);
             this.buttonVerwijderPlaatsen.Name = "buttonVerwijderPlaatsen";
             this.buttonVerwijderPlaatsen.Size = new System.Drawing.Size(68, 23);
             this.buttonVerwijderPlaatsen.TabIndex = 7;
@@ -200,7 +188,7 @@
             // 
             // buttonVerwijderMateriaal
             // 
-            this.buttonVerwijderMateriaal.Location = new System.Drawing.Point(385, 224);
+            this.buttonVerwijderMateriaal.Location = new System.Drawing.Point(424, 222);
             this.buttonVerwijderMateriaal.Name = "buttonVerwijderMateriaal";
             this.buttonVerwijderMateriaal.Size = new System.Drawing.Size(68, 23);
             this.buttonVerwijderMateriaal.TabIndex = 7;
@@ -210,7 +198,7 @@
             // 
             // btnDatabaseConnectie
             // 
-            this.btnDatabaseConnectie.Location = new System.Drawing.Point(93, 331);
+            this.btnDatabaseConnectie.Location = new System.Drawing.Point(92, 261);
             this.btnDatabaseConnectie.Name = "btnDatabaseConnectie";
             this.btnDatabaseConnectie.Size = new System.Drawing.Size(113, 23);
             this.btnDatabaseConnectie.TabIndex = 6;
@@ -223,7 +211,7 @@
             this.cbMateriaal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMateriaal.Location = new System.Drawing.Point(148, 224);
             this.cbMateriaal.Name = "cbMateriaal";
-            this.cbMateriaal.Size = new System.Drawing.Size(231, 21);
+            this.cbMateriaal.Size = new System.Drawing.Size(270, 21);
             this.cbMateriaal.TabIndex = 0;
             // 
             // cbPlaatsen
@@ -231,7 +219,7 @@
             this.cbPlaatsen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPlaatsen.Location = new System.Drawing.Point(148, 198);
             this.cbPlaatsen.Name = "cbPlaatsen";
-            this.cbPlaatsen.Size = new System.Drawing.Size(231, 21);
+            this.cbPlaatsen.Size = new System.Drawing.Size(270, 21);
             this.cbPlaatsen.TabIndex = 0;
             // 
             // cbDeelnemersEventbeheer
@@ -239,7 +227,7 @@
             this.cbDeelnemersEventbeheer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDeelnemersEventbeheer.Location = new System.Drawing.Point(148, 174);
             this.cbDeelnemersEventbeheer.Name = "cbDeelnemersEventbeheer";
-            this.cbDeelnemersEventbeheer.Size = new System.Drawing.Size(231, 21);
+            this.cbDeelnemersEventbeheer.Size = new System.Drawing.Size(270, 21);
             this.cbDeelnemersEventbeheer.TabIndex = 0;
             // 
             // label8
@@ -328,7 +316,7 @@
             this.dtpEindDatum.Location = new System.Drawing.Point(148, 97);
             this.dtpEindDatum.MinDate = new System.DateTime(2015, 4, 14, 0, 0, 0, 0);
             this.dtpEindDatum.Name = "dtpEindDatum";
-            this.dtpEindDatum.Size = new System.Drawing.Size(200, 20);
+            this.dtpEindDatum.Size = new System.Drawing.Size(270, 20);
             this.dtpEindDatum.TabIndex = 4;
             // 
             // dtpBeginDatum
@@ -336,7 +324,7 @@
             this.dtpBeginDatum.Location = new System.Drawing.Point(148, 71);
             this.dtpBeginDatum.MinDate = new System.DateTime(2015, 4, 14, 0, 0, 0, 0);
             this.dtpBeginDatum.Name = "dtpBeginDatum";
-            this.dtpBeginDatum.Size = new System.Drawing.Size(200, 20);
+            this.dtpBeginDatum.Size = new System.Drawing.Size(270, 20);
             this.dtpBeginDatum.TabIndex = 4;
             // 
             // btnPasEventAan
@@ -392,7 +380,7 @@
             // 
             // btnMaakEventAan
             // 
-            this.btnMaakEventAan.Location = new System.Drawing.Point(12, 331);
+            this.btnMaakEventAan.Location = new System.Drawing.Point(11, 261);
             this.btnMaakEventAan.Name = "btnMaakEventAan";
             this.btnMaakEventAan.Size = new System.Drawing.Size(75, 23);
             this.btnMaakEventAan.TabIndex = 0;
@@ -426,19 +414,19 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(789, 402);
+            this.tabControl1.Size = new System.Drawing.Size(789, 329);
             this.tabControl1.TabIndex = 2;
             // 
             // eventTab
             // 
+            this.eventTab.BackColor = System.Drawing.SystemColors.Control;
             this.eventTab.Controls.Add(this.groupBox2);
             this.eventTab.Location = new System.Drawing.Point(4, 22);
             this.eventTab.Name = "eventTab";
             this.eventTab.Padding = new System.Windows.Forms.Padding(3);
-            this.eventTab.Size = new System.Drawing.Size(781, 376);
+            this.eventTab.Size = new System.Drawing.Size(781, 303);
             this.eventTab.TabIndex = 0;
             this.eventTab.Text = "Event";
-            this.eventTab.UseVisualStyleBackColor = true;
             this.eventTab.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // gebruikerTab
@@ -447,12 +435,13 @@
             this.gebruikerTab.Location = new System.Drawing.Point(4, 22);
             this.gebruikerTab.Name = "gebruikerTab";
             this.gebruikerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.gebruikerTab.Size = new System.Drawing.Size(781, 376);
+            this.gebruikerTab.Size = new System.Drawing.Size(781, 303);
             this.gebruikerTab.TabIndex = 1;
-            this.gebruikerTab.Text = "Gebruikers";
+            this.gebruikerTab.Text = "Gebruikers verwijderen";
             // 
             // materiaalTab
             // 
+            this.materiaalTab.BackColor = System.Drawing.SystemColors.Control;
             this.materiaalTab.Controls.Add(this.buttonVoegMateriaalToe);
             this.materiaalTab.Controls.Add(this.label12);
             this.materiaalTab.Controls.Add(this.lbHuidigMateriaal);
@@ -462,10 +451,9 @@
             this.materiaalTab.Controls.Add(this.label9);
             this.materiaalTab.Location = new System.Drawing.Point(4, 22);
             this.materiaalTab.Name = "materiaalTab";
-            this.materiaalTab.Size = new System.Drawing.Size(781, 376);
+            this.materiaalTab.Size = new System.Drawing.Size(781, 303);
             this.materiaalTab.TabIndex = 2;
             this.materiaalTab.Text = "Materiaal Toevoegen";
-            this.materiaalTab.UseVisualStyleBackColor = true;
             // 
             // buttonVoegMateriaalToe
             // 
@@ -480,7 +468,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(212, 14);
+            this.label12.Location = new System.Drawing.Point(189, 14);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 13);
             this.label12.TabIndex = 5;
@@ -489,9 +477,9 @@
             // lbHuidigMateriaal
             // 
             this.lbHuidigMateriaal.FormattingEnabled = true;
-            this.lbHuidigMateriaal.Location = new System.Drawing.Point(303, 11);
+            this.lbHuidigMateriaal.Location = new System.Drawing.Point(280, 11);
             this.lbHuidigMateriaal.Name = "lbHuidigMateriaal";
-            this.lbHuidigMateriaal.Size = new System.Drawing.Size(466, 251);
+            this.lbHuidigMateriaal.Size = new System.Drawing.Size(485, 277);
             this.lbHuidigMateriaal.TabIndex = 4;
             // 
             // tbMateriaalToevoegen
@@ -533,6 +521,7 @@
             // 
             // plaatsTab
             // 
+            this.plaatsTab.BackColor = System.Drawing.SystemColors.Control;
             this.plaatsTab.Controls.Add(this.buttonVoegPlaatsToe);
             this.plaatsTab.Controls.Add(this.label15);
             this.plaatsTab.Controls.Add(this.lbHuidigePlaatsen);
@@ -543,46 +532,36 @@
             this.plaatsTab.Controls.Add(this.label13);
             this.plaatsTab.Location = new System.Drawing.Point(4, 22);
             this.plaatsTab.Name = "plaatsTab";
-            this.plaatsTab.Size = new System.Drawing.Size(781, 376);
+            this.plaatsTab.Size = new System.Drawing.Size(781, 303);
             this.plaatsTab.TabIndex = 3;
             this.plaatsTab.Text = "Plaats Toevoegen";
-            this.plaatsTab.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // buttonVoegPlaatsToe
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(19, 22);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(38, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Prijs: €";
+            this.buttonVoegPlaatsToe.Location = new System.Drawing.Point(19, 104);
+            this.buttonVoegPlaatsToe.Name = "buttonVoegPlaatsToe";
+            this.buttonVoegPlaatsToe.Size = new System.Drawing.Size(75, 23);
+            this.buttonVoegPlaatsToe.TabIndex = 7;
+            this.buttonVoegPlaatsToe.Text = "Voeg Toe";
+            this.buttonVoegPlaatsToe.UseVisualStyleBackColor = true;
+            this.buttonVoegPlaatsToe.Click += new System.EventHandler(this.buttonVoegPlaatsToe_Click);
             // 
-            // tbPlaatsToevoegenPrijs
+            // label15
             // 
-            this.tbPlaatsToevoegenPrijs.Location = new System.Drawing.Point(63, 19);
-            this.tbPlaatsToevoegenPrijs.Name = "tbPlaatsToevoegenPrijs";
-            this.tbPlaatsToevoegenPrijs.Size = new System.Drawing.Size(100, 20);
-            this.tbPlaatsToevoegenPrijs.TabIndex = 1;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(169, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(89, 13);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Huidige plaatsen:";
             // 
-            // chkPlaatsGeluidoverlast
+            // lbHuidigePlaatsen
             // 
-            this.chkPlaatsGeluidoverlast.AutoSize = true;
-            this.chkPlaatsGeluidoverlast.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkPlaatsGeluidoverlast.Location = new System.Drawing.Point(19, 45);
-            this.chkPlaatsGeluidoverlast.Name = "chkPlaatsGeluidoverlast";
-            this.chkPlaatsGeluidoverlast.Size = new System.Drawing.Size(120, 17);
-            this.chkPlaatsGeluidoverlast.TabIndex = 2;
-            this.chkPlaatsGeluidoverlast.Text = "Veel geluidsoverlast";
-            this.chkPlaatsGeluidoverlast.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(20, 69);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Aantal Personen:";
+            this.lbHuidigePlaatsen.FormattingEnabled = true;
+            this.lbHuidigePlaatsen.Location = new System.Drawing.Point(264, 18);
+            this.lbHuidigePlaatsen.Name = "lbHuidigePlaatsen";
+            this.lbHuidigePlaatsen.Size = new System.Drawing.Size(499, 277);
+            this.lbHuidigePlaatsen.TabIndex = 5;
             // 
             // nudPlaatsPersonen
             // 
@@ -607,38 +586,47 @@
             0,
             0});
             // 
-            // lbHuidigePlaatsen
+            // label14
             // 
-            this.lbHuidigePlaatsen.FormattingEnabled = true;
-            this.lbHuidigePlaatsen.Location = new System.Drawing.Point(303, 22);
-            this.lbHuidigePlaatsen.Name = "lbHuidigePlaatsen";
-            this.lbHuidigePlaatsen.Size = new System.Drawing.Size(292, 251);
-            this.lbHuidigePlaatsen.TabIndex = 5;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(20, 69);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Aantal Personen:";
             // 
-            // label15
+            // chkPlaatsGeluidoverlast
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(208, 22);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 13);
-            this.label15.TabIndex = 6;
-            this.label15.Text = "Huidige plaatsen:";
+            this.chkPlaatsGeluidoverlast.AutoSize = true;
+            this.chkPlaatsGeluidoverlast.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkPlaatsGeluidoverlast.Location = new System.Drawing.Point(19, 44);
+            this.chkPlaatsGeluidoverlast.Name = "chkPlaatsGeluidoverlast";
+            this.chkPlaatsGeluidoverlast.Size = new System.Drawing.Size(120, 17);
+            this.chkPlaatsGeluidoverlast.TabIndex = 2;
+            this.chkPlaatsGeluidoverlast.Text = "Veel geluidsoverlast";
+            this.chkPlaatsGeluidoverlast.UseVisualStyleBackColor = true;
             // 
-            // buttonVoegPlaatsToe
+            // tbPlaatsToevoegenPrijs
             // 
-            this.buttonVoegPlaatsToe.Location = new System.Drawing.Point(19, 104);
-            this.buttonVoegPlaatsToe.Name = "buttonVoegPlaatsToe";
-            this.buttonVoegPlaatsToe.Size = new System.Drawing.Size(75, 23);
-            this.buttonVoegPlaatsToe.TabIndex = 7;
-            this.buttonVoegPlaatsToe.Text = "Voeg Toe";
-            this.buttonVoegPlaatsToe.UseVisualStyleBackColor = true;
-            this.buttonVoegPlaatsToe.Click += new System.EventHandler(this.buttonVoegPlaatsToe_Click);
+            this.tbPlaatsToevoegenPrijs.Location = new System.Drawing.Point(62, 18);
+            this.tbPlaatsToevoegenPrijs.Name = "tbPlaatsToevoegenPrijs";
+            this.tbPlaatsToevoegenPrijs.Size = new System.Drawing.Size(101, 20);
+            this.tbPlaatsToevoegenPrijs.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(19, 22);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Prijs:   €";
             // 
             // EventBeheerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 420);
+            this.ClientSize = new System.Drawing.Size(812, 346);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventBeheerForm";
@@ -663,7 +651,6 @@
 
         private System.Windows.Forms.GroupBox gbGebruikers;
         private System.Windows.Forms.ListBox lbGebruikerinfo;
-        private System.Windows.Forms.Button btnInfoOpvraag;
         private System.Windows.Forms.Button btnZeker;
         private System.Windows.Forms.Button btnNee;
         private System.Windows.Forms.Button btnVerwijder;

@@ -228,12 +228,6 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
-        private void btnInfoOpvraag_Click(object sender, EventArgs e)
-        {
-            
-            updateEventTab();
-        }
-
         private void TerugNaarLogIn(object sender, FormClosedEventArgs e)
         {
             var logInForm = new LoginForm();

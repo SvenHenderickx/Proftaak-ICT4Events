@@ -113,9 +113,9 @@ namespace ICT4Events_S24_Groep_E
             personen.Add(new Hoofdboeker("Sven", "Henderickx", new DateTime(1996, 5, 11), "123456789", "Sven", "Henderickx"));
             
             // Bezoekers aanmaken
-            personen.Add(new Bezoeker("Henny", "Hanssen", new DateTime(1996, 12, 15), GeefHoofdboeker("PeterSchepers"),"Henny","Hanssen"));
-            personen.Add(new Bezoeker("Anja", "Haas", new DateTime(1998, 3, 18), GeefHoofdboeker("PeterSchepers"),"Anja","Haas"));
-            personen.Add(new Bezoeker("Siebren", "Weertman", new DateTime(1995, 4, 8), GeefHoofdboeker("SvenHenderickx"), "Siebren", "Weertman"));
+            personen.Add(new Bezoeker("Henny", "Hanssen", new DateTime(1996, 12, 15), GeefHoofdboeker("Peter"),"Henny","Hanssen"));
+            personen.Add(new Bezoeker("Anja", "Haas", new DateTime(1998, 3, 18), GeefHoofdboeker("Peter"),"Anja","Haas"));
+            personen.Add(new Bezoeker("Siebren", "Weertman", new DateTime(1995, 4, 8), GeefHoofdboeker("Sven"), "Siebren", "Weertman"));
 
             // Controleur aanmaken
             personen.Add(new Controleur("Alex", "Ras", new DateTime(1995, 5, 22),"Alex","Ras"));
@@ -123,7 +123,7 @@ namespace ICT4Events_S24_Groep_E
         }
         private void TestDataPlaatsen()
         {
-            plaatsen.Add(new Plaats(100, GeefHoofdboeker("PeterSchepers"), true, 8));
+            plaatsen.Add(new Plaats(100, GeefHoofdboeker("Peter"), true, 8));
             plaatsen.Add(new Plaats(200, null, false, 10));
         }
 
