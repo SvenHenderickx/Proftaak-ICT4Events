@@ -96,7 +96,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnPasEventAan_Click(object sender, EventArgs e)
         {
-            //if(tbEventNaamEventbeheer.Text != "" && dtpBeginDatum >= DateTime.Now && )
+            
             foreach (Event ev in administratie.Events)
             {
                 if (ev == administratie.GeefEvent(cbEventsEventbeheer.Text))
@@ -138,29 +138,16 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnMaakEventAan_Click(object sender, EventArgs e)
         {
-            foreach (Event evenement in administratie.Events)
+            if (administratie.VoegEventToe(tbEventNaamEventbeheer.Text, dtpBeginDatum.Value, dtpEindDatum.Value, tbPlaatsEventbeheer.Text, tbAdresEventbeheer.Text))
             {
-                if (tbEventNaamEventbeheer.Text == evenement.Naam)
-                {
-                    MessageBox.Show("Er bestaat al een evenement met die naam.");
-                }
-                else
-                {
-                    string naam = tbEventNaamEventbeheer.Text;
-                    string plaats = tbPlaatsEventbeheer.Text;
-                    string adres = tbAdresEventbeheer.Text;
-                    DateTime beginDatum = dtpBeginDatum.Value;
-                    DateTime eindDatum = dtpEindDatum.Value;
-                    if (administratie.VoegEventToe(naam, beginDatum, eindDatum, plaats, adres))
-                    {
-                        refreshCbEvents();
-                        updateEventTab();
-                    }
-                    break;
-                }
+                MessageBox.Show("Event succesvol toegevoegd");
             }
-            
-            
+            else
+            {
+                MessageBox.Show("Er bestaat al een event met die naam.");
+            }
+            refreshCbEvents();
+            updateEventTab();
         }
 
         private void cbEvents_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +156,7 @@ namespace ICT4Events_S24_Groep_E
         }
         private void updateEventTab()
         {
+            
             dtpBeginDatum.Value = administratie.GeefEvent(cbEventsEventbeheer.Text).BeginDatum;
             dtpEindDatum.Value = administratie.GeefEvent(cbEventsEventbeheer.Text).EindDatum;
             tbEventNaamEventbeheer.Text = administratie.GeefEvent(cbEventsEventbeheer.Text).Naam;
