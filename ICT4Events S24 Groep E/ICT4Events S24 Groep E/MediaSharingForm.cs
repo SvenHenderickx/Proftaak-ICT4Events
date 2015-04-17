@@ -53,6 +53,7 @@ namespace ICT4Events_S24_Groep_E
         private void LaadAlleBerichten(List<Bericht> berichten)
         {
             lbBerichtenMediaSharingForm.Items.Clear();
+            berichten.Sort();
             foreach (Bericht b in berichten)
             {
                 lbBerichtenMediaSharingForm.Items.Add(b.ToString());
@@ -61,7 +62,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnLikeMediaSharing_Click(object sender, EventArgs e)
         {
-            if (BerichtOpIndex() != null)
+            if (lbBerichtenMediaSharingForm.SelectedIndex >= 0)
             {
                 if (BerichtOpIndex().BerichtLiken(administratie.NuIngelogd))
                 {
@@ -77,7 +78,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (BerichtOpIndex() != null)
+            if (lbBerichtenMediaSharingForm.SelectedIndex >= 0)
             {
                 administratie.TempBericht = BerichtOpIndex();
                 var postForm = new PostForm();
@@ -133,6 +134,7 @@ namespace ICT4Events_S24_Groep_E
             {
                 btnVerwijderBericht.Visible = true;
                 btnGerapporteerdeBerichten.Visible = true;
+                
             }
             else
             {
@@ -143,13 +145,22 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnVerwijderBericht_Click(object sender, EventArgs e)
         {
-            administratie.HuidigEvent.VerwijderBericht(BerichtOpIndex());
-            LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+            if (lbBerichtenMediaSharingForm.SelectedIndex >= 0)
+            {
+                administratie.HuidigEvent.VerwijderBericht(BerichtOpIndex());
+                LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+            }
+            
         }
 
         private void btnGerapporteerdeBerichten_Click(object sender, EventArgs e)
         {
             LaadAlleBerichten(administratie.HuidigEvent.AlleGerapporteerdeBerichten());
+        }
+
+        private void btnBeheren_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
