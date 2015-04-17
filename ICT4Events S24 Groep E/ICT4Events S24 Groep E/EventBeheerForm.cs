@@ -169,6 +169,8 @@ namespace ICT4Events_S24_Groep_E
             cbPlaatsen.Items.Clear();
             cbMateriaal.Items.Clear();
             lbGebruikerinfo.Items.Clear();
+            lbHuidigMateriaal.Items.Clear();
+            cbMateriaalToevoegen.SelectedIndex = 0;
             foreach (Persoon p in administratie.GeefEvent(cbEventsEventbeheer.Text).Personen)
             {
                 if (p is Bezoeker)
@@ -197,6 +199,21 @@ namespace ICT4Events_S24_Groep_E
                     lbGebruikerinfo.Items.Add(info);
 
                 }
+            }
+            foreach (Huuritem h in administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal)
+            {
+                string status;
+                if (h.IsGehuurd)
+                {
+                    status = "Gehuurd";
+                }
+                else
+                {
+                    status = "Niet gehuurd";
+                }
+                
+                string toevoegen = h.Naam + ", " + h.Type + ", " + status + "\n";
+                lbHuidigMateriaal.Items.Add(toevoegen);
             }
         }
 
@@ -241,6 +258,19 @@ namespace ICT4Events_S24_Groep_E
                     administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Remove(h);
                     break;
                 }
+            }
+            updateEventTab();
+        }
+
+        private void buttonVoegMateriaalToe_Click(object sender, EventArgs e)
+        {
+            if(cbMateriaalToevoegen.Text != "" && tbMateriaalToevoegen.Text != "")
+            {
+                administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Add(new Huuritem(tbMateriaalToevoegen.Text, cbMateriaalToevoegen.Text));
+            }
+            else
+            {
+                MessageBox.Show("Geef a.u.b. een soort en naam");
             }
             updateEventTab();
         }

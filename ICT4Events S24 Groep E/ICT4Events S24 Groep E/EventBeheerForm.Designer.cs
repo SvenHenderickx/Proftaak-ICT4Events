@@ -69,11 +69,20 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.eventTab = new System.Windows.Forms.TabPage();
             this.gebruikerTab = new System.Windows.Forms.TabPage();
+            this.materiaalTab = new System.Windows.Forms.TabPage();
+            this.buttonVoegMateriaalToe = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lbHuidigMateriaal = new System.Windows.Forms.ListBox();
+            this.tbMateriaalToevoegen = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbMateriaalToevoegen = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.gbGebruikers.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.eventTab.SuspendLayout();
             this.gebruikerTab.SuspendLayout();
+            this.materiaalTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbGebruikers
@@ -443,6 +452,7 @@
             // 
             this.tabControl1.Controls.Add(this.eventTab);
             this.tabControl1.Controls.Add(this.gebruikerTab);
+            this.tabControl1.Controls.Add(this.materiaalTab);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -471,6 +481,86 @@
             this.gebruikerTab.TabIndex = 1;
             this.gebruikerTab.Text = "Gebruikers";
             // 
+            // materiaalTab
+            // 
+            this.materiaalTab.Controls.Add(this.buttonVoegMateriaalToe);
+            this.materiaalTab.Controls.Add(this.label12);
+            this.materiaalTab.Controls.Add(this.lbHuidigMateriaal);
+            this.materiaalTab.Controls.Add(this.tbMateriaalToevoegen);
+            this.materiaalTab.Controls.Add(this.label11);
+            this.materiaalTab.Controls.Add(this.cbMateriaalToevoegen);
+            this.materiaalTab.Controls.Add(this.label9);
+            this.materiaalTab.Location = new System.Drawing.Point(4, 22);
+            this.materiaalTab.Name = "materiaalTab";
+            this.materiaalTab.Size = new System.Drawing.Size(781, 266);
+            this.materiaalTab.TabIndex = 2;
+            this.materiaalTab.Text = "Materiaal Toevoegen";
+            this.materiaalTab.UseVisualStyleBackColor = true;
+            // 
+            // buttonVoegMateriaalToe
+            // 
+            this.buttonVoegMateriaalToe.Location = new System.Drawing.Point(62, 65);
+            this.buttonVoegMateriaalToe.Name = "buttonVoegMateriaalToe";
+            this.buttonVoegMateriaalToe.Size = new System.Drawing.Size(121, 23);
+            this.buttonVoegMateriaalToe.TabIndex = 6;
+            this.buttonVoegMateriaalToe.Text = "Voeg Toe";
+            this.buttonVoegMateriaalToe.UseVisualStyleBackColor = true;
+            this.buttonVoegMateriaalToe.Click += new System.EventHandler(this.buttonVoegMateriaalToe_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(212, 14);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(85, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Huidig materiaal:";
+            // 
+            // lbHuidigMateriaal
+            // 
+            this.lbHuidigMateriaal.FormattingEnabled = true;
+            this.lbHuidigMateriaal.Location = new System.Drawing.Point(303, 11);
+            this.lbHuidigMateriaal.Name = "lbHuidigMateriaal";
+            this.lbHuidigMateriaal.Size = new System.Drawing.Size(475, 251);
+            this.lbHuidigMateriaal.TabIndex = 4;
+            // 
+            // tbMateriaalToevoegen
+            // 
+            this.tbMateriaalToevoegen.Location = new System.Drawing.Point(62, 38);
+            this.tbMateriaalToevoegen.Name = "tbMateriaalToevoegen";
+            this.tbMateriaalToevoegen.Size = new System.Drawing.Size(121, 20);
+            this.tbMateriaalToevoegen.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(21, 41);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Naam:";
+            // 
+            // cbMateriaalToevoegen
+            // 
+            this.cbMateriaalToevoegen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMateriaalToevoegen.FormattingEnabled = true;
+            this.cbMateriaalToevoegen.Items.AddRange(new object[] {
+            "Fotocamera",
+            "Videocamera"});
+            this.cbMateriaalToevoegen.Location = new System.Drawing.Point(62, 11);
+            this.cbMateriaalToevoegen.Name = "cbMateriaalToevoegen";
+            this.cbMateriaalToevoegen.Size = new System.Drawing.Size(121, 21);
+            this.cbMateriaalToevoegen.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Soort:";
+            // 
             // EventBeheerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,6 +577,8 @@
             this.tabControl1.ResumeLayout(false);
             this.eventTab.ResumeLayout(false);
             this.gebruikerTab.ResumeLayout(false);
+            this.materiaalTab.ResumeLayout(false);
+            this.materiaalTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -533,5 +625,13 @@
         private System.Windows.Forms.Button buttonVerwijderMateriaal;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TabPage materiaalTab;
+        private System.Windows.Forms.Button buttonVoegMateriaalToe;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ListBox lbHuidigMateriaal;
+        private System.Windows.Forms.TextBox tbMateriaalToevoegen;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbMateriaalToevoegen;
+        private System.Windows.Forms.Label label9;
     }
 }
