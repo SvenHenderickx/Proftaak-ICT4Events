@@ -96,6 +96,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnPasEventAan_Click(object sender, EventArgs e)
         {
+            //if(tbEventNaamEventbeheer.Text != "" && dtpBeginDatum >= DateTime.Now && )
             foreach (Event ev in administratie.Events)
             {
                 if (ev == administratie.GeefEvent(cbEventsEventbeheer.Text))
@@ -115,16 +116,24 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnVerwijderEvent_Click(object sender, EventArgs e)
         {
-            foreach (Event ev in administratie.Events)
+            if (cbEventsEventbeheer.Items.Count == 1)
             {
-                if (ev == administratie.GeefEvent(cbEventsEventbeheer.Text))
-                {
-                    administratie.Events.Remove(ev);
-                    break;
-                }
+                MessageBox.Show("Dit is het laatste event!");
             }
-            refreshCbEvents();
-            updateEventTab();
+            else
+            {
+                foreach (Event ev in administratie.Events)
+                {
+                    if (ev == administratie.GeefEvent(cbEventsEventbeheer.Text))
+                    {
+                        administratie.Events.Remove(ev);
+                        break;
+                    }
+                }
+                refreshCbEvents();
+                updateEventTab();
+            }
+            
         }
 
         private void btnMaakEventAan_Click(object sender, EventArgs e)
