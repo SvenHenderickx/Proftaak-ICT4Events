@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Events_S24_Groep_E
 {
-    public class Bericht
+    public class Bericht : IComparable<Bericht>
     {
         private List<Like> likes;
         private List<Rapportage> rapportages;
@@ -89,6 +89,22 @@ namespace ICT4Events_S24_Groep_E
             }
             rapportages.Add(new Rapportage(reden, rapporteur));
             return true;
+        }
+
+        public int CompareTo(Bericht other)
+        {
+            if (datumGepost > other.DatumGepost)
+            {
+                return -1;
+            }
+            else if (datumGepost < other.DatumGepost)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }
