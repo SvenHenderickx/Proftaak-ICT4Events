@@ -59,7 +59,7 @@ namespace ICT4Events_S24_Groep_E
         {
             string geluidsOV = "nee";
             if (this.geluidsOverlast) geluidsOV = "ja";
-            return "PlaatsNr: " + this.plaatsNummer + ", " + "Aantal Personen " + this.aantalPersonen + ", geluidsoverlast: " + geluidsOV;
+            return "PlaatsNr: " + this.plaatsNummer + ", " + "Aantal Personen " + this.aantalPersonen + ", geluidsoverlast: " + geluidsOV + ", € " + prijs.ToString();
         }
 
         //Deze methode genereert een plaatsnummer

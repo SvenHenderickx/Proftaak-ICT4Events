@@ -189,6 +189,7 @@ namespace ICT4Events_S24_Groep_E
             foreach (Plaats p in geselecteerdePlaatsen)
             {
                 lbPlaatsen.Items.Add(p.ToString());
+                lblPrijsTotaal.Text = (Convert.ToInt32(lblPrijsTotaal.Text) + p.Prijs).ToString();
             }
 
             // cbMeerderePersonen wordt gevuld

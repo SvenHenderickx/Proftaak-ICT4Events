@@ -63,6 +63,8 @@
             this.btnVolgende = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbPlaatsen = new System.Windows.Forms.GroupBox();
+            this.lblPrijsTotaal = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.gbGegevens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbPlaatsen.SuspendLayout();
@@ -368,7 +370,7 @@
             // cbPlaats
             // 
             this.cbPlaats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlaats.DropDownWidth = 300;
+            this.cbPlaats.DropDownWidth = 320;
             this.cbPlaats.FormattingEnabled = true;
             this.cbPlaats.Location = new System.Drawing.Point(56, 37);
             this.cbPlaats.Margin = new System.Windows.Forms.Padding(2);
@@ -423,6 +425,8 @@
             // 
             this.gbPlaatsen.Controls.Add(this.cbPlaats);
             this.gbPlaatsen.Controls.Add(this.btnVerwijderPlaats);
+            this.gbPlaatsen.Controls.Add(this.label3);
+            this.gbPlaatsen.Controls.Add(this.lblPrijsTotaal);
             this.gbPlaatsen.Controls.Add(this.lblPlaats);
             this.gbPlaatsen.Controls.Add(this.btnVoegPlaatsToe);
             this.gbPlaatsen.Controls.Add(this.lbPlaatsen);
@@ -434,6 +438,26 @@
             this.gbPlaatsen.TabIndex = 35;
             this.gbPlaatsen.TabStop = false;
             this.gbPlaatsen.Text = "Plaatsen";
+            // 
+            // lblPrijsTotaal
+            // 
+            this.lblPrijsTotaal.AutoSize = true;
+            this.lblPrijsTotaal.Location = new System.Drawing.Point(257, 189);
+            this.lblPrijsTotaal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrijsTotaal.Name = "lblPrijsTotaal";
+            this.lblPrijsTotaal.Size = new System.Drawing.Size(13, 13);
+            this.lblPrijsTotaal.TabIndex = 18;
+            this.lblPrijsTotaal.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(240, 189);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "€";
             // 
             // InschrijfForm
             // 
@@ -499,5 +523,7 @@
         private System.Windows.Forms.TextBox tbGebruikersnaam;
         private System.Windows.Forms.Button btnMaakBezoeker;
         private System.Windows.Forms.GroupBox gbPlaatsen;
+        private System.Windows.Forms.Label lblPrijsTotaal;
+        private System.Windows.Forms.Label label3;
     }
 }
