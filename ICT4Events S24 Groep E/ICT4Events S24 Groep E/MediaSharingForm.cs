@@ -12,6 +12,7 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class MediaSharingForm : Form
     {
+        //Field
         Administratie administratie;
 
         public MediaSharingForm()
@@ -22,6 +23,7 @@ namespace ICT4Events_S24_Groep_E
             CheckGebruiker();
         }
 
+        //Event Handlers
         private void MediaSharingAfsluiten(object sender, FormClosedEventArgs e)
         {
             if (administratie.NuIngelogd is Bezoeker)

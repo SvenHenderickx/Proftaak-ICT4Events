@@ -12,6 +12,7 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class MateriaalVerhuurForm : Form
     {
+        //Fields
         private Administratie administratie;
         private Hoofdboeker hoofdboeker;
         private Bezoeker bezoeker;
@@ -26,6 +27,7 @@ namespace ICT4Events_S24_Groep_E
             Ververs(); // Geef alvast alle items die een bezoeker gehuurd zou kunnen hebben.
         }
 
+        //Event Handlers
         public MateriaalVerhuurForm(Hoofdboeker hoofdboeker)
         {
             InitializeComponent();

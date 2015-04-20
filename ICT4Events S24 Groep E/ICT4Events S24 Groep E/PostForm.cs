@@ -12,6 +12,7 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class PostForm : Form
     {
+        //Fields
         Administratie administratie;
         bool rapportages;
 
@@ -25,6 +26,7 @@ namespace ICT4Events_S24_Groep_E
             rapportages = false;
         }
 
+        //Event Handlers
         private void LaadAlleReacties()
         {
             lbReacties.Items.Clear();

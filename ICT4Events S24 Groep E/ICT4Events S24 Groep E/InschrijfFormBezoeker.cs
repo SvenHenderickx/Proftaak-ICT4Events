@@ -12,6 +12,7 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class InschrijfFormBezoeker : Form
     {
+        //Fields
         private int resterendeBezoekers;
         private Hoofdboeker hoofdBoeker; // de hoofdboeker van de bezoeker nodig voor constructor nieuwe bezoeker.
         private Bezoeker bezoeker;
@@ -31,6 +32,7 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+        //Event Handlers
         private void btnMateriaalHuren_Click(object sender, EventArgs e)
         {
             if (bezoeker != null)
