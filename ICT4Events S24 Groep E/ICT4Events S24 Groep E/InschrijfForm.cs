@@ -32,7 +32,7 @@ namespace ICT4Events_S24_Groep_E
             {
                 if(geselecteerdePlaatsen.Count == 0)
                 {
-                    MessageBox.Show("Selecteer eerst een of meer plaatsen");
+                    MessageBox.Show("Selecteer eerst een of meer plaatsen.");
                 }
                 else
                 {
@@ -43,17 +43,17 @@ namespace ICT4Events_S24_Groep_E
                     {
                         gbGegevens.Enabled = false;
                         gbPlaatsen.Enabled = false;
-                        MessageBox.Show("Hoofdboeker Gemaakt");
+                        MessageBox.Show("Hoofdboeker is aangemaakt.");
                     }
                     else
                     {
-                        MessageBox.Show("Gebruikersnaam bestaat al");
+                        MessageBox.Show("De ingevoerde gebruikersnaam bestaat al. \n Voer een andere in.");
                     }
                 }                               
             }
             else
             {
-                MessageBox.Show("Niet alle gegevens juist ingevuld");
+                MessageBox.Show("Niet alle gegevens zijn juist ingevuld.");
             }
         }
 
@@ -70,7 +70,7 @@ namespace ICT4Events_S24_Groep_E
                 }
                 else
                 {
-                    MessageBox.Show("Plaats is al gekozen");
+                    MessageBox.Show("Deze plaats is al gekozen. Kies een andere.");
                 }
             }
             Ververs();
@@ -106,7 +106,7 @@ namespace ICT4Events_S24_Groep_E
                         // hoofdboeker wordt definitief gemaakt
                         // programma moet terugkeren naar het inlogform
                         administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
-                        MessageBox.Show("Inschrijving afgerond");
+                        MessageBox.Show("Inschrijving afgerond.");
                         // als de beheerder op bevestigen drukt dan moet hij terug naar systeemkiezerform gaan.
                         // als dit een gewone persoon is dan hoeft er niets te gebeuren.
                         this.Dispose(); 
@@ -131,7 +131,7 @@ namespace ICT4Events_S24_Groep_E
             }
             else
             {
-                MessageBox.Show("Maak eerst een hoofdboeker");
+                MessageBox.Show("Maak eerst een hoofdboeker aan.");
             }
         }
 
@@ -144,7 +144,7 @@ namespace ICT4Events_S24_Groep_E
             }
             else
             {
-                MessageBox.Show("Maak eerst een hoofdboeker");
+                MessageBox.Show("Maak eerst een hoofdboeker aan.");
             }
         }
 
