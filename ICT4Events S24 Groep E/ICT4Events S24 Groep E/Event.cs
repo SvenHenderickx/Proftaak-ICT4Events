@@ -282,5 +282,38 @@ namespace ICT4Events_S24_Groep_E
             }
             return tempList;
         }
+
+        public List<Bericht> GeefBerichtenVanSoort(int berichtSoort)
+        {
+            if (berichtSoort == 0)
+            {
+                return berichten;
+            }
+            else if (berichtSoort == 1)
+            {
+                List<Bericht> tempList = new List<Bericht>();
+                foreach (Bericht b in berichten)
+                {
+                    if (b.BerichtSoort == berichtSoort - 1)
+                    {
+                        tempList.Add(b);
+                    }
+                }
+                return tempList;
+            }
+            else if (berichtSoort == 2)
+            {
+                List<Bericht> tempList = new List<Bericht>();
+                foreach (Bericht b in berichten)
+                {
+                    if (b.BerichtSoort == berichtSoort - 1)
+                    {
+                        tempList.Add(b);
+                    }
+                }
+                return tempList;
+            }
+            return null;
+        }
     }
 }

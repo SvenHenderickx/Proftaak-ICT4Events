@@ -23,7 +23,7 @@ namespace ICT4Events_S24_Groep_E
             administratie = new Administratie();
             opd = new OpenFileDialog();
             bestandPad = "";
-            LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+            CheckFilter();
             CheckGebruiker();
         }
 
@@ -51,16 +51,32 @@ namespace ICT4Events_S24_Groep_E
             {
                 administratie.HuidigEvent.Berichten.Add(new Bericht(tbPostTekstMediaSharingForm.Text, administratie.NuIngelogd));
                 tbPostTekstMediaSharingForm.Text = "";
-                LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+                CheckFilter();
             }
             else if (tbPostTekstMediaSharingForm.Text.Length > 0 && bestandPad.Length > 0)
             {
                 administratie.HuidigEvent.Berichten.Add(new Bericht(tbPostTekstMediaSharingForm.Text, administratie.NuIngelogd, new Bestand(bestandPad), 1));
                 tbPostTekstMediaSharingForm.Text = "";
-                LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+                CheckFilter();
                 bestandPad = "";
             }
             
+        }
+
+        public void CheckFilter()
+        {
+            if (rbAlles.Checked == true)
+            {
+                LaadAlleBerichten(administratie.HuidigEvent.GeefBerichtenVanSoort(0));
+            }
+            else if (rbBerichten.Checked == true)
+            {
+                LaadAlleBerichten(administratie.HuidigEvent.GeefBerichtenVanSoort(1));
+            }
+            else if (rbFotos.Checked == true)
+            {
+                LaadAlleBerichten(administratie.HuidigEvent.GeefBerichtenVanSoort(2));
+            }
         }
 
         private void LaadAlleBerichten(List<Bericht> berichten)
@@ -184,6 +200,21 @@ namespace ICT4Events_S24_Groep_E
             {
                 bestandPad = opd.FileName;
             }
+        }
+
+        private void rbAlles_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckFilter();
+        }
+
+        private void rbBerichten_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckFilter();
+        }
+
+        private void rbFotos_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckFilter();
         }
     }
 }

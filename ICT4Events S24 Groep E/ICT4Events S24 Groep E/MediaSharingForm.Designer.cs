@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbMuziek = new System.Windows.Forms.RadioButton();
+            this.rbVideos = new System.Windows.Forms.RadioButton();
+            this.rbFotos = new System.Windows.Forms.RadioButton();
+            this.rbBerichten = new System.Windows.Forms.RadioButton();
             this.rbAlles = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnPostPlaatsenMediaSharingForm = new System.Windows.Forms.Button();
@@ -53,10 +53,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton5);
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.rbMuziek);
+            this.groupBox1.Controls.Add(this.rbVideos);
+            this.groupBox1.Controls.Add(this.rbFotos);
+            this.groupBox1.Controls.Add(this.rbBerichten);
             this.groupBox1.Controls.Add(this.rbAlles);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
@@ -65,49 +65,51 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
             // 
-            // radioButton5
+            // rbMuziek
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(259, 19);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(59, 17);
-            this.radioButton5.TabIndex = 2;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Muziek";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rbMuziek.AutoSize = true;
+            this.rbMuziek.Location = new System.Drawing.Point(259, 19);
+            this.rbMuziek.Name = "rbMuziek";
+            this.rbMuziek.Size = new System.Drawing.Size(59, 17);
+            this.rbMuziek.TabIndex = 2;
+            this.rbMuziek.TabStop = true;
+            this.rbMuziek.Text = "Muziek";
+            this.rbMuziek.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbVideos
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(194, 19);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(59, 17);
-            this.radioButton4.TabIndex = 2;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Video\'s";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbVideos.AutoSize = true;
+            this.rbVideos.Location = new System.Drawing.Point(194, 19);
+            this.rbVideos.Name = "rbVideos";
+            this.rbVideos.Size = new System.Drawing.Size(59, 17);
+            this.rbVideos.TabIndex = 2;
+            this.rbVideos.TabStop = true;
+            this.rbVideos.Text = "Video\'s";
+            this.rbVideos.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbFotos
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(135, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(53, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Foto\'s";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbFotos.AutoSize = true;
+            this.rbFotos.Location = new System.Drawing.Point(135, 19);
+            this.rbFotos.Name = "rbFotos";
+            this.rbFotos.Size = new System.Drawing.Size(53, 17);
+            this.rbFotos.TabIndex = 2;
+            this.rbFotos.TabStop = true;
+            this.rbFotos.Text = "Foto\'s";
+            this.rbFotos.UseVisualStyleBackColor = true;
+            this.rbFotos.CheckedChanged += new System.EventHandler(this.rbFotos_CheckedChanged);
             // 
-            // radioButton2
+            // rbBerichten
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(59, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(70, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Berichten";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbBerichten.AutoSize = true;
+            this.rbBerichten.Location = new System.Drawing.Point(59, 19);
+            this.rbBerichten.Name = "rbBerichten";
+            this.rbBerichten.Size = new System.Drawing.Size(70, 17);
+            this.rbBerichten.TabIndex = 1;
+            this.rbBerichten.TabStop = true;
+            this.rbBerichten.Text = "Berichten";
+            this.rbBerichten.UseVisualStyleBackColor = true;
+            this.rbBerichten.CheckedChanged += new System.EventHandler(this.rbBerichten_CheckedChanged);
             // 
             // rbAlles
             // 
@@ -119,6 +121,7 @@
             this.rbAlles.TabStop = true;
             this.rbAlles.Text = "Alles";
             this.rbAlles.UseVisualStyleBackColor = true;
+            this.rbAlles.CheckedChanged += new System.EventHandler(this.rbAlles_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -266,10 +269,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbMuziek;
+        private System.Windows.Forms.RadioButton rbVideos;
+        private System.Windows.Forms.RadioButton rbFotos;
+        private System.Windows.Forms.RadioButton rbBerichten;
         private System.Windows.Forms.RadioButton rbAlles;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnPostPlaatsenMediaSharingForm;
