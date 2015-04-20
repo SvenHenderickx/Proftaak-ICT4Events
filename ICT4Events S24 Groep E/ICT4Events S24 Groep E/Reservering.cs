@@ -8,10 +8,12 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Reservering
     {
+        //Fields
         private string status;
         private List<Plaats> plaatsen;
         private Hoofdboeker hoofdboeker;
 
+        //Properties
         public string Status
         {
             get { return status; }
@@ -22,6 +24,7 @@ namespace ICT4Events_S24_Groep_E
             get { return plaatsen; }
         }
 
+        //Constructor
         public Reservering(Hoofdboeker hoofdboeker, List<Plaats> plaatsen)
         {
             this.hoofdboeker = hoofdboeker;

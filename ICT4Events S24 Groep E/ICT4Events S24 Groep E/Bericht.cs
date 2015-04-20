@@ -8,6 +8,7 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Bericht : IComparable<Bericht>
     {
+        //Fields
         private List<Like> likes;
         private List<Rapportage> rapportages;
         private string tekst;
@@ -15,6 +16,7 @@ namespace ICT4Events_S24_Groep_E
         private Persoon auteur;
         private DateTime datumGepost;
 
+        //Properties
         public List<Like> Likes
         {
             get { return likes; }
@@ -45,6 +47,7 @@ namespace ICT4Events_S24_Groep_E
             get { return auteur; }
         }
 
+        //Constructor
         public Bericht(string tekst, Persoon auteur)
         {
             this.tekst = tekst;
@@ -55,11 +58,13 @@ namespace ICT4Events_S24_Groep_E
             rapportages = new List<Rapportage>();
         }
 
+        //Methodes
         public override string ToString()
         {
             return auteur.Gebruikersnaam + " " + datumGepost.ToString() + " : " + tekst;
         }
 
+        //Met deze persoon kun je een bericht liken
         public bool BerichtLiken(Persoon invPersoon)
         {
             foreach (Like l in likes)
@@ -73,11 +78,13 @@ namespace ICT4Events_S24_Groep_E
             return true;
         }
 
+        //Met deze methode kun je een reactie toevoegen
         public void ReactieToevoegen(string tekst, Persoon plaatser)
         {
             reacties.Add(new Reactie(plaatser, tekst));
         }
 
+        //Deze methode rapporteerd berichten of posts
         public bool Rapporteren(string reden, Persoon rapporteur)
         {
             foreach (Rapportage r in rapportages)
@@ -91,6 +98,7 @@ namespace ICT4Events_S24_Groep_E
             return true;
         }
 
+        //Deze methode sorteert berichten datum
         public int CompareTo(Bericht other)
         {
             if (datumGepost > other.DatumGepost)
@@ -107,6 +115,7 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+        //Deze methode zoekt naar een reactie m.b.v. de ToString methode
         public Reactie ReactieZoekenMetToString(string inv)
         {
             foreach (Reactie r in reacties)
@@ -119,6 +128,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        //Deze methode verwijderd een reactie
         public void ReactieVerwijder(Reactie reactie)
         {
             foreach (Reactie r in reacties)

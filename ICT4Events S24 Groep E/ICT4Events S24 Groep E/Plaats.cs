@@ -17,7 +17,7 @@ namespace ICT4Events_S24_Groep_E
         private int aantalPersonen;
         private bool bezet;
 
-
+        //Properties
         public string PlaatsNummer
         {
             get { return plaatsNummer; }
@@ -43,6 +43,8 @@ namespace ICT4Events_S24_Groep_E
         {
             get { return prijs; }
         }
+
+        //Constructor
         public Plaats(int prijs, Hoofdboeker huurder, bool geluidsOverlast, int aantalPersonen)
         {
             this.prijs = prijs;
@@ -52,6 +54,7 @@ namespace ICT4Events_S24_Groep_E
             this.plaatsNummer = PlaatsNummerGenerator();
         }
 
+        //Methodes
         public override string ToString()
         {
             string geluidsOV = "nee";
@@ -59,6 +62,7 @@ namespace ICT4Events_S24_Groep_E
             return "PlaatsNr: " + this.plaatsNummer + ", " + "Aantal Personen " + this.aantalPersonen + ", geluidsoverlast: " + geluidsOV;
         }
 
+        //Deze methode genereert een plaatsnummer
         private string PlaatsNummerGenerator()
         {
             // 1 ophogen bij een nieuwe plaats

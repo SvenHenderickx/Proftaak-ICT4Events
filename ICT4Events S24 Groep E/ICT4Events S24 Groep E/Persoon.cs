@@ -42,7 +42,6 @@ namespace ICT4Events_S24_Groep_E
         }
 
         //Constructors
-
         public Persoon(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string naam, string achternaam)
         {
             this.gebruikersnaam = gebruikersnaam;
@@ -53,6 +52,8 @@ namespace ICT4Events_S24_Groep_E
             RfidGenerator();
         }
 
+        //Methodes
+        //Deze methode maakt een nieuw RFID aan
         private string RfidGenerator()
         {
             lastRfidCode++;
@@ -64,6 +65,7 @@ namespace ICT4Events_S24_Groep_E
             return rfidCode;
         }
 
+        //Deze methode checkt of het ingevulde wachtwoord overeenkomt met het wachtwoord van de gebruiker
         public bool CheckWachtwoord(string invWachtwoord)
         {
             if (invWachtwoord == wachtwoord)

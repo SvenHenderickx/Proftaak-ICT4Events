@@ -8,6 +8,7 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Bestand
     {
+        //Fields
         private string naam;
         private Persoon maker;
         private int likes;
@@ -16,6 +17,7 @@ namespace ICT4Events_S24_Groep_E
         private int aantalKeerBekeken;
         private List<Reactie> reacties;
 
+        //Properties
         public string Naam
         {
             get { return naam; }
@@ -51,6 +53,7 @@ namespace ICT4Events_S24_Groep_E
             get { return reacties; }
         }
 
+        //Constructor
         public Bestand(Bezoeker bezoeker, Categorie categorie, string naam, string pad)
         {
             this.naam = naam;
@@ -58,6 +61,8 @@ namespace ICT4Events_S24_Groep_E
             reacties = new List<Reactie>();
         }
 
+        //Methodes
+        //Met deze methode kun je een reactie toevoegen
         public bool VoegReactieToe(Reactie reactie)
         {
             bool succes = true;
@@ -75,6 +80,7 @@ namespace ICT4Events_S24_Groep_E
             return succes;
         }
 
+        //Deze methode wordt gebruikt om een reactie te verwijderen
         public void VerwijderReactie(Reactie reactie)
         {
             foreach (Reactie r in reacties)

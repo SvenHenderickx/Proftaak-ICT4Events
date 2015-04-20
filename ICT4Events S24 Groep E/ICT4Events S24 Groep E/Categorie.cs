@@ -8,10 +8,12 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Categorie
     {
+        //Fields
         private string naam;
         private List<Bestand> bestanden;
         private List<Categorie> categorieen;
 
+        //Properties
         public string Naam
         {
             get { return naam; }
@@ -27,6 +29,7 @@ namespace ICT4Events_S24_Groep_E
             get { return categorieen; }
         }
 
+        //Constructor
         public Categorie(Bezoeker bezoeker, string naam)
         {
             this.naam = naam;
@@ -34,6 +37,8 @@ namespace ICT4Events_S24_Groep_E
             categorieen = new List<Categorie>();
         }
 
+        //Methodes
+        //Deze methode wordt gebruikt om een bestand toe te voegen
         public bool VoegBestandToe(Bestand bestand)
         {
             bool succes = true;

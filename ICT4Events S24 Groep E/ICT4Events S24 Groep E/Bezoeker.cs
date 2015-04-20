@@ -31,8 +31,7 @@ namespace ICT4Events_S24_Groep_E
             set { huurMateriaal = value; }
         }
 
-        //Constructor
-
+        //Constructors
         public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, string naam, string achternaam)
             : base(gebruikersnaam, wachtwoord, geboortedatum,naam,achternaam)
         {

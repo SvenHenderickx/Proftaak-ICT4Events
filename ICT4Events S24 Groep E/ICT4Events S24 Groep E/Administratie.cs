@@ -15,6 +15,7 @@ namespace ICT4Events_S24_Groep_E
         private static Bericht tempBericht = null;
         private static int countGemaakt = 0;
 
+        //Properties
         public List<Event> Events
         {
             get { return events; }
@@ -48,12 +49,15 @@ namespace ICT4Events_S24_Groep_E
             countGemaakt++;
         }
 
+        //Methodes
+        //Hier worden events aangemaakt
         private void TestDataEvents()
         {
             events.Add(new Event("SME Event", new DateTime(2015, 6, 18), new DateTime(2015, 6, 25), "Eindhoven", "Woensel 12"));
             events.Add(new Event("Kerstmarkt", new DateTime(2015, 12, 4), new DateTime(2015, 12, 5), "Grathem", "Onbekende weg 4"));
         }
 
+        //Deze methode zoekt naar bestaande events
         public Event GeefEvent(string eventNaam)
         {
             foreach (Event e in events)
@@ -66,6 +70,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        //Met deze methode kun je een bezoeker in- en uitchecken
         public bool CheckInUit(string rfid, Event e)
         {
             List<Persoon> personen = e.Personen;
@@ -93,6 +98,7 @@ namespace ICT4Events_S24_Groep_E
             return false;
         }
 
+        //Met deze methode worden gebruikers opgevraagd uit een event
         public Persoon CheckGebruikersInEvent(string inv)
         {
             foreach (Event e in events)
@@ -106,6 +112,7 @@ namespace ICT4Events_S24_Groep_E
 
         }
 
+        //Met deze methode kun je de plaats(en) van een bezoeker opvragen
         public string GeefPlaats(Bezoeker b, Event e)
         {
             string plaatsen = "";
@@ -135,6 +142,7 @@ namespace ICT4Events_S24_Groep_E
             return "";
         }
 
+        //Deze methode wordt gebruikt om een event toe te voegen
         public bool VoegEventToe(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres)
         {
             foreach (Event e in events)
@@ -148,6 +156,7 @@ namespace ICT4Events_S24_Groep_E
             return true;
         }
 
+        //Deze methode kijkt of de ingevoerde data alleen uit getallen bestaat
         public bool IsDigitsOnly(string str)
         {
             foreach (char c in str)
