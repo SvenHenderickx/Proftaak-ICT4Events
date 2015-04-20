@@ -20,7 +20,6 @@ namespace ICT4Events_S24_Groep_E
         private List<Reservering> reserveringen;
         private List<Categorie> categorieen;
         private List<Bericht> berichten;
-        //private Beheerder!
 
         //Properties
         public string Naam
@@ -82,7 +81,7 @@ namespace ICT4Events_S24_Groep_E
             get { return berichten; }
         }
 
-        //Constructors
+        //Constructor
         public Event(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres)
         {
             this.naam = naam;
@@ -104,31 +103,34 @@ namespace ICT4Events_S24_Groep_E
         //Methodes
         private void TestDataPersonen()
         {       
-            // Beheerder aanmaken
+            //Beheerder aanmaken
             personen.Add(new Beheerder("Admin", "Admin", new DateTime(1996, 9, 27),"Ad","Min"));
             personen.Add(new Beheerder("Frank", "Haver", new DateTime(1996, 2, 15), "Frank", "Haver"));
 
-            // Hoofdboeker aanmaken
+            //Hoofdboeker aanmaken
             personen.Add(new Hoofdboeker("Peter", "Schepers", new DateTime(1980, 5, 20), "162784929","Peter","Schepers"));
             personen.Add(new Hoofdboeker("Sven", "Henderickx", new DateTime(1996, 5, 11), "123456789", "Sven", "Henderickx"));
             
-            // Bezoekers aanmaken
+            //Bezoekers aanmaken
             personen.Add(new Bezoeker("Henny", "Hanssen", new DateTime(1996, 12, 15), GeefHoofdboeker("Peter"),"Henny","Hanssen"));
             personen.Add(new Bezoeker("Anja", "Haas", new DateTime(1998, 3, 18), GeefHoofdboeker("Peter"),"Anja","Haas"));
             personen.Add(new Bezoeker("Siebren", "Weertman", new DateTime(1995, 4, 8), GeefHoofdboeker("Sven"), "Siebren", "Weertman"));
 
-            // Controleur aanmaken
+            //Controleur aanmaken
             personen.Add(new Controleur("Alex", "Ras", new DateTime(1995, 5, 22),"Alex","Ras"));
             personen.Add(new Controleur("Kevin", "Kopp", new DateTime(1996, 6, 14), "Kevin", "Kopp"));
         }
+
         private void TestDataPlaatsen()
         {
+            //Plaats aan hoofdboeker koppelen
             plaatsen.Add(new Plaats(100, GeefHoofdboeker("Peter"), true, 8));
             plaatsen.Add(new Plaats(200, null, false, 10));
         }
 
         private void TestDataHuurmateriaal()
         {
+            //Huurmateriaal aanmaken
             huurMateriaal.Add(new Huuritem("Canon 1024M", "Fotocamera"));
             huurMateriaal.Add(new Huuritem("Sony 800D", "Fotocamera"));
             huurMateriaal.Add(new Huuritem("LG B120", "Videocamera"));
@@ -150,6 +152,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        //Hier wordt een plaats opgevragen
         public Plaats GeefPlaats(string plaatsNummer)
         {
             foreach (Plaats p in plaatsen)
@@ -162,6 +165,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        //Deze methode checkt of het RFID van een persoon overeenkomt met zijn naam
         public Persoon CheckGebruikersNaamRfid(string inv)
         {
             foreach (Persoon p in personen)
@@ -174,6 +178,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        //Deze methode retourneert het gezochte huuritem als het bestaat
         public Huuritem GeefHuuritem(string itemNaam)
         {
             foreach (Huuritem h in huurMateriaal)
@@ -186,6 +191,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        //Met deze method wordt een persoon toegevoegd
         public bool VoegPersoonToe(Persoon persoon)
         {
             foreach (Persoon p in personen)
@@ -219,6 +225,7 @@ namespace ICT4Events_S24_Groep_E
             return naam + ", " + beginDatum.Day + adres;
         }
 
+        //Met deze methode worden berichten gezocht
         public List<Bericht> BerichtenZoeken(string inv)
         {
             inv = inv.ToLower();
@@ -236,6 +243,7 @@ namespace ICT4Events_S24_Groep_E
             return tempList;
         }
 
+        //Deze methode gebruikt de ToString methode op een bericht
         public Bericht GeefBerichtDoorToString(string inv)
         {
             foreach (Bericht b in berichten)
@@ -248,6 +256,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        //Deze mehtode verwijderd een bericht
         public void VerwijderBericht(Bericht bericht)
         {
             foreach (Bericht b in berichten)
@@ -260,6 +269,7 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+        //Deze methode vraagt een list op van alle gerapporteerde berichten
         public List<Bericht> AlleGerapporteerdeBerichten()
         {
             List<Bericht> tempList = new List<Bericht>();

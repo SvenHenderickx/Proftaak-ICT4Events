@@ -30,30 +30,36 @@ namespace ICT4Events_S24_Groep_E
         {
             if(tbNaam.Text != "" && tbWachtwoord.Text != "" && tbRekNr.Text != "" && tbNaam.Text != "" && tbAchternaam.Text != "")
             {
-                if(geselecteerdePlaatsen.Count == 0)
+                if (tbWachtwoord.Text != tbWachtWoordConfirm.Text)
                 {
-                    MessageBox.Show("Selecteer eerst een of meer plaatsen");
+                    MessageBox.Show("Wachtwoorden komen niet overeen. \n Controleer uw wachtwoord nogmaals.");
                 }
-                else
-                {
-                    hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbNaam.Text, tbAchternaam.Text);
-                    // hier wordt alleen gecheckt of de gebruikersnaam al bestaat of niet
-                    // als dat zo is dan kan de hoofdboeker niet gemaakt worden.
-                    if (administratie.HuidigEvent.CheckPersoon(hoofdboeker))
+                else{
+                    if (geselecteerdePlaatsen.Count == 0)
                     {
-                        gbGegevens.Enabled = false;
-                        gbPlaatsen.Enabled = false;
-                        MessageBox.Show("Hoofdboeker Gemaakt");
+                        MessageBox.Show("Selecteer eerst een of meer plaatsen.");
                     }
                     else
                     {
-                        MessageBox.Show("Gebruikersnaam bestaat al");
+                        hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbNaam.Text, tbAchternaam.Text);
+                        // hier wordt alleen gecheckt of de gebruikersnaam al bestaat of niet
+                        // als dat zo is dan kan de hoofdboeker niet gemaakt worden.
+                        if (administratie.HuidigEvent.CheckPersoon(hoofdboeker))
+                        {
+                            gbGegevens.Enabled = false;
+                            gbPlaatsen.Enabled = false;
+                            MessageBox.Show("Hoofdboeker is aangemaakt.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("De ingevoerde gebruikersnaam bestaat al. \n Voer een andere in.");
+                        }
                     }
-                }                               
+                }                              
             }
             else
             {
-                MessageBox.Show("Niet alle gegevens juist ingevuld");
+                MessageBox.Show("Niet alle gegevens zijn juist ingevuld.");
             }
         }
 
@@ -70,7 +76,7 @@ namespace ICT4Events_S24_Groep_E
                 }
                 else
                 {
-                    MessageBox.Show("Plaats is al gekozen");
+                    MessageBox.Show("Deze plaats is al gekozen. Kies een andere.");
                 }
             }
             Ververs();
@@ -106,7 +112,7 @@ namespace ICT4Events_S24_Groep_E
                         // hoofdboeker wordt definitief gemaakt
                         // programma moet terugkeren naar het inlogform
                         administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
-                        MessageBox.Show("Inschrijving afgerond");
+                        MessageBox.Show("Inschrijving afgerond.");
                         // als de beheerder op bevestigen drukt dan moet hij terug naar systeemkiezerform gaan.
                         // als dit een gewone persoon is dan hoeft er niets te gebeuren.
                         this.Dispose(); 
@@ -131,7 +137,7 @@ namespace ICT4Events_S24_Groep_E
             }
             else
             {
-                MessageBox.Show("Maak eerst een hoofdboeker");
+                MessageBox.Show("Maak eerst een hoofdboeker aan.");
             }
         }
 
@@ -144,7 +150,7 @@ namespace ICT4Events_S24_Groep_E
             }
             else
             {
-                MessageBox.Show("Maak eerst een hoofdboeker");
+                MessageBox.Show("Maak eerst een hoofdboeker aan.");
             }
         }
 
@@ -189,6 +195,7 @@ namespace ICT4Events_S24_Groep_E
             foreach (Plaats p in geselecteerdePlaatsen)
             {
                 lbPlaatsen.Items.Add(p.ToString());
+                lblPrijsTotaal.Text = (Convert.ToInt32(lblPrijsTotaal.Text) + p.Prijs).ToString();
             }
 
             // cbMeerderePersonen wordt gevuld

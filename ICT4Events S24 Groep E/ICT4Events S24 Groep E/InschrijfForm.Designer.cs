@@ -33,8 +33,10 @@
             this.chbMeerPersonen = new System.Windows.Forms.CheckBox();
             this.btnAnnuleren = new System.Windows.Forms.Button();
             this.gbGegevens = new System.Windows.Forms.GroupBox();
+            this.Herhalen = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbWachtWoordConfirm = new System.Windows.Forms.TextBox();
             this.tbWachtwoord = new System.Windows.Forms.TextBox();
             this.tbGebruikersnaam = new System.Windows.Forms.TextBox();
             this.btnMaakBezoeker = new System.Windows.Forms.Button();
@@ -63,6 +65,8 @@
             this.btnVolgende = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbPlaatsen = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblPrijsTotaal = new System.Windows.Forms.Label();
             this.gbGegevens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbPlaatsen.SuspendLayout();
@@ -73,8 +77,8 @@
             this.cbMeerderePersonen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMeerderePersonen.Enabled = false;
             this.cbMeerderePersonen.FormattingEnabled = true;
-            this.cbMeerderePersonen.Location = new System.Drawing.Point(135, 540);
-            this.cbMeerderePersonen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbMeerderePersonen.Location = new System.Drawing.Point(126, 572);
+            this.cbMeerderePersonen.Margin = new System.Windows.Forms.Padding(2);
             this.cbMeerderePersonen.Name = "cbMeerderePersonen";
             this.cbMeerderePersonen.Size = new System.Drawing.Size(50, 21);
             this.cbMeerderePersonen.TabIndex = 30;
@@ -82,8 +86,8 @@
             // chbMeerPersonen
             // 
             this.chbMeerPersonen.AutoSize = true;
-            this.chbMeerPersonen.Location = new System.Drawing.Point(17, 540);
-            this.chbMeerPersonen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chbMeerPersonen.Location = new System.Drawing.Point(8, 572);
+            this.chbMeerPersonen.Margin = new System.Windows.Forms.Padding(2);
             this.chbMeerPersonen.Name = "chbMeerPersonen";
             this.chbMeerPersonen.Size = new System.Drawing.Size(116, 17);
             this.chbMeerPersonen.TabIndex = 29;
@@ -93,8 +97,8 @@
             // 
             // btnAnnuleren
             // 
-            this.btnAnnuleren.Location = new System.Drawing.Point(224, 564);
-            this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAnnuleren.Location = new System.Drawing.Point(215, 596);
+            this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(73, 32);
             this.btnAnnuleren.TabIndex = 33;
@@ -104,8 +108,10 @@
             // 
             // gbGegevens
             // 
+            this.gbGegevens.Controls.Add(this.Herhalen);
             this.gbGegevens.Controls.Add(this.label1);
             this.gbGegevens.Controls.Add(this.label2);
+            this.gbGegevens.Controls.Add(this.tbWachtWoordConfirm);
             this.gbGegevens.Controls.Add(this.tbWachtwoord);
             this.gbGegevens.Controls.Add(this.tbGebruikersnaam);
             this.gbGegevens.Controls.Add(this.btnMaakBezoeker);
@@ -126,13 +132,23 @@
             this.gbGegevens.Controls.Add(this.tbRekNr);
             this.gbGegevens.Controls.Add(this.tbNaam);
             this.gbGegevens.Location = new System.Drawing.Point(9, 10);
-            this.gbGegevens.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbGegevens.Margin = new System.Windows.Forms.Padding(2);
             this.gbGegevens.Name = "gbGegevens";
-            this.gbGegevens.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbGegevens.Size = new System.Drawing.Size(308, 304);
+            this.gbGegevens.Padding = new System.Windows.Forms.Padding(2);
+            this.gbGegevens.Size = new System.Drawing.Size(308, 331);
             this.gbGegevens.TabIndex = 28;
             this.gbGegevens.TabStop = false;
             this.gbGegevens.Text = "Gegevens:";
+            // 
+            // Herhalen
+            // 
+            this.Herhalen.AutoSize = true;
+            this.Herhalen.Location = new System.Drawing.Point(5, 124);
+            this.Herhalen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Herhalen.Name = "Herhalen";
+            this.Herhalen.Size = new System.Drawing.Size(63, 13);
+            this.Herhalen.TabIndex = 34;
+            this.Herhalen.Text = "Bevestigen:";
             // 
             // label1
             // 
@@ -154,30 +170,41 @@
             this.label2.TabIndex = 33;
             this.label2.Text = "Gebruikersnaam:";
             // 
+            // tbWachtWoordConfirm
+            // 
+            this.tbWachtWoordConfirm.Location = new System.Drawing.Point(102, 117);
+            this.tbWachtWoordConfirm.Margin = new System.Windows.Forms.Padding(2);
+            this.tbWachtWoordConfirm.Name = "tbWachtWoordConfirm";
+            this.tbWachtWoordConfirm.PasswordChar = '*';
+            this.tbWachtWoordConfirm.Size = new System.Drawing.Size(187, 20);
+            this.tbWachtWoordConfirm.TabIndex = 32;
+            this.tbWachtWoordConfirm.Text = "Jansen";
+            // 
             // tbWachtwoord
             // 
             this.tbWachtwoord.Location = new System.Drawing.Point(102, 93);
-            this.tbWachtwoord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbWachtwoord.Margin = new System.Windows.Forms.Padding(2);
             this.tbWachtwoord.Name = "tbWachtwoord";
+            this.tbWachtwoord.PasswordChar = '*';
             this.tbWachtwoord.Size = new System.Drawing.Size(187, 20);
             this.tbWachtwoord.TabIndex = 32;
-            this.tbWachtwoord.Text = "tieper200";
+            this.tbWachtwoord.Text = "Jansen";
             // 
             // tbGebruikersnaam
             // 
             this.tbGebruikersnaam.Location = new System.Drawing.Point(102, 70);
-            this.tbGebruikersnaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbGebruikersnaam.Margin = new System.Windows.Forms.Padding(2);
             this.tbGebruikersnaam.Name = "tbGebruikersnaam";
             this.tbGebruikersnaam.Size = new System.Drawing.Size(187, 20);
             this.tbGebruikersnaam.TabIndex = 31;
-            this.tbGebruikersnaam.Text = "Pietertje102";
+            this.tbGebruikersnaam.Text = "Harry";
             // 
             // btnMaakBezoeker
             // 
-            this.btnMaakBezoeker.Location = new System.Drawing.Point(191, 263);
-            this.btnMaakBezoeker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaakBezoeker.Location = new System.Drawing.Point(191, 279);
+            this.btnMaakBezoeker.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaakBezoeker.Name = "btnMaakBezoeker";
-            this.btnMaakBezoeker.Size = new System.Drawing.Size(97, 35);
+            this.btnMaakBezoeker.Size = new System.Drawing.Size(97, 19);
             this.btnMaakBezoeker.TabIndex = 30;
             this.btnMaakBezoeker.Text = "Maak Bezoeker";
             this.btnMaakBezoeker.UseVisualStyleBackColor = true;
@@ -196,7 +223,7 @@
             // lblGebDatum
             // 
             this.lblGebDatum.AutoSize = true;
-            this.lblGebDatum.Location = new System.Drawing.Point(5, 122);
+            this.lblGebDatum.Location = new System.Drawing.Point(5, 148);
             this.lblGebDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGebDatum.Name = "lblGebDatum";
             this.lblGebDatum.Size = new System.Drawing.Size(83, 13);
@@ -206,7 +233,7 @@
             // lblTelefoon
             // 
             this.lblTelefoon.AutoSize = true;
-            this.lblTelefoon.Location = new System.Drawing.Point(5, 143);
+            this.lblTelefoon.Location = new System.Drawing.Point(5, 169);
             this.lblTelefoon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefoon.Name = "lblTelefoon";
             this.lblTelefoon.Size = new System.Drawing.Size(52, 13);
@@ -216,7 +243,7 @@
             // lblPostcode
             // 
             this.lblPostcode.AutoSize = true;
-            this.lblPostcode.Location = new System.Drawing.Point(5, 166);
+            this.lblPostcode.Location = new System.Drawing.Point(5, 192);
             this.lblPostcode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPostcode.Name = "lblPostcode";
             this.lblPostcode.Size = new System.Drawing.Size(55, 13);
@@ -226,7 +253,7 @@
             // lblStad
             // 
             this.lblStad.AutoSize = true;
-            this.lblStad.Location = new System.Drawing.Point(5, 188);
+            this.lblStad.Location = new System.Drawing.Point(5, 214);
             this.lblStad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStad.Name = "lblStad";
             this.lblStad.Size = new System.Drawing.Size(32, 13);
@@ -236,7 +263,7 @@
             // lblHuisnummer
             // 
             this.lblHuisnummer.AutoSize = true;
-            this.lblHuisnummer.Location = new System.Drawing.Point(5, 211);
+            this.lblHuisnummer.Location = new System.Drawing.Point(5, 237);
             this.lblHuisnummer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHuisnummer.Name = "lblHuisnummer";
             this.lblHuisnummer.Size = new System.Drawing.Size(68, 13);
@@ -246,7 +273,7 @@
             // lblRekNummer
             // 
             this.lblRekNummer.AutoSize = true;
-            this.lblRekNummer.Location = new System.Drawing.Point(5, 234);
+            this.lblRekNummer.Location = new System.Drawing.Point(5, 260);
             this.lblRekNummer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRekNummer.Name = "lblRekNummer";
             this.lblRekNummer.Size = new System.Drawing.Size(47, 13);
@@ -265,8 +292,8 @@
             // 
             // dtpGebDatum
             // 
-            this.dtpGebDatum.Location = new System.Drawing.Point(102, 115);
-            this.dtpGebDatum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpGebDatum.Location = new System.Drawing.Point(102, 141);
+            this.dtpGebDatum.Margin = new System.Windows.Forms.Padding(2);
             this.dtpGebDatum.Name = "dtpGebDatum";
             this.dtpGebDatum.Size = new System.Drawing.Size(187, 20);
             this.dtpGebDatum.TabIndex = 9;
@@ -274,48 +301,52 @@
             // tbAchternaam
             // 
             this.tbAchternaam.Location = new System.Drawing.Point(102, 47);
-            this.tbAchternaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAchternaam.Margin = new System.Windows.Forms.Padding(2);
             this.tbAchternaam.Name = "tbAchternaam";
             this.tbAchternaam.Size = new System.Drawing.Size(187, 20);
             this.tbAchternaam.TabIndex = 8;
-            this.tbAchternaam.Text = "Halal";
+            this.tbAchternaam.Text = "Jansen";
             // 
             // tbTelefoon
             // 
-            this.tbTelefoon.Location = new System.Drawing.Point(102, 138);
-            this.tbTelefoon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbTelefoon.Location = new System.Drawing.Point(102, 164);
+            this.tbTelefoon.Margin = new System.Windows.Forms.Padding(2);
             this.tbTelefoon.Name = "tbTelefoon";
             this.tbTelefoon.Size = new System.Drawing.Size(187, 20);
             this.tbTelefoon.TabIndex = 7;
+            this.tbTelefoon.Text = "0634651876";
             // 
             // tbPostcode
             // 
-            this.tbPostcode.Location = new System.Drawing.Point(102, 161);
-            this.tbPostcode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPostcode.Location = new System.Drawing.Point(102, 187);
+            this.tbPostcode.Margin = new System.Windows.Forms.Padding(2);
             this.tbPostcode.Name = "tbPostcode";
             this.tbPostcode.Size = new System.Drawing.Size(187, 20);
             this.tbPostcode.TabIndex = 6;
+            this.tbPostcode.Text = "5345DC";
             // 
             // tbStad
             // 
-            this.tbStad.Location = new System.Drawing.Point(102, 184);
-            this.tbStad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbStad.Location = new System.Drawing.Point(102, 210);
+            this.tbStad.Margin = new System.Windows.Forms.Padding(2);
             this.tbStad.Name = "tbStad";
             this.tbStad.Size = new System.Drawing.Size(187, 20);
             this.tbStad.TabIndex = 5;
+            this.tbStad.Text = "Son";
             // 
             // tbHuisnummer
             // 
-            this.tbHuisnummer.Location = new System.Drawing.Point(102, 206);
-            this.tbHuisnummer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbHuisnummer.Location = new System.Drawing.Point(102, 232);
+            this.tbHuisnummer.Margin = new System.Windows.Forms.Padding(2);
             this.tbHuisnummer.Name = "tbHuisnummer";
             this.tbHuisnummer.Size = new System.Drawing.Size(187, 20);
             this.tbHuisnummer.TabIndex = 4;
+            this.tbHuisnummer.Text = "12";
             // 
             // tbRekNr
             // 
-            this.tbRekNr.Location = new System.Drawing.Point(102, 229);
-            this.tbRekNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbRekNr.Location = new System.Drawing.Point(102, 255);
+            this.tbRekNr.Margin = new System.Windows.Forms.Padding(2);
             this.tbRekNr.Name = "tbRekNr";
             this.tbRekNr.Size = new System.Drawing.Size(187, 20);
             this.tbRekNr.TabIndex = 3;
@@ -324,16 +355,16 @@
             // tbNaam
             // 
             this.tbNaam.Location = new System.Drawing.Point(102, 24);
-            this.tbNaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNaam.Margin = new System.Windows.Forms.Padding(2);
             this.tbNaam.Name = "tbNaam";
             this.tbNaam.Size = new System.Drawing.Size(187, 20);
             this.tbNaam.TabIndex = 0;
-            this.tbNaam.Text = "Pieter";
+            this.tbNaam.Text = "Harry";
             // 
             // btnVerwijderPlaats
             // 
             this.btnVerwijderPlaats.Location = new System.Drawing.Point(188, 62);
-            this.btnVerwijderPlaats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVerwijderPlaats.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerwijderPlaats.Name = "btnVerwijderPlaats";
             this.btnVerwijderPlaats.Size = new System.Drawing.Size(108, 41);
             this.btnVerwijderPlaats.TabIndex = 22;
@@ -344,7 +375,7 @@
             // btnVoegPlaatsToe
             // 
             this.btnVoegPlaatsToe.Location = new System.Drawing.Point(56, 62);
-            this.btnVoegPlaatsToe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVoegPlaatsToe.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoegPlaatsToe.Name = "btnVoegPlaatsToe";
             this.btnVoegPlaatsToe.Size = new System.Drawing.Size(104, 41);
             this.btnVoegPlaatsToe.TabIndex = 21;
@@ -356,7 +387,7 @@
             // 
             this.lbPlaatsen.FormattingEnabled = true;
             this.lbPlaatsen.Location = new System.Drawing.Point(15, 107);
-            this.lbPlaatsen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbPlaatsen.Margin = new System.Windows.Forms.Padding(2);
             this.lbPlaatsen.Name = "lbPlaatsen";
             this.lbPlaatsen.Size = new System.Drawing.Size(282, 69);
             this.lbPlaatsen.TabIndex = 20;
@@ -364,10 +395,10 @@
             // cbPlaats
             // 
             this.cbPlaats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlaats.DropDownWidth = 300;
+            this.cbPlaats.DropDownWidth = 320;
             this.cbPlaats.FormattingEnabled = true;
             this.cbPlaats.Location = new System.Drawing.Point(56, 37);
-            this.cbPlaats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbPlaats.Margin = new System.Windows.Forms.Padding(2);
             this.cbPlaats.Name = "cbPlaats";
             this.cbPlaats.Size = new System.Drawing.Size(241, 21);
             this.cbPlaats.TabIndex = 19;
@@ -384,8 +415,8 @@
             // 
             // btnMateriaalHuren
             // 
-            this.btnMateriaalHuren.Location = new System.Drawing.Point(111, 564);
-            this.btnMateriaalHuren.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMateriaalHuren.Location = new System.Drawing.Point(102, 596);
+            this.btnMateriaalHuren.Margin = new System.Windows.Forms.Padding(2);
             this.btnMateriaalHuren.Name = "btnMateriaalHuren";
             this.btnMateriaalHuren.Size = new System.Drawing.Size(89, 32);
             this.btnMateriaalHuren.TabIndex = 32;
@@ -395,8 +426,8 @@
             // 
             // btnVolgende
             // 
-            this.btnVolgende.Location = new System.Drawing.Point(17, 564);
-            this.btnVolgende.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVolgende.Location = new System.Drawing.Point(8, 596);
+            this.btnVolgende.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolgende.Name = "btnVolgende";
             this.btnVolgende.Size = new System.Drawing.Size(89, 32);
             this.btnVolgende.TabIndex = 31;
@@ -408,7 +439,7 @@
             // 
             this.pictureBox1.Image = global::ICT4Events_S24_Groep_E.Properties.Resources.Camping_ReeënDal__1_;
             this.pictureBox1.Location = new System.Drawing.Point(322, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(734, 626);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -419,17 +450,39 @@
             // 
             this.gbPlaatsen.Controls.Add(this.cbPlaats);
             this.gbPlaatsen.Controls.Add(this.btnVerwijderPlaats);
+            this.gbPlaatsen.Controls.Add(this.label3);
+            this.gbPlaatsen.Controls.Add(this.lblPrijsTotaal);
             this.gbPlaatsen.Controls.Add(this.lblPlaats);
             this.gbPlaatsen.Controls.Add(this.btnVoegPlaatsToe);
             this.gbPlaatsen.Controls.Add(this.lbPlaatsen);
-            this.gbPlaatsen.Location = new System.Drawing.Point(9, 318);
-            this.gbPlaatsen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbPlaatsen.Location = new System.Drawing.Point(10, 345);
+            this.gbPlaatsen.Margin = new System.Windows.Forms.Padding(2);
             this.gbPlaatsen.Name = "gbPlaatsen";
-            this.gbPlaatsen.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbPlaatsen.Padding = new System.Windows.Forms.Padding(2);
             this.gbPlaatsen.Size = new System.Drawing.Size(308, 214);
             this.gbPlaatsen.TabIndex = 35;
             this.gbPlaatsen.TabStop = false;
             this.gbPlaatsen.Text = "Plaatsen";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(240, 189);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "€";
+            // 
+            // lblPrijsTotaal
+            // 
+            this.lblPrijsTotaal.AutoSize = true;
+            this.lblPrijsTotaal.Location = new System.Drawing.Point(257, 189);
+            this.lblPrijsTotaal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrijsTotaal.Name = "lblPrijsTotaal";
+            this.lblPrijsTotaal.Size = new System.Drawing.Size(13, 13);
+            this.lblPrijsTotaal.TabIndex = 18;
+            this.lblPrijsTotaal.Text = "0";
             // 
             // InschrijfForm
             // 
@@ -445,7 +498,7 @@
             this.Controls.Add(this.btnMateriaalHuren);
             this.Controls.Add(this.btnVolgende);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InschrijfForm";
             this.Text = "InschrijfForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InschrijfForm_FormClosing);
@@ -495,5 +548,9 @@
         private System.Windows.Forms.TextBox tbGebruikersnaam;
         private System.Windows.Forms.Button btnMaakBezoeker;
         private System.Windows.Forms.GroupBox gbPlaatsen;
+        private System.Windows.Forms.Label lblPrijsTotaal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Herhalen;
+        private System.Windows.Forms.TextBox tbWachtWoordConfirm;
     }
 }

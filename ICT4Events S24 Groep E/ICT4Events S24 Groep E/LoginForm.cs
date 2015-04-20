@@ -12,7 +12,7 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class LoginForm : Form
     {
-
+        //Field
         Administratie administratie;
 
         public LoginForm()
@@ -23,6 +23,7 @@ namespace ICT4Events_S24_Groep_E
             cmbEventsLoginForm.SelectedIndex = 0;
         }
 
+        //Event Handlers
         private void btnInlogLoginForm_Click(object sender, EventArgs e)
         {
             Persoon tempPersoon = null;

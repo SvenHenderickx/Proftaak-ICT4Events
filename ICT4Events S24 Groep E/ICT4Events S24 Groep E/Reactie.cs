@@ -8,12 +8,14 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Reactie
     {
+        //Fields
         private static int reactienummer;
         private Persoon plaatser;
         private string inhoud;
         private bool gerapporteerd;
         private DateTime datumGeplaatst;
 
+        //Properties
         public int Reactienummer
         {
             get { return reactienummer; }
@@ -39,6 +41,7 @@ namespace ICT4Events_S24_Groep_E
             get { return gerapporteerd; }
         }
 
+        //Constructor
         public Reactie(Persoon plaatser, string inhoud)
         {
             gerapporteerd = false;
@@ -47,6 +50,7 @@ namespace ICT4Events_S24_Groep_E
             this.inhoud = inhoud;
         }
 
+        //Methode
         public string ToString()
         {
             return plaatser.Gebruikersnaam + ": " + inhoud;

@@ -8,9 +8,11 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Rapportage
     {
+        //Fields
         private Persoon rapporteur;
         private string reden;
 
+        //Properties
         public Persoon Rapporteur
         {
             get { return rapporteur; }
@@ -21,12 +23,14 @@ namespace ICT4Events_S24_Groep_E
             get { return reden; }
         }
 
+        //Constructor
         public Rapportage(string reden, Persoon rapporteur)
         {
             this.reden = reden;
             this.rapporteur = rapporteur;
         }
 
+        //Methode
         public string ToString()
         {
             return rapporteur.Gebruikersnaam + ": " + reden;

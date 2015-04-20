@@ -12,7 +12,9 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class SysteemKiezerForm : Form
     {
+        //Field
         Administratie administratie;
+
         public SysteemKiezerForm()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace ICT4Events_S24_Groep_E
             AutomatischeDoorverbinding();
         }
 
+        //Event Handlers
         private void SysteemKiezerForm_Load(object sender, EventArgs e)
         {
 

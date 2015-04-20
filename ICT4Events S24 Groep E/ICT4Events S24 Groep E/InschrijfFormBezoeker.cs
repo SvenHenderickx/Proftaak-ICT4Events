@@ -12,6 +12,7 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class InschrijfFormBezoeker : Form
     {
+        //Fields
         private int resterendeBezoekers;
         private Hoofdboeker hoofdBoeker; // de hoofdboeker van de bezoeker nodig voor constructor nieuwe bezoeker.
         private Bezoeker bezoeker;
@@ -31,6 +32,7 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+        //Event Handlers
         private void btnMateriaalHuren_Click(object sender, EventArgs e)
         {
             if (bezoeker != null)
@@ -78,14 +80,21 @@ namespace ICT4Events_S24_Groep_E
         {
             if (tbGebruikersNaam.Text != "" && tbWachtwoord.Text != "" && tbNaam.Text != "" && tbAchternaam.Text != "")
             {
-                bezoeker = new Bezoeker(tbGebruikersNaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, hoofdBoeker, tbNaam.Text, tbAchternaam.Text);
-                if(administratie.HuidigEvent.CheckPersoon(bezoeker))
+                if (tbWachtwoord.Text != tbWachtwoordConfirm.Text)
                 {
-                    gbGegevens.Enabled = false;
+                    MessageBox.Show("Wachtwoorden komen niet overeen. \n Controleer uw wachtwoord nogmaals.");
                 }
                 else
                 {
-                    MessageBox.Show("Gebruikersnaam bestaat al");
+                    bezoeker = new Bezoeker(tbGebruikersNaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, hoofdBoeker, tbNaam.Text, tbAchternaam.Text);
+                    if (administratie.HuidigEvent.CheckPersoon(bezoeker))
+                    {
+                        gbGegevens.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gebruikersnaam bestaat al");
+                    }
                 }
             }
             else

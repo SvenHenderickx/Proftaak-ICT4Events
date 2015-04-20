@@ -8,10 +8,12 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Huuritem
     {
+        //Fields
         private string naam;
         private string type;
         private bool isGehuurd;
 
+        //Methodes
         public string Naam
         {
             get { return naam; }
@@ -28,6 +30,7 @@ namespace ICT4Events_S24_Groep_E
             set { isGehuurd = value; }
         }
 
+        //Constructor
         public Huuritem(string naam, string type)
         {
             this.naam = naam;

@@ -12,7 +12,9 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class Toegangscontroleform : Form
     {
+        //Field
         private Administratie administratie;
+
         public Toegangscontroleform()
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace ICT4Events_S24_Groep_E
 
         }
 
+        //Event Handlers
         private void RefreshData(Event e)
         {
             int aantalaanwezig = 0;

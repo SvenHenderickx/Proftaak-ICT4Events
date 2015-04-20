@@ -12,6 +12,7 @@ namespace ICT4Events_S24_Groep_E
 {
     public partial class EventBeheerForm : Form
     {
+        //Fields
         DatabaseKoppeling database;
         System.Windows.Forms.Timer timer;
         int interval = 3000;
@@ -30,6 +31,8 @@ namespace ICT4Events_S24_Groep_E
             btnZeker.Enabled = false;
         }
 
+        //Event Handlers
+        //Deze methode refreshed de combobox cbEventsEventbeheer
         private void refreshCbEvents()
         {
             cbEventsEventbeheer.Items.Clear();
@@ -45,6 +48,7 @@ namespace ICT4Events_S24_Groep_E
             btnZeker.Enabled = true;
             timer.Stop();
         }
+
         private void btnVerwijder_Click(object sender, EventArgs e)
         {
             if (lbGebruikerinfo.SelectedItem == null)
@@ -155,7 +159,6 @@ namespace ICT4Events_S24_Groep_E
         }
         private void updateEventTab()
         {
-            
             dtpBeginDatum.Value = administratie.GeefEvent(cbEventsEventbeheer.Text).BeginDatum;
             dtpEindDatum.Value = administratie.GeefEvent(cbEventsEventbeheer.Text).EindDatum;
             tbEventNaamEventbeheer.Text = administratie.GeefEvent(cbEventsEventbeheer.Text).Naam;
