@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InschrijfFormBezoeker));
             this.btnAnnuleren = new System.Windows.Forms.Button();
             this.btnMateriaalHuren = new System.Windows.Forms.Button();
             this.lblHoofdboekerInfo = new System.Windows.Forms.Label();
@@ -37,7 +38,9 @@
             this.btnMaakBezoeker = new System.Windows.Forms.Button();
             this.lblGebruikersNaam = new System.Windows.Forms.Label();
             this.tbGebruikersNaam = new System.Windows.Forms.TextBox();
+            this.lblWachtwoordConfirm = new System.Windows.Forms.Label();
             this.lblWachtWoord = new System.Windows.Forms.Label();
+            this.tbWachtwoordConfirm = new System.Windows.Forms.TextBox();
             this.tbWachtwoord = new System.Windows.Forms.TextBox();
             this.lblAchternaam = new System.Windows.Forms.Label();
             this.lblGebDatum = new System.Windows.Forms.Label();
@@ -53,8 +56,6 @@
             this.tbStad = new System.Windows.Forms.TextBox();
             this.tbHuisnummer = new System.Windows.Forms.TextBox();
             this.tbNaam = new System.Windows.Forms.TextBox();
-            this.tbWachtwoordConfirm = new System.Windows.Forms.TextBox();
-            this.lblWachtwoordConfirm = new System.Windows.Forms.Label();
             this.gbGegevens.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -173,6 +174,16 @@
             this.tbGebruikersNaam.TabIndex = 25;
             this.tbGebruikersNaam.Text = "Jos";
             // 
+            // lblWachtwoordConfirm
+            // 
+            this.lblWachtwoordConfirm.AutoSize = true;
+            this.lblWachtwoordConfirm.Location = new System.Drawing.Point(4, 124);
+            this.lblWachtwoordConfirm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWachtwoordConfirm.Name = "lblWachtwoordConfirm";
+            this.lblWachtwoordConfirm.Size = new System.Drawing.Size(63, 13);
+            this.lblWachtwoordConfirm.TabIndex = 24;
+            this.lblWachtwoordConfirm.Text = "Bevestigen:";
+            // 
             // lblWachtWoord
             // 
             this.lblWachtWoord.AutoSize = true;
@@ -182,6 +193,16 @@
             this.lblWachtWoord.Size = new System.Drawing.Size(71, 13);
             this.lblWachtWoord.TabIndex = 24;
             this.lblWachtWoord.Text = "Wachtwoord:";
+            // 
+            // tbWachtwoordConfirm
+            // 
+            this.tbWachtwoordConfirm.Location = new System.Drawing.Point(102, 117);
+            this.tbWachtwoordConfirm.Margin = new System.Windows.Forms.Padding(2);
+            this.tbWachtwoordConfirm.Name = "tbWachtwoordConfirm";
+            this.tbWachtwoordConfirm.PasswordChar = '*';
+            this.tbWachtwoordConfirm.Size = new System.Drawing.Size(187, 20);
+            this.tbWachtwoordConfirm.TabIndex = 23;
+            this.tbWachtwoordConfirm.Text = "Berens";
             // 
             // tbWachtwoord
             // 
@@ -326,26 +347,6 @@
             this.tbNaam.TabIndex = 0;
             this.tbNaam.Text = "Jos";
             // 
-            // tbWachtwoordConfirm
-            // 
-            this.tbWachtwoordConfirm.Location = new System.Drawing.Point(102, 117);
-            this.tbWachtwoordConfirm.Margin = new System.Windows.Forms.Padding(2);
-            this.tbWachtwoordConfirm.Name = "tbWachtwoordConfirm";
-            this.tbWachtwoordConfirm.PasswordChar = '*';
-            this.tbWachtwoordConfirm.Size = new System.Drawing.Size(187, 20);
-            this.tbWachtwoordConfirm.TabIndex = 23;
-            this.tbWachtwoordConfirm.Text = "Berens";
-            // 
-            // lblWachtwoordConfirm
-            // 
-            this.lblWachtwoordConfirm.AutoSize = true;
-            this.lblWachtwoordConfirm.Location = new System.Drawing.Point(4, 124);
-            this.lblWachtwoordConfirm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblWachtwoordConfirm.Name = "lblWachtwoordConfirm";
-            this.lblWachtwoordConfirm.Size = new System.Drawing.Size(63, 13);
-            this.lblWachtwoordConfirm.TabIndex = 24;
-            this.lblWachtwoordConfirm.Text = "Bevestigen:";
-            // 
             // InschrijfFormBezoeker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +358,7 @@
             this.Controls.Add(this.btnVolgende);
             this.Controls.Add(this.lblResterendeBezoekers);
             this.Controls.Add(this.gbGegevens);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InschrijfFormBezoeker";
             this.Text = "InschrijfFormBezoeker";
