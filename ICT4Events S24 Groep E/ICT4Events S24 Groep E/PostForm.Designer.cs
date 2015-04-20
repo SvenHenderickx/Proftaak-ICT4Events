@@ -131,7 +131,7 @@
             // 
             this.btnReactieVerwijderen.Location = new System.Drawing.Point(12, 264);
             this.btnReactieVerwijderen.Name = "btnReactieVerwijderen";
-            this.btnReactieVerwijderen.Size = new System.Drawing.Size(154, 24);
+            this.btnReactieVerwijderen.Size = new System.Drawing.Size(144, 24);
             this.btnReactieVerwijderen.TabIndex = 10;
             this.btnReactieVerwijderen.Text = "Verwijder Reactie";
             this.btnReactieVerwijderen.UseVisualStyleBackColor = true;
@@ -164,6 +164,7 @@
             this.Controls.Add(this.gbGebnaam);
             this.Name = "PostForm";
             this.Text = "Bericht";
+            this.Load += new System.EventHandler(this.PostForm_Load);
             this.gbGebnaam.ResumeLayout(false);
             this.gbGebnaam.PerformLayout();
             this.ResumeLayout(false);

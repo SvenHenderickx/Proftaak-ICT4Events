@@ -221,12 +221,13 @@ namespace ICT4Events_S24_Groep_E
 
         public List<Bericht> BerichtenZoeken(string inv)
         {
+            inv = inv.ToLower();
             List<Bericht> tempList = new List<Bericht>();
             if (inv.Length > 0)
             {
                 foreach (Bericht b in Berichten)
                 {
-                    if (b.Tekst.IndexOf(inv) >= 0 || b.Auteur.Gebruikersnaam.IndexOf(inv) >= 0)
+                    if (b.Tekst.ToLower().IndexOf(inv) >= 0 || b.Auteur.Gebruikersnaam.ToLower().IndexOf(inv) >= 0)
                     {
                         tempList.Add(b);
                     }

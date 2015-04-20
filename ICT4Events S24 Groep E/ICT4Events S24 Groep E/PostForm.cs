@@ -107,14 +107,18 @@ namespace ICT4Events_S24_Groep_E
         {
             if (administratie.NuIngelogd is Beheerder || administratie.TempBericht.Auteur == administratie.NuIngelogd)
             {
-                if (rapportages == false)
+                if (administratie.NuIngelogd is Beheerder)
                 {
-                    btnRapporteer.Text = "Reacties";
+                    if (rapportages == false)
+                    {
+                        btnRapporteer.Text = "Reacties";
+                    }
+                    else
+                    {
+                        btnRapporteer.Text = "Rapportages";
+                    }
                 }
-                else
-                {
-                    btnRapporteer.Text = "Rapportages";
-                }
+                
                 btnBerichtVerwijderen.Visible = true;
                 btnReactieVerwijderen.Visible = true;
                 return true;
@@ -140,6 +144,11 @@ namespace ICT4Events_S24_Groep_E
         {
             administratie.HuidigEvent.VerwijderBericht(administratie.TempBericht);
             this.Close();
+        }
+
+        private void PostForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
