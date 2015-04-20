@@ -49,15 +49,13 @@ namespace ICT4Events_S24_Groep_E
             get { return auteur; }
         }
 
-<<<<<<< HEAD
+
         public int BerichtSoort
         {
             get { return (int)berichtSoort; }
         }
 
-=======
-        //Constructor
->>>>>>> origin/master
+
         public Bericht(string tekst, Persoon auteur)
         {
             this.tekst = tekst;
@@ -101,7 +99,6 @@ namespace ICT4Events_S24_Groep_E
             return true;
         }
 
-<<<<<<< HEAD
         public bool BerichtUnliken(Persoon invPersoon)
         {
             foreach (Like l in likes)
@@ -127,9 +124,6 @@ namespace ICT4Events_S24_Groep_E
             return false;
         }
 
-=======
-        //Met deze methode kun je een reactie toevoegen
->>>>>>> origin/master
         public void ReactieToevoegen(string tekst, Persoon plaatser)
         {
             reacties.Add(new Reactie(plaatser, tekst));
@@ -166,7 +160,6 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
-<<<<<<< HEAD
         public bool HeeftEenBestand()
         {
             if ((int)berichtSoort > 0)
@@ -181,9 +174,6 @@ namespace ICT4Events_S24_Groep_E
             return bestand.Pad;
         }
 
-=======
-        //Deze methode zoekt naar een reactie m.b.v. de ToString methode
->>>>>>> origin/master
         public Reactie ReactieZoekenMetToString(string inv)
         {
             foreach (Reactie r in reacties)
