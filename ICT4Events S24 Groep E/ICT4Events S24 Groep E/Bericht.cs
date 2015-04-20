@@ -14,6 +14,8 @@ namespace ICT4Events_S24_Groep_E
         private List<Reactie> reacties;
         private Persoon auteur;
         private DateTime datumGepost;
+        private Bestand bestand;
+        private BerichtSoort berichtSoort;
 
         public List<Like> Likes
         {
@@ -45,11 +47,29 @@ namespace ICT4Events_S24_Groep_E
             get { return auteur; }
         }
 
+        public int BerichtSoort
+        {
+            get { return (int)berichtSoort; }
+        }
+
         public Bericht(string tekst, Persoon auteur)
         {
             this.tekst = tekst;
             this.auteur = auteur;
             datumGepost = DateTime.Now;
+            this.berichtSoort = (BerichtSoort)0;
+            reacties = new List<Reactie>();
+            likes = new List<Like>();
+            rapportages = new List<Rapportage>();
+        }
+
+        public Bericht(string tekst, Persoon auteur, Bestand bestand, int berichtSoort)
+        {
+            this.tekst = tekst;
+            this.auteur = auteur;
+            datumGepost = DateTime.Now;
+            this.berichtSoort = (BerichtSoort)berichtSoort;
+            this.bestand = bestand;
             reacties = new List<Reactie>();
             likes = new List<Like>();
             rapportages = new List<Rapportage>();
@@ -71,6 +91,31 @@ namespace ICT4Events_S24_Groep_E
             }
             likes.Add(new Like(invPersoon));
             return true;
+        }
+
+        public bool BerichtUnliken(Persoon invPersoon)
+        {
+            foreach (Like l in likes)
+            {
+                if (l.Liker == invPersoon)
+                {
+                    likes.Remove(l);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CheckBerichtGeliked(Persoon invPersoon)
+        {
+            foreach (Like l in likes)
+            {
+                if (l.Liker == invPersoon)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void ReactieToevoegen(string tekst, Persoon plaatser)
@@ -105,6 +150,20 @@ namespace ICT4Events_S24_Groep_E
             {
                 return 0;
             }
+        }
+
+        public bool HeeftEenBestand()
+        {
+            if ((int)berichtSoort > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public string GeefBestandPad()
+        {
+            return bestand.Pad;
         }
 
         public Reactie ReactieZoekenMetToString(string inv)

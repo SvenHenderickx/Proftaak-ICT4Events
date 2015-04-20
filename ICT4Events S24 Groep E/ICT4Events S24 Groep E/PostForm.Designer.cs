@@ -39,7 +39,9 @@
             this.btnRapporteer = new System.Windows.Forms.Button();
             this.btnReactieVerwijderen = new System.Windows.Forms.Button();
             this.btnBerichtVerwijderen = new System.Windows.Forms.Button();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.gbGebnaam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBerichtTekst
@@ -139,19 +141,29 @@
             // 
             // btnBerichtVerwijderen
             // 
-            this.btnBerichtVerwijderen.Location = new System.Drawing.Point(172, 264);
+            this.btnBerichtVerwijderen.Location = new System.Drawing.Point(162, 265);
             this.btnBerichtVerwijderen.Name = "btnBerichtVerwijderen";
-            this.btnBerichtVerwijderen.Size = new System.Drawing.Size(137, 23);
+            this.btnBerichtVerwijderen.Size = new System.Drawing.Size(147, 23);
             this.btnBerichtVerwijderen.TabIndex = 11;
             this.btnBerichtVerwijderen.Text = "Verwijder Bericht";
             this.btnBerichtVerwijderen.UseVisualStyleBackColor = true;
             this.btnBerichtVerwijderen.Click += new System.EventHandler(this.btnBerichtVerwijderen_Click);
             // 
+            // pbFoto
+            // 
+            this.pbFoto.Location = new System.Drawing.Point(316, 13);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(320, 270);
+            this.pbFoto.TabIndex = 12;
+            this.pbFoto.TabStop = false;
+            this.pbFoto.Click += new System.EventHandler(this.pbFoto_Click);
+            // 
             // PostForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 295);
+            this.ClientSize = new System.Drawing.Size(644, 295);
+            this.Controls.Add(this.pbFoto);
             this.Controls.Add(this.btnBerichtVerwijderen);
             this.Controls.Add(this.btnReactieVerwijderen);
             this.Controls.Add(this.btnRapporteer);
@@ -167,6 +179,7 @@
             this.Load += new System.EventHandler(this.PostForm_Load);
             this.gbGebnaam.ResumeLayout(false);
             this.gbGebnaam.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +198,6 @@
         private System.Windows.Forms.Button btnRapporteer;
         private System.Windows.Forms.Button btnReactieVerwijderen;
         private System.Windows.Forms.Button btnBerichtVerwijderen;
+        private System.Windows.Forms.PictureBox pbFoto;
     }
 }

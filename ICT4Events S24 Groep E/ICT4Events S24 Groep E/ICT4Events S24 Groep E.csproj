@@ -48,6 +48,7 @@
     <Compile Include="Administratie.cs" />
     <Compile Include="Beheerder.cs" />
     <Compile Include="Bericht.cs" />
+    <Compile Include="BerichtSoort.cs" />
     <Compile Include="Bestand.cs" />
     <Compile Include="Bezoeker.cs" />
     <Compile Include="Categorie.cs" />
@@ -104,6 +105,12 @@
     <Compile Include="PostForm.Designer.cs">
       <DependentUpon>PostForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostFormImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostFormImage.Designer.cs">
+      <DependentUpon>PostFormImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rapportage.cs" />
@@ -141,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PostForm.resx">
       <DependentUpon>PostForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostFormImage.resx">
+      <DependentUpon>PostFormImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

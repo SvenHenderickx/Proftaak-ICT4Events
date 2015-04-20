@@ -8,82 +8,22 @@ namespace ICT4Events_S24_Groep_E
 {
     public class Bestand
     {
-        private string naam;
-        private Persoon maker;
-        private int likes;
+        //private string naam;
+        //private Persoon maker;
+        //private int likes;
         private string pad;
-        private int aantalKeerGerapporteerd;
-        private int aantalKeerBekeken;
-        private List<Reactie> reacties;
-
-        public string Naam
-        {
-            get { return naam; }
-        }
-
-        public Persoon Maker
-        {
-            get { return maker; }
-        }
-
-        public int Likes
-        {
-            get { return likes; }
-        }
+        //private int aantalKeerGerapporteerd;
+        //private int aantalKeerBekeken;
+        //private List<Reactie> reacties;
 
         public string Pad
         {
             get { return pad; }
         }
 
-        public int AantalKeerGerapporteerd
+        public Bestand(string pad)
         {
-            get { return aantalKeerGerapporteerd; }
-        }
-
-        public int AantalKeerBekeken
-        {
-            get { return aantalKeerBekeken; }
-        }
-
-        public List<Reactie> Reacties
-        {
-            get { return reacties; }
-        }
-
-        public Bestand(Bezoeker bezoeker, Categorie categorie, string naam, string pad)
-        {
-            this.naam = naam;
             this.pad = pad;
-            reacties = new List<Reactie>();
-        }
-
-        public bool VoegReactieToe(Reactie reactie)
-        {
-            bool succes = true;
-            foreach (Reactie r in reacties)
-            {
-                if (r.Reactienummer == reactie.Reactienummer)
-                {
-                    succes = false;
-                }
-            }
-            if (succes)
-            {
-                reacties.Add(reactie);
-            }
-            return succes;
-        }
-
-        public void VerwijderReactie(Reactie reactie)
-        {
-            foreach (Reactie r in reacties)
-            {
-                if (reactie == r)
-                {
-                    reacties.Remove(reactie);
-                }
-            }
         }
     }
 }

@@ -13,11 +13,15 @@ namespace ICT4Events_S24_Groep_E
     public partial class MediaSharingForm : Form
     {
         Administratie administratie;
+        OpenFileDialog opd;
+        string bestandPad;
 
         public MediaSharingForm()
         {
             InitializeComponent();
             administratie = new Administratie();
+            opd = new OpenFileDialog();
+            bestandPad = "";
             LaadAlleBerichten(administratie.HuidigEvent.Berichten);
             CheckGebruiker();
         }
@@ -41,11 +45,18 @@ namespace ICT4Events_S24_Groep_E
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (tbPostTekstMediaSharingForm.Text.Length > 0)
+            if (tbPostTekstMediaSharingForm.Text.Length > 0 && bestandPad.Length == 0)
             {
                 administratie.HuidigEvent.Berichten.Add(new Bericht(tbPostTekstMediaSharingForm.Text, administratie.NuIngelogd));
                 tbPostTekstMediaSharingForm.Text = "";
                 LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+            }
+            else if (tbPostTekstMediaSharingForm.Text.Length > 0 && bestandPad.Length > 0)
+            {
+                administratie.HuidigEvent.Berichten.Add(new Bericht(tbPostTekstMediaSharingForm.Text, administratie.NuIngelogd, new Bestand(bestandPad), 1));
+                tbPostTekstMediaSharingForm.Text = "";
+                LaadAlleBerichten(administratie.HuidigEvent.Berichten);
+                bestandPad = "";
             }
             
         }
@@ -161,6 +172,16 @@ namespace ICT4Events_S24_Groep_E
         private void btnBeheren_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            opd.Filter = "Photo files (*.jpg)|*.jpg";
+            
+            if (opd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                bestandPad = opd.FileName;
+            }
         }
     }
 }

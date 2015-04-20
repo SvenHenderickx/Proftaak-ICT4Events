@@ -49,12 +49,37 @@ namespace ICT4Events_S24_Groep_E
             gbGebnaam.Text = administratie.TempBericht.Auteur.Gebruikersnaam;
             lbDatum.Text = administratie.TempBericht.DatumGepost.ToString();
             lbLikes.Text = administratie.TempBericht.Likes.Count.ToString() + " Like(s)";
+            if (administratie.TempBericht.HeeftEenBestand() && administratie.TempBericht.BerichtSoort == 1)
+            {
+                Image image = Image.FromFile(administratie.TempBericht.GeefBestandPad());
+                pbFoto.Image = image;
+                pbFoto.SizeMode = PictureBoxSizeMode.Zoom;
+                this.Width = 660;
+            }
+            else
+            {
+                this.Width = 328;
+            }
+
+            if (administratie.TempBericht.CheckBerichtGeliked(administratie.NuIngelogd))
+            {
+                btnLike.Text = "Unlike";
+            }
+            else
+            {
+                btnLike.Text = "Like";
+            }
         }
 
         private void btnLike_Click(object sender, EventArgs e)
         {
             if (administratie.TempBericht.BerichtLiken(administratie.NuIngelogd))
             {
+                VerversBericht();
+            }
+            else
+            {
+                administratie.TempBericht.BerichtUnliken(administratie.NuIngelogd);
                 VerversBericht();
             }
         }
@@ -149,6 +174,12 @@ namespace ICT4Events_S24_Groep_E
         private void PostForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbFoto_Click(object sender, EventArgs e)
+        {
+            var postFormImage = new PostFormImage();
+            postFormImage.Show();
         }
     }
 }
