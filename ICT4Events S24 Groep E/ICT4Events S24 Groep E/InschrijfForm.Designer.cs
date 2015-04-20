@@ -33,8 +33,10 @@
             this.chbMeerPersonen = new System.Windows.Forms.CheckBox();
             this.btnAnnuleren = new System.Windows.Forms.Button();
             this.gbGegevens = new System.Windows.Forms.GroupBox();
+            this.Herhalen = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbWachtWoordConfirm = new System.Windows.Forms.TextBox();
             this.tbWachtwoord = new System.Windows.Forms.TextBox();
             this.tbGebruikersnaam = new System.Windows.Forms.TextBox();
             this.btnMaakBezoeker = new System.Windows.Forms.Button();
@@ -65,8 +67,6 @@
             this.gbPlaatsen = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPrijsTotaal = new System.Windows.Forms.Label();
-            this.tbWachtWoordConfirm = new System.Windows.Forms.TextBox();
-            this.Herhalen = new System.Windows.Forms.Label();
             this.gbGegevens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbPlaatsen.SuspendLayout();
@@ -140,6 +140,16 @@
             this.gbGegevens.TabStop = false;
             this.gbGegevens.Text = "Gegevens:";
             // 
+            // Herhalen
+            // 
+            this.Herhalen.AutoSize = true;
+            this.Herhalen.Location = new System.Drawing.Point(5, 124);
+            this.Herhalen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Herhalen.Name = "Herhalen";
+            this.Herhalen.Size = new System.Drawing.Size(63, 13);
+            this.Herhalen.TabIndex = 34;
+            this.Herhalen.Text = "Bevestigen:";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -159,6 +169,16 @@
             this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 33;
             this.label2.Text = "Gebruikersnaam:";
+            // 
+            // tbWachtWoordConfirm
+            // 
+            this.tbWachtWoordConfirm.Location = new System.Drawing.Point(102, 117);
+            this.tbWachtWoordConfirm.Margin = new System.Windows.Forms.Padding(2);
+            this.tbWachtWoordConfirm.Name = "tbWachtWoordConfirm";
+            this.tbWachtWoordConfirm.PasswordChar = '*';
+            this.tbWachtWoordConfirm.Size = new System.Drawing.Size(187, 20);
+            this.tbWachtWoordConfirm.TabIndex = 32;
+            this.tbWachtWoordConfirm.Text = "Jansen";
             // 
             // tbWachtwoord
             // 
@@ -463,26 +483,6 @@
             this.lblPrijsTotaal.Size = new System.Drawing.Size(13, 13);
             this.lblPrijsTotaal.TabIndex = 18;
             this.lblPrijsTotaal.Text = "0";
-            // 
-            // tbWachtWoordConfirm
-            // 
-            this.tbWachtWoordConfirm.Location = new System.Drawing.Point(102, 117);
-            this.tbWachtWoordConfirm.Margin = new System.Windows.Forms.Padding(2);
-            this.tbWachtWoordConfirm.Name = "tbWachtWoordConfirm";
-            this.tbWachtWoordConfirm.PasswordChar = '*';
-            this.tbWachtWoordConfirm.Size = new System.Drawing.Size(187, 20);
-            this.tbWachtWoordConfirm.TabIndex = 32;
-            this.tbWachtWoordConfirm.Text = "Jansen";
-            // 
-            // Herhalen
-            // 
-            this.Herhalen.AutoSize = true;
-            this.Herhalen.Location = new System.Drawing.Point(5, 124);
-            this.Herhalen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Herhalen.Name = "Herhalen";
-            this.Herhalen.Size = new System.Drawing.Size(71, 13);
-            this.Herhalen.TabIndex = 34;
-            this.Herhalen.Text = "Wachtwoord:";
             // 
             // InschrijfForm
             // 
