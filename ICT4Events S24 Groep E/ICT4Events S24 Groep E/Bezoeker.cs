@@ -49,6 +49,15 @@ namespace ICT4Events_S24_Groep_E
         }
 
         //Methodes
+        public void LeegMateriaal(Bezoeker b)
+        {
+            foreach(Huuritem h in huurMateriaal)
+            {
+                h.IsGehuurd = false;
+            }
+            b.huurMateriaal.Clear();
+        }
+
         public override string ToString()
         {
             return base.ToString();

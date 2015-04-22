@@ -105,7 +105,11 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            bezoeker = null;
+            if(bezoeker != null)
+            {
+                bezoeker.LeegMateriaal(bezoeker);
+                bezoeker = null;
+            }
             gbGegevens.Enabled = true;
         }
 

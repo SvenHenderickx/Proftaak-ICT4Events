@@ -21,6 +21,8 @@ namespace ICT4Events_S24_Groep_E
         private List<Categorie> categorieen;
         private List<Bericht> berichten;
 
+        private DatabaseKoppeling dbKoppeling;
+
         //Properties
         public string Naam
         {
@@ -98,6 +100,8 @@ namespace ICT4Events_S24_Groep_E
             reserveringen = new List<Reservering>();
             categorieen = new List<Categorie>();
             berichten = new List<Bericht>();
+
+            dbKoppeling = new DatabaseKoppeling();
         }
 
         //Methodes
@@ -126,6 +130,9 @@ namespace ICT4Events_S24_Groep_E
             //Plaats aan hoofdboeker koppelen
             plaatsen.Add(new Plaats(100, GeefHoofdboeker("Peter"), true, 8));
             plaatsen.Add(new Plaats(200, null, false, 10));
+            //nu met database koppeling...
+            //dbKoppeling.Koppel();
+
         }
 
         private void TestDataHuurmateriaal()

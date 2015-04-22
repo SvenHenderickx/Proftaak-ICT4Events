@@ -240,7 +240,7 @@ namespace ICT4Events_S24_Groep_E
         private void btnDatabaseConnectie_Click(object sender, EventArgs e)
         {
             database = new DatabaseKoppeling();
-            database.Koppel();
+            database.Koppel(); 
         }
 
         private void buttonVerwijderPlaatsen_Click(object sender, EventArgs e)

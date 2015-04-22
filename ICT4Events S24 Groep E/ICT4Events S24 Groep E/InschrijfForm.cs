@@ -217,7 +217,12 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            hoofdboeker = null;
+            // als een hoofdboeker geannuleerd wordt dan wordt ook zijn bijbehorende materiaal verwijderd en weer beschikbaar.
+            if(hoofdboeker != null)
+            {
+                hoofdboeker.LeegMateriaal(hoofdboeker);
+                hoofdboeker = null;
+            }     
             gbGegevens.Enabled = true;
             gbPlaatsen.Enabled = true;
         }
