@@ -47,7 +47,8 @@ namespace ICT4Events_S24_Groep_E
 
         private void VerversBericht()
         {
-            lblBerichtTekst.Text = administratie.TempBericht.Tekst;
+            //lblBerichtTekst.Text = administratie.TempBericht.Tekst;
+            LaatTekstZien();
             gbGebnaam.Text = administratie.TempBericht.Auteur.Gebruikersnaam;
             lbDatum.Text = administratie.TempBericht.DatumGepost.ToString();
             lbLikes.Text = administratie.TempBericht.Likes.Count.ToString() + " Like(s)";
@@ -72,6 +73,30 @@ namespace ICT4Events_S24_Groep_E
                 btnLike.Text = "Like";
             }
         }
+
+        public void LaatTekstZien()
+        {
+            if (administratie.TempBericht.Tekst.Length > 30)
+            {
+                string temp = administratie.TempBericht.Tekst;
+                for (int i = 30; i < temp.Length; i = i + 30)
+                {
+                    temp = temp.Substring(0, i) + "\n" + temp.Substring(i, temp.Length - i);
+                }
+                //string temp = administratie.TempBericht.Tekst;
+                //temp = temp.Substring(0, 30) + "\n" + temp.Substring(30, temp.Length - 30);
+                //if (administratie.TempBericht.Tekst.Length > 60)
+                //{
+                //    temp = temp.Substring(0, 60) + "\n" + temp.Substring(30, temp.Length - 60);
+                //}
+                lblBerichtTekst.Text = temp;
+            }
+            else
+            {
+                lblBerichtTekst.Text = administratie.TempBericht.Tekst;
+            }
+        }
+
 
         private void btnLike_Click(object sender, EventArgs e)
         {

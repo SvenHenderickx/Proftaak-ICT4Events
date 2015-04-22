@@ -60,7 +60,7 @@
             this.gbGebnaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGebnaam.Location = new System.Drawing.Point(12, 12);
             this.gbGebnaam.Name = "gbGebnaam";
-            this.gbGebnaam.Size = new System.Drawing.Size(297, 44);
+            this.gbGebnaam.Size = new System.Drawing.Size(297, 75);
             this.gbGebnaam.TabIndex = 2;
             this.gbGebnaam.TabStop = false;
             this.gbGebnaam.Text = "<gebnaam>";
@@ -68,7 +68,7 @@
             // lbLikes
             // 
             this.lbLikes.AutoSize = true;
-            this.lbLikes.Location = new System.Drawing.Point(18, 59);
+            this.lbLikes.Location = new System.Drawing.Point(12, 90);
             this.lbLikes.Name = "lbLikes";
             this.lbLikes.Size = new System.Drawing.Size(40, 13);
             this.lbLikes.TabIndex = 3;
@@ -77,7 +77,7 @@
             // lbDatum
             // 
             this.lbDatum.AutoSize = true;
-            this.lbDatum.Location = new System.Drawing.Point(169, 59);
+            this.lbDatum.Location = new System.Drawing.Point(168, 90);
             this.lbDatum.Name = "lbDatum";
             this.lbDatum.Size = new System.Drawing.Size(48, 13);
             this.lbDatum.TabIndex = 4;
@@ -85,7 +85,7 @@
             // 
             // btnLike
             // 
-            this.btnLike.Location = new System.Drawing.Point(13, 80);
+            this.btnLike.Location = new System.Drawing.Point(12, 106);
             this.btnLike.Name = "btnLike";
             this.btnLike.Size = new System.Drawing.Size(204, 23);
             this.btnLike.TabIndex = 5;
@@ -95,7 +95,7 @@
             // 
             // btnPlaatsReactie
             // 
-            this.btnPlaatsReactie.Location = new System.Drawing.Point(223, 109);
+            this.btnPlaatsReactie.Location = new System.Drawing.Point(222, 135);
             this.btnPlaatsReactie.Name = "btnPlaatsReactie";
             this.btnPlaatsReactie.Size = new System.Drawing.Size(86, 23);
             this.btnPlaatsReactie.TabIndex = 6;
@@ -105,7 +105,7 @@
             // 
             // tbReactieTekst
             // 
-            this.tbReactieTekst.Location = new System.Drawing.Point(13, 109);
+            this.tbReactieTekst.Location = new System.Drawing.Point(12, 135);
             this.tbReactieTekst.Multiline = true;
             this.tbReactieTekst.Name = "tbReactieTekst";
             this.tbReactieTekst.Size = new System.Drawing.Size(204, 23);
@@ -114,14 +114,14 @@
             // lbReacties
             // 
             this.lbReacties.FormattingEnabled = true;
-            this.lbReacties.Location = new System.Drawing.Point(12, 138);
+            this.lbReacties.Location = new System.Drawing.Point(12, 164);
             this.lbReacties.Name = "lbReacties";
-            this.lbReacties.Size = new System.Drawing.Size(296, 121);
+            this.lbReacties.Size = new System.Drawing.Size(296, 95);
             this.lbReacties.TabIndex = 8;
             // 
             // btnRapporteer
             // 
-            this.btnRapporteer.Location = new System.Drawing.Point(223, 80);
+            this.btnRapporteer.Location = new System.Drawing.Point(222, 106);
             this.btnRapporteer.Name = "btnRapporteer";
             this.btnRapporteer.Size = new System.Drawing.Size(86, 23);
             this.btnRapporteer.TabIndex = 9;

@@ -47,7 +47,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (tbPostTekstMediaSharingForm.Text.Length > 0 && bestandPad.Length == 0)
+            if (tbPostTekstMediaSharingForm.Text.Length > 0 && tbPostTekstMediaSharingForm.Text.Length  < 121 && bestandPad.Length == 0)
             {
                 administratie.HuidigEvent.Berichten.Add(new Bericht(tbPostTekstMediaSharingForm.Text, administratie.NuIngelogd));
                 tbPostTekstMediaSharingForm.Text = "";
@@ -59,6 +59,14 @@ namespace ICT4Events_S24_Groep_E
                 tbPostTekstMediaSharingForm.Text = "";
                 CheckFilter();
                 bestandPad = "";
+            }
+            else if(tbPostTekstMediaSharingForm.Text.Length == 0)
+            {
+                MessageBox.Show("U moet een tekst of beschrijving invoeren.");
+            }
+            else
+            {
+                MessageBox.Show("U mag niet meer dan 120 karakters invoeren als tekst.");
             }
             
         }
