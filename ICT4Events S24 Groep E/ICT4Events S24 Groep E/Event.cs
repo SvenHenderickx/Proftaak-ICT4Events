@@ -86,6 +86,7 @@ namespace ICT4Events_S24_Groep_E
         //Constructor
         public Event(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres)
         {
+            dbKoppeling = new DatabaseKoppeling(); // deze bovenaan omdat er eerst een instantie van databasekoppeling moet bestaan!
             this.naam = naam;
             this.beginDatum = beginDatum;
             this.eindDatum = eindDatum;
@@ -101,7 +102,7 @@ namespace ICT4Events_S24_Groep_E
             categorieen = new List<Categorie>();
             berichten = new List<Bericht>();
 
-            dbKoppeling = new DatabaseKoppeling();
+
         }
 
         //Methodes
@@ -128,8 +129,10 @@ namespace ICT4Events_S24_Groep_E
         private void TestDataPlaatsen()
         {
             //Plaats aan hoofdboeker koppelen
-            plaatsen.Add(new Plaats(100, GeefHoofdboeker("Peter"), true, 8));
-            plaatsen.Add(new Plaats(200, null, false, 10));
+            foreach(Plaats p in dbKoppeling.HaalPlaatsenOp(new Hoofdboeker("Petr", "Scheprs", new DateTime(1980, 5, 20), "162784029","Peer","Scheers")))
+            {
+                plaatsen.Add(p);
+            }
             //nu met database koppeling...
             //dbKoppeling.Koppel();
 

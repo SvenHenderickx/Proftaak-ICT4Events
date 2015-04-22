@@ -16,12 +16,14 @@ namespace ICT4Events_S24_Groep_E
         private Administratie administratie;
         private List<Plaats> geselecteerdePlaatsen;
         private Hoofdboeker hoofdboeker;
+        private DatabaseKoppeling dbKoppeling;
 
         public InschrijfForm()
         {
             InitializeComponent();
             administratie = new Administratie();
             geselecteerdePlaatsen = new List<Plaats>();
+            dbKoppeling = new DatabaseKoppeling();
             VulComboBox();
         }
 
@@ -225,6 +227,9 @@ namespace ICT4Events_S24_Groep_E
             }     
             gbGegevens.Enabled = true;
             gbPlaatsen.Enabled = true;
+            
+            dbKoppeling.HaalPlaatsenOp(hoofdboeker);
+            // hij staat alleen hierbij om te testen!!!
         }
 
         private void InschrijfForm_FormClosing(object sender, FormClosingEventArgs e)
