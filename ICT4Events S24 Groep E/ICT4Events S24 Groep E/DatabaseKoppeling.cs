@@ -20,6 +20,7 @@ namespace ICT4Events_S24_Groep_E
         {
             conn = new OracleConnection();
             command = conn.CreateCommand();
+            
         }
         //Methodes
         public void Koppel()
@@ -48,9 +49,8 @@ namespace ICT4Events_S24_Groep_E
             List<Plaats> tempPlaatsen = new List<Plaats>();
             try
             {
-                string user = "dbi318713"; //Dit is de gebruikersnaam
-                string pw = "V7brKp3nww"; //Dit is het wachtwoord
-                conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
+                
+                
                 conn.Open();
                 string query = "SELECT * FROM CAMPINGPLAATS";
                 command = new OracleCommand(query, conn);
@@ -76,6 +76,11 @@ namespace ICT4Events_S24_Groep_E
             {
                 conn.Close();
             }
+            return null;
+        }
+
+        public List<Bericht> BerichtenOphalenVanEvent(Event evenement)
+        {
             return null;
         }
 
