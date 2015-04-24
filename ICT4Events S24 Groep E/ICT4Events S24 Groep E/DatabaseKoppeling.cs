@@ -109,7 +109,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
-        public List<Huuritem> HaalHuuritemOp()
+        public List<Huuritem> HaalHuuritemsOp()
         {
             List<Huuritem> tempHuuritem = new List<Huuritem>();
             try
@@ -134,7 +134,7 @@ namespace ICT4Events_S24_Groep_E
                     {
                         gehuurd = true;
                     }
-                    Huuritem h = new Huuritem(naam, type);
+                    Huuritem h = new Huuritem(naam, type, prijs, gehuurd);
                     tempHuuritem.Add(h);
                 }
                 return tempHuuritem;

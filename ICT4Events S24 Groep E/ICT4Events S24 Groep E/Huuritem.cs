@@ -11,6 +11,7 @@ namespace ICT4Events_S24_Groep_E
         //Fields
         private string naam;
         private string type;
+        private int prijs;
         private bool isGehuurd;
 
         //Methodes
@@ -24,6 +25,11 @@ namespace ICT4Events_S24_Groep_E
             get { return type; }
         }
 
+        public int Prijs
+        {
+            get { return prijs; }
+        }
+
         public bool IsGehuurd
         {
             get { return isGehuurd; }
@@ -31,11 +37,12 @@ namespace ICT4Events_S24_Groep_E
         }
 
         //Constructor
-        public Huuritem(string naam, string type)
+        public Huuritem(string naam, string type, int prijs, bool isGehuurd)
         {
             this.naam = naam;
             this.type = type;
-            isGehuurd = false;
+            this.prijs = prijs;
+            this.isGehuurd = isGehuurd;
         }
     }
 }
