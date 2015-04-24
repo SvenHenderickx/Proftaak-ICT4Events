@@ -42,14 +42,14 @@ namespace ICT4Events_S24_Groep_E
         }
 
         //Constructors
-        public Persoon(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string naam, string achternaam)
+        public Persoon(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string naam, string achternaam,string rfidCode)
         {
             this.gebruikersnaam = gebruikersnaam;
             this.wachtwoord = wachtwoord;
             this.geboorteDatum = geboorteDatum;
             this.naam = naam;
             this.achternaam = achternaam;
-            RfidGenerator();
+            this.rfidCode = rfidCode;
         }
 
         //Methodes

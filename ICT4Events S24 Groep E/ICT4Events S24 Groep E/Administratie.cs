@@ -15,6 +15,7 @@ namespace ICT4Events_S24_Groep_E
         private static Bericht tempBericht = null;
         private static int countGemaakt = 0;
         private static DatabaseKoppeling databaseKoppeling;
+        protected static int lastRfidCode = 0;
 
         //Properties
         public List<Event> Events
@@ -194,6 +195,18 @@ namespace ICT4Events_S24_Groep_E
                     e.VoegPersonenToe(databaseKoppeling.HaalPersonenOp(e.Naam));
                 }
             }
+        }
+
+        public string RfidGenerator()
+        {
+            lastRfidCode++;
+            string rfidCode = "";
+            rfidCode = lastRfidCode.ToString();
+            while (rfidCode.Length < 6)
+            {
+                rfidCode = "0" + rfidCode;
+            }
+            return rfidCode;
         }
     }
 }

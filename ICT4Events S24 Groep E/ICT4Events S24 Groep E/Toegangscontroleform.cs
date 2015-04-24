@@ -84,8 +84,7 @@ namespace ICT4Events_S24_Groep_E
             dataGridViewToegangAfwezig.Rows.Clear();
             dataGridViewToegangAanwezig.Refresh();
             dataGridViewToegangAfwezig.Refresh();
-            List<Persoon> personen = administratie.GeefEvent(e.Naam).Personen;
-            foreach (Persoon persoon in administratie.HuidigEvent.Personen)
+            foreach (Persoon persoon in database.HaalPersonenOp(e.Naam))
             {
                 if (persoon is Bezoeker)
                 {

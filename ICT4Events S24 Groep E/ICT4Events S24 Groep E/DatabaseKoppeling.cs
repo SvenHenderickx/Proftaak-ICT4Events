@@ -128,7 +128,7 @@ namespace ICT4Events_S24_Groep_E
                     {
                         aanwezig = true;
                     }
-                    personen.Add(new Hoofdboeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Reknr"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig));
+                    personen.Add(new Hoofdboeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Reknr"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["RFID"]), aanwezig));
                 }
 
                 //geef alle controleurs van het SME event
@@ -137,7 +137,7 @@ namespace ICT4Events_S24_Groep_E
                 dataReader = command.ExecuteReader();
                 while(dataReader.Read())
                 {
-                    personen.Add(new Controleur(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"])));
+                    personen.Add(new Controleur(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["RFID"])));
                 }
 
                 // geef alle beheerders van het SME event
@@ -146,7 +146,7 @@ namespace ICT4Events_S24_Groep_E
                 dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    personen.Add(new Beheerder(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"])));
+                    personen.Add(new Beheerder(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["RFID"])));
                 }
 
                 // geef alle bezoekers van het SME event
@@ -165,7 +165,7 @@ namespace ICT4Events_S24_Groep_E
                     {
                         aanwezig = true;
                     }
-                    personen.Add(new Bezoeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig));
+                    personen.Add(new Bezoeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["RFID"]), aanwezig));
                 }
                 return personen;
             }
@@ -255,12 +255,12 @@ namespace ICT4Events_S24_Groep_E
 
         public bool CheckInOut(string rfid)
         {
-            foreach (Persoon p in administratie.HuidigEvent.Personen)
+            foreach (Persoon p in HaalPersonenOp(administratie.HuidigEvent.Naam))
             {
                 if (p is Bezoeker)
                 {
                     Bezoeker b = p as Bezoeker;
-                    if (b.Aanwezig)
+                    if (b.Aanwezig && b.RfidCode == rfid)
                     {
                         try
                         {
@@ -281,12 +281,12 @@ namespace ICT4Events_S24_Groep_E
                         }
                         
                     }
-                    else
+                    else if(b.RfidCode == rfid)
                     {
                         try
                         {
                             conn.Open();
-                            string query = "UPDATE BEZOEKER SET AANWEZIG = 1 WHERE RFID = " + rfid;
+                            string query = "UPDATE BEZOEKER SET AANWEZIG = 1 WHERE RFID = " + rfid ;
                             command = new OracleCommand(query, conn);
                             command.ExecuteNonQuery();
                             return true;
