@@ -14,12 +14,15 @@ namespace ICT4Events_S24_Groep_E
         //Fields
         private OracleConnection conn;
         private OracleCommand command;
+        string user = "dbi318713"; //Dit is de gebruikersnaam
+        string pw = "V7brKp3nww"; //Dit is het wachtwoord
 
         //Constructor
         public DatabaseKoppeling()
         {
             conn = new OracleConnection();
             command = conn.CreateCommand();
+            conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
         }
         //Methodes
         public void Koppel()
@@ -47,12 +50,9 @@ namespace ICT4Events_S24_Groep_E
         {
             List<Plaats> tempPlaatsen = new List<Plaats>();
             try
-            {
-                string user = "dbi318713"; //Dit is de gebruikersnaam
-                string pw = "V7brKp3nww"; //Dit is het wachtwoord
-                conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
+            {              
                 conn.Open();
-                string query = "SELECT * FROM CAMPINGPLAATS";
+                string query = "SELECT * FROM PLAATS";
                 command = new OracleCommand(query, conn);
                 OracleDataReader dataReader = command.ExecuteReader();
                 // dataReader gaat record voor record omlaag totdat 
@@ -60,10 +60,19 @@ namespace ICT4Events_S24_Groep_E
                 while(dataReader.Read())
                 {
                     // getal tussen haakjes is de gewenste kolom :D
-                    int prijs = Convert.ToInt32(dataReader[3]);
-                    int aantalPersonen = Convert.ToInt32(dataReader[4]);
-                    bool geluidsOverlast = true;
-                    Plaats p = new Plaats(prijs, hoofdboeker, geluidsOverlast, aantalPersonen);
+                    int prijs = Convert.ToInt32(dataReader["Prijs"]);
+                    int aantalPersonen = Convert.ToInt32(dataReader["Aantalpersonen"]);
+                    int geluidsOverlast = Convert.ToInt32(dataReader["Geluidsoverlast"]);
+                    bool overlast = false;
+                    if(geluidsOverlast == 0)
+                    {
+                        overlast = false;
+                    }
+                    else
+                    {
+                        overlast = true;
+                    }
+                    Plaats p = new Plaats(prijs, hoofdboeker, overlast, aantalPersonen);
                     tempPlaatsen.Add(p);
                 }
                 return tempPlaatsen;
@@ -78,6 +87,29 @@ namespace ICT4Events_S24_Groep_E
             }
             return null;
         }
+
+        public List<Bezoeker> HaalPersonenOp()
+        {
+            try
+            {
+                conn.Open();
+                // met deze query krijg je alle hoofdboekers
+                string query = "SELECT * FROM PERSOON p, HOOFDBOEKER h WHERE p.RFID = h.RFID";
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while(dataReader.Read())
+                {
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return null;
+        }
+
+
 
 
 
