@@ -22,6 +22,7 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             administratie = new Administratie();
+            database = new DatabaseKoppeling();
             RefreshData(administratie.HuidigEvent);
             dataGridViewToegangAanwezig.AllowUserToAddRows = false;
             dataGridViewToegangAfwezig.AllowUserToAddRows = false;
@@ -84,7 +85,7 @@ namespace ICT4Events_S24_Groep_E
             dataGridViewToegangAanwezig.Refresh();
             dataGridViewToegangAfwezig.Refresh();
             List<Persoon> personen = administratie.GeefEvent(e.Naam).Personen;
-            foreach (Persoon persoon in database.HaalPersonenOp())
+            foreach (Persoon persoon in administratie.HuidigEvent.Personen)
             {
                 if (persoon is Bezoeker)
                 {
@@ -107,7 +108,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void buttonToegangCheckInUit_Click(object sender, EventArgs e)
         {
-            if (administratie.CheckInUit(textBoxToegangRFID.Text, administratie.HuidigEvent))
+            if (database.CheckInOut(textBoxToegangRFID.Text))
             {
                 RefreshData(administratie.HuidigEvent);
             }

@@ -77,7 +77,7 @@ namespace ICT4Events_S24_Groep_E
         {
             List<Persoon> personen = e.Personen;
 
-            foreach (Persoon persoon in databaseKoppeling.HaalPersonenOp())
+            foreach (Persoon persoon in databaseKoppeling.HaalPersonenOp(HuidigEvent.Naam))
             {
                 if (persoon is Bezoeker)
                 {

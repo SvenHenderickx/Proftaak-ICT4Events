@@ -255,7 +255,7 @@ namespace ICT4Events_S24_Groep_E
 
         public bool CheckInOut(string rfid)
         {
-            foreach (Persoon p in HaalPersonenOp())
+            foreach (Persoon p in administratie.HuidigEvent.Personen)
             {
                 if (p is Bezoeker)
                 {
