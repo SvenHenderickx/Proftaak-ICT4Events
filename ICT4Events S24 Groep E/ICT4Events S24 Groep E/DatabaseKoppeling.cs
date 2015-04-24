@@ -14,21 +14,18 @@ namespace ICT4Events_S24_Groep_E
         //Fields
         private OracleConnection conn;
         private OracleCommand command;
-        string user;
-        string pw;
 
         //Constructor
         public DatabaseKoppeling()
         {
             conn = new OracleConnection();
             command = conn.CreateCommand();
-            user = "dbi318713"; //Dit is de gebruikersnaam
-            pw = "V7brKp3nww"; //Dit is het wachtwoord
-            
         }
         //Methodes
         public void Koppel()
         {
+            string user = "dbi318713"; //Dit is de gebruikersnaam
+            string pw = "V7brKp3nww"; //Dit is het wachtwoord
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
             try
             {
@@ -51,8 +48,11 @@ namespace ICT4Events_S24_Groep_E
             List<Plaats> tempPlaatsen = new List<Plaats>();
             try
             {
+                string user = "dbi318713"; //Dit is de gebruikersnaam
+                string pw = "V7brKp3nww"; //Dit is het wachtwoord
                 conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
-                string query = "SELECT * FROM PLAATS";
+                conn.Open();
+                string query = "SELECT * FROM CAMPINGPLAATS";
                 command = new OracleCommand(query, conn);
                 OracleDataReader dataReader = command.ExecuteReader();
                 // dataReader gaat record voor record omlaag totdat 
