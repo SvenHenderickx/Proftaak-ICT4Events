@@ -30,6 +30,7 @@ namespace ICT4Events_S24_Groep_E
         //Event Handlers
         private void Toegangscontroleform_Load(object sender, EventArgs e)
         {
+            
             try
             {
                 RFID rfid = new RFID();
@@ -42,11 +43,11 @@ namespace ICT4Events_S24_Groep_E
                 rfid.open();
 
                 labelRFID.Text = "wachtend op RFID scanner...";
-                rfid.waitForAttachment();
+                rfid.waitForAttachment(3000);
             }
             catch (PhidgetException ex)
             {
-                labelRFID.Text = ex.Description;
+                MessageBox.Show(ex.Description);
             }
         }
         private void rfid_Attach(object sender, AttachEventArgs e)
