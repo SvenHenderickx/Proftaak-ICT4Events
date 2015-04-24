@@ -43,6 +43,7 @@
             this.textBoxToegangRFID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonToegangCheckInUit = new System.Windows.Forms.Button();
+            this.labelRFID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAanwezig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAfwezig)).BeginInit();
             this.SuspendLayout();
@@ -165,11 +166,22 @@
             this.buttonToegangCheckInUit.UseVisualStyleBackColor = true;
             this.buttonToegangCheckInUit.Click += new System.EventHandler(this.buttonToegangCheckInUit_Click);
             // 
+            // labelRFID
+            // 
+            this.labelRFID.AutoSize = true;
+            this.labelRFID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRFID.Location = new System.Drawing.Point(8, 224);
+            this.labelRFID.Name = "labelRFID";
+            this.labelRFID.Size = new System.Drawing.Size(52, 24);
+            this.labelRFID.TabIndex = 5;
+            this.labelRFID.Text = "RFID";
+            // 
             // Toegangscontroleform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 261);
+            this.Controls.Add(this.labelRFID);
             this.Controls.Add(this.buttonToegangCheckInUit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxToegangRFID);
@@ -180,6 +192,7 @@
             this.Name = "Toegangscontroleform";
             this.Text = "Toegangscontrole";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TerugNaarLogin);
+            this.Load += new System.EventHandler(this.Toegangscontroleform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAanwezig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAfwezig)).EndInit();
             this.ResumeLayout(false);
@@ -204,5 +217,6 @@
         private System.Windows.Forms.TextBox textBoxToegangRFID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonToegangCheckInUit;
+        private System.Windows.Forms.Label labelRFID;
     }
 }

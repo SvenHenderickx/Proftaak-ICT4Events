@@ -109,6 +109,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+<<<<<<< HEAD
         public List<Event> HaalAlleEvenementen()
         {
             List<Event> tempEvent = new List<Event>();
@@ -116,10 +117,21 @@ namespace ICT4Events_S24_Groep_E
             {
                 conn.Open();
                 string query = "SELECT * FROM Event";
+=======
+        public List<Huuritem> HaalHuuritemOp()
+        {
+            List<Huuritem> tempHuuritem = new List<Huuritem>();
+            try
+            {
+                conn.Open();
+                //Deze query haalt alle huuritems op
+                string query = "SELECT * FROM HUURITEM";
+>>>>>>> origin/master
                 command = new OracleCommand(query, conn);
                 OracleDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
+<<<<<<< HEAD
                     string naam = Convert.ToString(dataReader["NAAM"]);
                     DateTime beginDatum = Convert.ToDateTime(dataReader["BEGINDATUM"]);
                     DateTime eindDatum= Convert.ToDateTime(dataReader["EINDDATUM"]);
@@ -128,6 +140,25 @@ namespace ICT4Events_S24_Groep_E
                     tempEvent.Add(new Event(naam, beginDatum, eindDatum, plaats, adres));
                 }
                 return tempEvent;
+=======
+                    string naam = Convert.ToString(dataReader["Naam"]);
+                    string type = Convert.ToString(dataReader["Type"]);
+                    int prijs = Convert.ToInt32(dataReader["Prijs"]);
+                    int verhuurd = Convert.ToInt32(dataReader["Verhuurd"]);
+                    bool gehuurd = false;
+                    if (verhuurd == 0)
+                    {
+                        gehuurd = false;
+                    }
+                    else
+                    {
+                        gehuurd = true;
+                    }
+                    Huuritem h = new Huuritem(naam, type);
+                    tempHuuritem.Add(h);
+                }
+                return tempHuuritem;
+>>>>>>> origin/master
             }
             catch (Exception ex)
             {
