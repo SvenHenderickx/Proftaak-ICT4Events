@@ -105,28 +105,31 @@ namespace ICT4Events_S24_Groep_E
             if (e.KeyCode == Keys.Enter && tbGebRfidLoginForm.Text != "" && tbWachtwoordLoginForm.Text != "")
             {
                 Persoon tempPersoon = null;
-            if (cmbEventsLoginForm.Text.Length > 0)
-            {
-                Event evenement = administratie.GeefEvent(cmbEventsLoginForm.Text);
-                tempPersoon = evenement.CheckGebruikersNaamRfid(tbGebRfidLoginForm.Text);
-                if (tempPersoon != null)
+                if (cmbEventsLoginForm.Text.Length > 0)
                 {
-                    if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.Text))
+                    string test = cmbEventsLoginForm.Text;
+                    administratie.VoegAlleGebruikersToeAanEvent(cmbEventsLoginForm.Text);
+                    Event evenement = administratie.GeefEvent(cmbEventsLoginForm.Text);
+                    tempPersoon = evenement.CheckGebruikersNaamRfid(tbGebRfidLoginForm.Text);
+                    if (tempPersoon != null)
                     {
-                        administratie.HuidigEvent = evenement;
-                        administratie.NuIngelogd = tempPersoon;
-                        AutomatischeDoorverbinding();
+                        if (tempPersoon.CheckWachtwoord(tbWachtwoordLoginForm.Text))
+                        {
+                            administratie.HuidigEvent = evenement;
+                            administratie.NuIngelogd = tempPersoon;
+                            AutomatischeDoorverbinding();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Fout wachtwoord ingevoerd.");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Fout wachtwoord ingevoerd.");
+                        MessageBox.Show("Kan gebruiker niet vinden.");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Kan gebruiker niet vinden.");
-                }
-            }
+            
             }
         }
 
