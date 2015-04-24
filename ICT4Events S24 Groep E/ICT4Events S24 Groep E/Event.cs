@@ -125,13 +125,7 @@ namespace ICT4Events_S24_Groep_E
 
         private void TestDataPlaatsen()
         {
-            //Plaats aan hoofdboeker koppelen
-            foreach(Plaats p in dbKoppeling.HaalPlaatsenOp(new Hoofdboeker("Petr", "Scheprs", new DateTime(1980, 5, 20), "162784029","Peer","Scheers")))
-            {
-                plaatsen.Add(p);
-            }
-            //nu met database koppeling...
-            //dbKoppeling.Koppel();
+            
 
         }
 
