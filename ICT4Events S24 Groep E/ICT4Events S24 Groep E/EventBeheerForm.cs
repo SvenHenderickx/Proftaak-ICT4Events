@@ -78,6 +78,7 @@ namespace ICT4Events_S24_Groep_E
             {
                 if (verwijderen == p.RfidCode)
                 {
+                    administratie.DeleteGebruiker(p.Gebruikersnaam);
                     administratie.GeefEvent(cbEventsEventbeheer.Text).Personen.Remove(p);
                     break;
                 }
@@ -129,6 +130,7 @@ namespace ICT4Events_S24_Groep_E
                 {
                     if (ev == administratie.GeefEvent(cbEventsEventbeheer.Text))
                     {
+                        
                         administratie.Events.Remove(ev);
                         break;
                     }
