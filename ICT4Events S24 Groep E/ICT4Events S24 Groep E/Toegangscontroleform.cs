@@ -44,7 +44,7 @@ namespace ICT4Events_S24_Groep_E
                 rfid.TagLost += new TagEventHandler(rfid_TagLost);
                 rfid.open();
 
-                labelRFID.Text = "wachtend op RFID scanner...";
+                labelRFID.Text = "wachtend op RFID scanner... U kunt altijd handmatig inchecken.";
                 rfid.waitForAttachment(3000);
             }
             catch (PhidgetException ex)
@@ -58,7 +58,7 @@ namespace ICT4Events_S24_Groep_E
         }
         private void rfid_Detach(object sender, DetachEventArgs e)
         {
-            labelRFID.Text = "RFID Scanner " + e.Device.SerialNumber.ToString() + " is losgekoppeld.";
+            labelRFID.Text = "RFID Scanner " + e.Device.SerialNumber.ToString() + " is losgekoppeld. U kunt nog steeds handmatig inchecken.";
         }
 
         private void rfid_Error(object sender, ErrorEventArgs e)
@@ -68,6 +68,15 @@ namespace ICT4Events_S24_Groep_E
 
         private void rfid_Tag(object sender, TagEventArgs e)
         {
+            if (database.CheckInOut(e.Tag))
+            {
+                RefreshData(administratie.HuidigEvent);
+                labelCheckInfo.Text = "Er is succesvol in of uitgecheckt door RFID " + e.Tag;
+            }
+            else
+            {
+                labelCheckInfo.Text = "In of uitchecken is niet geslaagd door RFID " + e.Tag;
+            }
             labelRFID.Text = "RFID " + e.Tag + " gescand!";
         }
 
@@ -84,10 +93,9 @@ namespace ICT4Events_S24_Groep_E
             dataGridViewToegangAfwezig.Rows.Clear();
             dataGridViewToegangAanwezig.Refresh();
             dataGridViewToegangAfwezig.Refresh();
-            List<Persoon> personen = administratie.GeefEvent(e.Naam).Personen;
-            foreach (Persoon persoon in administratie.HuidigEvent.Personen)
+            foreach (Persoon persoon in database.HaalPersonenOp(e.Naam))
             {
-                if (persoon is Bezoeker)
+                if (persoon is Bezoeker && !(persoon is Hoofdboeker))
                 {
                     Bezoeker b = persoon as Bezoeker;
                     if (b.Aanwezig)

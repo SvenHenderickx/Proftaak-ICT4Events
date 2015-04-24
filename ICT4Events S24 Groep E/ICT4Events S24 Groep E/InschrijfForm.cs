@@ -43,7 +43,7 @@ namespace ICT4Events_S24_Groep_E
                     }
                     else
                     {
-                        hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbNaam.Text, tbAchternaam.Text, false);
+                        hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbNaam.Text, tbAchternaam.Text, administratie.RfidGenerator(), false);
                         // hier wordt alleen gecheckt of de gebruikersnaam al bestaat of niet
                         // als dat zo is dan kan de hoofdboeker niet gemaakt worden.
                         if (administratie.HuidigEvent.CheckPersoon(hoofdboeker))
@@ -99,7 +99,7 @@ namespace ICT4Events_S24_Groep_E
         private void btnVolgende_Click(object sender, EventArgs e)
         {
             // checken of alle textboxen goed zijn aangemaakt, 
-            // hieruit kan de hoofdboeker gemaakt worden, met bijbehorende reservering
+            //// hieruit kan de hoofdboeker gemaakt worden, met bijbehorende reservering
 
             // als alles is ingevuld wordt de bezoeker ook daadwerkelijk aangemaakt
             // dit kan als de gebruiker van het programma op volgende klikt of dat
@@ -177,7 +177,7 @@ namespace ICT4Events_S24_Groep_E
         {
             // nog kijken of een plaats al bezet is of niet.
             // alleen niet bezette plaatsen toevoegen!!!
-            foreach (Plaats p in administratie.HuidigEvent.Plaatsen)
+            foreach (Plaats p in dbKoppeling.HaalPlaatsenOp())
             {
                 if (!p.Bezet)
                 {

@@ -48,13 +48,15 @@ namespace ICT4Events_S24_Groep_E
 
         // Frank: Deze methode werkt er moet in de database alleen nog kijken hoe we dit met de hoofdboeker moeten doen. 
         // IK WERK HIER NOG AAN
-        public List<Plaats> HaalPlaatsenOp(Hoofdboeker hoofdboeker)
+        public List<Plaats> HaalPlaatsenOp()
         {
-            List<Plaats> tempPlaatsen = new List<Plaats>();
+            List<Plaats> plaatsen = new List<Plaats>();
             try
             {              
                 conn.Open();
-                string query = "SELECT * FROM PLAATS";
+                // query van alle plaatsen met de eventueel bijbehorende
+                // hoofdboekers
+                string query = "SELECT * FROM PLAATS pl LEFT JOIN RESERVERING r ON pl.Reservering_ID = r.ID";
                 command = new OracleCommand(query, conn);
                 OracleDataReader dataReader = command.ExecuteReader();
                 // dataReader gaat record voor record omlaag totdat 
@@ -65,6 +67,8 @@ namespace ICT4Events_S24_Groep_E
                     int prijs = Convert.ToInt32(dataReader["Prijs"]);
                     int aantalPersonen = Convert.ToInt32(dataReader["Aantalpersonen"]);
                     int geluidsOverlast = Convert.ToInt32(dataReader["Geluidsoverlast"]);
+                    string hbRFID = Convert.ToString(dataReader["Hoofdboeker_RFID"]);
+                    string locatienummer = Convert.ToString(dataReader["Locatienummer"]);
                     bool overlast = false;
                     if(geluidsOverlast == 0)
                     {
@@ -74,22 +78,27 @@ namespace ICT4Events_S24_Groep_E
                     {
                         overlast = true;
                     }
-
-                    // als een plaats nog niet in een reservering zit 
-                    int reservering;
-                    if(Convert.ToInt32(dataReader["Reservering_ID"]) != null)
+                    bool verhuurd;
+                    if (Convert.ToInt32(dataReader["Verhuurd"]) == 0)
                     {
-                        reservering = Convert.ToInt32(dataReader["Reservering_ID"]);
-                        //query = "SELECT"
+                        verhuurd = false;
                     }
                     else
                     {
-                        
-                        Plaats p = new Plaats(prijs, null, overlast, aantalPersonen);
-                        tempPlaatsen.Add(p);
-                    }                  
+                        verhuurd = true;
+                    }
+                    // als een plaats nog niet in een reservering zit 
+                    // dan moet er bij beheerder niets worden meegegeven
+                    // anders moet er een nieuwe beheerder worden aangemaakt
+                    // om mee te geven aan de plaats
+                    // hier is dus een hoofdboeker
+                    // andere query schrijven voor de informatie van deze hoofdboeker 
+                    
+                    // hoofdboeker wordt hier nog niet aan toegevoegd!
+                    Plaats p = new Plaats(prijs, null, overlast, aantalPersonen, verhuurd, locatienummer);
+                    plaatsen.Add(p);                                    
                 }
-                return tempPlaatsen;
+                return plaatsen;
             }
             catch(Exception ex)
             {
@@ -128,7 +137,11 @@ namespace ICT4Events_S24_Groep_E
                     {
                         aanwezig = true;
                     }
+<<<<<<< HEAD
                     personen.Add(new Hoofdboeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Reknr"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig, Convert.ToString(dataReader["rfid"])));
+=======
+                    personen.Add(new Hoofdboeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Reknr"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["RFID"]), aanwezig));
+>>>>>>> origin/master
                 }
 
                 //geef alle controleurs van het SME event
@@ -137,7 +150,11 @@ namespace ICT4Events_S24_Groep_E
                 dataReader = command.ExecuteReader();
                 while(dataReader.Read())
                 {
+<<<<<<< HEAD
                     personen.Add(new Controleur(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["rfid"])));
+=======
+                    personen.Add(new Controleur(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["RFID"])));
+>>>>>>> origin/master
                 }
 
                 // geef alle beheerders van het SME event
@@ -146,7 +163,11 @@ namespace ICT4Events_S24_Groep_E
                 dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
+<<<<<<< HEAD
                     personen.Add(new Beheerder(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["rfid"])));
+=======
+                    personen.Add(new Beheerder(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["RFID"])));
+>>>>>>> origin/master
                 }
 
                 // geef alle bezoekers van het SME event
@@ -165,7 +186,11 @@ namespace ICT4Events_S24_Groep_E
                     {
                         aanwezig = true;
                     }
+<<<<<<< HEAD
                     personen.Add(new Bezoeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig, Convert.ToString(dataReader["rfid"])));
+=======
+                    personen.Add(new Bezoeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["RFID"]), aanwezig));
+>>>>>>> origin/master
                 }
                 return personen;
             }
@@ -181,7 +206,7 @@ namespace ICT4Events_S24_Groep_E
         }
 
 
-        public List<Huuritem> HaalHuuritemOp()
+        public List<Huuritem> HaalHuuritemsOp()
         {
             List<Huuritem> tempHuuritem = new List<Huuritem>();
             try
@@ -255,12 +280,12 @@ namespace ICT4Events_S24_Groep_E
 
         public bool CheckInOut(string rfid)
         {
-            foreach (Persoon p in administratie.HuidigEvent.Personen)
+            foreach (Persoon p in HaalPersonenOp(administratie.HuidigEvent.Naam))
             {
                 if (p is Bezoeker)
                 {
                     Bezoeker b = p as Bezoeker;
-                    if (b.Aanwezig)
+                    if (b.Aanwezig && b.RfidCode == rfid)
                     {
                         try
                         {
@@ -278,15 +303,14 @@ namespace ICT4Events_S24_Groep_E
                         finally
                         {
                             conn.Close();
-                        }
-                        
+                        }                      
                     }
-                    else
+                    else if(b.RfidCode == rfid)
                     {
                         try
                         {
                             conn.Open();
-                            string query = "UPDATE BEZOEKER SET AANWEZIG = 1 WHERE RFID = " + rfid;
+                            string query = "UPDATE BEZOEKER SET AANWEZIG = 1 WHERE RFID = " + rfid ;
                             command = new OracleCommand(query, conn);
                             command.ExecuteNonQuery();
                             return true;

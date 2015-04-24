@@ -15,6 +15,7 @@ namespace ICT4Events_S24_Groep_E
         private static Bericht tempBericht = null;
         private static int countGemaakt = 0;
         private static DatabaseKoppeling databaseKoppeling;
+        protected static int lastRfidCode = 0;
 
         //Properties
         public List<Event> Events
@@ -40,24 +41,25 @@ namespace ICT4Events_S24_Groep_E
             set { huidigEvent = value; }
         }
 
+        public DatabaseKoppeling DatabaseKoppeling
+        {
+            get { return databaseKoppeling; }
+            set { databaseKoppeling = value; }
+        }
+
         // Constructor
         public Administratie()
         {
             if (countGemaakt == 0)
             {
-                TestDataEvents();
+
             }
             countGemaakt++;
             databaseKoppeling = new DatabaseKoppeling();
         }
 
         //Methodes
-        //Hier worden events aangemaakt
-        private void TestDataEvents()
-        {
-            //events.Add(new Event("SME Event", new DateTime(2015, 6, 18), new DateTime(2015, 6, 25), "Eindhoven", "Woensel 12"));
-            //events.Add(new Event("Kerstmarkt", new DateTime(2015, 12, 4), new DateTime(2015, 12, 5), "Grathem", "Onbekende weg 4"));
-        }
+       
 
         //Deze methode zoekt naar bestaande events
         public Event GeefEvent(string eventNaam)
@@ -196,10 +198,23 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+<<<<<<< HEAD
         public void VraagAlleBerichtenOp(string eventNaam)
         {
             huidigEvent.Berichten.Clear();
             huidigEvent.VoegBerichtenToe(databaseKoppeling.VraagBerichtenOpVanEvent(eventNaam));
+=======
+        public string RfidGenerator()
+        {
+            lastRfidCode++;
+            string rfidCode = "";
+            rfidCode = lastRfidCode.ToString();
+            while (rfidCode.Length < 6)
+            {
+                rfidCode = "0" + rfidCode;
+            }
+            return rfidCode;
+>>>>>>> origin/master
         }
     }
 }

@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.dataGridViewToegangAanwezig = new System.Windows.Forms.DataGridView();
+            this.rfid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.achternaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewToegangAfwezig = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelToegangAanwezig = new System.Windows.Forms.Label();
             this.labelToegangAfwezig = new System.Windows.Forms.Label();
             this.textBoxToegangRFID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonToegangCheckInUit = new System.Windows.Forms.Button();
             this.labelRFID = new System.Windows.Forms.Label();
-            this.rfid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.achternaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelCheckInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAanwezig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToegangAfwezig)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +59,24 @@
             this.dataGridViewToegangAanwezig.Size = new System.Drawing.Size(343, 150);
             this.dataGridViewToegangAanwezig.TabIndex = 0;
             // 
+            // rfid
+            // 
+            this.rfid.HeaderText = "RFID";
+            this.rfid.Name = "rfid";
+            this.rfid.ReadOnly = true;
+            // 
+            // naam
+            // 
+            this.naam.HeaderText = "Naam";
+            this.naam.Name = "naam";
+            this.naam.ReadOnly = true;
+            // 
+            // achternaam
+            // 
+            this.achternaam.HeaderText = "Achternaam";
+            this.achternaam.Name = "achternaam";
+            this.achternaam.ReadOnly = true;
+            // 
             // dataGridViewToegangAfwezig
             // 
             this.dataGridViewToegangAfwezig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -69,6 +88,24 @@
             this.dataGridViewToegangAfwezig.Name = "dataGridViewToegangAfwezig";
             this.dataGridViewToegangAfwezig.Size = new System.Drawing.Size(343, 150);
             this.dataGridViewToegangAfwezig.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "RFID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Naam";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Achternaam";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // labelToegangAanwezig
             // 
@@ -117,54 +154,28 @@
             // labelRFID
             // 
             this.labelRFID.AutoSize = true;
-            this.labelRFID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRFID.Location = new System.Drawing.Point(8, 224);
+            this.labelRFID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRFID.Location = new System.Drawing.Point(13, 203);
             this.labelRFID.Name = "labelRFID";
-            this.labelRFID.Size = new System.Drawing.Size(52, 24);
+            this.labelRFID.Size = new System.Drawing.Size(53, 13);
             this.labelRFID.TabIndex = 5;
-            this.labelRFID.Text = "RFID";
+            this.labelRFID.Text = "RFID Info";
             // 
-            // rfid
+            // labelCheckInfo
             // 
-            this.rfid.HeaderText = "RFID";
-            this.rfid.Name = "rfid";
-            this.rfid.ReadOnly = true;
-            // 
-            // naam
-            // 
-            this.naam.HeaderText = "Naam";
-            this.naam.Name = "naam";
-            this.naam.ReadOnly = true;
-            // 
-            // achternaam
-            // 
-            this.achternaam.HeaderText = "Achternaam";
-            this.achternaam.Name = "achternaam";
-            this.achternaam.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "RFID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Naam";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Achternaam";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.labelCheckInfo.AutoSize = true;
+            this.labelCheckInfo.Location = new System.Drawing.Point(13, 232);
+            this.labelCheckInfo.Name = "labelCheckInfo";
+            this.labelCheckInfo.Size = new System.Drawing.Size(95, 13);
+            this.labelCheckInfo.TabIndex = 6;
+            this.labelCheckInfo.Text = "Info over RFID tag";
             // 
             // Toegangscontroleform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 261);
+            this.Controls.Add(this.labelCheckInfo);
             this.Controls.Add(this.labelRFID);
             this.Controls.Add(this.buttonToegangCheckInUit);
             this.Controls.Add(this.label1);
@@ -200,5 +211,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Label labelCheckInfo;
     }
 }
