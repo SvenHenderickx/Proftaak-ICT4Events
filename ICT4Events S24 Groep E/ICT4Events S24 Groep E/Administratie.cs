@@ -183,5 +183,17 @@ namespace ICT4Events_S24_Groep_E
                 events.Add(e);
             }
         }
+
+        public void VoegAlleGebruikersToeAanEvent(string eventNaam)
+        {
+            foreach (Event e in events)
+            {
+                if (eventNaam == e.Naam)
+                {
+                    e.Personen.Clear();
+                    e.VoegPersonenToe(databaseKoppeling.HaalPersonenOp(e.Naam));
+                }
+            }
+        }
     }
 }

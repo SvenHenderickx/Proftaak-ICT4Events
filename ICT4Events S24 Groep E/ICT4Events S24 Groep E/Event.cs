@@ -205,6 +205,14 @@ namespace ICT4Events_S24_Groep_E
             return true;
         }
 
+        public void VoegPersonenToe(List<Persoon> personen)
+        {
+            foreach (Persoon p in personen)
+            {
+                this.personen.Add(p);
+            }
+        }
+
         // kijken of de gebruikersnaam van een persoon al in de lijst van personen zit
         // functie heeft zelfde functie als voegPersoonToe alleen voegt deze methode
         // de persoon niet toe.

@@ -227,8 +227,8 @@ namespace ICT4Events_S24_Groep_E
             }     
             gbGegevens.Enabled = true;
             gbPlaatsen.Enabled = true;
-
-            foreach(Persoon p in dbKoppeling.HaalPersonenOp())
+            //maak dit voor meer dan alleen sme !!!
+            foreach(Persoon p in dbKoppeling.HaalPersonenOp("SME"))
             {
                 MessageBox.Show(p.ToString());
             }

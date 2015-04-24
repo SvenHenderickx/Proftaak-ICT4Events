@@ -102,7 +102,7 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
-        public List<Persoon> HaalPersonenOp()
+        public List<Persoon> HaalPersonenOp(string eventNaam)
         {
             // in deze methode doen we nog niets met RFID
             List<Persoon> personen = new List<Persoon>();
@@ -111,10 +111,9 @@ namespace ICT4Events_S24_Groep_E
                 conn.Open();
                 // met deze query krijg je alle hoofdboekers
                 // in de where staat nu 'SME' dit moet veranderen in de variabele van huidigevent
-                string eventnaam = administratie.HuidigEvent.Naam;
                 
                 // geef alle hoofdboekers van het !!!SME event!!!
-                string query = "SELECT * FROM PERSOON p, HOOFDBOEKER h, BEZOEKER b WHERE p.RFID = h.RFID and h.RFID = b.RFID and p.Event_ID = (SELECT ID FROM EVENT WHERE naam = 'SME')";
+                string query = "SELECT * FROM PERSOON p, HOOFDBOEKER h, BEZOEKER b WHERE p.RFID = h.RFID and h.RFID = b.RFID and p.Event_ID = (SELECT ID FROM EVENT WHERE naam = '" + eventNaam + "')";
                 command = new OracleCommand(query, conn);
                 OracleDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
@@ -133,7 +132,7 @@ namespace ICT4Events_S24_Groep_E
                 }
 
                 //geef alle controleurs van het SME event
-                query = "SELECT * FROM PERSOON p, CONTROLEUR c WHERE p.RFID = c.RFID and p.Event_id = (Select ID FROM EVENT WHERE naam = 'SME')";
+                query = "SELECT * FROM PERSOON p, CONTROLEUR c WHERE p.RFID = c.RFID and p.Event_id = (Select ID FROM EVENT WHERE naam = '" + eventNaam + "')";
                 command = new OracleCommand(query, conn);
                 dataReader = command.ExecuteReader();
                 while(dataReader.Read())
@@ -142,7 +141,7 @@ namespace ICT4Events_S24_Groep_E
                 }
 
                 // geef alle beheerders van het SME event
-                query = "SELECT * FROM PERSOON p, Beheerder b WHERE p.RFID = b.RFID and p.Event_id = (Select ID FROM EVENT WHERE naam = 'SME')";
+                query = "SELECT * FROM PERSOON p, Beheerder b WHERE p.RFID = b.RFID and p.Event_id = (Select ID FROM EVENT WHERE naam = '" + eventNaam + "')";
                 command = new OracleCommand(query, conn);
                 dataReader = command.ExecuteReader();
                 while (dataReader.Read())
@@ -151,7 +150,7 @@ namespace ICT4Events_S24_Groep_E
                 }
 
                 // geef alle bezoekers van het SME event
-                query = "SELECT * FROM PERSOON p, Bezoeker b WHERE p.RFID = b.RFID and p.Event_id = (Select ID FROM EVENT WHERE naam = 'SME')";
+                query = "SELECT * FROM PERSOON p, Bezoeker b WHERE p.RFID = b.RFID and p.Event_id = (Select ID FROM EVENT WHERE naam = '" + eventNaam + "')";
                 command = new OracleCommand(query, conn);
                 dataReader = command.ExecuteReader();
                 while (dataReader.Read())

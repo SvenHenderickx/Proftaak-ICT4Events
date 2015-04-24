@@ -30,6 +30,8 @@ namespace ICT4Events_S24_Groep_E
             Persoon tempPersoon = null;
             if (cmbEventsLoginForm.Text.Length > 0)
             {
+                string test = cmbEventsLoginForm.Text;
+                administratie.VoegAlleGebruikersToeAanEvent(cmbEventsLoginForm.Text);
                 Event evenement = administratie.GeefEvent(cmbEventsLoginForm.Text);
                 tempPersoon = evenement.CheckGebruikersNaamRfid(tbGebRfidLoginForm.Text);
                 if (tempPersoon != null)
