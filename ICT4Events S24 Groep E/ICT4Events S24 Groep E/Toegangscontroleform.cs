@@ -84,19 +84,19 @@ namespace ICT4Events_S24_Groep_E
             dataGridViewToegangAanwezig.Refresh();
             dataGridViewToegangAfwezig.Refresh();
             List<Persoon> personen = administratie.GeefEvent(e.Naam).Personen;
-            foreach (Persoon persoon in personen)
+            foreach (Persoon persoon in database.HaalPersonenOp())
             {
                 if (persoon is Bezoeker)
                 {
                     Bezoeker b = persoon as Bezoeker;
                     if (b.Aanwezig)
                     {
-                        dataGridViewToegangAanwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam,administratie.GeefPlaats(b,administratie.GeefEvent(e.Naam)));
+                        dataGridViewToegangAanwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
                         aantalaanwezig++;
                     }
                     else
                     {
-                        dataGridViewToegangAfwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam,administratie.GeefPlaats(b,administratie.GeefEvent(e.Naam)));
+                        dataGridViewToegangAfwezig.Rows.Add(b.RfidCode, b.Naam, b.Achternaam);
                         aantalafwezig++;
                     }
                 }

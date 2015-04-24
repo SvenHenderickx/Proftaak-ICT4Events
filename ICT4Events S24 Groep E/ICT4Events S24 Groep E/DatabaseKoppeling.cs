@@ -253,5 +253,59 @@ namespace ICT4Events_S24_Groep_E
             }
             return null;
         }
+
+        public bool CheckInOut(string rfid)
+        {
+            foreach (Persoon p in HaalPersonenOp())
+            {
+                if (p is Bezoeker)
+                {
+                    Bezoeker b = p as Bezoeker;
+                    if (b.Aanwezig)
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "UPDATE BEZOEKER SET AANWEZIG = 0 WHERE RFID = " + rfid;
+                            command = new OracleCommand(query, conn);
+                            command.ExecuteNonQuery();
+                            return true;
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            return false;
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }
+                        
+                    }
+                    else
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "UPDATE BEZOEKER SET AANWEZIG = 1 WHERE RFID = " + rfid;
+                            command = new OracleCommand(query, conn);
+                            command.ExecuteNonQuery();
+                            return true;
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            return false;
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }
+                        
+                    }
+                }
+            }
+            return false;
+        }
     }
 }
