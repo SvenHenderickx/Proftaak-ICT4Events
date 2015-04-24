@@ -43,7 +43,7 @@ namespace ICT4Events_S24_Groep_E
                     }
                     else
                     {
-                        hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbNaam.Text, tbAchternaam.Text);
+                        hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbNaam.Text, tbAchternaam.Text, false);
                         // hier wordt alleen gecheckt of de gebruikersnaam al bestaat of niet
                         // als dat zo is dan kan de hoofdboeker niet gemaakt worden.
                         if (administratie.HuidigEvent.CheckPersoon(hoofdboeker))
@@ -227,8 +227,12 @@ namespace ICT4Events_S24_Groep_E
             }     
             gbGegevens.Enabled = true;
             gbPlaatsen.Enabled = true;
-            
-            dbKoppeling.HaalPlaatsenOp(hoofdboeker);
+
+            foreach(Persoon p in dbKoppeling.HaalPersonenOp())
+            {
+                MessageBox.Show(p.ToString());
+            }
+
             // hij staat alleen hierbij om te testen!!!
         }
 

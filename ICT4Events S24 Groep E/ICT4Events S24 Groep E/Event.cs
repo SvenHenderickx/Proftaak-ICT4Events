@@ -105,22 +105,22 @@ namespace ICT4Events_S24_Groep_E
         //Methodes
         private void TestDataPersonen()
         {       
-            //Beheerder aanmaken
-            personen.Add(new Beheerder("Admin", "Admin", new DateTime(1996, 9, 27),"Ad","Min"));
-            personen.Add(new Beheerder("Frank", "Haver", new DateTime(1996, 2, 15), "Frank", "Haver"));
+            ////Beheerder aanmaken
+            //personen.Add(new Beheerder("Admin", "Admin", new DateTime(1996, 9, 27),"Ad","Min"));
+            //personen.Add(new Beheerder("Frank", "Haver", new DateTime(1996, 2, 15), "Frank", "Haver"));
 
-            //Hoofdboeker aanmaken
-            personen.Add(new Hoofdboeker("Peter", "Schepers", new DateTime(1980, 5, 20), "162784929","Peter","Schepers"));
-            personen.Add(new Hoofdboeker("Sven", "Henderickx", new DateTime(1996, 5, 11), "123456789", "Sven", "Henderickx"));
+            ////Hoofdboeker aanmaken
+            //personen.Add(new Hoofdboeker("Peter", "Schepers", new DateTime(1980, 5, 20), "162784929","Peter","Schepers"));
+            //personen.Add(new Hoofdboeker("Sven", "Henderickx", new DateTime(1996, 5, 11), "123456789", "Sven", "Henderickx"));
             
-            //Bezoekers aanmaken
-            personen.Add(new Bezoeker("Henny", "Hanssen", new DateTime(1996, 12, 15), GeefHoofdboeker("Peter"),"Henny","Hanssen"));
-            personen.Add(new Bezoeker("Anja", "Haas", new DateTime(1998, 3, 18), GeefHoofdboeker("Peter"),"Anja","Haas"));
-            personen.Add(new Bezoeker("Siebren", "Weertman", new DateTime(1995, 4, 8), GeefHoofdboeker("Sven"), "Siebren", "Weertman"));
+            ////Bezoekers aanmaken
+            //personen.Add(new Bezoeker("Henny", "Hanssen", new DateTime(1996, 12, 15), GeefHoofdboeker("Peter"),"Henny","Hanssen"));
+            //personen.Add(new Bezoeker("Anja", "Haas", new DateTime(1998, 3, 18), GeefHoofdboeker("Peter"),"Anja","Haas"));
+            //personen.Add(new Bezoeker("Siebren", "Weertman", new DateTime(1995, 4, 8), GeefHoofdboeker("Sven"), "Siebren", "Weertman"));
 
-            //Controleur aanmaken
-            personen.Add(new Controleur("Alex", "Ras", new DateTime(1995, 5, 22),"Alex","Ras"));
-            personen.Add(new Controleur("Kevin", "Kopp", new DateTime(1996, 6, 14), "Kevin", "Kopp"));
+            ////Controleur aanmaken
+            //personen.Add(new Controleur("Alex", "Ras", new DateTime(1995, 5, 22),"Alex","Ras"));
+            //personen.Add(new Controleur("Kevin", "Kopp", new DateTime(1996, 6, 14), "Kevin", "Kopp"));
         }
 
         private void TestDataPlaatsen()

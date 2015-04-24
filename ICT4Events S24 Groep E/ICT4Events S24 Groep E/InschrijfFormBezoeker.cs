@@ -86,7 +86,7 @@ namespace ICT4Events_S24_Groep_E
                 }
                 else
                 {
-                    bezoeker = new Bezoeker(tbGebruikersNaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, hoofdBoeker, tbNaam.Text, tbAchternaam.Text);
+                    bezoeker = new Bezoeker(tbGebruikersNaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, hoofdBoeker, tbNaam.Text, tbAchternaam.Text, false);
                     if (administratie.HuidigEvent.CheckPersoon(bezoeker))
                     {
                         gbGegevens.Enabled = false;

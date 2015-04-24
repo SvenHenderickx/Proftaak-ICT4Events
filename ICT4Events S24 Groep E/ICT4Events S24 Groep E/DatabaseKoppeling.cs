@@ -16,6 +16,7 @@ namespace ICT4Events_S24_Groep_E
         private OracleCommand command;
         string user = "dbi318713"; //Dit is de gebruikersnaam
         string pw = "V7brKp3nww"; //Dit is het wachtwoord
+        private static Administratie administratie = new Administratie();
 
         //Constructor
         public DatabaseKoppeling()
@@ -46,6 +47,7 @@ namespace ICT4Events_S24_Groep_E
         }
 
         // Frank: Deze methode werkt er moet in de database alleen nog kijken hoe we dit met de hoofdboeker moeten doen. 
+        // IK WERK HIER NOG AAN
         public List<Plaats> HaalPlaatsenOp(Hoofdboeker hoofdboeker)
         {
             List<Plaats> tempPlaatsen = new List<Plaats>();
@@ -72,8 +74,20 @@ namespace ICT4Events_S24_Groep_E
                     {
                         overlast = true;
                     }
-                    Plaats p = new Plaats(prijs, hoofdboeker, overlast, aantalPersonen);
-                    tempPlaatsen.Add(p);
+
+                    // als een plaats nog niet in een reservering zit 
+                    int reservering;
+                    if(Convert.ToInt32(dataReader["Reservering_ID"]) != null)
+                    {
+                        reservering = Convert.ToInt32(dataReader["Reservering_ID"]);
+                        //query = "SELECT"
+                    }
+                    else
+                    {
+                        
+                        Plaats p = new Plaats(prijs, null, overlast, aantalPersonen);
+                        tempPlaatsen.Add(p);
+                    }                  
                 }
                 return tempPlaatsen;
             }
@@ -88,26 +102,85 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
-        public List<Bezoeker> HaalPersonenOp()
+        public List<Persoon> HaalPersonenOp()
         {
+            // in deze methode doen we nog niets met RFID
+            List<Persoon> personen = new List<Persoon>();
             try
             {
                 conn.Open();
                 // met deze query krijg je alle hoofdboekers
-                string query = "SELECT * FROM PERSOON p, HOOFDBOEKER h WHERE p.RFID = h.RFID";
+                // in de where staat nu 'SME' dit moet veranderen in de variabele van huidigevent
+                string eventnaam = administratie.HuidigEvent.Naam;
+                
+                // geef alle hoofdboekers van het !!!SME event!!!
+                string query = "SELECT * FROM PERSOON p, HOOFDBOEKER h, BEZOEKER b WHERE p.RFID = h.RFID and h.RFID = b.RFID and p.Event_ID = (SELECT ID FROM EVENT WHERE naam = 'SME')";
                 command = new OracleCommand(query, conn);
                 OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    int anwezig = Convert.ToInt32(dataReader["Aanwezig"]);
+                    bool aanwezig = false;
+                    if(anwezig == 0)
+                    {
+                        aanwezig = false;
+                    }
+                    else
+                    {
+                        aanwezig = true;
+                    }
+                    personen.Add(new Hoofdboeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Reknr"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig));
+                }
+
+                //geef alle controleurs van het SME event
+                query = "SELECT * FROM PERSOON p, CONTROLEUR c WHERE p.RFID = c.RFID and p.Event_id = (Select ID FROM EVENT WHERE naam = 'SME')";
+                command = new OracleCommand(query, conn);
+                dataReader = command.ExecuteReader();
                 while(dataReader.Read())
                 {
-
+                    personen.Add(new Controleur(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"])));
                 }
+
+                // geef alle beheerders van het SME event
+                query = "SELECT * FROM PERSOON p, Beheerder b WHERE p.RFID = b.RFID and p.Event_id = (Select ID FROM EVENT WHERE naam = 'SME')";
+                command = new OracleCommand(query, conn);
+                dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    personen.Add(new Beheerder(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"])));
+                }
+
+                // geef alle bezoekers van het SME event
+                query = "SELECT * FROM PERSOON p, Bezoeker b WHERE p.RFID = b.RFID and p.Event_id = (Select ID FROM EVENT WHERE naam = 'SME')";
+                command = new OracleCommand(query, conn);
+                dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    int anwezig = Convert.ToInt32(dataReader["Aanwezig"]);
+                    bool aanwezig = false;
+                    if(anwezig == 0)
+                    {
+                        aanwezig = false;
+                    }
+                    else
+                    {
+                        aanwezig = true;
+                    }
+                    personen.Add(new Bezoeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig));
+                }
+                return personen;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+            finally
+            {
+                conn.Close();
+            }
             return null;
         }
+
 
         public List<Huuritem> HaalHuuritemOp()
         {
