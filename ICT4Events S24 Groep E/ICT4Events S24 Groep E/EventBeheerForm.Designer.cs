@@ -81,6 +81,8 @@
             this.chkPlaatsGeluidoverlast = new System.Windows.Forms.CheckBox();
             this.tbPlaatsToevoegenPrijs = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.textBoxPrijsVoegMateriaalToe = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.gbGebruikers.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -442,6 +444,8 @@
             // materiaalTab
             // 
             this.materiaalTab.BackColor = System.Drawing.SystemColors.Control;
+            this.materiaalTab.Controls.Add(this.label16);
+            this.materiaalTab.Controls.Add(this.textBoxPrijsVoegMateriaalToe);
             this.materiaalTab.Controls.Add(this.buttonVoegMateriaalToe);
             this.materiaalTab.Controls.Add(this.label12);
             this.materiaalTab.Controls.Add(this.lbHuidigMateriaal);
@@ -457,7 +461,7 @@
             // 
             // buttonVoegMateriaalToe
             // 
-            this.buttonVoegMateriaalToe.Location = new System.Drawing.Point(62, 65);
+            this.buttonVoegMateriaalToe.Location = new System.Drawing.Point(62, 91);
             this.buttonVoegMateriaalToe.Name = "buttonVoegMateriaalToe";
             this.buttonVoegMateriaalToe.Size = new System.Drawing.Size(121, 23);
             this.buttonVoegMateriaalToe.TabIndex = 6;
@@ -622,6 +626,22 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Prijs:   €";
             // 
+            // textBoxPrijsVoegMateriaalToe
+            // 
+            this.textBoxPrijsVoegMateriaalToe.Location = new System.Drawing.Point(62, 65);
+            this.textBoxPrijsVoegMateriaalToe.Name = "textBoxPrijsVoegMateriaalToe";
+            this.textBoxPrijsVoegMateriaalToe.Size = new System.Drawing.Size(121, 20);
+            this.textBoxPrijsVoegMateriaalToe.TabIndex = 7;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(21, 69);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(38, 13);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Prijs: €";
+            // 
             // EventBeheerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -701,5 +721,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ListBox lbHuidigePlaatsen;
         private System.Windows.Forms.Button buttonVoegPlaatsToe;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBoxPrijsVoegMateriaalToe;
     }
 }

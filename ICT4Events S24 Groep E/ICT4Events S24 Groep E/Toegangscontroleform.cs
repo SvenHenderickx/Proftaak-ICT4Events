@@ -16,12 +16,13 @@ namespace ICT4Events_S24_Groep_E
     {
         //Field
         private Administratie administratie;
+        private DatabaseKoppeling database;
 
         public Toegangscontroleform()
         {
             InitializeComponent();
             administratie = new Administratie();
-            RefreshData(administratie.GeefEvent(administratie.HuidigEvent.Naam));
+            RefreshData(administratie.HuidigEvent);
             dataGridViewToegangAanwezig.AllowUserToAddRows = false;
             dataGridViewToegangAfwezig.AllowUserToAddRows = false;
 

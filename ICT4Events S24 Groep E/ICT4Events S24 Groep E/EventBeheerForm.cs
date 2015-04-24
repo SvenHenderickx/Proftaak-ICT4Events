@@ -279,9 +279,9 @@ namespace ICT4Events_S24_Groep_E
 
         private void buttonVoegMateriaalToe_Click(object sender, EventArgs e)
         {
-            if(cbMateriaalToevoegen.Text != "" && tbMateriaalToevoegen.Text != "")
+            if(cbMateriaalToevoegen.Text != "" && tbMateriaalToevoegen.Text != "" && administratie.IsDigitsOnly(textBoxPrijsVoegMateriaalToe.Text))
             {
-                administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Add(new Huuritem(tbMateriaalToevoegen.Text, cbMateriaalToevoegen.Text));
+                administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Add(new Huuritem(tbMateriaalToevoegen.Text, cbMateriaalToevoegen.Text,Convert.ToInt32(textBoxPrijsVoegMateriaalToe.Text),false));
             }
             else
             {
