@@ -207,7 +207,7 @@ namespace ICT4Events_S24_Groep_E
                     {
                         gehuurd = true;
                     }
-                    Huuritem h = new Huuritem(naam, type);
+                    Huuritem h = new Huuritem(naam, type, prijs, gehuurd);
                     tempHuuritem.Add(h);
                 }
                 return tempHuuritem;
