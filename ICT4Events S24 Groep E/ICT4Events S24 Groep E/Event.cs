@@ -132,10 +132,10 @@ namespace ICT4Events_S24_Groep_E
         private void TestDataHuurmateriaal()
         {
             //Huurmateriaal aanmaken
-            huurMateriaal.Add(new Huuritem("Canon 1024M", "Fotocamera"));
-            huurMateriaal.Add(new Huuritem("Sony 800D", "Fotocamera"));
-            huurMateriaal.Add(new Huuritem("LG B120", "Videocamera"));
-            huurMateriaal.Add(new Huuritem("Samsung C800", "Videocamera"));
+            huurMateriaal.Add(new Huuritem("Canon 1024M", "Fotocamera", 50, false));
+            huurMateriaal.Add(new Huuritem("Sony 800D", "Fotocamera", 50, false));
+            huurMateriaal.Add(new Huuritem("LG B120", "Videocamera", 60, false));
+            huurMateriaal.Add(new Huuritem("Samsung C800", "Videocamera", 60, false));
 
         }
 
