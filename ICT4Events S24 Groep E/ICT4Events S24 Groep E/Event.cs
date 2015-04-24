@@ -20,6 +20,7 @@ namespace ICT4Events_S24_Groep_E
         private List<Reservering> reserveringen;
         private List<Categorie> categorieen;
         private List<Bericht> berichten;
+        private static DatabaseKoppeling databaseKoppeling;
 
         //Properties
         public string Naam
@@ -98,8 +99,6 @@ namespace ICT4Events_S24_Groep_E
             reserveringen = new List<Reservering>();
             categorieen = new List<Categorie>();
             berichten = new List<Bericht>();
-
-
         }
 
         //Methodes
@@ -132,10 +131,10 @@ namespace ICT4Events_S24_Groep_E
         private void TestDataHuurmateriaal()
         {
             //Huurmateriaal aanmaken
-            huurMateriaal.Add(new Huuritem("Canon 1024M", "Fotocamera"));
-            huurMateriaal.Add(new Huuritem("Sony 800D", "Fotocamera"));
-            huurMateriaal.Add(new Huuritem("LG B120", "Videocamera"));
-            huurMateriaal.Add(new Huuritem("Samsung C800", "Videocamera"));
+            huurMateriaal.Add(new Huuritem("Canon 1024M", "Fotocamera", 50, false));
+            huurMateriaal.Add(new Huuritem("Sony 800D", "Fotocamera", 50, false));
+            huurMateriaal.Add(new Huuritem("LG B120", "Videocamera", 60, false));
+            huurMateriaal.Add(new Huuritem("Samsung C800", "Videocamera", 60, false));
 
         }
 
