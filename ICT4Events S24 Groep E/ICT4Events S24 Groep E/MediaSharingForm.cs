@@ -13,6 +13,7 @@ namespace ICT4Events_S24_Groep_E
     public partial class MediaSharingForm : Form
     {
         //Field
+
         Administratie administratie;
         OpenFileDialog opd;
         string bestandPad;
@@ -73,6 +74,7 @@ namespace ICT4Events_S24_Groep_E
 
         public void CheckFilter()
         {
+            administratie.VraagAlleBerichtenOp(administratie.HuidigEvent.Naam);
             if (rbAlles.Checked == true)
             {
                 LaadAlleBerichten(administratie.HuidigEvent.GeefBerichtenVanSoort(0));

@@ -9,6 +9,7 @@ namespace ICT4Events_S24_Groep_E
     public class Bericht : IComparable<Bericht>
     {
         //Fields
+        private int id;
         private List<Like> likes;
         private List<Rapportage> rapportages;
         private string tekst;
@@ -65,6 +66,7 @@ namespace ICT4Events_S24_Groep_E
             reacties = new List<Reactie>();
             likes = new List<Like>();
             rapportages = new List<Rapportage>();
+            id = -1;
         }
 
         public Bericht(string tekst, Persoon auteur, Bestand bestand, int berichtSoort)
@@ -77,6 +79,22 @@ namespace ICT4Events_S24_Groep_E
             reacties = new List<Reactie>();
             likes = new List<Like>();
             rapportages = new List<Rapportage>();
+            id = -1;
+        }
+
+        public Bericht(string tekst, Persoon auteur, DateTime datumGepost, int berichtSoort, int id)
+        {
+            this.tekst = tekst;
+            this.auteur = auteur;
+            this.datumGepost = datumGepost;
+            this.berichtSoort = (BerichtSoort)berichtSoort;
+            this.id = id;
+            //reacties
+            //rapportages
+            //likes
+            reacties = new List<Reactie>();
+            rapportages = new List<Rapportage>();
+            likes = new List<Like>();
         }
 
         //Methodes

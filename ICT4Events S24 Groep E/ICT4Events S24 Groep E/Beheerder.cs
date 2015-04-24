@@ -15,6 +15,12 @@ namespace ICT4Events_S24_Groep_E
 
         }
 
+        public Beheerder(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string naam, string achternaam, string rfid)
+            : base(gebruikersnaam, wachtwoord, geboorteDatum, naam, achternaam, rfid)
+        {
+
+        }
+
         //Methodes
         public override string ToString()
         {

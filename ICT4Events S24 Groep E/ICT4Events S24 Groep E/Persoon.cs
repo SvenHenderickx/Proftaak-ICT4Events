@@ -52,6 +52,16 @@ namespace ICT4Events_S24_Groep_E
             RfidGenerator();
         }
 
+        public Persoon(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string naam, string achternaam, string rfidCode)
+        {
+            this.gebruikersnaam = gebruikersnaam;
+            this.wachtwoord = wachtwoord;
+            this.geboorteDatum = geboorteDatum;
+            this.naam = naam;
+            this.achternaam = achternaam;
+            this.rfidCode = rfidCode;
+        }
+
         //Methodes
         //Deze methode maakt een nieuw RFID aan
         private string RfidGenerator()

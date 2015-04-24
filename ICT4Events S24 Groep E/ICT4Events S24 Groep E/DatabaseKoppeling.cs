@@ -128,7 +128,7 @@ namespace ICT4Events_S24_Groep_E
                     {
                         aanwezig = true;
                     }
-                    personen.Add(new Hoofdboeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Reknr"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig));
+                    personen.Add(new Hoofdboeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Reknr"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig, Convert.ToString(dataReader["rfid"])));
                 }
 
                 //geef alle controleurs van het SME event
@@ -137,7 +137,7 @@ namespace ICT4Events_S24_Groep_E
                 dataReader = command.ExecuteReader();
                 while(dataReader.Read())
                 {
-                    personen.Add(new Controleur(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"])));
+                    personen.Add(new Controleur(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["rfid"])));
                 }
 
                 // geef alle beheerders van het SME event
@@ -146,7 +146,7 @@ namespace ICT4Events_S24_Groep_E
                 dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    personen.Add(new Beheerder(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"])));
+                    personen.Add(new Beheerder(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), Convert.ToString(dataReader["rfid"])));
                 }
 
                 // geef alle bezoekers van het SME event
@@ -165,7 +165,7 @@ namespace ICT4Events_S24_Groep_E
                     {
                         aanwezig = true;
                     }
-                    personen.Add(new Bezoeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig));
+                    personen.Add(new Bezoeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig, Convert.ToString(dataReader["rfid"])));
                 }
                 return personen;
             }
@@ -305,6 +305,37 @@ namespace ICT4Events_S24_Groep_E
                 }
             }
             return false;
+        }
+
+        public List<Bericht> VraagBerichtenOpVanEvent(string eventNaam)
+        {
+            List<Bericht> tempList = new List<Bericht>();
+            try
+            {
+                conn.Open();
+                string query = "SELECT * FROM bericht WHERE event_id = (SELECT id FROM event WHERE naam = '" + eventNaam + "')";
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    string persoonRfid = Convert.ToString(dataReader["persoon_rfid"]);
+                    DateTime date = Convert.ToDateTime(dataReader["plaatsdatum"]);
+                    int id = Convert.ToInt32(dataReader["id"]);
+                    string tekst = Convert.ToString(dataReader["bericht"]);
+                    int berichtSoort = Convert.ToInt32(dataReader["berichtsoort"]);
+                    tempList.Add(new Bericht(tekst, administratie.HuidigEvent.CheckGebruikersNaamRfid(persoonRfid), date, berichtSoort, id));
+                }
+                return tempList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return null;
         }
     }
 }

@@ -40,6 +40,14 @@ namespace ICT4Events_S24_Groep_E
             huurMateriaal = new List<Huuritem>();
         }
 
+        public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, string naam, string achternaam, bool aanwezig, string rfid)
+            : base(gebruikersnaam, wachtwoord, geboortedatum, naam, achternaam, rfid)
+        {
+            this.aanwezig = aanwezig;
+            this.hoofdboeker = null; //de hoofdboeker is hijzelf
+            huurMateriaal = new List<Huuritem>();
+        }
+
         public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, Hoofdboeker hoofdboeker,string naam, string achternaam, bool aanwezig)
             : base(gebruikersnaam, wachtwoord, geboortedatum, naam, achternaam)
         {

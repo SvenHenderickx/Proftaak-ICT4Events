@@ -51,6 +51,7 @@
             this.tbWachtwoordLoginForm.PasswordChar = '*';
             this.tbWachtwoordLoginForm.Size = new System.Drawing.Size(221, 20);
             this.tbWachtwoordLoginForm.TabIndex = 1;
+            this.tbWachtwoordLoginForm.TextChanged += new System.EventHandler(this.tbWachtwoordLoginForm_TextChanged);
             this.tbWachtwoordLoginForm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbWachtwoordLoginForm_KeyDown);
             // 
             // btnInlogLoginForm

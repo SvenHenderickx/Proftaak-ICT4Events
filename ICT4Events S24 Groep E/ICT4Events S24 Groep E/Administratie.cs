@@ -195,5 +195,11 @@ namespace ICT4Events_S24_Groep_E
                 }
             }
         }
+
+        public void VraagAlleBerichtenOp(string eventNaam)
+        {
+            huidigEvent.Berichten.Clear();
+            huidigEvent.VoegBerichtenToe(databaseKoppeling.VraagBerichtenOpVanEvent(eventNaam));
+        }
     }
 }

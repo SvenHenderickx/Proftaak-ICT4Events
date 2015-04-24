@@ -18,6 +18,12 @@ namespace ICT4Events_S24_Groep_E
             this.rekeningNummer = rekeningNummer;
         }
 
+        public Hoofdboeker(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string rekeningNummer, string naam, string achternaam, bool aanwezig, string rfid)
+            : base(gebruikersnaam, wachtwoord, geboorteDatum, naam, achternaam, aanwezig, rfid)
+        {
+            this.rekeningNummer = rekeningNummer;
+        }
+
         //Methods
         public override string ToString()
         {

@@ -213,6 +213,14 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+        public void VoegBerichtenToe(List<Bericht> berichten)
+        {
+            foreach (Bericht b in berichten)
+            {
+                this.berichten.Add(b);
+            }
+        }
+
         // kijken of de gebruikersnaam van een persoon al in de lijst van personen zit
         // functie heeft zelfde functie als voegPersoonToe alleen voegt deze methode
         // de persoon niet toe.
