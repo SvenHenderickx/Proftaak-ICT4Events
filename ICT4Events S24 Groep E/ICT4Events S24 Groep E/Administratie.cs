@@ -198,12 +198,14 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
-<<<<<<< HEAD
         public void VraagAlleBerichtenOp(string eventNaam)
         {
             huidigEvent.Berichten.Clear();
             huidigEvent.VoegBerichtenToe(databaseKoppeling.VraagBerichtenOpVanEvent(eventNaam));
-=======
+
+            
+        }
+
         public string RfidGenerator()
         {
             lastRfidCode++;
@@ -214,7 +216,6 @@ namespace ICT4Events_S24_Groep_E
                 rfidCode = "0" + rfidCode;
             }
             return rfidCode;
->>>>>>> origin/master
         }
     }
 }

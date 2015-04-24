@@ -129,10 +129,6 @@ namespace ICT4Events_S24_Groep_E
                         MessageBox.Show("Kan gebruiker niet vinden.");
                     }
                 }
-<<<<<<< HEAD
-=======
-            
->>>>>>> origin/master
             }
         }
 

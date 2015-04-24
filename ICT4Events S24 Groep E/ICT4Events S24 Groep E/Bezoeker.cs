@@ -33,14 +33,13 @@ namespace ICT4Events_S24_Groep_E
 
         //Constructors
         public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, string naam, string achternaam, string rfidcode, bool aanwezig)
-            : base(gebruikersnaam, wachtwoord, geboortedatum,naam,achternaam,rfidcode)
+            : base(gebruikersnaam, wachtwoord, geboortedatum,naam, achternaam, rfidcode)
         {
             this.aanwezig = aanwezig;
             this.hoofdboeker = null; //de hoofdboeker is hijzelf
             huurMateriaal = new List<Huuritem>();
         }
 
-<<<<<<< HEAD
         public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, string naam, string achternaam, bool aanwezig, string rfid)
             : base(gebruikersnaam, wachtwoord, geboortedatum, naam, achternaam, rfid)
         {
@@ -49,12 +48,8 @@ namespace ICT4Events_S24_Groep_E
             huurMateriaal = new List<Huuritem>();
         }
 
-        public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, Hoofdboeker hoofdboeker,string naam, string achternaam, bool aanwezig)
-            : base(gebruikersnaam, wachtwoord, geboortedatum, naam, achternaam)
-=======
         public Bezoeker(string gebruikersnaam, string wachtwoord, DateTime geboortedatum, Hoofdboeker hoofdboeker, string naam, string achternaam, string rfidcode, bool aanwezig)
-            : base(gebruikersnaam, wachtwoord, geboortedatum, naam, achternaam,rfidcode)
->>>>>>> origin/master
+            : base(gebruikersnaam, wachtwoord, geboortedatum, naam, achternaam)
         {
             this.aanwezig = aanwezig;
             this.hoofdboeker = hoofdboeker;
