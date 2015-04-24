@@ -19,6 +19,7 @@ namespace ICT4Events_S24_Groep_E
         {
             InitializeComponent();
             administratie = new Administratie();
+            administratie.HaalAlleEventsOp();
             KrijgAlleEvents();
             cmbEventsLoginForm.SelectedIndex = 0;
         }

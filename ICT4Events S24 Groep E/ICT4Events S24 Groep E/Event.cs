@@ -21,8 +21,6 @@ namespace ICT4Events_S24_Groep_E
         private List<Categorie> categorieen;
         private List<Bericht> berichten;
 
-        private DatabaseKoppeling dbKoppeling;
-
         //Properties
         public string Naam
         {
@@ -86,7 +84,6 @@ namespace ICT4Events_S24_Groep_E
         //Constructor
         public Event(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres)
         {
-            dbKoppeling = new DatabaseKoppeling(); // deze bovenaan omdat er eerst een instantie van databasekoppeling moet bestaan!
             this.naam = naam;
             this.beginDatum = beginDatum;
             this.eindDatum = eindDatum;

@@ -14,6 +14,7 @@ namespace ICT4Events_S24_Groep_E
         private static Event huidigEvent = null;
         private static Bericht tempBericht = null;
         private static int countGemaakt = 0;
+        private static DatabaseKoppeling databaseKoppeling;
 
         //Properties
         public List<Event> Events
@@ -47,14 +48,15 @@ namespace ICT4Events_S24_Groep_E
                 TestDataEvents();
             }
             countGemaakt++;
+            databaseKoppeling = new DatabaseKoppeling();
         }
 
         //Methodes
         //Hier worden events aangemaakt
         private void TestDataEvents()
         {
-            events.Add(new Event("SME Event", new DateTime(2015, 6, 18), new DateTime(2015, 6, 25), "Eindhoven", "Woensel 12"));
-            events.Add(new Event("Kerstmarkt", new DateTime(2015, 12, 4), new DateTime(2015, 12, 5), "Grathem", "Onbekende weg 4"));
+            //events.Add(new Event("SME Event", new DateTime(2015, 6, 18), new DateTime(2015, 6, 25), "Eindhoven", "Woensel 12"));
+            //events.Add(new Event("Kerstmarkt", new DateTime(2015, 12, 4), new DateTime(2015, 12, 5), "Grathem", "Onbekende weg 4"));
         }
 
         //Deze methode zoekt naar bestaande events
@@ -169,6 +171,17 @@ namespace ICT4Events_S24_Groep_E
             }
 
             return true;
+        }
+
+        public void HaalAlleEventsOp()
+        {
+            events.Clear();
+            List<Event> tempEvent = new List<Event>();
+            tempEvent = databaseKoppeling.HaalAlleEvenementen();
+            foreach (Event e in tempEvent)
+            {
+                events.Add(e);
+            }
         }
     }
 }

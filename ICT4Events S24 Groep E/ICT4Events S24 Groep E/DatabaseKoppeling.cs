@@ -109,7 +109,36 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
-
+        public List<Event> HaalAlleEvenementen()
+        {
+            List<Event> tempEvent = new List<Event>();
+            try
+            {
+                conn.Open();
+                string query = "SELECT * FROM Event";
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    string naam = Convert.ToString(dataReader["NAAM"]);
+                    DateTime beginDatum = Convert.ToDateTime(dataReader["BEGINDATUM"]);
+                    DateTime eindDatum= Convert.ToDateTime(dataReader["EINDDATUM"]);
+                    string plaats = Convert.ToString(dataReader["PLAATS"]);
+                    string adres = Convert.ToString(dataReader["ADRES"]);
+                    tempEvent.Add(new Event(naam, beginDatum, eindDatum, plaats, adres));
+                }
+                return tempEvent;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return null;
+        }
 
 
 
