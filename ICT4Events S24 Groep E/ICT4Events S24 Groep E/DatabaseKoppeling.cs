@@ -48,13 +48,15 @@ namespace ICT4Events_S24_Groep_E
 
         // Frank: Deze methode werkt er moet in de database alleen nog kijken hoe we dit met de hoofdboeker moeten doen. 
         // IK WERK HIER NOG AAN
-        public List<Plaats> HaalPlaatsenOp(Hoofdboeker hoofdboeker)
+        public List<Plaats> HaalPlaatsenOp()
         {
-            List<Plaats> tempPlaatsen = new List<Plaats>();
+            List<Plaats> plaatsen = new List<Plaats>();
             try
             {              
                 conn.Open();
-                string query = "SELECT * FROM PLAATS";
+                // query van alle plaatsen met de eventueel bijbehorende
+                // hoofdboekers
+                string query = "SELECT * FROM PLAATS pl LEFT JOIN RESERVERING r ON pl.Reservering_ID = r.ID";
                 command = new OracleCommand(query, conn);
                 OracleDataReader dataReader = command.ExecuteReader();
                 // dataReader gaat record voor record omlaag totdat 
@@ -65,6 +67,8 @@ namespace ICT4Events_S24_Groep_E
                     int prijs = Convert.ToInt32(dataReader["Prijs"]);
                     int aantalPersonen = Convert.ToInt32(dataReader["Aantalpersonen"]);
                     int geluidsOverlast = Convert.ToInt32(dataReader["Geluidsoverlast"]);
+                    string hbRFID = Convert.ToString(dataReader["Hoofdboeker_RFID"]);
+                    string locatienummer = Convert.ToString(dataReader["Locatienummer"]);
                     bool overlast = false;
                     if(geluidsOverlast == 0)
                     {
@@ -74,22 +78,27 @@ namespace ICT4Events_S24_Groep_E
                     {
                         overlast = true;
                     }
-
-                    // als een plaats nog niet in een reservering zit 
-                    int reservering;
-                    if(Convert.ToInt32(dataReader["Reservering_ID"]) != null)
+                    bool verhuurd;
+                    if (Convert.ToInt32(dataReader["Verhuurd"]) == 0)
                     {
-                        reservering = Convert.ToInt32(dataReader["Reservering_ID"]);
-                        //query = "SELECT"
+                        verhuurd = false;
                     }
                     else
                     {
-                        
-                        Plaats p = new Plaats(prijs, null, overlast, aantalPersonen);
-                        tempPlaatsen.Add(p);
-                    }                  
+                        verhuurd = true;
+                    }
+                    // als een plaats nog niet in een reservering zit 
+                    // dan moet er bij beheerder niets worden meegegeven
+                    // anders moet er een nieuwe beheerder worden aangemaakt
+                    // om mee te geven aan de plaats
+                    // hier is dus een hoofdboeker
+                    // andere query schrijven voor de informatie van deze hoofdboeker 
+                    
+                    // hoofdboeker wordt hier nog niet aan toegevoegd!
+                    Plaats p = new Plaats(prijs, null, overlast, aantalPersonen, verhuurd, locatienummer);
+                    plaatsen.Add(p);                                    
                 }
-                return tempPlaatsen;
+                return plaatsen;
             }
             catch(Exception ex)
             {
@@ -181,7 +190,7 @@ namespace ICT4Events_S24_Groep_E
         }
 
 
-        public List<Huuritem> HaalHuuritemOp()
+        public List<Huuritem> HaalHuuritemsOp()
         {
             List<Huuritem> tempHuuritem = new List<Huuritem>();
             try
@@ -278,8 +287,7 @@ namespace ICT4Events_S24_Groep_E
                         finally
                         {
                             conn.Close();
-                        }
-                        
+                        }                      
                     }
                     else if(b.RfidCode == rfid)
                     {

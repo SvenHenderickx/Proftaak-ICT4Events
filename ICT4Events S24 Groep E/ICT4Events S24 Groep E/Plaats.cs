@@ -28,7 +28,7 @@ namespace ICT4Events_S24_Groep_E
             get { return aantalPersonen; }
         }
 
-        public bool Bezet
+        public bool Bezet // heet verhuurd in het erd
         {
             get { return bezet; }
             set { bezet = value; }
@@ -45,13 +45,16 @@ namespace ICT4Events_S24_Groep_E
         }
 
         //Constructor
-        public Plaats(int prijs, Hoofdboeker huurder, bool geluidsOverlast, int aantalPersonen)
+        // huurder wordt hier even niet meer gebruikt dus een huurder van een plaats kun
+        // je dus ook niet meer opvragen
+        public Plaats(int prijs, Hoofdboeker huurder, bool geluidsOverlast, int aantalPersonen, bool bezet, string plaatsnummer)
         {
             this.prijs = prijs;
             this.huurder = huurder;
             this.geluidsOverlast = geluidsOverlast;
             this.aantalPersonen = aantalPersonen;
-            this.plaatsNummer = PlaatsNummerGenerator();
+            this.plaatsNummer = plaatsnummer;
+            this.bezet = bezet;
         }
 
         //Methodes
@@ -62,7 +65,7 @@ namespace ICT4Events_S24_Groep_E
             return "PlaatsNr: " + this.plaatsNummer + ", " + "Aantal Personen " + this.aantalPersonen + ", geluidsoverlast: " + geluidsOV + ", € " + prijs.ToString();
         }
 
-        //Deze methode genereert een plaatsnummer
+        //Deze methode genereert een plaatsnummer wordt niet meer gebruikt
         private string PlaatsNummerGenerator()
         {
             // 1 ophogen bij een nieuwe plaats

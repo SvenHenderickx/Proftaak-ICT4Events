@@ -41,6 +41,12 @@ namespace ICT4Events_S24_Groep_E
             set { huidigEvent = value; }
         }
 
+        public DatabaseKoppeling DatabaseKoppeling
+        {
+            get { return databaseKoppeling; }
+            set { databaseKoppeling = value; }
+        }
+
         // Constructor
         public Administratie()
         {

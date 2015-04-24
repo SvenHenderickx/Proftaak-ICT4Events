@@ -292,9 +292,12 @@ namespace ICT4Events_S24_Groep_E
 
         private void buttonVoegPlaatsToe_Click(object sender, EventArgs e)
         {
+            // deze methode moet worden aangepast; plaatsnummer gaat niet meer met een 
+            // plaatsnummergenerator maar deze moet handmatig wordden ingevoerd
+            // houdt hierbij rekening dat plaatsnummers niet al mogen bestaan!
             if (tbPlaatsToevoegenPrijs.Text != "" && administratie.IsDigitsOnly(tbPlaatsToevoegenPrijs.Text))
             {
-                administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen.Add(new Plaats(Convert.ToInt32(tbPlaatsToevoegenPrijs.Text), null, chkPlaatsGeluidoverlast.ThreeState, Convert.ToInt32(nudPlaatsPersonen.Value)));
+                administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen.Add(new Plaats(Convert.ToInt32(tbPlaatsToevoegenPrijs.Text), null, chkPlaatsGeluidoverlast.ThreeState, Convert.ToInt32(nudPlaatsPersonen.Value), false, "0099"));
             }
             else
             {
