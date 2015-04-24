@@ -109,7 +109,46 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
-
+        public List<Huuritem> HaalHuuritemOp()
+        {
+            List<Huuritem> tempHuuritem = new List<Huuritem>();
+            try
+            {
+                conn.Open();
+                //Deze query haalt alle huuritems op
+                string query = "SELECT * FROM HUURITEM";
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    string naam = Convert.ToString(dataReader["Naam"]);
+                    string type = Convert.ToString(dataReader["Type"]);
+                    int prijs = Convert.ToInt32(dataReader["Prijs"]);
+                    int verhuurd = Convert.ToInt32(dataReader["Verhuurd"]);
+                    bool gehuurd = false;
+                    if (verhuurd == 0)
+                    {
+                        gehuurd = false;
+                    }
+                    else
+                    {
+                        gehuurd = true;
+                    }
+                    Huuritem h = new Huuritem(naam, type);
+                    tempHuuritem.Add(h);
+                }
+                return tempHuuritem;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return null;
+        }
 
 
 
