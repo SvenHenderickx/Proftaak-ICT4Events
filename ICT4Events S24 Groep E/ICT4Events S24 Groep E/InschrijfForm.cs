@@ -74,6 +74,8 @@ namespace ICT4Events_S24_Groep_E
                 if (!gekozenPlaats.Bezet)
                 {
                     gekozenPlaats.Bezet = true;
+                    // plaats ook in de database bezetten.
+                    dbKoppeling.BezetPlaats(plaats.Substring(10, 4));
                     geselecteerdePlaatsen.Add(gekozenPlaats);
                 }
                 else
@@ -90,8 +92,10 @@ namespace ICT4Events_S24_Groep_E
             {
                 string plaats = lbPlaatsen.SelectedItem.ToString();
                 Plaats gekozenPlaats = administratie.HuidigEvent.GeefPlaats(plaats.Substring(10, 4));
-                geselecteerdePlaatsen.Remove(gekozenPlaats);
                 gekozenPlaats.Bezet = false;
+                geselecteerdePlaatsen.Remove(gekozenPlaats);
+                dbKoppeling.OnBezetPlaats(plaats.Substring(10, 4));
+                
             }
             Ververs();
         }
@@ -228,10 +232,7 @@ namespace ICT4Events_S24_Groep_E
             gbGegevens.Enabled = true;
             gbPlaatsen.Enabled = true;
             //maak dit voor meer dan alleen sme !!!
-            foreach(Persoon p in dbKoppeling.HaalPersonenOp("SME"))
-            {
-                MessageBox.Show(p.ToString());
-            }
+
 
             // hij staat alleen hierbij om te testen!!!
         }

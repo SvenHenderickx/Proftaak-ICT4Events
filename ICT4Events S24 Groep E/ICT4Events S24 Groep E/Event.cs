@@ -20,7 +20,7 @@ namespace ICT4Events_S24_Groep_E
         private List<Reservering> reserveringen;
         private List<Categorie> categorieen;
         private List<Bericht> berichten;
-        private static DatabaseKoppeling databaseKoppeling;
+        private static DatabaseKoppeling databaseKoppeling = new DatabaseKoppeling();
 
         //Properties
         public string Naam
@@ -155,7 +155,7 @@ namespace ICT4Events_S24_Groep_E
         //Hier wordt een plaats opgevragen
         public Plaats GeefPlaats(string plaatsNummer)
         {
-            foreach (Plaats p in plaatsen)
+            foreach (Plaats p in databaseKoppeling.HaalPlaatsenOp())
             {
                 if (p.PlaatsNummer == plaatsNummer)
                 {

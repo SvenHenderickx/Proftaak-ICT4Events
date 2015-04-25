@@ -345,5 +345,43 @@ namespace ICT4Events_S24_Groep_E
             }
             return null;
         }
+
+        public void BezetPlaats(string locatienummer)
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE PLAATS SET VERHUURD = 1 WHERE LOCATIENUMMER =" + locatienummer;
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void OnBezetPlaats(string locatienummer)
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE PLAATS SET VERHUURD = 0 WHERE LOCATIENUMMER =" + locatienummer;
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
