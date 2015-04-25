@@ -226,7 +226,8 @@ namespace ICT4Events_S24_Groep_E
         // de persoon niet toe.
         public bool CheckPersoon(Persoon persoon)
         {
-            foreach (Persoon p in personen)
+            // Frank: de list van personen in event bestaat niet meer dus deze moet uit de databasekoppeling
+            foreach (Persoon p in databaseKoppeling.HaalPersonenOp("SME"))
             {
                 if (p.Gebruikersnaam == persoon.Gebruikersnaam)
                 {

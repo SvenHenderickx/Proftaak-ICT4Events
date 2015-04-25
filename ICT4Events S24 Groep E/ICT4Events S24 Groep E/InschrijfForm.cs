@@ -17,6 +17,7 @@ namespace ICT4Events_S24_Groep_E
         private List<Plaats> geselecteerdePlaatsen;
         private Hoofdboeker hoofdboeker;
         private DatabaseKoppeling dbKoppeling;
+        private List<string> gekozenplaatsen;
 
         public InschrijfForm()
         {
@@ -24,6 +25,7 @@ namespace ICT4Events_S24_Groep_E
             administratie = new Administratie();
             geselecteerdePlaatsen = new List<Plaats>();
             dbKoppeling = new DatabaseKoppeling();
+            gekozenplaatsen = new List<string>();
             VulComboBox();
         }
 
@@ -36,8 +38,10 @@ namespace ICT4Events_S24_Groep_E
                 {
                     MessageBox.Show("Wachtwoorden komen niet overeen. \n Controleer uw wachtwoord nogmaals.");
                 }
-                else{
-                    if (geselecteerdePlaatsen.Count == 0)
+                else
+                {
+                    // geselecteerdeplaatsen = gekozenplaatsen
+                    if (gekozenplaatsen.Count == 0)
                     {
                         MessageBox.Show("Selecteer eerst een of meer plaatsen.");
                     }
@@ -76,14 +80,15 @@ namespace ICT4Events_S24_Groep_E
                     gekozenPlaats.Bezet = true;
                     // plaats ook in de database bezetten.
                     dbKoppeling.BezetPlaats(plaats.Substring(10, 4));
-                    geselecteerdePlaatsen.Add(gekozenPlaats);
+                    gekozenplaatsen.Add(gekozenPlaats.PlaatsNummer);
                 }
                 else
                 {
                     MessageBox.Show("Deze plaats is al gekozen. Kies een andere.");
                 }
             }
-            Ververs();
+            //Ververs();
+            Verversen();
         }
 
         private void btnVerwijderPlaats_Click(object sender, EventArgs e)
@@ -94,10 +99,12 @@ namespace ICT4Events_S24_Groep_E
                 Plaats gekozenPlaats = administratie.HuidigEvent.GeefPlaats(plaats.Substring(10, 4));
                 gekozenPlaats.Bezet = false;
                 geselecteerdePlaatsen.Remove(gekozenPlaats);
+                gekozenplaatsen.Remove(gekozenPlaats.PlaatsNummer);
                 dbKoppeling.OnBezetPlaats(plaats.Substring(10, 4));
                 
             }
-            Ververs();
+            //Ververs();
+            Verversen();
         }
 
         private void btnVolgende_Click(object sender, EventArgs e)
@@ -173,7 +180,8 @@ namespace ICT4Events_S24_Groep_E
                 cbMeerderePersonen.Items.Clear();
                 btnVolgende.Text = "Bevestig";
             }
-            Ververs();
+            //Ververs();
+            Verversen();
         }
 
         // Methoden
@@ -194,6 +202,7 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+        // deze methode werkte voor de databaseconnectie
         private void Ververs()
         {
             // De geselecteerde plaatsen komen in de listbox als ze verwijderd zijn gaan ze er weer uit.
@@ -209,6 +218,35 @@ namespace ICT4Events_S24_Groep_E
             int personen = 1;
             foreach (Plaats p in geselecteerdePlaatsen)
             {
+                personen += p.AantalPersonen;
+            }
+            for (int i = 1; i < personen; i++)
+            {
+                cbMeerderePersonen.Items.Add(i);
+            }
+            if (cbMeerderePersonen.SelectedIndex != -1)
+            {
+                cbMeerderePersonen.SelectedIndex = 0;
+            }
+        }
+
+        private void Verversen()
+        {
+            // De geselecteerde plaatsen komen in de listbox als ze verwijderd zijn gaan ze er weer uit.
+            lbPlaatsen.Items.Clear();
+            foreach (String s in gekozenplaatsen)
+            {
+                Plaats p = administratie.HuidigEvent.GeefPlaats(s);
+                lbPlaatsen.Items.Add(p.ToString());
+                lblPrijsTotaal.Text = (Convert.ToInt32(lblPrijsTotaal.Text) + p.Prijs).ToString();
+            }
+
+            // cbMeerderePersonen wordt gevuld
+            cbMeerderePersonen.Items.Clear();
+            int personen = 1;
+            foreach (String s in gekozenplaatsen)
+            {
+                Plaats p = administratie.HuidigEvent.GeefPlaats(s);
                 personen += p.AantalPersonen;
             }
             for (int i = 1; i < personen; i++)

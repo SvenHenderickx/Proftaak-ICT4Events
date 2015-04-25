@@ -383,5 +383,34 @@ namespace ICT4Events_S24_Groep_E
                 conn.Close();
             }
         }
+
+        public bool DeleteGebruiker(string gebnaam)
+        {
+            foreach(Persoon p in HaalPersonenOp("SME"))
+            {
+                if (p is Bezoeker)
+                {
+                    Bezoeker b = p as Bezoeker;
+                    try
+                    {
+                        conn.Open();
+                        string query = "DELETE FROM persoon WHERE gebruikernaam = " + gebnaam;
+                        command = new OracleCommand(query, conn);
+                        command.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return false;
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }           
+            return false;
+        }
     }
 }
