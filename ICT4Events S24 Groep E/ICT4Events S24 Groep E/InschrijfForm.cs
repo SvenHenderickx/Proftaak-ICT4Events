@@ -14,6 +14,7 @@ namespace ICT4Events_S24_Groep_E
     {
         // Fields
         private Administratie administratie;
+        // dit gaat voortaan via gekozenplaatsen
         private List<Plaats> geselecteerdePlaatsen;
         private Hoofdboeker hoofdboeker;
         private DatabaseKoppeling dbKoppeling;
@@ -48,6 +49,8 @@ namespace ICT4Events_S24_Groep_E
                     else
                     {
                         hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbNaam.Text, tbAchternaam.Text, administratie.RfidGenerator(), false);
+                        // deze hoofdboeker moet ook een reserverings_id mee krijgen. daarna wordt er per plaats het reserverings id toegekent. 
+
                         // hier wordt alleen gecheckt of de gebruikersnaam al bestaat of niet
                         // als dat zo is dan kan de hoofdboeker niet gemaakt worden.
                         if (administratie.HuidigEvent.CheckPersoon(hoofdboeker))

@@ -78,8 +78,12 @@ namespace ICT4Events_S24_Groep_E
         {
             // button wordt nog niet gebruikt
             // kan gebruikt worden als het moet maar vereist aanpassingen.
+            
             // hier worden alle materialen die gehuurd worden toegewezen aan de
             // bezoeker in de database
+            // wij wijzen hem niet toe aan een bezoeker maar aan een reservering. 
+            // dus het huuritem is eigenlijk voor de hele groep..
+            
             this.Dispose();
         }
 
