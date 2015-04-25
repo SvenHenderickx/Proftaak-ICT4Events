@@ -16,6 +16,7 @@ namespace ICT4Events_S24_Groep_E
         private Administratie administratie;
         private Hoofdboeker hoofdboeker;
         private Bezoeker bezoeker;
+        private List<string> bezoekerMateriaal;
 
         
         public MateriaalVerhuurForm(Bezoeker bezoeker)
@@ -25,10 +26,10 @@ namespace ICT4Events_S24_Groep_E
             VulCbCameras();
             this.bezoeker = bezoeker;
             lblBoekerBezoekerInfo.Text = bezoeker.ToString();
+            bezoekerMateriaal = new List<String>();
             Ververs(); // Geef alvast alle items die een bezoeker gehuurd zou kunnen hebben.
         }
-
-        
+       
         public MateriaalVerhuurForm(Hoofdboeker hoofdboeker)
         {
             InitializeComponent();
@@ -36,20 +37,23 @@ namespace ICT4Events_S24_Groep_E
             VulCbCameras();
             this.hoofdboeker = hoofdboeker;
             lblBoekerBezoekerInfo.Text = hoofdboeker.ToString();
+            bezoekerMateriaal = new List<String>();
             bezoeker = (Bezoeker)hoofdboeker;
             Ververs();
         }
 
         //Event Handlers
+        // deze is niet meer nodig want alles staat in één combobox
         private void btnFotoKies_Click(object sender, EventArgs e)
         {
-            ItemHuren(cbFotoCamera);
+            //ItemHuren(cbFotoCamera);
             Ververs();
         }
 
+        // btnHuuritemkies
         private void btnVideoKies_Click(object sender, EventArgs e)
         {
-            ItemHuren(cbVideoCamera);
+            ItemHuren(cbHuurItems);
             Ververs();
         }
 
@@ -58,8 +62,10 @@ namespace ICT4Events_S24_Groep_E
             if (lbGekozenItems.SelectedItem != null)
             {
                 Huuritem huuritem = administratie.HuidigEvent.GeefHuuritem(lbGekozenItems.SelectedItem.ToString());
-                bezoeker.HuurMateriaal.Remove(huuritem);
+                //bezoeker.HuurMateriaal.Remove(huuritem);
+                bezoekerMateriaal.Remove(lbGekozenItems.SelectedItem.ToString());
                 huuritem.IsGehuurd = false;
+                administratie.DatabaseKoppeling.GeefHuuritemVrij(huuritem.Naam);
             }
             else
             {
@@ -72,6 +78,8 @@ namespace ICT4Events_S24_Groep_E
         {
             // button wordt nog niet gebruikt
             // kan gebruikt worden als het moet maar vereist aanpassingen.
+            // hier worden alle materialen die gehuurd worden toegewezen aan de
+            // bezoeker in de database
             this.Dispose();
         }
 
@@ -81,9 +89,9 @@ namespace ICT4Events_S24_Groep_E
             lbGekozenItems.Items.Clear();
             if (bezoeker.HuurMateriaal != null)
             {
-                foreach (Huuritem h in bezoeker.HuurMateriaal)
+                foreach (string s in bezoekerMateriaal)
                 {
-                    lbGekozenItems.Items.Add(h.Naam);
+                    lbGekozenItems.Items.Add(s);
                 }
             }
             VulCbCameras();
@@ -96,8 +104,11 @@ namespace ICT4Events_S24_Groep_E
                 Huuritem huuritem = administratie.HuidigEvent.GeefHuuritem(cb.SelectedItem.ToString());
                 if (!huuritem.IsGehuurd)
                 {
-                    bezoeker.HuurMateriaal.Add(huuritem);
+                    //bezoeker.HuurMateriaal.Add(huuritem);
+                    // sla de naam van het materiaal op
+                    bezoekerMateriaal.Add(huuritem.Naam);
                     huuritem.IsGehuurd = true;
+                    administratie.DatabaseKoppeling.ReserveerHuuritem(huuritem.Naam);
                 }
                 else
                 {
@@ -108,30 +119,18 @@ namespace ICT4Events_S24_Groep_E
 
         private void VulCbCameras()
         {
-            // Alle FotoCamera's toevoegen die nog niet zijn uitgeleend
-            
-            
-            cbFotoCamera.Items.Clear();
-            cbVideoCamera.Items.Clear();
-            bool cbFCam = false, cbVCam = false;
+            // Alle FotoCamera's toevoegen die nog niet zijn uitgeleend           
+            cbHuurItems.Items.Clear();
+            bool cbVCam = false;
 
-            foreach (Huuritem h in administratie.HuidigEvent.HuurMateriaal)
+            foreach (Huuritem h in administratie.HuidigEvent.DatabaseKoppeling.HaalHuuritemsOp())
             {
-                if (h.Type == "Fotocamera" && !h.IsGehuurd) // cycles verminderen als er een lange lijst is.
+                if (!h.IsGehuurd) // cycles verminderen als er een lange lijst is.
                 {
-                    cbFotoCamera.Items.Add(h.Naam);
-                    if (!cbFCam)
-                    {
-                        cbFotoCamera.SelectedIndex = 0;
-                        cbFCam = true;
-                    }
-                }
-                else if (h.Type == "Videocamera" && !h.IsGehuurd)
-                {
-                    cbVideoCamera.Items.Add(h.Naam);
+                    cbHuurItems.Items.Add(h.Naam);
                     if (!cbVCam) //cycles verminderen als er een lange lijst is.
                     {
-                        cbVideoCamera.SelectedIndex = 0;
+                        cbHuurItems.SelectedIndex = 0;
                         cbVCam = true;
                     }
                 }
@@ -148,13 +147,17 @@ namespace ICT4Events_S24_Groep_E
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
             Huuritem huuritem;
-            foreach (object ob in lbGekozenItems.Items)
+            foreach (string s in lbGekozenItems.Items)
             {
 
                 if (lbGekozenItems.Items == null) break;
-                huuritem = administratie.HuidigEvent.GeefHuuritem(ob.ToString());
-                bezoeker.HuurMateriaal.Remove(huuritem);
+                // deze wordt niet meer gebruikt
+                huuritem = administratie.HuidigEvent.GeefHuuritem(s.ToString());
+                
+                bezoekerMateriaal.Remove(s);
+                // deze wordt niet meer gebruikt
                 huuritem.IsGehuurd = false;
+                administratie.DatabaseKoppeling.GeefHuuritemVrij(s);
             }
             Ververs();
             // this.Close();

@@ -384,6 +384,44 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+        public void ReserveerHuuritem(string huurItemNaam)
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE HUURITEM SET VERHUURD = 1 WHERE naam = '" + huurItemNaam + "'";
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void GeefHuuritemVrij(string huurItemNaam)
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE HUURITEM SET VERHUURD = 0 WHERE naam = '" + huurItemNaam + "'";
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public bool DeleteGebruiker(string gebnaam)
         {
             foreach(Persoon p in HaalPersonenOp("SME"))

@@ -141,7 +141,9 @@ namespace ICT4Events_S24_Groep_E
                         // Hoofdboeker wordt definitief gemaakt
                         // programma gaat door naar volgende bezoekers
                         administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
+                        // voeg nu persoon toe aan database
                         administratie.HuidigEvent.Reserveringen.Add(new Reservering(hoofdboeker, geselecteerdePlaatsen)); // nieuwe reservering wordt aan het evenement toegevoegd.
+                        // er wordt een nieuwe reservering aangemaakt en hier hoort ook een persoon bij.
                         InschrijfFormBezoeker inschrijfformBezoeker = new InschrijfFormBezoeker((int)cbMeerderePersonen.SelectedItem, hoofdboeker);
                         inschrijfformBezoeker.Show();
                         this.Dispose();

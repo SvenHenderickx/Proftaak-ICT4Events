@@ -82,6 +82,11 @@ namespace ICT4Events_S24_Groep_E
             get { return berichten; }
         }
 
+        public DatabaseKoppeling DatabaseKoppeling
+        {
+            get { return databaseKoppeling; }
+        }
+
         //Constructor
         public Event(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres)
         {
@@ -181,7 +186,7 @@ namespace ICT4Events_S24_Groep_E
         //Deze methode retourneert het gezochte huuritem als het bestaat
         public Huuritem GeefHuuritem(string itemNaam)
         {
-            foreach (Huuritem h in huurMateriaal)
+            foreach (Huuritem h in databaseKoppeling.HaalHuuritemsOp())
             {
                 if (h.Naam == itemNaam)
                 {

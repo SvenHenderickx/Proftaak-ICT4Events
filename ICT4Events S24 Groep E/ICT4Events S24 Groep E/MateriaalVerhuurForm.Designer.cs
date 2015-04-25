@@ -37,30 +37,26 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbVideoCamera = new System.Windows.Forms.ComboBox();
-            this.cbFotoCamera = new System.Windows.Forms.ComboBox();
-            this.btnVideoKies = new System.Windows.Forms.Button();
-            this.btnFotoKies = new System.Windows.Forms.Button();
+            this.cbHuurItems = new System.Windows.Forms.ComboBox();
+            this.btnHuurItemKies = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblBoekerBezoekerInfo
             // 
             this.lblBoekerBezoekerInfo.AutoSize = true;
-            this.lblBoekerBezoekerInfo.Location = new System.Drawing.Point(337, 219);
-            this.lblBoekerBezoekerInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBoekerBezoekerInfo.Location = new System.Drawing.Point(449, 270);
             this.lblBoekerBezoekerInfo.Name = "lblBoekerBezoekerInfo";
-            this.lblBoekerBezoekerInfo.Size = new System.Drawing.Size(35, 13);
+            this.lblBoekerBezoekerInfo.Size = new System.Drawing.Size(46, 17);
             this.lblBoekerBezoekerInfo.TabIndex = 13;
             this.lblBoekerBezoekerInfo.Text = "label4";
             // 
             // btnBevestig
             // 
-            this.btnBevestig.Location = new System.Drawing.Point(9, 198);
-            this.btnBevestig.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBevestig.Location = new System.Drawing.Point(12, 244);
+            this.btnBevestig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBevestig.Name = "btnBevestig";
-            this.btnBevestig.Size = new System.Drawing.Size(74, 36);
+            this.btnBevestig.Size = new System.Drawing.Size(99, 44);
             this.btnBevestig.TabIndex = 12;
             this.btnBevestig.Text = "Bevestigen";
             this.btnBevestig.UseVisualStyleBackColor = true;
@@ -68,10 +64,10 @@
             // 
             // btnAnnuleren
             // 
-            this.btnAnnuleren.Location = new System.Drawing.Point(620, 198);
-            this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnnuleren.Location = new System.Drawing.Point(827, 244);
+            this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnnuleren.Name = "btnAnnuleren";
-            this.btnAnnuleren.Size = new System.Drawing.Size(74, 36);
+            this.btnAnnuleren.Size = new System.Drawing.Size(99, 44);
             this.btnAnnuleren.TabIndex = 11;
             this.btnAnnuleren.Text = "Annuleren";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
@@ -79,10 +75,10 @@
             // 
             // btnVerwijder
             // 
-            this.btnVerwijder.Location = new System.Drawing.Point(620, 146);
-            this.btnVerwijder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVerwijder.Location = new System.Drawing.Point(827, 180);
+            this.btnVerwijder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVerwijder.Name = "btnVerwijder";
-            this.btnVerwijder.Size = new System.Drawing.Size(74, 36);
+            this.btnVerwijder.Size = new System.Drawing.Size(99, 44);
             this.btnVerwijder.TabIndex = 10;
             this.btnVerwijder.Text = "Verwijder";
             this.btnVerwijder.UseVisualStyleBackColor = true;
@@ -91,35 +87,32 @@
             // lbGekozenItems
             // 
             this.lbGekozenItems.FormattingEnabled = true;
-            this.lbGekozenItems.Location = new System.Drawing.Point(351, 36);
-            this.lbGekozenItems.Margin = new System.Windows.Forms.Padding(2);
+            this.lbGekozenItems.ItemHeight = 16;
+            this.lbGekozenItems.Location = new System.Drawing.Point(468, 44);
+            this.lbGekozenItems.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbGekozenItems.Name = "lbGekozenItems";
-            this.lbGekozenItems.Size = new System.Drawing.Size(258, 147);
+            this.lbGekozenItems.Size = new System.Drawing.Size(343, 180);
             this.lbGekozenItems.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(349, 20);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(465, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.Size = new System.Drawing.Size(102, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Gekozen Items";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cbVideoCamera);
-            this.groupBox1.Controls.Add(this.cbFotoCamera);
-            this.groupBox1.Controls.Add(this.btnVideoKies);
-            this.groupBox1.Controls.Add(this.btnFotoKies);
-            this.groupBox1.Location = new System.Drawing.Point(9, 19);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Controls.Add(this.cbHuurItems);
+            this.groupBox1.Controls.Add(this.btnHuurItemKies);
+            this.groupBox1.Location = new System.Drawing.Point(12, 23);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(298, 163);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(397, 201);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selecteer je huuritem";
@@ -127,70 +120,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 98);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(17, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Videocamera\'s";
+            this.label2.Text = "Huuritems";
             // 
-            // label1
+            // cbHuurItems
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Fotocamera\'s";
+            this.cbHuurItems.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbHuurItems.FormattingEnabled = true;
+            this.cbHuurItems.Location = new System.Drawing.Point(17, 96);
+            this.cbHuurItems.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbHuurItems.Name = "cbHuurItems";
+            this.cbHuurItems.Size = new System.Drawing.Size(133, 24);
+            this.cbHuurItems.TabIndex = 3;
             // 
-            // cbVideoCamera
+            // btnHuurItemKies
             // 
-            this.cbVideoCamera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVideoCamera.FormattingEnabled = true;
-            this.cbVideoCamera.Location = new System.Drawing.Point(16, 115);
-            this.cbVideoCamera.Margin = new System.Windows.Forms.Padding(2);
-            this.cbVideoCamera.Name = "cbVideoCamera";
-            this.cbVideoCamera.Size = new System.Drawing.Size(101, 21);
-            this.cbVideoCamera.TabIndex = 3;
-            // 
-            // cbFotoCamera
-            // 
-            this.cbFotoCamera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFotoCamera.FormattingEnabled = true;
-            this.cbFotoCamera.Location = new System.Drawing.Point(16, 50);
-            this.cbFotoCamera.Margin = new System.Windows.Forms.Padding(2);
-            this.cbFotoCamera.Name = "cbFotoCamera";
-            this.cbFotoCamera.Size = new System.Drawing.Size(101, 21);
-            this.cbFotoCamera.TabIndex = 2;
-            // 
-            // btnVideoKies
-            // 
-            this.btnVideoKies.Location = new System.Drawing.Point(196, 110);
-            this.btnVideoKies.Margin = new System.Windows.Forms.Padding(2);
-            this.btnVideoKies.Name = "btnVideoKies";
-            this.btnVideoKies.Size = new System.Drawing.Size(71, 27);
-            this.btnVideoKies.TabIndex = 1;
-            this.btnVideoKies.Text = "Kies";
-            this.btnVideoKies.UseVisualStyleBackColor = true;
-            this.btnVideoKies.Click += new System.EventHandler(this.btnVideoKies_Click);
-            // 
-            // btnFotoKies
-            // 
-            this.btnFotoKies.Location = new System.Drawing.Point(196, 46);
-            this.btnFotoKies.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFotoKies.Name = "btnFotoKies";
-            this.btnFotoKies.Size = new System.Drawing.Size(71, 27);
-            this.btnFotoKies.TabIndex = 0;
-            this.btnFotoKies.Text = "Kies";
-            this.btnFotoKies.UseVisualStyleBackColor = true;
-            this.btnFotoKies.Click += new System.EventHandler(this.btnFotoKies_Click);
+            this.btnHuurItemKies.Location = new System.Drawing.Point(257, 89);
+            this.btnHuurItemKies.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHuurItemKies.Name = "btnHuurItemKies";
+            this.btnHuurItemKies.Size = new System.Drawing.Size(95, 33);
+            this.btnHuurItemKies.TabIndex = 1;
+            this.btnHuurItemKies.Text = "Kies";
+            this.btnHuurItemKies.UseVisualStyleBackColor = true;
+            this.btnHuurItemKies.Click += new System.EventHandler(this.btnVideoKies_Click);
             // 
             // MateriaalVerhuurForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 255);
+            this.ClientSize = new System.Drawing.Size(977, 314);
             this.Controls.Add(this.lblBoekerBezoekerInfo);
             this.Controls.Add(this.btnBevestig);
             this.Controls.Add(this.btnAnnuleren);
@@ -199,7 +160,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MateriaalVerhuurForm";
             this.Text = "Materiaal Verhuur";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MateriaalVerhuurForm_FormClosing);
@@ -220,10 +181,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbVideoCamera;
-        private System.Windows.Forms.ComboBox cbFotoCamera;
-        private System.Windows.Forms.Button btnVideoKies;
-        private System.Windows.Forms.Button btnFotoKies;
+        private System.Windows.Forms.ComboBox cbHuurItems;
+        private System.Windows.Forms.Button btnHuurItemKies;
     }
 }
