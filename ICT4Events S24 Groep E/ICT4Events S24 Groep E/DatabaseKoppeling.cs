@@ -377,6 +377,34 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        public List<Like> AlleLikesVanBericht(string berichtId)
+        {
+            List<Like> tempList = new List<Like>();
+            try
+            {
+                conn.Open();
+                string query = "SELECT * FROM likes WHERE bericht_id = '" + berichtId + "'";
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    int id = Convert.ToInt32(dataReader["bericht_id"]);
+                    string persoonRfid = Convert.ToString(dataReader["persoon_rfid"]);
+                    tempList.Add(new Like(administratie.HuidigEvent.CheckGebruikersNaamRfid(persoonRfid), id));
+                }
+                return tempList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return null;
+        }
+
         public void BezetPlaats(string locatienummer)
         {
             try

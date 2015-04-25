@@ -95,7 +95,7 @@ namespace ICT4Events_S24_Groep_E
             //likes
             reacties = databaseKoppeling.AlleReactiesVanBericht(id.ToString());
             rapportages = new List<Rapportage>();
-            likes = new List<Like>();
+            likes = databaseKoppeling.AlleLikesVanBericht(id.ToString());
         }
 
         //Methodes

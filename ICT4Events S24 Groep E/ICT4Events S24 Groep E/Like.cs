@@ -10,6 +10,7 @@ namespace ICT4Events_S24_Groep_E
     {
         //Field
         private Persoon liker;
+        private int id;
 
         //Property
         public Persoon Liker
@@ -21,6 +22,12 @@ namespace ICT4Events_S24_Groep_E
         public Like(Persoon liker)
         {
             this.liker = liker;
+        }
+
+        public Like(Persoon liker, int id)
+        {
+            this.liker = liker;
+            this.id = id;
         }
     }
 }
