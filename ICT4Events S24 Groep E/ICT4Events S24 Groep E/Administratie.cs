@@ -217,5 +217,10 @@ namespace ICT4Events_S24_Groep_E
             }
             return rfidCode;
         }
+
+        public bool DeleteGebruiker(string naam)
+        {
+            return databaseKoppeling.DeleteGebruiker(naam);
+        }
     }
 }
