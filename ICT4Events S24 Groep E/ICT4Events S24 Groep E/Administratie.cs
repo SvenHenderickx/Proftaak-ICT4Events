@@ -14,7 +14,7 @@ namespace ICT4Events_S24_Groep_E
         private static Event huidigEvent = null;
         private static Bericht tempBericht = null;
         private static int countGemaakt = 0;
-        private static DatabaseKoppeling databaseKoppeling;
+        private static DatabaseKoppeling databaseKoppeling = new DatabaseKoppeling();
         protected static int lastRfidCode = 0;
 
         //Properties
@@ -55,7 +55,7 @@ namespace ICT4Events_S24_Groep_E
 
             }
             countGemaakt++;
-            databaseKoppeling = new DatabaseKoppeling();
+            //databaseKoppeling = new DatabaseKoppeling();
         }
 
         //Methodes
