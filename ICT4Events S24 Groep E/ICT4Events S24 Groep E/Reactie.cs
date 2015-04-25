@@ -10,6 +10,7 @@ namespace ICT4Events_S24_Groep_E
     {
         //Fields
         private static int reactienummer;
+        private int id;
         private Persoon plaatser;
         private string inhoud;
         private bool gerapporteerd;
@@ -48,6 +49,15 @@ namespace ICT4Events_S24_Groep_E
             datumGeplaatst = DateTime.Now;
             this.plaatser = plaatser;
             this.inhoud = inhoud;
+            this.id = -1;
+        }
+
+        public Reactie(Persoon plaatser, string inhoud, int id, DateTime datumGeplaatst)
+        {
+            this.plaatser = plaatser;
+            this.inhoud = inhoud;
+            this.id = id;
+            this.datumGeplaatst = datumGeplaatst;
         }
 
         //Methode

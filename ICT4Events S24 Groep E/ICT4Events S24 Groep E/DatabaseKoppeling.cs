@@ -346,6 +346,37 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
+        public List<Reactie> AlleReactiesVanBericht(string berichtId)
+        {
+            List<Reactie> tempList = new List<Reactie>();
+            try
+            {
+                conn.Open();
+                string query = "SELECT * FROM Reactie WHERE bericht_id = '" + berichtId + "'";
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    string persoonRfid = Convert.ToString(dataReader["persoon_rfid"]);
+                    int reactieId = Convert.ToInt32(dataReader["id"]);
+                    int berichtenId = Convert.ToInt32(dataReader["bericht_id"]);
+                    DateTime plaatsDatum = Convert.ToDateTime(dataReader["plaatsdatum"]);
+                    string tekst = Convert.ToString(dataReader["tekst"]);
+                    tempList.Add(new Reactie(administratie.HuidigEvent.CheckGebruikersNaamRfid(persoonRfid), tekst, berichtenId, plaatsDatum));
+                }
+                return tempList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return null;
+        }
+
         public void BezetPlaats(string locatienummer)
         {
             try

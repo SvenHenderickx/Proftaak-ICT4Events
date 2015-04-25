@@ -18,6 +18,7 @@ namespace ICT4Events_S24_Groep_E
         private DateTime datumGepost;
         private Bestand bestand;
         private BerichtSoort berichtSoort;
+        private static DatabaseKoppeling databaseKoppeling = new DatabaseKoppeling();
 
         //Properties
         public List<Like> Likes
@@ -92,7 +93,7 @@ namespace ICT4Events_S24_Groep_E
             //reacties
             //rapportages
             //likes
-            reacties = new List<Reactie>();
+            reacties = databaseKoppeling.AlleReactiesVanBericht(id.ToString());
             rapportages = new List<Rapportage>();
             likes = new List<Like>();
         }
