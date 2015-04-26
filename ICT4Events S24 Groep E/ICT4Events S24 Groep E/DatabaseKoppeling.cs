@@ -509,5 +509,68 @@ namespace ICT4Events_S24_Groep_E
             }           
             return false;
         }
+
+        public bool DeleteEvent(string eventNaam)
+        {
+            try
+            {
+                conn.Open();
+                string query = "DELETE FROM Event WHERE naam = " + eventNaam;
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+        public bool DeletePlaats(string locatienr)
+        {
+            try
+            {
+                conn.Open();
+                string query = "DELETE FROM plaats WHERE locatienummer = " + locatienr;
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public bool DeleteMateriaal(string materiaalNaam)
+        {
+            try
+            {
+                conn.Open();
+                string query = "DELETE FROM HuurItem WHERE naam = " + materiaalNaam;
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }

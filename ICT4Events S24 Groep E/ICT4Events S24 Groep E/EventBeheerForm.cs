@@ -130,8 +130,8 @@ namespace ICT4Events_S24_Groep_E
                 {
                     if (ev == administratie.GeefEvent(cbEventsEventbeheer.Text))
                     {
-                        
-                        administratie.Events.Remove(ev);
+                        if (!database.DeleteEvent(ev.Naam)) MessageBox.Show("Database opslag mislukt;");
+                        else administratie.Events.Remove(ev);
                         break;
                     }
                 }
@@ -251,7 +251,8 @@ namespace ICT4Events_S24_Groep_E
             {
                 if (p.PlaatsNummer.ToString() == cbPlaatsen.Text)
                 {
-                    administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen.Remove(p);
+                    if (!database.DeletePlaats(p.PlaatsNummer)) MessageBox.Show("DatabaseKoppeling ging fout.");
+                    else administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen.Remove(p);
                     break;
                 }
             }
@@ -267,7 +268,8 @@ namespace ICT4Events_S24_Groep_E
                 {
                     if (h.Naam == teverwijderen)
                     {
-                        administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Remove(h);
+                        if (!database.DeleteMateriaal(h.Naam)) MessageBox.Show("Database koppeling ging fout.");
+                        else administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Remove(h);
                         break;
                     }
                 }
