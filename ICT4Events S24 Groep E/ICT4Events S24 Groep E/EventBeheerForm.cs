@@ -24,6 +24,7 @@ namespace ICT4Events_S24_Groep_E
             InitializeComponent();
             timer = new System.Windows.Forms.Timer();
             administratie = new Administratie();
+            database = new DatabaseKoppeling();
             refreshCbEvents();
             cbEventsEventbeheer.SelectedIndex = 0;
             gbGebruikers.Enabled = true;
@@ -181,12 +182,12 @@ namespace ICT4Events_S24_Groep_E
                     cbDeelnemersEventbeheer.SelectedIndex = 0;
                 }
             }
-            foreach (Plaats p in administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen)
+            foreach (Plaats p in database.HaalPlaatsenOp(administratie.HuidigEvent.Naam))
             {
                 cbPlaatsen.Items.Add(p.PlaatsNummer);
                 cbPlaatsen.SelectedIndex = 0;
             }
-            foreach (Huuritem h in administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal)
+            foreach (Huuritem h in database.HaalHuuritemsOp(administratie.HuidigEvent.Naam))
             {
                 cbMateriaal.Items.Add(h.Naam +", "  + h.Type);
                 cbMateriaal.SelectedIndex = 0;
@@ -202,7 +203,7 @@ namespace ICT4Events_S24_Groep_E
 
                 }
             }
-            foreach (Huuritem h in administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal)
+            foreach (Huuritem h in database.HaalHuuritemsOp(administratie.HuidigEvent.Naam))
             {
                 string status;
                 if (h.IsGehuurd)
@@ -217,7 +218,7 @@ namespace ICT4Events_S24_Groep_E
                 string toevoegen = h.Naam + ", " + h.Type + ", " + status + "\n";
                 lbHuidigMateriaal.Items.Add(toevoegen);
             }
-            foreach (Plaats p in administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen)
+            foreach (Plaats p in database.HaalPlaatsenOp(administratie.HuidigEvent.Naam))
             {
                 if (p.Huurder != null)
                 {

@@ -194,7 +194,7 @@ namespace ICT4Events_S24_Groep_E
         {
             // nog kijken of een plaats al bezet is of niet.
             // alleen niet bezette plaatsen toevoegen!!!
-            foreach (Plaats p in dbKoppeling.HaalPlaatsenOp())
+            foreach (Plaats p in dbKoppeling.HaalPlaatsenOp(administratie.HuidigEvent.Naam))
             {
                 if (!p.Bezet)
                 {

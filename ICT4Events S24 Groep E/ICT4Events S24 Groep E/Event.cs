@@ -160,7 +160,7 @@ namespace ICT4Events_S24_Groep_E
         //Hier wordt een plaats opgevragen
         public Plaats GeefPlaats(string plaatsNummer)
         {
-            foreach (Plaats p in databaseKoppeling.HaalPlaatsenOp())
+            foreach (Plaats p in databaseKoppeling.HaalPlaatsenOp(naam))
             {
                 if (p.PlaatsNummer == plaatsNummer)
                 {
@@ -186,7 +186,7 @@ namespace ICT4Events_S24_Groep_E
         //Deze methode retourneert het gezochte huuritem als het bestaat
         public Huuritem GeefHuuritem(string itemNaam)
         {
-            foreach (Huuritem h in databaseKoppeling.HaalHuuritemsOp())
+            foreach (Huuritem h in databaseKoppeling.HaalHuuritemsOp(naam))
             {
                 if (h.Naam == itemNaam)
                 {

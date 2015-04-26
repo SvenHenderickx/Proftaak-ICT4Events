@@ -48,7 +48,7 @@ namespace ICT4Events_S24_Groep_E
 
         // Frank: Deze methode werkt er moet in de database alleen nog kijken hoe we dit met de hoofdboeker moeten doen. 
         // IK WERK HIER NOG AAN
-        public List<Plaats> HaalPlaatsenOp()
+        public List<Plaats> HaalPlaatsenOp(string eventNaam)
         {
             List<Plaats> plaatsen = new List<Plaats>();
             try
@@ -190,7 +190,7 @@ namespace ICT4Events_S24_Groep_E
         }
 
 
-        public List<Huuritem> HaalHuuritemsOp()
+        public List<Huuritem> HaalHuuritemsOp(string eventNaam)
         {
             List<Huuritem> tempHuuritem = new List<Huuritem>();
             try

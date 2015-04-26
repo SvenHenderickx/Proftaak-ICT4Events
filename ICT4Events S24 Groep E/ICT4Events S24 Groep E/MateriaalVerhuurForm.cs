@@ -127,7 +127,7 @@ namespace ICT4Events_S24_Groep_E
             cbHuurItems.Items.Clear();
             bool cbVCam = false;
 
-            foreach (Huuritem h in administratie.HuidigEvent.DatabaseKoppeling.HaalHuuritemsOp())
+            foreach (Huuritem h in administratie.HuidigEvent.DatabaseKoppeling.HaalHuuritemsOp(administratie.HuidigEvent.Naam))
             {
                 if (!h.IsGehuurd) // cycles verminderen als er een lange lijst is.
                 {
