@@ -19,6 +19,8 @@ namespace ICT4Events_S24_Groep_E
         private Hoofdboeker hoofdboeker;
         private DatabaseKoppeling dbKoppeling;
         private List<string> gekozenplaatsen;
+        // dit is de volgend mogelijke reservering;
+        private int reserveringID;
 
         public InschrijfForm()
         {
@@ -27,7 +29,8 @@ namespace ICT4Events_S24_Groep_E
             geselecteerdePlaatsen = new List<Plaats>();
             dbKoppeling = new DatabaseKoppeling();
             gekozenplaatsen = new List<string>();
-            VulComboBox();
+            reserveringID = dbKoppeling.GeefReserveringID();
+            VulComboBox();           
         }
 
         // Event Handlers
@@ -128,6 +131,12 @@ namespace ICT4Events_S24_Groep_E
                         // hoofdboeker wordt definitief gemaakt
                         // programma moet terugkeren naar het inlogform
                         administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
+
+                        if(dbKoppeling.MaakPersoon(hoofdboeker, administratie.HuidigEvent.Naam))
+                        {
+                            MessageBox.Show("Hoofdboeker in de database gezet");
+                        }
+
                         MessageBox.Show("Inschrijving afgerond.");
                         // als de beheerder op bevestigen drukt dan moet hij terug naar systeemkiezerform gaan.
                         // als dit een gewone persoon is dan hoeft er niets te gebeuren.

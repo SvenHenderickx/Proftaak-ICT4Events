@@ -158,11 +158,11 @@ namespace ICT4Events_S24_Groep_E
         }
 
         //Hier wordt een plaats opgevragen
-        public Plaats GeefPlaats(string plaatsNummer)
+        public Plaats GeefPlaats(string plaatsnummer)
         {
             foreach (Plaats p in databaseKoppeling.HaalPlaatsenOp(naam))
             {
-                if (p.PlaatsNummer == plaatsNummer)
+                if (p.PlaatsNummer == plaatsnummer)
                 {
                     return p;
                 }

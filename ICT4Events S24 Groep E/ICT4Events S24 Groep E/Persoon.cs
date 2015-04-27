@@ -41,6 +41,11 @@ namespace ICT4Events_S24_Groep_E
             get { return geboorteDatum; }
         }
 
+        public string Wachtwoord
+        {
+            get { return wachtwoord; }
+        }
+
         //Constructors
         public Persoon(string gebruikersnaam, string wachtwoord, DateTime geboorteDatum, string naam, string achternaam)
         {

@@ -531,6 +531,7 @@ namespace ICT4Events_S24_Groep_E
             }
 
         }
+
         public bool DeletePlaats(string locatienr)
         {
             try
@@ -551,6 +552,7 @@ namespace ICT4Events_S24_Groep_E
                 conn.Close();
             }
         }
+
         public bool DeleteMateriaal(string materiaalNaam)
         {
             try
@@ -571,6 +573,83 @@ namespace ICT4Events_S24_Groep_E
                 conn.Close();
             }
         }
+
+        public int GeefReserveringID()
+        {
+            int reserveringid = 0;
+            try
+            {
+                conn.Open();
+                string query = "SELECT MAX(ID) + 1 FROM RESERVERING";
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    reserveringid = Convert.ToInt32(dataReader[0]);
+                }
+                return reserveringid;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
+        }
+
+        public int GeefEventID(string eventNaam)
+        {
+            int EventID = 0;
+            try
+            {
+                if(conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                string query = "SELECT ID FROM EVENT WHERE naam = '" + eventNaam + "'";
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while(dataReader.Read())
+                {
+                    EventID = Convert.ToInt32(dataReader[0]);
+                }
+                return EventID;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                // Frank: connectie hoeft alleen gesloten te worden als hij niet via een andere methode is aangeroepen.
+            }
+            return 0;
+        }
+
+        public bool MaakPersoon(Persoon p, string eventNaam)
+        {
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO PERSOON(RFID, Event_ID, Naam, Achternaam, Gebruikersnaam, Wachtwoord, Geboortedatum) VALUES('" + p.RfidCode + "'," + GeefEventID(eventNaam) + " , '" + p.Naam + "', '" + p.Achternaam + "', '" + p.Gebruikersnaam + "', '" + p.Wachtwoord + "', TO_DATE('" + p.GeboorteDatum.Day + "/" + p.GeboorteDatum.Month + "/" + p.GeboorteDatum.Year + "', 'dd/mm/yyyy'))";
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+        }
+
 
     }
 }
