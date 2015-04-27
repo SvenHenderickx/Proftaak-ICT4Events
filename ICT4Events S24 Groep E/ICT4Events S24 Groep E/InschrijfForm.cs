@@ -136,12 +136,10 @@ namespace ICT4Events_S24_Groep_E
                         // hoofdboeker wordt definitief gemaakt
                         // programma moet terugkeren naar het inlogform
                         administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
-                        
-                        // hier wordt alles naar de database geschreven.
-                        
-                        
-
-                        MessageBox.Show("Inschrijving afgerond.");
+                        int huuritemprijs = dbKoppeling.HuuritemPrijsReservering(reserveringID);
+                        int plaatsprijs = dbKoppeling.PlaatsPrijsReservering(reserveringID);
+                        int totaleprijs = huuritemprijs + plaatsprijs;
+                        MessageBox.Show("Inschrijving afgerond.\nDe totale prijs bedraagt €" + totaleprijs);
                         // als de beheerder op bevestigen drukt dan moet hij terug naar systeemkiezerform gaan.
                         // als dit een gewone persoon is dan hoeft er niets te gebeuren.
                         this.Dispose(); 

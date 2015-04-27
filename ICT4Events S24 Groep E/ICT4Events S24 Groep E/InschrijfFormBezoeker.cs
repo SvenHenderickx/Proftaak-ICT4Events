@@ -69,7 +69,7 @@ namespace ICT4Events_S24_Groep_E
                     // hier wordt de gebruiker definitief gemaakt.
                     if (dbKoppeling.MaakPersoon(bezoeker, administratie.HuidigEvent.Naam) && dbKoppeling.MaakBezoeker(bezoeker, reserveringID))
                     {
-                        MessageBox.Show("Alle Bezoekers Toegevoegd");
+                        MessageBox.Show("Alle Bezoekers Toegevoegd \nDe totale prijs bedraagt €" + dbKoppeling.HuuritemPrijsReservering(reserveringID) + dbKoppeling.PlaatsPrijsReservering(reserveringID));
                     }
                     // hierna automatisch door naar het inlogform als er
                     if (administratie.NuIngelogd is Beheerder)

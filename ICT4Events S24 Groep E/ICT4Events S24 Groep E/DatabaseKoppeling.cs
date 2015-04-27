@@ -777,6 +777,60 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
+        public int HuuritemPrijsReservering(int reservering_ID)
+        {
+            int huurItemPrijs = 0;
+            try
+            {
+                conn.Open();
+                string query = "SELECT SUM(h.prijs) AS HUURITEMPRIJS FROM RESERVERING r LEFT JOIN HUURITEM h ON r.ID = h.Reservering_ID WHERE r.ID =" + reservering_ID;
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    huurItemPrijs = Convert.ToInt32(dataReader[0]);
+                }
+                return huurItemPrijs;
+            }
+            catch
+            {
+                // hier geen messagebox weergeven want het zou kunnen dat de prijs niet 
+                // kan worden geconverteerd naar een int omdat er een nullwaarde wordt gelezen
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
+        }
+
+        public int PlaatsPrijsReservering(int reservering_ID)
+        {
+            int plaatsprijs = 0;
+            try
+            {
+                conn.Open();
+                string query = "SELECT SUM(p.prijs) AS PLAATSPRIJS FROM RESERVERING r LEFT JOIN PLAATS p ON r.ID = p.RESERVERING_ID WHERE r.ID =" + reservering_ID;
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    plaatsprijs = Convert.ToInt32(dataReader[0]);
+                }
+                return plaatsprijs;
+            }
+            catch 
+            {
+                // hier geen messagebox weergeven want het zou kunnen dat de prijs niet 
+                // kan worden geconverteerd naar een int omdat er een nullwaarde wordt gelezen
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
+        }
+
         private string BerekenVolgendeRFID(int hoogsteRFID) // hier kan een getal als 1000 inkomen dit moet 00001001 worden.
         {
             hoogsteRFID++;
