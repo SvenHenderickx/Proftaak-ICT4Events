@@ -17,9 +17,10 @@ namespace ICT4Events_S24_Groep_E
         private Hoofdboeker hoofdboeker;
         private Bezoeker bezoeker;
         private List<string> bezoekerMateriaal;
+        private int reserveringID;
 
         
-        public MateriaalVerhuurForm(Bezoeker bezoeker)
+        public MateriaalVerhuurForm(Bezoeker bezoeker, int reserveringID)
         {
             InitializeComponent();
             administratie = new Administratie();
@@ -27,10 +28,11 @@ namespace ICT4Events_S24_Groep_E
             this.bezoeker = bezoeker;
             lblBoekerBezoekerInfo.Text = bezoeker.ToString();
             bezoekerMateriaal = new List<String>();
+            this.reserveringID = reserveringID;
             Ververs(); // Geef alvast alle items die een bezoeker gehuurd zou kunnen hebben.
         }
        
-        public MateriaalVerhuurForm(Hoofdboeker hoofdboeker)
+        public MateriaalVerhuurForm(Hoofdboeker hoofdboeker, int reserveringID)
         {
             InitializeComponent();
             administratie = new Administratie();
@@ -39,6 +41,7 @@ namespace ICT4Events_S24_Groep_E
             lblBoekerBezoekerInfo.Text = hoofdboeker.ToString();
             bezoekerMateriaal = new List<String>();
             bezoeker = (Bezoeker)hoofdboeker;
+            this.reserveringID = reserveringID;
             Ververs();
         }
 
@@ -83,7 +86,9 @@ namespace ICT4Events_S24_Groep_E
             // bezoeker in de database
             // wij wijzen hem niet toe aan een bezoeker maar aan een reservering. 
             // dus het huuritem is eigenlijk voor de hele groep..
-            
+
+            administratie.HuidigEvent.ItemAanReservering(reserveringID, bezoekerMateriaal);
+
             this.Dispose();
         }
 

@@ -346,5 +346,13 @@ namespace ICT4Events_S24_Groep_E
                 databaseKoppeling.WijsPlaatsAanReservering(reserveringID, s);
             }
         }
+
+        public void ItemAanReservering(int reserveringID, List<string> gekozenItems)
+        {
+            foreach(string s in gekozenItems)
+            {
+                databaseKoppeling.WijsItemAanReservering(reserveringID, s);
+            }
+        }
     }
 }

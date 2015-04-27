@@ -58,9 +58,14 @@ namespace ICT4Events_S24_Groep_E
                         // als dat zo is dan kan de hoofdboeker niet gemaakt worden.
                         if (administratie.HuidigEvent.CheckPersoon(hoofdboeker))
                         {
+                            if (dbKoppeling.MaakPersoon(hoofdboeker, administratie.HuidigEvent.Naam) && dbKoppeling.MaakHoofdboeker(hoofdboeker) && dbKoppeling.MaakReservering(reserveringID, hoofdboeker.RfidCode) && dbKoppeling.MaakBezoeker(hoofdboeker, reserveringID))
+                            {
+                                // plaatsen moeten ook nog aan de persoon worden gebonden.
+                                administratie.HuidigEvent.PlaatsVoorReservering(reserveringID, gekozenplaatsen);
+                                MessageBox.Show("Hoofdboeker in de database gezet");
+                            }
                             gbGegevens.Enabled = false;
                             gbPlaatsen.Enabled = false;
-                            MessageBox.Show("Hoofdboeker is aangemaakt.");
                         }
                         else
                         {
@@ -133,12 +138,7 @@ namespace ICT4Events_S24_Groep_E
                         administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
                         
                         // hier wordt alles naar de database geschreven.
-                        if (dbKoppeling.MaakPersoon(hoofdboeker, administratie.HuidigEvent.Naam) && dbKoppeling.MaakHoofdboeker(hoofdboeker) && dbKoppeling.MaakReservering(reserveringID, hoofdboeker.RfidCode) && dbKoppeling.MaakBezoeker(hoofdboeker, reserveringID))
-                        {
-                            // plaatsen moeten ook nog aan de persoon worden gebonden.
-                            administratie.HuidigEvent.PlaatsVoorReservering(reserveringID, gekozenplaatsen);
-                            MessageBox.Show("Hoofdboeker in de database gezet");
-                        }
+                        
                         
 
                         MessageBox.Show("Inschrijving afgerond.");
@@ -160,7 +160,7 @@ namespace ICT4Events_S24_Groep_E
                         // voeg nu persoon toe aan database
                         administratie.HuidigEvent.Reserveringen.Add(new Reservering(hoofdboeker, geselecteerdePlaatsen)); // nieuwe reservering wordt aan het evenement toegevoegd.
                         // er wordt een nieuwe reservering aangemaakt en hier hoort ook een persoon bij.
-                        InschrijfFormBezoeker inschrijfformBezoeker = new InschrijfFormBezoeker((int)cbMeerderePersonen.SelectedItem, hoofdboeker);
+                        InschrijfFormBezoeker inschrijfformBezoeker = new InschrijfFormBezoeker((int)cbMeerderePersonen.SelectedItem, hoofdboeker, reserveringID);
                         inschrijfformBezoeker.Show();
                         this.Dispose();
                     }
@@ -176,7 +176,7 @@ namespace ICT4Events_S24_Groep_E
         {
             if (hoofdboeker != null)
             {
-                MateriaalVerhuurForm MVF = new MateriaalVerhuurForm(hoofdboeker);
+                MateriaalVerhuurForm MVF = new MateriaalVerhuurForm(hoofdboeker,reserveringID);
                 MVF.Show();
             }
             else
@@ -288,6 +288,8 @@ namespace ICT4Events_S24_Groep_E
             gbGegevens.Enabled = true;
             gbPlaatsen.Enabled = true;
 
+            // alles uit de database ook weer resetten wat met de hoofdboeker te maken had
+
             // koppel aan een nieuw reservering id
             this.reserveringID = dbKoppeling.GeefReserveringID();
         }
@@ -300,8 +302,7 @@ namespace ICT4Events_S24_Groep_E
             {
                 var SysteemKiezer = new SysteemKiezerForm();
                 SysteemKiezer.Show();
-            }
-            
+            }           
         }
 
         private void BijFormClosen()

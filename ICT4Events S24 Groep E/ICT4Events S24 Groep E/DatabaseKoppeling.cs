@@ -697,12 +697,12 @@ namespace ICT4Events_S24_Groep_E
             return false;
         }
 
-        public bool MaakBezoeker(Hoofdboeker h, int reservering_ID)
+        public bool MaakBezoeker(Bezoeker b, int reservering_ID)
         {
             try
             {
                 conn.Open();
-                string query = "INSERT INTO BEZOEKER(RFID, Reservering_ID, Aanwezig) VALUES('" + h.RfidCode + "', " + reservering_ID + ", " + 0 + ")";
+                string query = "INSERT INTO BEZOEKER(RFID, Reservering_ID, Aanwezig) VALUES('" + b.RfidCode + "', " + reservering_ID + ", " + 0 + ")";
                 command = new OracleCommand(query, conn);
                 command.ExecuteNonQuery();
                 return true;
@@ -745,6 +745,25 @@ namespace ICT4Events_S24_Groep_E
             {
                 conn.Open();
                 string query = "UPDATE PLAATS SET RESERVERING_ID = " + reserveringID + "WHERE LOCATIENUMMER = '" + locatieNummer + "'";
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void WijsItemAanReservering(int reserveringID, string itemNaam)
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE HUURITEM SET RESERVERING_ID = " + reserveringID + "WHERE NAAM = '" + itemNaam + "'";
                 command = new OracleCommand(query, conn);
                 command.ExecuteNonQuery();
             }

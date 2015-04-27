@@ -17,8 +17,10 @@ namespace ICT4Events_S24_Groep_E
         private Hoofdboeker hoofdBoeker; // de hoofdboeker van de bezoeker nodig voor constructor nieuwe bezoeker.
         private Bezoeker bezoeker;
         private Administratie administratie;
+        private int reserveringID;
+        private DatabaseKoppeling dbKoppeling;
 
-        public InschrijfFormBezoeker(int resterendeBezoekers, Hoofdboeker hoofdboeker)
+        public InschrijfFormBezoeker(int resterendeBezoekers, Hoofdboeker hoofdboeker, int reserveringID)
         {
             InitializeComponent();
             this.resterendeBezoekers = resterendeBezoekers;
@@ -30,6 +32,8 @@ namespace ICT4Events_S24_Groep_E
             {
                 btnVolgende.Text = "Bevestig Inschrijving";
             }
+            this.reserveringID = reserveringID;
+            dbKoppeling = new DatabaseKoppeling();
         }
 
         //Event Handlers
@@ -37,7 +41,7 @@ namespace ICT4Events_S24_Groep_E
         {
             if (bezoeker != null)
             {
-                MateriaalVerhuurForm MVF = new MateriaalVerhuurForm(bezoeker);
+                MateriaalVerhuurForm MVF = new MateriaalVerhuurForm(bezoeker, reserveringID);
                 MVF.Show();
             }
             else
@@ -51,16 +55,22 @@ namespace ICT4Events_S24_Groep_E
             if (bezoeker != null)
             {
                 if (resterendeBezoekers >= 2)
-                {
-                    administratie.HuidigEvent.VoegPersoonToe(bezoeker);
-                    InschrijfFormBezoeker ISFB1 = new InschrijfFormBezoeker(resterendeBezoekers - 1, hoofdBoeker);
+                {                 
+                    if(dbKoppeling.MaakPersoon(bezoeker, administratie.HuidigEvent.Naam) && dbKoppeling.MaakBezoeker(bezoeker, reserveringID))
+                    {
+                        MessageBox.Show("Bezoeker is aangemaakt.");
+                    }
+                    
+                    InschrijfFormBezoeker ISFB1 = new InschrijfFormBezoeker(resterendeBezoekers - 1, hoofdBoeker, reserveringID);
                     ISFB1.Show();
                 }
                 else
                 {
                     // hier wordt de gebruiker definitief gemaakt.
-                    administratie.HuidigEvent.VoegPersoonToe(bezoeker);
-                    MessageBox.Show("Alle Bezoekers Toegevoegd");
+                    if (dbKoppeling.MaakPersoon(bezoeker, administratie.HuidigEvent.Naam) && dbKoppeling.MaakBezoeker(bezoeker, reserveringID))
+                    {
+                        MessageBox.Show("Alle Bezoekers Toegevoegd");
+                    }
                     // hierna automatisch door naar het inlogform als er
                     if (administratie.NuIngelogd is Beheerder)
                     {
@@ -86,7 +96,7 @@ namespace ICT4Events_S24_Groep_E
                 }
                 else
                 {
-                    bezoeker = new Bezoeker(tbGebruikersNaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, hoofdBoeker, tbNaam.Text, tbAchternaam.Text,administratie.RfidGenerator(), false);
+                    bezoeker = new Bezoeker(tbGebruikersNaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, hoofdBoeker, tbNaam.Text, tbAchternaam.Text, dbKoppeling.GeefVolgendeRFID() , false);
                     if (administratie.HuidigEvent.CheckPersoon(bezoeker))
                     {
                         gbGegevens.Enabled = false;
