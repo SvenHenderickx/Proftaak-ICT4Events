@@ -51,7 +51,7 @@ namespace ICT4Events_S24_Groep_E
                     }
                     else
                     {
-                        hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbNaam.Text, tbAchternaam.Text, administratie.RfidGenerator(), false);
+                        hoofdboeker = new Hoofdboeker(tbGebruikersnaam.Text, tbWachtwoord.Text, dtpGebDatum.Value, tbRekNr.Text, tbStad.Text + tbPostcode.Text, tbNaam.Text, tbAchternaam.Text, dbKoppeling.GeefVolgendeRFID(), false);
                         // deze hoofdboeker moet ook een reserverings_id mee krijgen. daarna wordt er per plaats het reserverings id toegekent. 
 
                         // hier wordt alleen gecheckt of de gebruikersnaam al bestaat of niet
@@ -131,11 +131,15 @@ namespace ICT4Events_S24_Groep_E
                         // hoofdboeker wordt definitief gemaakt
                         // programma moet terugkeren naar het inlogform
                         administratie.HuidigEvent.VoegPersoonToe(hoofdboeker);
-
-                        if(dbKoppeling.MaakPersoon(hoofdboeker, administratie.HuidigEvent.Naam))
+                        
+                        // hier wordt alles naar de database geschreven.
+                        if (dbKoppeling.MaakPersoon(hoofdboeker, administratie.HuidigEvent.Naam) && dbKoppeling.MaakHoofdboeker(hoofdboeker) && dbKoppeling.MaakReservering(reserveringID, hoofdboeker.RfidCode) && dbKoppeling.MaakBezoeker(hoofdboeker, reserveringID))
                         {
+                            // plaatsen moeten ook nog aan de persoon worden gebonden.
+                            administratie.HuidigEvent.PlaatsVoorReservering(reserveringID, gekozenplaatsen);
                             MessageBox.Show("Hoofdboeker in de database gezet");
                         }
+                        
 
                         MessageBox.Show("Inschrijving afgerond.");
                         // als de beheerder op bevestigen drukt dan moet hij terug naar systeemkiezerform gaan.
@@ -283,10 +287,9 @@ namespace ICT4Events_S24_Groep_E
             }     
             gbGegevens.Enabled = true;
             gbPlaatsen.Enabled = true;
-            //maak dit voor meer dan alleen sme !!!
 
-
-            // hij staat alleen hierbij om te testen!!!
+            // koppel aan een nieuw reservering id
+            this.reserveringID = dbKoppeling.GeefReserveringID();
         }
 
         private void InschrijfForm_FormClosing(object sender, FormClosingEventArgs e)

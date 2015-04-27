@@ -56,7 +56,7 @@ namespace ICT4Events_S24_Groep_E
                 conn.Open();
                 // query van alle plaatsen met de eventueel bijbehorende
                 // hoofdboekers
-                string query = "SELECT * FROM PLAATS pl LEFT JOIN RESERVERING r ON pl.Reservering_ID = r.ID";
+                string query = "SELECT * FROM PLAATS pl LEFT JOIN RESERVERING r ON pl.Reservering_ID = r.ID WHERE Event_ID IN (SELECT Event_ID FROM EVENT WHERE naam = '" + eventNaam + "')";
                 command = new OracleCommand(query, conn);
                 OracleDataReader dataReader = command.ExecuteReader();
                 // dataReader gaat record voor record omlaag totdat 
@@ -137,7 +137,7 @@ namespace ICT4Events_S24_Groep_E
                     {
                         aanwezig = true;
                     }
-                    personen.Add(new Hoofdboeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Reknr"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig, Convert.ToString(dataReader["rfid"])));
+                    personen.Add(new Hoofdboeker(Convert.ToString(dataReader["Gebruikersnaam"]), Convert.ToString(dataReader["Wachtwoord"]), Convert.ToDateTime(dataReader["Geboortedatum"]), Convert.ToString(dataReader["Reknr"]), Convert.ToString(dataReader["Adres"]), Convert.ToString(dataReader["Naam"]), Convert.ToString(dataReader["Achternaam"]), aanwezig, Convert.ToString(dataReader["rfid"])));
                 }
 
                 //geef alle controleurs van het SME event
@@ -629,6 +629,32 @@ namespace ICT4Events_S24_Groep_E
             return 0;
         }
 
+        public string GeefVolgendeRFID()
+        {
+            int hoogsteRFID = 0;
+            try
+            {
+                conn.Open();
+                string query = "SELECT MAX(RFID) FROM PERSOON";  
+                command = new OracleCommand(query, conn);
+                OracleDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    hoogsteRFID = Convert.ToInt32(dataReader[0]); 
+                }
+                return BerekenVolgendeRFID(hoogsteRFID);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return "";
+        }
+
         public bool MaakPersoon(Persoon p, string eventNaam)
         {
             try
@@ -650,6 +676,99 @@ namespace ICT4Events_S24_Groep_E
             return false;
         }
 
+        public bool MaakHoofdboeker(Hoofdboeker h)
+        {
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO HOOFDBOEKER(RFID, Adres, Reknr) VALUES('" + h.RfidCode + "', '" + h.Adres + "', '" + h.RekeningNummer + "')";
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+        }
+
+        public bool MaakBezoeker(Hoofdboeker h, int reservering_ID)
+        {
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO BEZOEKER(RFID, Reservering_ID, Aanwezig) VALUES('" + h.RfidCode + "', " + reservering_ID + ", " + 0 + ")";
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+        }
+
+        public bool MaakReservering(int reservering_ID, string hoofdboeker_RFID)
+        {
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO RESERVERING(ID, Hoofdboeker_RFID) VALUES(" + reservering_ID + ", '" + hoofdboeker_RFID +"')";
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+        }
+
+        public void WijsPlaatsAanReservering(int reserveringID, string locatieNummer)
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE PLAATS SET RESERVERING_ID = " + reserveringID + "WHERE LOCATIENUMMER = '" + locatieNummer + "'";
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private string BerekenVolgendeRFID(int hoogsteRFID) // hier kan een getal als 1000 inkomen dit moet 00001001 worden.
+        {
+            hoogsteRFID++;
+            string rfidCode = "";
+            rfidCode = hoogsteRFID.ToString();
+            while (rfidCode.Length < 8)
+            {
+                rfidCode = "0" + rfidCode;
+            }
+            return rfidCode;
+        }
 
     }
 }

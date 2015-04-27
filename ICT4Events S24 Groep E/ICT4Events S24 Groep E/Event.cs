@@ -232,6 +232,7 @@ namespace ICT4Events_S24_Groep_E
         public bool CheckPersoon(Persoon persoon)
         {
             // Frank: de list van personen in event bestaat niet meer dus deze moet uit de databasekoppeling
+            
             foreach (Persoon p in databaseKoppeling.HaalPersonenOp("SME"))
             {
                 if (p.Gebruikersnaam == persoon.Gebruikersnaam)
@@ -336,6 +337,14 @@ namespace ICT4Events_S24_Groep_E
                 return tempList;
             }
             return null;
+        }
+
+        public void PlaatsVoorReservering(int reserveringID, List<string> geselecteerdePlaatsen)
+        {
+            foreach(string s in geselecteerdePlaatsen)
+            {
+                databaseKoppeling.WijsPlaatsAanReservering(reserveringID, s);
+            }
         }
     }
 }
