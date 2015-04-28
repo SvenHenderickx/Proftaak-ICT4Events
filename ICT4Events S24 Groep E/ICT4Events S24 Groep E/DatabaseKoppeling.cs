@@ -274,8 +274,9 @@ namespace ICT4Events_S24_Groep_E
                         try
                         {
                             conn.Open();
-                            string query = "UPDATE BEZOEKER SET AANWEZIG = 0 WHERE RFID = " + rfid;
+                            string query = "UPDATE BEZOEKER SET AANWEZIG = 0 WHERE RFID = :rfid";
                             command = new OracleCommand(query, conn);
+                            command.Parameters.Add(new OracleParameter("rfid", rfid));
                             command.ExecuteNonQuery();
                             return true;
                         }
@@ -294,8 +295,9 @@ namespace ICT4Events_S24_Groep_E
                         try
                         {
                             conn.Open();
-                            string query = "UPDATE BEZOEKER SET AANWEZIG = 1 WHERE RFID = " + rfid ;
+                            string query = "UPDATE BEZOEKER SET AANWEZIG = 1 WHERE RFID = :rfid";
                             command = new OracleCommand(query, conn);
+                            command.Parameters.Add(new OracleParameter("rfid", rfid));
                             command.ExecuteNonQuery();
                             return true;
                         }
@@ -321,8 +323,9 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM bericht WHERE event_id = (SELECT id FROM event WHERE naam = '" + eventNaam + "')";
+                string query = "SELECT * FROM bericht WHERE event_id = (SELECT id FROM event WHERE naam = :eventNaam)";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("eventnaam", eventNaam));
                 OracleDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -352,8 +355,9 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM Reactie WHERE bericht_id = '" + berichtId + "'";
+                string query = "SELECT * FROM Reactie WHERE bericht_id = :berichtId";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("berichtId", berichtId));
                 OracleDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -383,8 +387,9 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM likes WHERE bericht_id = '" + berichtId + "'";
+                string query = "SELECT * FROM likes WHERE bericht_id = :berichtId";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("berichtId", berichtId));
                 OracleDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -405,13 +410,14 @@ namespace ICT4Events_S24_Groep_E
             return null;
         }
 
-        public void BezetPlaats(string locatienummer)
+        public void BezetPlaats(string locatieNummer)
         {
             try
             {
                 conn.Open();
-                string query = "UPDATE PLAATS SET VERHUURD = 1 WHERE LOCATIENUMMER =" + locatienummer;
+                string query = "UPDATE PLAATS SET VERHUURD = 1 WHERE LOCATIENUMMER = :locatienummer";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("locatienummer", locatieNummer));
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -424,13 +430,14 @@ namespace ICT4Events_S24_Groep_E
             }
         }
 
-        public void OnBezetPlaats(string locatienummer)
+        public void OnBezetPlaats(string locatieNummer)
         {
             try
             {
                 conn.Open();
-                string query = "UPDATE PLAATS SET VERHUURD = 0 WHERE LOCATIENUMMER =" + locatienummer;
+                string query = "UPDATE PLAATS SET VERHUURD = 0 WHERE LOCATIENUMMER = :locatieNummer";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("locatienummer", locatieNummer));
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -448,8 +455,9 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "UPDATE HUURITEM SET VERHUURD = 1 WHERE naam = '" + huurItemNaam + "'";
+                string query = "UPDATE HUURITEM SET VERHUURD = 1 WHERE naam = :huurItemNaam";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("huurItemNaam", huurItemNaam));
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -467,8 +475,9 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "UPDATE HUURITEM SET VERHUURD = 0 WHERE naam = '" + huurItemNaam + "'";
+                string query = "UPDATE HUURITEM SET VERHUURD = 0 WHERE naam = :huurItemNaam";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("huurItemNaam", huurItemNaam));
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -491,8 +500,9 @@ namespace ICT4Events_S24_Groep_E
                     try
                     {
                         conn.Open();
-                        string query = "DELETE FROM persoon WHERE gebruikernaam = " + gebnaam;
+                        string query = "DELETE FROM persoon WHERE gebruikernaam = :gebnaam";
                         command = new OracleCommand(query, conn);
+                        command.Parameters.Add(new OracleParameter("gebnaam", gebnaam));
                         command.ExecuteNonQuery();
                         return true;
                     }
@@ -515,8 +525,9 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "DELETE FROM Event WHERE naam = " + eventNaam;
+                string query = "DELETE FROM Event WHERE naam = :eventNaam";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("eventNaam", eventNaam));
                 command.ExecuteNonQuery();
                 return true;
             }
@@ -537,8 +548,9 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "DELETE FROM plaats WHERE locatienummer = " + locatienr;
+                string query = "DELETE FROM plaats WHERE locatienummer = :locatienr";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("locatienr", locatienr));
                 command.ExecuteNonQuery();
                 return true;
             }
@@ -558,7 +570,8 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "DELETE FROM HuurItem WHERE naam = " + materiaalNaam;
+                string query = "DELETE FROM HuurItem WHERE naam = :materiaalNaam";
+                command.Parameters.Add(new OracleParameter("materiaalNaam", materiaalNaam));
                 command = new OracleCommand(query, conn);
                 command.ExecuteNonQuery();
                 return true;
@@ -609,8 +622,9 @@ namespace ICT4Events_S24_Groep_E
                 {
                     conn.Open();
                 }
-                string query = "SELECT ID FROM EVENT WHERE naam = '" + eventNaam + "'";
+                string query = "SELECT ID FROM EVENT WHERE naam = :eventNaam";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("eventNaam", eventNaam));
                 OracleDataReader dataReader = command.ExecuteReader();
                 while(dataReader.Read())
                 {
@@ -660,8 +674,14 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "INSERT INTO PERSOON(RFID, Event_ID, Naam, Achternaam, Gebruikersnaam, Wachtwoord, Geboortedatum) VALUES('" + p.RfidCode + "'," + GeefEventID(eventNaam) + " , '" + p.Naam + "', '" + p.Achternaam + "', '" + p.Gebruikersnaam + "', '" + p.Wachtwoord + "', TO_DATE('" + p.GeboorteDatum.Day + "/" + p.GeboorteDatum.Month + "/" + p.GeboorteDatum.Year + "', 'dd/mm/yyyy'))";
+                string query = "INSERT INTO PERSOON(RFID, Event_ID, Naam, Achternaam, Gebruikersnaam, Wachtwoord, Geboortedatum) VALUES(:rfidcode, :eventnaam , :voornaam, :achternaam, :gebruikersnaam, :wachtwoord, TO_DATE('" + p.GeboorteDatum.Day + "/" + p.GeboorteDatum.Month + "/" + p.GeboorteDatum.Year + "', 'dd/mm/yyyy'))";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("rfidcode", "'" + p.RfidCode + "'"));
+                command.Parameters.Add(new OracleParameter("eventnaam", "'" + GeefEventID(eventNaam) + "'"));
+                command.Parameters.Add(new OracleParameter("voornaam", "'" + p.Naam + "'"));
+                command.Parameters.Add(new OracleParameter("achternaam", "'" + p.Achternaam + "'"));
+                command.Parameters.Add(new OracleParameter("gebruikersnaam", "'" + p.Gebruikersnaam + "'"));
+                command.Parameters.Add(new OracleParameter("wachtwoord", "'" + p.Wachtwoord + "'"));
                 command.ExecuteNonQuery();
                 return true;
             }
@@ -681,8 +701,11 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "INSERT INTO HOOFDBOEKER(RFID, Adres, Reknr) VALUES('" + h.RfidCode + "', '" + h.Adres + "', '" + h.RekeningNummer + "')";
+                string query = "INSERT INTO HOOFDBOEKER(RFID, Adres, Reknr) VALUES(:RfidCode, :Adres, :RekeningNummer)";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("RfidCode", "'" + h.RfidCode + "'"));
+                command.Parameters.Add(new OracleParameter("Adres", "'" + h.Adres + "'"));
+                command.Parameters.Add(new OracleParameter("RekeningNummer", "'" + h.RekeningNummer + "'"));
                 command.ExecuteNonQuery();
                 return true;
             }
@@ -702,8 +725,10 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "INSERT INTO BEZOEKER(RFID, Reservering_ID, Aanwezig) VALUES('" + b.RfidCode + "', " + reservering_ID + ", " + 0 + ")";
+                string query = "INSERT INTO BEZOEKER(RFID, Reservering_ID, Aanwezig) VALUES(:rfidcode, :reserveringID , " + 0 + ")";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("rfidcode", "'" + b.RfidCode + "'"));
+                command.Parameters.Add(new OracleParameter("reserveringID", reservering_ID));
                 command.ExecuteNonQuery();
                 return true;
             }
@@ -723,8 +748,10 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "INSERT INTO RESERVERING(ID, Hoofdboeker_RFID) VALUES(" + reservering_ID + ", '" + hoofdboeker_RFID +"')";
+                string query = "INSERT INTO RESERVERING(ID, Hoofdboeker_RFID) VALUES(:reserveringID, :hoofdboekerRFID)";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("reserveringID", reservering_ID));
+                command.Parameters.Add(new OracleParameter("hoofdboekerRFID", "'" + hoofdboeker_RFID + "'"));
                 command.ExecuteNonQuery();
                 return true;
             }
@@ -744,8 +771,10 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "UPDATE PLAATS SET RESERVERING_ID = " + reserveringID + "WHERE LOCATIENUMMER = '" + locatieNummer + "'";
+                string query = "UPDATE PLAATS SET RESERVERING_ID = :reserveringID WHERE LOCATIENUMMER = :locatieNummer";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("reserveringID", reserveringID));
+                command.Parameters.Add(new OracleParameter("locatieNummer", "'" + locatieNummer + "'"));
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -763,8 +792,10 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "UPDATE HUURITEM SET RESERVERING_ID = " + reserveringID + "WHERE NAAM = '" + itemNaam + "'";
+                string query = "UPDATE HUURITEM SET RESERVERING_ID = :reserveringID WHERE NAAM = :itemNaam";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("reserveringID", reserveringID));
+                command.Parameters.Add(new OracleParameter("itemNaam", "'" + itemNaam + "'"));
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -783,8 +814,9 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "SELECT SUM(h.prijs) AS HUURITEMPRIJS FROM RESERVERING r LEFT JOIN HUURITEM h ON r.ID = h.Reservering_ID WHERE r.ID =" + reservering_ID;
+                string query = "SELECT SUM(h.prijs) AS HUURITEMPRIJS FROM RESERVERING r LEFT JOIN HUURITEM h ON r.ID = h.Reservering_ID WHERE r.ID = :reserveringid";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("reserveringid", reservering_ID));
                 OracleDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -810,8 +842,9 @@ namespace ICT4Events_S24_Groep_E
             try
             {
                 conn.Open();
-                string query = "SELECT SUM(p.prijs) AS PLAATSPRIJS FROM RESERVERING r LEFT JOIN PLAATS p ON r.ID = p.RESERVERING_ID WHERE r.ID =" + reservering_ID;
+                string query = "SELECT SUM(p.prijs) AS PLAATSPRIJS FROM RESERVERING r LEFT JOIN PLAATS p ON r.ID = p.RESERVERING_ID WHERE r.ID = :reserveringID";
                 command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("reserveringID", reservering_ID));
                 OracleDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
