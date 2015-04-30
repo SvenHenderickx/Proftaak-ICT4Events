@@ -79,8 +79,9 @@ namespace ICT4Events_S24_Groep_E
             {
                 if (verwijderen == p.RfidCode)
                 {
-                    administratie.DeleteGebruiker(p.Gebruikersnaam);
-                    administratie.GeefEvent(cbEventsEventbeheer.Text).Personen.Remove(p);
+                    if (!administratie.DeleteGebruiker(p.Gebruikersnaam)) MessageBox.Show("kon database niet koppelen");
+                    else
+                        administratie.GeefEvent(cbEventsEventbeheer.Text).Personen.Remove(p);
                     break;
                 }
             }
@@ -106,11 +107,19 @@ namespace ICT4Events_S24_Groep_E
             {
                 if (ev == administratie.GeefEvent(cbEventsEventbeheer.Text))
                 {
-                    ev.Naam = tbEventNaamEventbeheer.Text;
-                    ev.BeginDatum = dtpBeginDatum.Value;
-                    ev.EindDatum = dtpEindDatum.Value;
-                    ev.Plaats = tbPlaatsEventbeheer.Text;
-                    ev.Adres = tbAdresEventbeheer.Text;
+                    string message="";
+                    if (!database.WijzigEvent(tbEventNaamEventbeheer.Text, dtpBeginDatum.Value, dtpEindDatum.Value, tbPlaatsEventbeheer.Text, tbAdresEventbeheer.Text, ev.Naam, out message))
+                    {
+                        MessageBox.Show(message);
+                    }
+                    else
+                    {
+                        ev.Naam = tbEventNaamEventbeheer.Text;
+                        ev.BeginDatum = dtpBeginDatum.Value;
+                        ev.EindDatum = dtpEindDatum.Value;
+                        ev.Plaats = tbPlaatsEventbeheer.Text;
+                        ev.Adres = tbAdresEventbeheer.Text;
+                    }
                     break;
                 }
             }
@@ -144,13 +153,16 @@ namespace ICT4Events_S24_Groep_E
 
         private void btnMaakEventAan_Click(object sender, EventArgs e)
         {
-            if (administratie.VoegEventToe(tbEventNaamEventbeheer.Text, dtpBeginDatum.Value, dtpEindDatum.Value, tbPlaatsEventbeheer.Text, tbAdresEventbeheer.Text))
+            string message;
+            if (database.CreateEvent(tbEventNaamEventbeheer.Text, dtpBeginDatum.Value, dtpEindDatum.Value, tbPlaatsEventbeheer.Text, tbAdresEventbeheer.Text, out message) &&
+                administratie.VoegEventToe(tbEventNaamEventbeheer.Text, dtpBeginDatum.Value, dtpEindDatum.Value, tbPlaatsEventbeheer.Text, tbAdresEventbeheer.Text))
             {
                 MessageBox.Show("Event succesvol toegevoegd");
             }
             else
             {
-                MessageBox.Show("Er bestaat al een event met die naam.");
+
+                MessageBox.Show("Er bestaat al een event met die naam. \n" + message);
             }
             refreshCbEvents();
             updateEventTab();
@@ -286,7 +298,13 @@ namespace ICT4Events_S24_Groep_E
         {
             if(cbMateriaalToevoegen.Text != "" && tbMateriaalToevoegen.Text != "" && administratie.IsDigitsOnly(textBoxPrijsVoegMateriaalToe.Text))
             {
-                administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Add(new Huuritem(tbMateriaalToevoegen.Text, cbMateriaalToevoegen.Text,Convert.ToInt32(textBoxPrijsVoegMateriaalToe.Text),false));
+                string message="";
+                if (!database.MateriaalToevoegen(tbMateriaalToevoegen.Text, cbMateriaalToevoegen.Text,Convert.ToInt32(textBoxPrijsVoegMateriaalToe.Text), out message))
+                {
+                    MessageBox.Show(message);
+                }
+                else
+                    administratie.GeefEvent(cbEventsEventbeheer.Text).HuurMateriaal.Add(new Huuritem(tbMateriaalToevoegen.Text, cbMateriaalToevoegen.Text,Convert.ToInt32(textBoxPrijsVoegMateriaalToe.Text),false));
             }
             else
             {
@@ -300,14 +318,29 @@ namespace ICT4Events_S24_Groep_E
             // deze methode moet worden aangepast; plaatsnummer gaat niet meer met een 
             // plaatsnummergenerator maar deze moet handmatig wordden ingevoerd
             // houdt hierbij rekening dat plaatsnummers niet al mogen bestaan!
-            if (tbPlaatsToevoegenPrijs.Text != "" && administratie.IsDigitsOnly(tbPlaatsToevoegenPrijs.Text))
+            string message = "Het werkt niet.";
+            if (tbPlaatsNr.Text.Length == 4)
             {
-                administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen.Add(new Plaats(Convert.ToInt32(tbPlaatsToevoegenPrijs.Text), null, chkPlaatsGeluidoverlast.ThreeState, Convert.ToInt32(nudPlaatsPersonen.Value), false, "0099"));
+
+                if (tbPlaatsToevoegenPrijs.Text != "" && administratie.IsDigitsOnly(tbPlaatsToevoegenPrijs.Text))
+                {
+                    int geluidsoverlast = 0;
+                    if (chkPlaatsGeluidoverlast.ThreeState) geluidsoverlast = 1;
+                    if (!database.VoegPlaatsToe(tbPlaatsNr.Text, Convert.ToInt32(tbPlaatsToevoegenPrijs.Text), Convert.ToInt32(nudPlaatsPersonen.Value), geluidsoverlast, out message))
+                    {
+                        MessageBox.Show(message);
+                    }
+                    else
+                    {
+                        administratie.GeefEvent(cbEventsEventbeheer.Text).Plaatsen.Add(new Plaats(Convert.ToInt32(tbPlaatsToevoegenPrijs.Text), null, chkPlaatsGeluidoverlast.ThreeState, Convert.ToInt32(nudPlaatsPersonen.Value), false, "0099"));
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Voer a.u.b. een geldig getal in zonder decimalen.");
+                }
             }
-            else
-            {
-                MessageBox.Show("Voer a.u.b. een geldig getal in zonder decimalen");
-            }
+            else MessageBox.Show("Plaatsnummer moet 4 lang zijn.");
             updateEventTab();
         }
     }

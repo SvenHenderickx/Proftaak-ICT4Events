@@ -17,6 +17,8 @@ namespace ICT4Events_S24_Groep_E
         string user = "dbi318713"; //Dit is de gebruikersnaam
         string pw = "V7brKp3nww"; //Dit is het wachtwoord
         private static Administratie administratie = new Administratie();
+        public string Error { get; private set; }
+        
 
         //Constructor
         public DatabaseKoppeling()
@@ -24,6 +26,7 @@ namespace ICT4Events_S24_Groep_E
             conn = new OracleConnection();
             command = conn.CreateCommand();
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
+            Error = "oops";
         }
         //Methodes
         public void Koppel()
@@ -502,7 +505,7 @@ namespace ICT4Events_S24_Groep_E
                         conn.Open();
                         string query = "DELETE FROM persoon WHERE gebruikernaam = :gebnaam";
                         command = new OracleCommand(query, conn);
-                        command.Parameters.Add(new OracleParameter("gebnaam", gebnaam));
+                        command.Parameters.Add(new OracleParameter("gebnaam", "'" + gebnaam + "'"));
                         command.ExecuteNonQuery();
                         return true;
                     }
@@ -527,7 +530,7 @@ namespace ICT4Events_S24_Groep_E
                 conn.Open();
                 string query = "DELETE FROM Event WHERE naam = :eventNaam";
                 command = new OracleCommand(query, conn);
-                command.Parameters.Add(new OracleParameter("eventNaam", eventNaam));
+                command.Parameters.Add(new OracleParameter("eventNaam", "'" + eventNaam + "'"));
                 command.ExecuteNonQuery();
                 return true;
             }
@@ -550,7 +553,7 @@ namespace ICT4Events_S24_Groep_E
                 conn.Open();
                 string query = "DELETE FROM plaats WHERE locatienummer = :locatienr";
                 command = new OracleCommand(query, conn);
-                command.Parameters.Add(new OracleParameter("locatienr", locatienr));
+                command.Parameters.Add(new OracleParameter("locatienr", "'" + locatienr + "'"));
                 command.ExecuteNonQuery();
                 return true;
             }
@@ -571,7 +574,7 @@ namespace ICT4Events_S24_Groep_E
             {
                 conn.Open();
                 string query = "DELETE FROM HuurItem WHERE naam = :materiaalNaam";
-                command.Parameters.Add(new OracleParameter("materiaalNaam", materiaalNaam));
+                command.Parameters.Add(new OracleParameter("materiaalNaam", "'" + materiaalNaam + "'"));
                 command = new OracleCommand(query, conn);
                 command.ExecuteNonQuery();
                 return true;
@@ -875,6 +878,114 @@ namespace ICT4Events_S24_Groep_E
             }
             return rfidCode;
         }
+        public bool CreateEvent(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres, out string ErrorMessage)
+        {
+            bool kay = false;
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO Event(ID, Naam, Begindatum, Einddatum, Plaats, Adres) VALUES(1, :naam, TO_DATE('" + beginDatum.Day + "/" + beginDatum.Month + "/" + beginDatum.Year + "', 'dd/mm/yyyy')" + "TO_DATE('" + eindDatum.Day + "/" + eindDatum.Month + "/" + eindDatum.Year + "', 'dd/mm/yyyy'), :plaats, :adres)";
+                //TO_DATE('" + p.GeboorteDatum.Day + "/" + p.GeboorteDatum.Month + "/" + p.GeboorteDatum.Year + "', 'dd/mm/yyyy'))
+                command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("naam", "'" + naam + "'"));
+                command.Parameters.Add(new OracleParameter("plaats", "'" + plaats + "'"));
+                command.Parameters.Add(new OracleParameter("adres", "'" + adres + "'"));
+                command.ExecuteNonQuery();
+                
+                kay =  true;
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            ErrorMessage = "";
+            return kay;
+        }
+        public bool WijzigEvent(string naam, DateTime beginDatum, DateTime eindDatum, string plaats, string adres, string oldnaam, out string ErrorMessage)
+        {
+            bool kay = false;
+            try
+            {
+                conn.Open();
+                string query = "update Event set naam=:naam, begindatum=TO_DATE('" + beginDatum.Day + "/" + beginDatum.Month + "/" + beginDatum.Year + "', 'dd/mm/yyyy'),einddatum=TO_DATE('" + eindDatum.Day + "/" + eindDatum.Month + "/" + eindDatum.Year + "', 'dd/mm/yyyy'),plaats=:plaats,adres=:adres"+
+                    "where naam=:oldnaam";
+                command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("naam", "'" + naam + "'"));
+                command.Parameters.Add(new OracleParameter("plaats", "'" + plaats + "'"));
+                command.Parameters.Add(new OracleParameter("adres", "'" + adres + "'"));
+                command.Parameters.Add(new OracleParameter("oldnaam", "'" + oldnaam + "'"));
+                command.ExecuteNonQuery();
 
+                kay = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            ErrorMessage = "";
+            return kay;
+        }
+
+        public bool MateriaalToevoegen(string materiaalNaam, string selectedType, int prijs, out string error)
+        {
+            bool kay = false;
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO huuritem(ID, event_id, reservering_id, naam, type, prijs, verhuurd) " +
+                    "VALUES(1, null, null, :naam, :type, " + prijs + ", 0)";
+                command = new OracleCommand(query, conn);
+                command.Parameters.Add(new OracleParameter("naam", materiaalNaam));
+                command.Parameters.Add(new OracleParameter("type", selectedType));
+                command.ExecuteNonQuery();
+
+                kay = true;
+            }
+            catch (Exception ex)
+            {
+                error = ex.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            error = "";
+            return kay;
+        }
+
+        public bool VoegPlaatsToe(string locatienr, int prijs,  int aantalPersonen,int geluidsoverlast, out string error)
+        {
+            bool kay = false;
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO plaats(Locatienummer,Event_ID,Reservering_ID,Verhuurd,Prijs,Aantalpersonen,Geluidsoverlast)"+
+                    " VALUES(:locatienr, null, null, 0, "+prijs.ToString()+", "+aantalPersonen.ToString()+", "+geluidsoverlast.ToString()+" )";
+                //TO_DATE('" + p.GeboorteDatum.Day + "/" + p.GeboorteDatum.Month + "/" + p.GeboorteDatum.Year + "', 'dd/mm/yyyy'))
+                command.Parameters.Add(new OracleParameter("adres", locatienr));
+                command = new OracleCommand(query, conn);
+                command.ExecuteNonQuery();
+
+                kay = true;
+            }
+            catch (Exception ex)
+            {
+                error = ex.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            error = "";
+            return kay;
+        }
     }
 }
