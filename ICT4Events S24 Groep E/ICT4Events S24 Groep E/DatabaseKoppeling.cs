@@ -274,7 +274,7 @@ namespace ICT4Events_S24_Groep_E
                         try
                         {
                             conn.Open();
-                            string query = "UPDATE BEZOEKER SET AANWEZIG = 0 WHERE RFID = '" + rfid + "'";
+                            string query = "UPDATE BEZOEKER SET AANWEZIG = 0 WHERE RFID = " + rfid;
                             command = new OracleCommand(query, conn);
                             command.ExecuteNonQuery();
                             return true;
@@ -294,7 +294,7 @@ namespace ICT4Events_S24_Groep_E
                         try
                         {
                             conn.Open();
-                            string query = "UPDATE BEZOEKER SET AANWEZIG = 1 WHERE RFID = '" + rfid + "'";
+                            string query = "UPDATE BEZOEKER SET AANWEZIG = 1 WHERE RFID = " + rfid ;
                             command = new OracleCommand(query, conn);
                             command.ExecuteNonQuery();
                             return true;
